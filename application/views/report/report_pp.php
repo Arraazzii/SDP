@@ -11,7 +11,7 @@
   <script src="<?php echo base_url();?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url();?>assets/custom/js/main.js"></script>
 </head>
-<body onload="window.print(); window.history.back();">
+<!-- <body onload="window.print(); window.history.back();"> -->
   <div class="content mt-3">
     <div class="animated fadeIn">
       <div class="row">
@@ -79,6 +79,11 @@
                   </td>
                 </tr>
                 <?php $i++?>
+                <?php 
+                var_dump($pp);
+                //$total =  array_sum($pp->status);
+                //echo"$total";
+                ?>
               <?php endforeach ?>
             </tbody>
           </table>
