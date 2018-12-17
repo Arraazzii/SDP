@@ -235,7 +235,7 @@ series: [{
   }
 },
 series: [{
-    name: 'Share',
+    name: 'Presentase',
     data: [
     {  name: 'PP Aktif',
     y: <?php echo $pp_aktif; ?>
@@ -245,7 +245,7 @@ series: [{
     sliced: true,
     selected: true
 }, {
-  name: 'PP Pembaruan',
+  name: 'PP Belum Tersedia',
   y: <?php echo $pp_perbarui; ?> }
   ]
 }]
@@ -290,7 +290,7 @@ series: [{
   }
 },
 series: [{
-    name: 'Share',
+    name: 'Presentase',
     data: [
     {  name: 'PKB Aktif',
     y: <?php echo $pkb_aktif; ?>,
@@ -300,7 +300,7 @@ series: [{
   name: 'PKB Kadaluarsa',
   y: <?php echo $pkb_kadaluarsa; ?>
 }, {
-  name: 'PKB Pembaruan',
+  name: 'PKB Belum Tersedia',
   y: <?php echo $pkb_perbarui; ?> }
   ]
 }]
@@ -345,7 +345,7 @@ series: [{
   }
 },
 series: [{
-    name: 'Share',
+    name: 'Presentase',
     data: [
     {  name: 'K3 Aktif',
     y: <?php echo $k3_aktif; ?>,
@@ -355,7 +355,7 @@ series: [{
   name: 'K3 Kadaluarsa',
   y: <?php echo $k3_kadaluarsa; ?>
 }, {
-  name: 'K3 Pembaruan',
+  name: 'K3 Belum Tersedia',
   y: <?php echo $k3_perbarui; ?> }
   ]
 }]
@@ -400,7 +400,7 @@ series: [{
   }
 },
 series: [{
-    name: 'Share',
+    name: 'Presentase',
     data: [
     {  name: 'LKS Aktif',
     y: <?php echo $lks_aktif; ?>
@@ -410,7 +410,7 @@ series: [{
     sliced: true,
     selected: true
 }, {
-  name: 'LKS Pembaruan',
+  name: 'LKS Belum Tersedia',
   y: <?php echo $lks_perbarui; ?> }
   ]
 }]
@@ -455,7 +455,7 @@ series: [{
   }
 },
 series: [{
-    name: 'Share',
+    name: 'Presentase',
     data: [
     {  name: 'WLKP Aktif',
     y: <?php echo $wlkp_aktif; ?>
@@ -463,8 +463,8 @@ series: [{
   name: 'WLKP Kadaluarsa',
   y: <?php echo $wlkp_kadaluarsa; ?>
 }, {
-  name: 'WLKP Pembaruan',
-  y: <?php echo $k3_perbarui; ?>,
+  name: 'WLKP Belum Tersedia',
+  y: <?php echo $wlkp_perbarui; ?>,
     sliced: true,
     selected: true }
   ]

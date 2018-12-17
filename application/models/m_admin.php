@@ -175,13 +175,13 @@ class m_admin extends CI_Model {
 
 	// Rekapitulasi K3 Aktif
 	public function rekap_k3_aktif(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan JOIN table_login ON table_k3.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_k3.status = '0'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan JOIN table_login ON table_k3.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_k3.status = '0' OR table_k3.status = '1'");
 		return $query->num_rows();
 	}
 
 	// Rekapitulasi K3 Perbarui
 	public function rekap_k3_perbarui(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan JOIN table_login ON table_k3.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_k3.status = '1'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan JOIN table_login ON table_k3.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_k3.status = ''");
 		return $query->num_rows();
 	}
 
@@ -199,13 +199,13 @@ class m_admin extends CI_Model {
 
 	// Rekapitulasi PKB Aktif
 	public function rekap_pkb_aktif(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pkb ON table_perusahaan.kode_perusahaan = table_pkb.kode_perusahaan JOIN table_login ON table_pkb.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pkb.status = '0'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pkb ON table_perusahaan.kode_perusahaan = table_pkb.kode_perusahaan JOIN table_login ON table_pkb.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pkb.status = '0' OR table_pkb.status = '1'");
 		return $query->num_rows();
 	}
 
 	// Rekapitulasi PKB Perbarui
 	public function rekap_pkb_perbarui(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pkb ON table_perusahaan.kode_perusahaan = table_pkb.kode_perusahaan JOIN table_login ON table_pkb.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pkb.status = '1'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pkb ON table_perusahaan.kode_perusahaan = table_pkb.kode_perusahaan JOIN table_login ON table_pkb.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pkb.status = ''");
 		return $query->num_rows();
 	}
 
@@ -223,13 +223,13 @@ class m_admin extends CI_Model {
 
 	// Rekapitulasi LKS Bipartite Aktif
 	public function rekap_lks_aktif(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_lks ON table_perusahaan.kode_perusahaan = table_lks.kode_perusahaan JOIN table_login ON table_lks.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_lks.status = '0'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_lks ON table_perusahaan.kode_perusahaan = table_lks.kode_perusahaan JOIN table_login ON table_lks.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_lks.status = '0' OR table_lks.status = '1'");
 		return $query->num_rows();
 	}
 
 	// Rekapitulasi LKS Bipartite Perbarui
 	public function rekap_lks_perbarui(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_lks ON table_perusahaan.kode_perusahaan = table_lks.kode_perusahaan JOIN table_login ON table_lks.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_lks.status = '1'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_lks ON table_perusahaan.kode_perusahaan = table_lks.kode_perusahaan JOIN table_login ON table_lks.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_lks.status = ''");
 		return $query->num_rows();
 	}
 
@@ -247,13 +247,13 @@ class m_admin extends CI_Model {
 
 	// Rekapitulasi PP Aktif
 	public function rekap_pp_aktif(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pp ON table_perusahaan.kode_perusahaan = table_pp.kode_perusahaan JOIN table_login ON table_pp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pp.status = '0'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pp ON table_perusahaan.kode_perusahaan = table_pp.kode_perusahaan JOIN table_login ON table_pp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pp.status = '0' OR table_pp.status = '1'");
 		return $query->num_rows();
 	}
 
 	// Rekapitulasi PP Perbarui
 	public function rekap_pp_perbarui(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pp ON table_perusahaan.kode_perusahaan = table_pp.kode_perusahaan JOIN table_login ON table_pp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pp.status = '1'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_pp ON table_perusahaan.kode_perusahaan = table_pp.kode_perusahaan JOIN table_login ON table_pp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_pp.status = ''");
 		return $query->num_rows();
 	}
 
@@ -271,13 +271,13 @@ class m_admin extends CI_Model {
 
 	// Rekapitulasi WLKP Aktif
 	public function rekap_wlkp_aktif(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_wlkp ON table_perusahaan.kode_perusahaan = table_wlkp.kode_perusahaan JOIN table_login ON table_wlkp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_wlkp.status = '0'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_wlkp ON table_perusahaan.kode_perusahaan = table_wlkp.kode_perusahaan JOIN table_login ON table_wlkp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_wlkp.status = '0' OR table_wlkp.status = '1'");
 		return $query->num_rows();
 	}
 
 	// Rekapitulasi WLKP Perbarui
 	public function rekap_wlkp_perbarui(){
-		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_wlkp ON table_perusahaan.kode_perusahaan = table_wlkp.kode_perusahaan JOIN table_login ON table_wlkp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_wlkp.status = '1'");
+		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_wlkp ON table_perusahaan.kode_perusahaan = table_wlkp.kode_perusahaan JOIN table_login ON table_wlkp.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'sudah' AND table_wlkp.status = ''");
 		return $query->num_rows();
 	}
 
