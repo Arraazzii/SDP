@@ -91,7 +91,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-category text-gray">ANDA BELUM MENGIRIM / MEMPERBAHARUI PP</h6>
                                                 <h4 class="card-title"> (PP)</h4>
-                                            </div> 
+                                            </div>
                                             <?php }else{ ?>
                                             <div class="card-avatar" style="border-radius: 0px;max-width: 100%;max-height: 100%;">
                                                 <a href="#pablo">
@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title"> (PP)</h4>
-                                                <h6 class="card-category text-gray">Tanggal Daftar : <?php echo $get_pp[0]['tanggal_daftar'];?></h6>
+                                                <h6 class="card-category text-gray">Berlaku Sampai : <?php echo date('Y-m-d', strtotime('+1 year', strtotime($get_pp[0]['tanggal_daftar'])) );?></h6>
                                                 <?php if ($get_pp[0]['status'] == 2) {?>
                                                 <label class="badge badge-danger">FILE PP KADALUARSA</label>
                                                 <?php } ?>
@@ -149,7 +149,7 @@
                                                         <tr>
                                                             <td colspan="4" class="text-center"><h4>DATA KOSONG</h4></td>
                                                         </tr>
-                                                        <?php }else{ 
+                                                        <?php }else{
                                                             $no =1;
                                                             foreach($detail_pp as $detail){
                                                                 ?>
@@ -187,7 +187,7 @@
                             <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/jquery.dataTables.min.js"></script>
                             <script type="text/javascript">
                                 $('#tableFilter').DataTable();
-                            </script> 
+                            </script>
                             <script type="text/javascript">
                                 $(function () {
                                   $('[data-toggle="tooltip"]').tooltip()
@@ -203,7 +203,7 @@
                                             var reader = new FileReader();
                                             reader.readAsDataURL(this.files[0]);
                                         }
-                                    } else{ 
+                                    } else{
                                         $(':file').val('');
                                         alert('Hanya File PDF Yang Diizinkan !');};
                                     });

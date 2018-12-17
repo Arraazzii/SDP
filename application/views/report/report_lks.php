@@ -5,26 +5,11 @@
   <title>Report K3</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $title;?></title>
-  <meta name="description" content="Sufee Admin - HTML5 Admin Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" href="<?php echo base_url();?>assets/apple-icon.png">
-  <link rel="shortcut icon" href="<?php echo base_url();?>assets/favicon.ico">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/themify-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/selectFX/css/cs-skin-elastic.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/custom/css/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
   <script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>
-  <script src="<?php echo base_url();?>assets/vendors/popper.js/dist/umd/popper.min.js"></script>
   <script src="<?php echo base_url();?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url();?>assets/custom/js/main.js"></script>
-  <!--  Chart js -->
-  <script src="<?php echo base_url();?>assets/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-  <script src="<?php echo base_url();?>assets/custom/js/init-scripts/chart-js/chartjs-init.js"></script>
 </head>
 <body onload="window.print(); window.history.back();">
   <div class="content mt-3">
@@ -35,7 +20,7 @@
             <div class="card-body">
 
               <div class="text-center">
-                <?php 
+                <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
                   if ($value->status == 0){
@@ -45,7 +30,7 @@
                 echo "Baru : $total,";
                 ?>
 
-                <?php 
+                <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
                   if ($value->status == 1){
@@ -55,7 +40,7 @@
                 echo "Perbarui : $total,";
                 ?>
 
-                <?php 
+                <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
                   if ($value->status == 2){
@@ -84,14 +69,14 @@
                     <td><?php echo $lks->nama_perusahaan ?></td>
                     <td><?php echo $lks->no_dokumen ?></td>
                     <td><?php echo $lks->no_registrasi ?></td>
-                    <td><?php 
+                    <td><?php
                     if ($lks->status == 0) {
                       echo "Baru";
                     } elseif ($lks->status == 1) {
                       echo "Perbarui";
                     } elseif ($lks->status == 2) {
                       echo "Kadaluwarsa";
-                    }                                               
+                    }
                     ?>
                   </td>
                 </tr>

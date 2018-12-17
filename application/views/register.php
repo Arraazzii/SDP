@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/custom/css/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <style type="text/css">
@@ -93,13 +94,13 @@
 <body class="bg-dark">
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
-            <div class="login-content">
+            <div class="register-content">
                 <div class="login-logo">
                     <a href="index.html">
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
-                <div class="login-form">
+                <div class="register-form">
                     <ul id="progressbar">
                         <li class="active" id="ul1">DATA PERUSAHAAN</li>
                         <li id="ul2" class="">FILE PENGURUS</li>
@@ -108,85 +109,123 @@
 
                     <form id="form-ms" method="post" action="<?php echo site_url('Home/simpan_aplikasi') ?>">
                         <fieldset id="form1">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input name="email" type="email" class="form-control" placeholder="Email" value="perusahaan@email.com" required="">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="form-group">
+                                  <label>Nama Perusahaan</label>
+                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" value="perusahaan buncit bucin" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input name="password" type="password" class="form-control" placeholder="Password" value="perusahaan" required="">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label>Email</label>
+                                  <input name="email" type="email" class="form-control required" placeholder="Email" value="perusahaan@email.com" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Nama Perusahaan</label>
-                                <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="perusahaan buncit bucin" required="">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label>Password</label>
+                                  <input name="password" type="password" class="form-control required" placeholder="Password" value="perusahaan" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Alamat Perusahaan</label>
-                                <textarea name="alamat_perusahaan" class="form-control" required="">alamat perusahaan buncit</textarea>
+                            <div class="col-sm-12">
+                              <div class="form-group">
+                                  <label>Alamat Perusahaan</label>
+                                  <textarea name="alamat_perusahaan" class="form-control required" required="">alamat perusahaan buncit</textarea>
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Provinsi</label>
-                                <input type="text" name="provinsi" class="form-control" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Provinsi</label>
+                                  <input type="text" name="provinsi" class="form-control required" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kabupaten/Kota</label>
-                                <input type="text" name="kota" class="form-control" placeholder="Kota Perusahaan Anda" value="Depok" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Kabupaten/Kota</label>
+                                  <input type="text" name="kota" class="form-control required" placeholder="Kota Perusahaan Anda" value="Depok" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kecamatan</label>
-                                <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan Perusahaan Anda" value="cilodong" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Kecamatan</label>
+                                  <input type="text" name="kecamatan" class="form-control required" placeholder="Kecamatan Perusahaan Anda" value="cilodong" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kelurahan</label>
-                                <input type="text" name="kelurahan" class="form-control" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Kelurahan</label>
+                                  <input type="text" name="kelurahan" class="form-control required" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kode Pos</label>
-                                <input name="kode_pos_perusahaan" type="text" class="form-control" placeholder="Kode Pos" value="15466" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Kode Pos</label>
+                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" value="15466" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Telp. Perusahaan</label>
-                                <input name="no_telp_perusahaan" type="text" class="form-control" placeholder="Telp. Perusahaan" value="08976626171" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label>Telp. Perusahaan</label>
+                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" value="08976626171" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Deskripsi Perusahaan</label>
-                                <textarea name="deskripsi_perusahaan" class="form-control" required="">deskripsi perusahaan buncit</textarea>
+                            <div class="col-sm-12">
+                              <div class="form-group">
+                                  <label>Kode Klui</label>
+                                  <select class="form-control" name="kode_klui">
+                                      <option hidden="">--Silahkan Pilih Kode Klui--</option>
+                                      <?php
+                                          foreach ($kode_klui as $klui) {?>
+                                          <option value="<?php echo $klui['kode_klui'];?>"><?php echo $klui['dsk'];?></option>
+                                      <?php }
+                                      ?>
+                                  </select>
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kode Klui</label>
-                                <select class="form-control" name="kode_klui">
-                                    <option hidden="">--Silahkan Pilih Kode Klui--</option>
-                                    <?php 
-                                        foreach ($kode_klui as $klui) {?>
-                                        <option value="<?php echo $klui['kode_klui'];?>"><?php echo $klui['dsk'];?></option>        
-                                    <?php }
-                                    ?>
-                                </select>
+                            <div class="col-sm-12">
+                              <div class="form-group">
+                                  <label>Deskripsi Perusahaan</label>
+                                  <textarea name="deskripsi_perusahaan" class="form-control required" required="">deskripsi perusahaan buncit</textarea>
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">Logo Perusahaan</label>
-                                <input type="file"  name="logo_perusahaan" class="form-control-file logo" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">Logo Perusahaan</label>
+                                  <input type="file"  name="logo_perusahaan" class="form-control-file logo" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">SIUP</label>
-                                <input type="file"  name="siup" class="form-control-file files" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">SIUP</label>
+                                  <input type="file"  name="siup" class="form-control-file files required" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">TDP</label>
-                                <input type="file"  name="tdp" class="form-control-file files" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">TDP</label>
+                                  <input type="file"  name="tdp" class="form-control-file files required" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">akte</label>
-                                <input type="file"  name="akte" class="form-control-file files" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">akte</label>
+                                  <input type="file"  name="akte" class="form-control-file files required" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">surat kehakiman</label>
-                                <input type="file"  name="surat_kehakiman" class="form-control-file files" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">surat kehakiman</label>
+                                  <input type="file"  name="surat_kehakiman" class="form-control-file files required" required="">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <label for="file-input" class=" form-control-label">domisili</label>
-                                <input type="file"  name="domisili" class="form-control-file files" required="">
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                  <label for="file-input" class=" form-control-label">domisili</label>
+                                  <input type="file"  name="domisili" class="form-control-file files required" required="">
+                              </div>
                             </div>
+                          </div>
                             <div class="form-group">
                                 <button class="btn btn-success btnNext pull-right next w-auto" id="next1" type="button">Selanjutnya</button>
                             </div>
@@ -194,42 +233,62 @@
                         <fieldset id="form2">
                             <div id="field_pengurus">
                                 <div class="field0">
-                                    <div class="form-group">
-                                        <label>Nama Pengurus</label>
-                                        <input name="nama_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="nama pengurus" required="">
+                                  <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                          <label>Nama Pengurus</label>
+                                          <input name="nama_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="nama pengurus" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Jabatan Pengurus</label>
-                                        <input name="jabatan_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="Jabatan pengurus" required="">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                          <label>Jabatan Pengurus</label>
+                                          <input name="jabatan_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="Jabatan pengurus" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Alamat Pengurus</label>
-                                        <textarea name="alamat_pengurus" class="form-control" required="">alamat pengurus</textarea>
+                                    <div class="col-sm-12">
+                                      <div class="form-group">
+                                          <label>Alamat Pengurus</label>
+                                          <textarea name="alamat_pengurus" class="form-control" required="">alamat pengurus</textarea>
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Provinsi</label>
-                                        <input type="text" name="provinsi_pengurus" class="form-control" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Provinsi</label>
+                                          <input type="text" name="provinsi_pengurus" class="form-control" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Kabupaten/Kota</label>
-                                        <input type="text" name="kota_pengurus" class="form-control" placeholder="Kota Perusahaan Anda" value="Depok" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Kabupaten/Kota</label>
+                                          <input type="text" name="kota_pengurus" class="form-control" placeholder="Kota Perusahaan Anda" value="Depok" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Kecamatan</label>
-                                        <input type="text" name="kecamatan_pengurus" class="form-control" placeholder="Kecamatan Perusahaan Anda" value="cilodong" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Kecamatan</label>
+                                          <input type="text" name="kecamatan_pengurus" class="form-control" placeholder="Kecamatan Perusahaan Anda" value="cilodong" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Kelurahan</label>
-                                        <input type="text" name="kelurahan_pengurus" class="form-control" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Kelurahan</label>
+                                          <input type="text" name="kelurahan_pengurus" class="form-control" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Kode Pos</label>
-                                        <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" value="19832" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Kode Pos</label>
+                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" value="19832" required="">
+                                      </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Telp. Pengurus</label>
-                                        <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" value="08782647273" required="">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Telp. Pengurus</label>
+                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" value="08782647273" required="">
+                                      </div>
                                     </div>
+                                  </div>
                                 </div>
                             </div>
                             <div class="form-group button">
@@ -243,81 +302,101 @@
                         <fieldset id="form3">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label for="file-input" class=" form-control-label">PP</label>
                                         <input type="file"  name="file_pp" class="form-control-file files">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
                                         <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
-                                        <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                        <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
-                                        <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
-                                        <input name="berlaku_pp" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">No. Dokumen</label>
+                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
+                                      <input name="berlaku_pp" type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label for="file-input" class=" form-control-label">PKB</label>
                                         <input type="file"  name="file_pkb" class="form-control-file files">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
                                         <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
-                                        <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                        <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
-                                        <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
-                                        <input name="berlaku_pkb" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">No. Dokumen</label>
+                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <input name="berlaku_pkb" type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label for="file-input" class=" form-control-label">LKS Bepartite</label>
                                         <input type="file"  name="file_lks" class="form-control-file files">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
                                         <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
-                                        <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                        <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
-                                        <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
-                                        <input name="berlaku_lks" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">No. Dokumen</label>
+                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <input name="berlaku_lks" type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label for="file-input" class=" form-control-label">K3</label>
                                         <input type="file"  name="file_k3" class="form-control-file files">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
                                         <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
-                                        <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                        <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
-                                        <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
-                                        <input name="berlaku_k3" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">No. Dokumen</label>
+                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <input name="berlaku_k3" type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label for="file-input" class=" form-control-label">WLKP</label>
                                         <input type="file"  name="file_wlkp" class="form-control-file files">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
                                         <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
-                                        <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                        <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
-                                        <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
-                                        <input name="berlaku_wlkp" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">No. Dokumen</label>
+                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
+                                    </div>
+                                    <div class="col-4">
+                                      <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
+                                      <input name="berlaku_wlkp" type="date" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +457,7 @@
 
                 $(this).parents(".field0").remove();
             });
-        }); 
+        });
 
     });
             $("#next1").click(function(){
@@ -448,29 +527,29 @@
 
                   var form_pendukung = {
                       file_pp : $("input[name='file_pp'")[0].files[0],
-                      no_reg_pp : $("input[name='no_reg_pp']").val(),   
-                      no_doc_pp : $("input[name='no_doc_pp']").val(),   
+                      no_reg_pp : $("input[name='no_reg_pp']").val(),
+                      no_doc_pp : $("input[name='no_doc_pp']").val(),
                       berlaku_pp : $("input[name='berlaku_pp']").val(),
 
                       file_pkb : $("input[name='file_pkb'")[0].files[0],
                       no_reg_pkb : $("input[name='no_reg_pkb']").val(),
-                      no_doc_pkb : $("input[name='no_doc_pkb']").val(),   
+                      no_doc_pkb : $("input[name='no_doc_pkb']").val(),
                       berlaku_pkb : $("input[name='berlaku_pkb']").val(),
 
                       file_lks : $("input[name='file_lks'")[0].files[0],
                       no_reg_lks : $("input[name='no_reg_lks']").val(),
-                      no_doc_lks : $("input[name='no_doc_lks']").val(),   
+                      no_doc_lks : $("input[name='no_doc_lks']").val(),
                       berlaku_lks : $("input[name='berlaku_lks']").val(),
 
                       file_k3 : $("input[name='file_k3'")[0].files[0],
                       no_reg_k3 : $("input[name='no_reg_k3']").val(),
-                      no_doc_k3 : $("input[name='no_doc_k3']").val(),   
+                      no_doc_k3 : $("input[name='no_doc_k3']").val(),
                       berlaku_k3 : $("input[name='berlaku_k3']").val(),
 
 
                       file_wlkp : $("input[name='file_wlkp'")[0].files[0],
                       no_reg_wlkp : $("input[name='no_reg_wlkp']").val(),
-                      no_doc_wlkp : $("input[name='no_doc_wlkp']").val(),   
+                      no_doc_wlkp : $("input[name='no_doc_wlkp']").val(),
                       berlaku_wlkp : $("input[name='berlaku_wlkp']").val(),
 
                   }
@@ -481,52 +560,106 @@
                       formData.append(index, value);
                   });
                   $.each(form_pengurus, function(index, value){
-              // $.each(value, function(i, v){
-              //   formData.append(index+'[]', v);
-              // });
-              formData.append(index, JSON.stringify(value));
-          });
+                      // $.each(value, function(i, v){
+                      //   formData.append(index+'[]', v);
+                      // });
+                      formData.append(index, JSON.stringify(value));
+                  });
                   $.each(form_pendukung, function(index, value){
                       formData.append(index, value);
                   });
+                  var empty = [];
+                  var field = [];
+                  $("input.required").each(function(index){
+                    console.log("required");
+                    if ($(this).val() == "") {
+                      empty.push(true);
+                      field.push($(this).attr("name"));
+                    }
+                  });
+                  $("textarea.required").each(function(index){
+                    console.log("required");
+                    if ($(this).val() == "") {
+                      empty.push(true);
+                      field.push($(this).attr("name"));
+                    }
+                  });
+                  $("select.required").each(function(index){
+                    console.log("required");
+                    if ($(this).val() == "") {
+                      empty.push(true);
+                      field.push($(this).attr("name"));
+                    }
+                  });
 
-                  $.ajax({
-                   url : '<?= base_url() ?>Home/register',
-                   type : 'POST',
-                   data : formData,
-                   processData: false,  // tell jQuery not to process the data
-                   contentType: false,  // tell jQuery not to set contentType
-                   dataType : 'json',
-                   success : function(data) {
-                       // console.log(data);
-                       if (data.input_error.indexOf(true) == -1) {
-                         alert("Data Berhasil di Input!");
-                         window.location("Home/");
-                     } else {
-                         alert("Data Gagal di Input!");
-                     }
-                       // alert(data);
-                   },
-                   error: function(e){
-                     console.log(e);
-                 }
-             });
+                  if (empty.indexOf(true) == -1) {
+
+                    $.ajax({
+                      url : '<?= base_url() ?>Home/register',
+                      type : 'POST',
+                      data : formData,
+                      processData: false,  // tell jQuery not to process the data
+                      contentType: false,  // tell jQuery not to set contentType
+                      dataType : 'json',
+                      success : function(data) {
+                        // console.log(data);
+                        if (data.input_error.indexOf(true) == -1) {
+                          // alert("Data Berhasil di Input!");
+                          swal({
+                            title: "Success",
+                            text: "Data Berhasil di Input!!!",
+                            icon: "success",
+                            button: "Ok",
+                          });
+                          // window.location("Home/");
+                        } else {
+                          // alert("Data Gagal di Input!");
+                          swal({
+                            title: "Failed!",
+                            text: "Data Gagal di Input!!!",
+                            icon: "error",
+                            button: "Ok",
+                          });
+                        }
+                        // alert(data);
+
+                      },
+                      error: function(e){
+                        console.log(e);
+                        swal({
+                          title: "Failed!",
+                          text: "Data Gagal di Input!!!",
+                          icon: "error",
+                          button: "Ok",
+                        });
+                      }
+                    });
+
+                  } else {
+                    console.log(field);
+                    swal({
+                      title: "Warning!",
+                      text: "Tolong Isi Form Dengan Lengkap!!",
+                      icon: "warning",
+                      button: "Ok",
+                    });
+                  }
               }
-             
+
         </script>
         <script type="text/javascript">
             $(".files").change(function() {
                 if (this.files && this.files[0] && this.files[0].name.match(/\.(pdf)$/) ) {
                     if(this.files[0].size>8048576) {
-                        $('.files').val('');
+                        $(this).val('');
                         alert('Batas Maximal Ukuran File 8MB !');
                     }
                     else {
                         var reader = new FileReader();
                         reader.readAsDataURL(this.files[0]);
                     }
-                } else{ 
-                    $('.files').val('');
+                } else{
+                    $(this).val('');
                     alert('Hanya File PDF Yang Diizinkan !');};
                 });
             </script>
@@ -541,7 +674,7 @@
                             var reader = new FileReader();
                             reader.readAsDataURL(this.files[0]);
                         }
-                    } else{ 
+                    } else{
                         $('.logo').val('');
                         alert('Hanya File jpg/png Yang Diizinkan !');};
                     });

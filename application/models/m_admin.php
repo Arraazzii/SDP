@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class m_admin extends CI_Model {
 
@@ -118,7 +118,7 @@ class m_admin extends CI_Model {
 	public function terima($id){
 
 		$login 	 	 = $this->db->query("Update table_login SET status = 'sudah' WHERE kode_perusahaan = '$id'");
-		
+
 		if($login){
 			return true;
 		}else{
@@ -130,7 +130,7 @@ class m_admin extends CI_Model {
 	public function tolak($kode){
 
 		$login 	 	 = $this->db->query("Update table_login SET status = 'tolak' WHERE kode_perusahaan = '$kode'");
-		
+
 		if($login){
 			return true;
 		}else{
@@ -142,7 +142,7 @@ class m_admin extends CI_Model {
 	public function nonaktif($kode){
 
 		$login 	 	 = $this->db->query("Update table_login SET status = 'blokir' WHERE kode_perusahaan = '$kode'");
-		
+
 		if ($login) {
 			return true;
 		} else {
@@ -298,12 +298,12 @@ class m_admin extends CI_Model {
 		$this->db->from($this->table);
         $this->db->join($this->table1, $this->table1.'.kode_perusahaan ='.$this->table.'.kode_perusahaan');
 		$i = 0;
-	
-		foreach ($this->column_search as $item) // loop column 
+
+		foreach ($this->column_search as $item) // loop column
 		{
 			if($_POST['search']['value']) // if datatable send POST for search
 			{
-				
+
 				if($i===0) // first loop
 				{
 					$this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
@@ -319,11 +319,11 @@ class m_admin extends CI_Model {
 			}
 			$i++;
 		}
-		
+
 		if(isset($_POST['order'])) // here order processing
 		{
 			$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
-		} 
+		}
 		else if(isset($this->order))
 		{
 			$order = $this->order;
@@ -359,7 +359,7 @@ class m_admin extends CI_Model {
 		$result = $query->result();
 
 		$countries = array();
-		foreach ($result as $row) 
+		foreach ($result as $row)
 		{
 			$countries[] = $row->status;
 		}
@@ -390,5 +390,119 @@ class m_admin extends CI_Model {
 		);
 		return array_sum($count_table);
 		var_dump($count_table);
+	}
+
+	public function update_kadaluarsa()
+	{
+		$end = date('Y-m-d', strtotime('-1 years'));
+
+		$query_pp = "SELECT * FROM table_pp WHERE tanggal_daftar <= '".$end."'";
+		$data_pp = $this->db->query($query_pp)->result();
+		foreach ($data_pp as $pp) {
+			if (!empty($pp->nama_file)) {
+				// code...
+			$update = [
+				'kode_perusahaan' => $pp->kode_perusahaan,
+				'status' => '2',
+			];
+
+			$where = [
+				'id' => $pp->id,
+				'kode_perusahaan' => $pp->kode_perusahaan,
+			];
+
+			$this->db->where($where);
+			$this->db->update('table_pp', $update);
+			}
+		}
+		$query_pkb = "SELECT * FROM table_pkb WHERE tanggal_daftar <= '".$end."'";
+		$data_pkb = $this->db->query($query_pkb)->result();
+		foreach ($data_pkb as $pkb) {
+			if (!empty($pkb->nama_file)) {
+				// code...
+			$update = [
+				'kode_perusahaan' => $pkb->kode_perusahaan,
+				'status' => '2',
+			];
+
+			$where = [
+				'id' => $pkb->id,
+				'kode_perusahaan' => $pkb->kode_perusahaan,
+			];
+
+			$this->db->where($where);
+			$this->db->update('table_pkb', $update);
+			}
+		}
+
+		$query_k3 = "SELECT * FROM table_k3 WHERE tanggal_daftar <= '".$end."'";
+		$data_k3 = $this->db->query($query_k3)->result();
+		foreach ($data_k3 as $k3) {
+			if (!empty($k3->nama_file)) {
+				// code...
+			$update = [
+				'kode_perusahaan' => $k3->kode_perusahaan,
+				'status' => '2',
+			];
+
+			$where = [
+				'id' => $k3->id,
+				'kode_perusahaan' => $k3->kode_perusahaan,
+			];
+
+			$this->db->where($where);
+			$this->db->update('table_k3', $update);
+			}
+		}
+
+		$query_lks = "SELECT * FROM table_lks WHERE tanggal_daftar <= '".$end."'";
+		$data_lks = $this->db->query($query_lks)->result();
+		foreach ($data_lks as $lks) {
+			if (!empty($lks->nama_file)) {
+				// code...
+			$update = [
+				'kode_perusahaan' => $lks->kode_perusahaan,
+				'status' => '2',
+			];
+
+			$where = [
+				'id' => $lks->id,
+				'kode_perusahaan' => $lks->kode_perusahaan,
+			];
+
+			$this->db->where($where);
+			$this->db->update('table_lks', $update);
+			}
+		}
+
+		$query_wlkp = "SELECT * FROM table_wlkp WHERE tanggal_daftar <= '".$end."'";
+		$data_wlkp = $this->db->query($query_wlkp)->result();
+		foreach ($data_wlkp as $wlkp) {
+			if (!empty($wlkp->nama_file)) {
+				// code...
+			$update = [
+				'kode_perusahaan' => $wlkp->kode_perusahaan,
+				'status' => '2',
+			];
+
+			$where = [
+				'id' => $pp->id,
+				'kode_perusahaan' => $wlkp->kode_perusahaan,
+			];
+
+			$this->db->where($where);
+			$this->db->update('table_wlkp', $update);
+			}
+		}
+
+		$data = [
+			'data_pp' => $data_pp,
+			'data_pkb' => $data_pkb,
+			'data_k3' => $data_k3,
+			'data_lks' => $data_lks,
+			'data_wlkp' => $data_wlkp,
+		];
+
+		//return $data;
 	}
 }

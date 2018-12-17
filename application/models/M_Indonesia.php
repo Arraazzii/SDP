@@ -40,7 +40,7 @@ class M_Indonesia extends CI_Model
     {
       $kode = "";
       $this->db->select("REPLACE(kode_alamat, 'ALM', '') as kode", FALSE);
-        $this->db->order_by('kode_alamat','DESC');
+        $this->db->order_by('(0 + kode)','DESC');
         $this->db->limit(1);
         $query = $this->db->get('table_alamat');      //cek dulu apakah ada sudah ada kode di tabel.
         if($query->num_rows() <> 0){
@@ -60,7 +60,7 @@ class M_Indonesia extends CI_Model
     {
       $kode = "";
       $this->db->select("REPLACE(kode_perusahaan, 'PER', '') as kode", FALSE);
-        $this->db->order_by('kode_perusahaan','DESC');
+        $this->db->order_by('(0 + kode)','DESC');
         $this->db->limit(1);
         $query = $this->db->get('table_perusahaan');      //cek dulu apakah ada sudah ada kode di tabel.
         if($query->num_rows() <> 0){

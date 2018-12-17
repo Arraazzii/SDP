@@ -2,10 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
- 
+
     public function __construct()
     {
-        parent::__construct(); 
+        parent::__construct();
         $this
         ->load
         ->helper('url');
@@ -13,6 +13,8 @@ class User extends CI_Controller {
         ->load
         ->model('M_user');
         $this->load->model('M_Indonesia');
+        $this->load->model('M_admin');
+        $this->M_admin->update_kadaluarsa();
         $this
         ->load
         ->library(array(
@@ -24,11 +26,11 @@ class User extends CI_Controller {
             redirect('login');
         } elseif ($this->session->userdata('level') != 'user'){
             redirect('Admin');
-        } 
+        }
 
     }
     private function load($title = '', $datapath = '')
-    {   
+    {
         $session = $this->session->userdata();
         $page = array(
             "header" => $this
@@ -52,7 +54,7 @@ class User extends CI_Controller {
     }
     //HALAMAN UTAMA USER
     public function index()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "status_pp" => $this->M_user->get_status_pp($session['kode_perusahaan']),
@@ -100,7 +102,7 @@ class User extends CI_Controller {
 
     //HALAMAN PROFILE USER
     public function user()
-    {   
+    {
         $session = $this->session->userdata();
         $this->load->helper(array('form','url'));
         $this->load->library('form_validation');
@@ -157,11 +159,11 @@ class User extends CI_Controller {
         $deskripsi = $this
         ->input
         ->post('tentang');
-        
+
         $update = array(
             'nama_perusahaan' => $nama_perusahaan,
             'deskripsi' => $deskripsi,
-        );  
+        );
 
         $update_alamat = array(
             'no_telpon' => $no_telpon,
@@ -171,21 +173,21 @@ class User extends CI_Controller {
             'kota' => $kabupaten,
             'kecamatan' => $kecamatan,
             'kelurahan' => $kelurahan,
-        );        
-        
+        );
+
         $this
-        ->db 
+        ->db
         ->where('kode_perusahaan', $kode_perusahaan);
         $this
         ->db
         ->update('table_perusahaan', $update);
         $this
-        ->db 
+        ->db
         ->where('kode_alamat', $kode_alamat);
         $this
         ->db
         ->update('table_alamat', $update_alamat);
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Perusahaan Berhasil Diperbaharui.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -228,11 +230,11 @@ class User extends CI_Controller {
         $jabatan = $this
         ->input
         ->post('jabatan');
-        
+
         $update = array(
             'nama' => $nama,
             'jabatan' => $jabatan,
-        );  
+        );
 
         $update_alamat = array(
             'no_telpon' => $no_telpon,
@@ -242,21 +244,21 @@ class User extends CI_Controller {
             'kota' => $kabupaten,
             'kecamatan' => $kecamatan,
             'kelurahan' => $kelurahan,
-        );        
-        
+        );
+
         $this
-        ->db 
+        ->db
         ->where('id', $id);
         $this
         ->db
         ->update('table_pengurus', $update);
         $this
-        ->db 
+        ->db
         ->where('kode_alamat', $kode_alamat);
         $this
         ->db
         ->update('table_alamat', $update_alamat);
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Pengurus Berhasil Diperbaharui.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -302,7 +304,7 @@ class User extends CI_Controller {
             'jabatan' => $jabatan,
             'kode_alamat' => $kode_alamat,
             'kode_perusahaan' => $kode_perusahaan,
-        );  
+        );
 
           $insert_alamat = array(
             'kode_alamat' => $kode_alamat,
@@ -313,7 +315,7 @@ class User extends CI_Controller {
             'kota' => $kabupaten,
             'kecamatan' => $kecamatan,
             'kelurahan' => $kelurahan,
-        );        
+        );
 
           $this
           ->db
@@ -325,7 +327,7 @@ class User extends CI_Controller {
 
           // var_dump($insert);
           // var_dump($insert_alamat);
-          $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+          $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Pengurus Berhasil Ditambahkan.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -334,7 +336,7 @@ class User extends CI_Controller {
 
     //HALAMAN PROFILE SETTING
       public function setting()
-      {   
+      {
 
         $path = "";
         $data = array(
@@ -350,7 +352,7 @@ class User extends CI_Controller {
 
     //HALAMAN SEND FILE PP
     public function pp()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "detail_pp" => $this->M_user->detail_pp($session['kode_perusahaan']),
@@ -370,7 +372,7 @@ class User extends CI_Controller {
 
     //HALAMAN SEND FILE PKB
     public function pkb()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "detail_pkb" => $this->M_user->detail_pkb($session['kode_perusahaan']),
@@ -390,7 +392,7 @@ class User extends CI_Controller {
 
     //HALAMAN SEND FILE LKS
     public function lks()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "detail_lks" => $this->M_user->detail_lks($session['kode_perusahaan']),
@@ -410,7 +412,7 @@ class User extends CI_Controller {
 
     //HALAMAN SEND FILE K3
     public function k3()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "detail_k3" => $this->M_user->detail_k3($session['kode_perusahaan']),
@@ -430,7 +432,7 @@ class User extends CI_Controller {
 
     //HALAMAN SEND FILE WLKP
     public function wlkp()
-    {  
+    {
         $session = $this->session->userdata();
         $x = array(
             "detail_wlkp" => $this->M_user->detail_wlkp($session['kode_perusahaan']),
@@ -464,24 +466,24 @@ class User extends CI_Controller {
             ->post('confirm_password'));
 
         $viewOldPassword = $this->db->query("SELECT password as password_lama FROM table_login WHERE id='$get_id' ")->result();
-        
+
         if ( $viewOldPassword[0]->password_lama == $password_lama ) {
             if ($password_baru == $confirm_password) {
                 $updatePassword = $this->db->query("UPDATE table_login SET password='$password_baru' where id='$get_id' ");
-                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+                $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Password Berhasil Diganti.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
                 redirect('User/setting', 'refresh');
             }else{
-                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible"> 
+                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Baru Dengan Confirm Password Tidak Sama.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
                 redirect('User/setting', 'refresh');
             }
         }else{
-            $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible"> 
+            $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Lama Tidak Sesuai.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -493,12 +495,12 @@ class User extends CI_Controller {
     public function hapusPengurus($id)
     {
         $this
-        ->db 
+        ->db
         ->where('id', $id);
         $this
         ->db
         ->delete('table_pengurus');
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Data Pengurus Berhasil Dihapus.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -528,7 +530,7 @@ class User extends CI_Controller {
     $tanggal = $this
     ->input
     ->post('tanggal');
-    
+
     $insert_baru = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -537,7 +539,7 @@ class User extends CI_Controller {
         'status' => '0',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
 
     $insert = array(
         'no_dokumen' => $no_dokumen,
@@ -547,7 +549,7 @@ class User extends CI_Controller {
         'status' => '1',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
 
     $update = array(
         'no_dokumen' => $no_dokumen,
@@ -556,10 +558,10 @@ class User extends CI_Controller {
         'kode_perusahaan' => $kode_perusahaan,
         'status' => '1',
         'notif' => '0',
-    );        
+    );
     $get_data_akhir = $this->db->query("SELECT id as id FROM table_pp WHERE kode_perusahaan='$kode_perusahaan' order by id desc LIMIT 1")->result();
     $get_akhir = $get_data_akhir[0]->id;
-    
+
     if ($get_akhir == NULL) {
         $this
         ->db
@@ -570,19 +572,19 @@ class User extends CI_Controller {
     }else{
 
         if ($file != NULL)
-        {   
+        {
             // $this->db->query("UPDATE table_pp SET status='2', notif='1' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
             // $this
             // ->db
             // ->insert('table_pp', $insert);
 
             $this
-            ->db 
+            ->db
             ->where('id', $id);
             $this
             ->db
             ->update('table_pp', $insert);
-            
+
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas PP Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('User/pp', 'refresh');
         }
@@ -590,12 +592,12 @@ class User extends CI_Controller {
         {
             // $this->db->query("UPDATE table_pp SET status='1', notif='0' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
          $this
-         ->db 
+         ->db
          ->where('id', $id);
          $this
          ->db
          ->update('table_pp', $update);
-         
+
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
          redirect('User/pp', 'refresh');
      }
@@ -634,7 +636,7 @@ public function uploadPkb(){
         'status' => '1',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
 
     $insert_baru = array(
         'no_dokumen' => $no_dokumen,
@@ -644,7 +646,7 @@ public function uploadPkb(){
         'status' => '0',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
 
     $update = array(
         'no_dokumen' => $no_dokumen,
@@ -653,7 +655,7 @@ public function uploadPkb(){
         'kode_perusahaan' => $kode_perusahaan,
         'status' => '1',
         'notif' => '0',
-    );        
+    );
     $get_data_akhir = $this->db->query("SELECT id as id FROM table_pkb WHERE kode_perusahaan='$kode_perusahaan' order by id desc LIMIT 1")->result();
     $get_akhir = $get_data_akhir[0]->id;
     if ($get_akhir == NULL) {
@@ -665,15 +667,15 @@ public function uploadPkb(){
         redirect('User/pkb', 'refresh');
     }else{
         if ($file != NULL)
-        {   
-            
+        {
+
         // $this->db->query("UPDATE table_pkb SET status='2', notif='1' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
         // $this
         // ->db
         // ->insert('table_pkb', $insert);
 
             $this
-            ->db 
+            ->db
             ->where('id', $id);
             $this
             ->db
@@ -686,12 +688,12 @@ public function uploadPkb(){
         {
        // $this->db->query("UPDATE table_pkb SET status='1', notif='0' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
          $this
-         ->db 
+         ->db
          ->where('id', $id);
          $this
          ->db
          ->update('table_pkb', $update);
-         
+
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
          redirect('User/pkb', 'refresh');
      }
@@ -730,7 +732,7 @@ public function uploadLks(){
         'status' => '1',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
     $insert_baru = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -739,7 +741,7 @@ public function uploadLks(){
         'status' => '0',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    ); 
+    );
     $update = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -747,7 +749,7 @@ public function uploadLks(){
         'kode_perusahaan' => $kode_perusahaan,
         'status' => '1',
         'notif' => '0',
-    );        
+    );
     $get_data_akhir = $this->db->query("SELECT id as id FROM table_lks WHERE kode_perusahaan='$kode_perusahaan' order by id desc LIMIT 1")->result();
     $get_akhir = $get_data_akhir[0]->id;
     if ($get_akhir == NULL) {
@@ -759,18 +761,18 @@ public function uploadLks(){
         redirect('User/lks', 'refresh');
     }else{
         if ($file != NULL)
-        {   
+        {
         // $this->db->query("UPDATE table_lks SET status='2', notif='1' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
         // $this
         // ->db
         // ->insert('table_lks', $insert);
             $this
-            ->db 
+            ->db
             ->where('id', $id);
             $this
             ->db
             ->update('table_lks', $insert);
-            
+
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas LKS Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('User/lks', 'refresh');
         }
@@ -778,7 +780,7 @@ public function uploadLks(){
         {
         // $this->db->query("UPDATE table_lks SET status='1', notif='0' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
          $this
-         ->db 
+         ->db
          ->where('id', $id);
          $this
          ->db
@@ -822,7 +824,7 @@ public function uploadK3(){
         'status' => '1',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
     $insert_baru = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -831,7 +833,7 @@ public function uploadK3(){
         'status' => '0',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    ); 
+    );
     $update = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -839,7 +841,7 @@ public function uploadK3(){
         'kode_perusahaan' => $kode_perusahaan,
         'status' => '1',
         'notif' => '0',
-    );        
+    );
     $get_data_akhir = $this->db->query("SELECT id as id FROM table_k3 WHERE kode_perusahaan='$kode_perusahaan' order by id desc LIMIT 1")->result();
     $get_akhir = $get_data_akhir[0]->id;
     if ($get_akhir == NULL) {
@@ -851,10 +853,10 @@ public function uploadK3(){
         redirect('User/k3', 'refresh');
     }else{
         if ($file != NULL)
-        {   
+        {
         // $this->db->query("UPDATE table_k3 SET status='2', notif='1' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
             $this
-            ->db 
+            ->db
             ->where('id', $id);
             $this
             ->db
@@ -867,12 +869,12 @@ public function uploadK3(){
         {
        // $this->db->query("UPDATE table_k3 SET status='1', notif='0' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
          $this
-         ->db 
+         ->db
          ->where('id', $id);
          $this
          ->db
          ->update('table_k3', $update);
-         
+
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
          redirect('User/k3', 'refresh');
      }
@@ -910,7 +912,7 @@ public function uploadWlkp(){
         'status' => '1',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    );  
+    );
     $insert_baru = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -919,7 +921,7 @@ public function uploadWlkp(){
         'status' => '0',
         'notif' => '0',
         'nama_file' => ((empty($file)) ? null : $file),
-    ); 
+    );
     $update = array(
         'no_dokumen' => $no_dokumen,
         'no_registrasi' => $no_registrasi,
@@ -927,7 +929,7 @@ public function uploadWlkp(){
         'kode_perusahaan' => $kode_perusahaan,
         'status' => '1',
         'notif' => '0',
-    );        
+    );
     $get_data_akhir = $this->db->query("SELECT id as id FROM table_wlkp WHERE kode_perusahaan='$kode_perusahaan' order by id desc LIMIT 1")->result();
     $get_akhir = $get_data_akhir[0]->id;
     if ($get_akhir == NULL) {
@@ -939,10 +941,10 @@ public function uploadWlkp(){
         redirect('User/pkb', 'refresh');
     }else{
         if ($file != NULL)
-        {   
+        {
         // $this->db->query("UPDATE table_wlkp SET status='2', notif='1' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
             $this
-            ->db 
+            ->db
             ->where('id', $id);
             $this
             ->db
@@ -955,12 +957,12 @@ public function uploadWlkp(){
         {
         // $this->db->query("UPDATE table_wlkp SET status='1', notif='0' WHERE kode_perusahaan='$kode_perusahaan' and id='$get_akhir' ");
          $this
-         ->db 
+         ->db
          ->where('id', $id);
          $this
          ->db
          ->update('table_wlkp', $update);
-         
+
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
          redirect('User/wlkp', 'refresh');
      }

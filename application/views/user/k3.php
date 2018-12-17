@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tanggal Daftar</label>
@@ -52,7 +52,7 @@
                                                 <input type="text" class="form-control" name="no_dokumen" required="" value="<?php echo $get_k3[0]['no_dokumen'];?>">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">No. Registrasi</label>
@@ -79,7 +79,7 @@
                                                 <!-- <button type="submit" class="btn btn-sm btn-info">Upload Berkas</button> -->
                                                 <!-- </form> -->
                                             </div>
-                                            
+
                                         </div>
                                         <?php } ?>
                                         <button type="submit" class="btn btn-info pull-right">Perbarui K3</button>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title"> (K3)</h4>
-                                    <h6 class="card-category text-gray">Tanggal Daftar : <?php echo $get_k3[0]['tanggal_daftar'];?></h6>
+                                    <h6 class="card-category text-gray">Berlaku Sampai : <?php echo date('Y-m-d', strtotime('+1 year', strtotime($get_k3[0]['tanggal_daftar'])) );?></h6>
                                     <?php if ($get_k3[0]['status'] == 2) {?>
                                     <label class="badge badge-danger">FILE K3 KADALUARSA</label>
                                     <?php } ?>
@@ -152,7 +152,7 @@
                                                 <tr>
                                                     <td colspan="4" class="text-center"><h4>DATA KOSONG</h4></td>
                                                 </tr>
-                                                <?php }else{ 
+                                                <?php }else{
                                                     $no =1;
                                                     foreach($detail_k3 as $detail){
                                                         ?>
@@ -190,7 +190,7 @@
                     <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/jquery.dataTables.min.js"></script>
                     <script type="text/javascript">
                         $('#tableFilter').DataTable();
-                    </script> 
+                    </script>
                     <script type="text/javascript">
                         $(function () {
                           $('[data-toggle="tooltip"]').tooltip()
@@ -206,7 +206,7 @@
                                     var reader = new FileReader();
                                     reader.readAsDataURL(this.files[0]);
                                 }
-                            } else{ 
+                            } else{
                                 $(':file').val('');
                                 alert('Hanya File PDF Yang Diizinkan !');};
                             });

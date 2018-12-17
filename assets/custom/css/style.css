@@ -1842,6 +1842,40 @@ header .form-inline {
 .login-form label a {
   color: #ff2e44; }
 
+  .register-content {
+    max-width: 740px;
+    margin: 8vh auto; }
+
+  .register-form {
+    background: #ffffff;
+    padding: 30px 30px 20px;
+    border-radius: 2px; }
+
+  .register-form h4 {
+    color: #878787;
+    text-align: center;
+    margin-bottom: 50px; }
+
+  .register-form .checkbox {
+    color: #878787; }
+
+  .register-form .checkbox label {
+    text-transform: none; }
+
+  .register-form .btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px;
+    border: 0; }
+
+  .register-form label {
+    color: #878787;
+    text-transform: uppercase; }
+
+  .register-form label a {
+    color: #ff2e44; }
+
 .social-login-content {
   margin: 0 -30px;
   border-top: 1px solid #e7e7e7;

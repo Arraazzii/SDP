@@ -1,4 +1,4 @@
-<?php 
+<?php
 class M_user extends CI_Model{
 
 	//GET STATUS BERKAS PP
@@ -12,7 +12,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 
 	//GET STATUS BERKAS PKB
@@ -111,7 +111,7 @@ class M_user extends CI_Model{
 
 	//GET DETAIL BERKAS PP
 	public function detail_pp($kode_perusahaan){
-		$query = $this->db->query("SELECT * FROM table_history_Pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'pp' ORDER BY id DESC");
+		$query = $this->db->query("SELECT * FROM table_history_pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'pp' ORDER BY id DESC");
 		if($query->num_rows()>0){
 			foreach ($query->result_array() as $row) { $data[]=$row; }
 			$query->free_result();
@@ -120,7 +120,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	public function get_pp($kode_perusahaan){
 		$query = $this->db->query("SELECT * FROM table_pp where kode_perusahaan='$kode_perusahaan' ORDER BY id DESC LIMIT 1");
@@ -132,11 +132,11 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	//GET DETAIL BERKAS PKB
 	public function detail_pkb($kode_perusahaan){
-		$query = $this->db->query("SELECT * FROM table_history_Pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'pkb' ORDER BY id DESC");
+		$query = $this->db->query("SELECT * FROM table_history_pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'pkb' ORDER BY id DESC");
 		if($query->num_rows()>0){
 			foreach ($query->result_array() as $row) { $data[]=$row; }
 			$query->free_result();
@@ -145,7 +145,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	public function get_pkb($kode_perusahaan){
 		$query = $this->db->query("SELECT * FROM table_pkb where kode_perusahaan='$kode_perusahaan' ORDER BY id DESC LIMIT 1");
@@ -157,11 +157,11 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	//GET DETAIL BERKAS LKS
 	public function detail_lks($kode_perusahaan){
-		$query = $this->db->query("SELECT * FROM table_history_Pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'lks' ORDER BY id DESC");
+		$query = $this->db->query("SELECT * FROM table_history_pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'lks' ORDER BY id DESC");
 		if($query->num_rows()>0){
 			foreach ($query->result_array() as $row) { $data[]=$row; }
 			$query->free_result();
@@ -170,7 +170,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	public function get_lks($kode_perusahaan){
 		$query = $this->db->query("SELECT * FROM table_lks where kode_perusahaan='$kode_perusahaan' ORDER BY id DESC LIMIT 1");
@@ -182,7 +182,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	//GET DETAIL BERKAS K3
 	public function get_k3($kode_perusahaan){
@@ -195,10 +195,10 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	public function detail_k3($kode_perusahaan){
-		$query = $this->db->query("SELECT * FROM table_history_Pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'k3' ORDER BY id DESC");
+		$query = $this->db->query("SELECT * FROM table_history_pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'k3' ORDER BY id DESC");
 		if($query->num_rows()>0){
 			foreach ($query->result_array() as $row) { $data[]=$row; }
 			$query->free_result();
@@ -207,11 +207,11 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	//GET DETAIL BERKAS WLKP
 	public function detail_wlkp($kode_perusahaan){
-		$query = $this->db->query("SELECT * FROM table_history_Pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'wlkp' ORDER BY id DESC");
+		$query = $this->db->query("SELECT * FROM table_history_pembaruan WHERE kode_perusahaan='$kode_perusahaan' AND type = 'wlkp' ORDER BY id DESC");
 		if($query->num_rows()>0){
 			foreach ($query->result_array() as $row) { $data[]=$row; }
 			$query->free_result();
@@ -220,7 +220,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	public function get_wlkp($kode_perusahaan){
 		$query = $this->db->query("SELECT * FROM table_wlkp where kode_perusahaan='$kode_perusahaan' ORDER BY id DESC LIMIT 1");
@@ -232,7 +232,7 @@ class M_user extends CI_Model{
 			$data=NULL;
 		}
 		return $data;
-	} 
+	}
 
 	//GET STATUS BERKAS PERUSAHAAN
 	public function get_berkas_perusahaan($kode_perusahaan){
@@ -261,7 +261,7 @@ class M_user extends CI_Model{
 		);
 		return array_sum($count_notif);
 	}
-	public function show_notif($kode_perusahaan){ 
+	public function show_notif($kode_perusahaan){
 		$query = $this->db->query("SELECT * FROM table_pp WHERE status='2' AND notif='0' AND kode_perusahaan='$kode_perusahaan' union all
 						SELECT * FROM table_pkb WHERE status='2' AND notif='0' AND kode_perusahaan='$kode_perusahaan' union all
 						SELECT * FROM table_lks WHERE status='2' AND notif='0' AND kode_perusahaan='$kode_perusahaan' union all
@@ -276,6 +276,6 @@ class M_user extends CI_Model{
 		}
 		return $data;
 	}
-	
+
 }
 ?>

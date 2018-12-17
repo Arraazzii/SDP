@@ -7,7 +7,8 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Indonesia');
-
+				$this->load->model('M_admin');
+				$this->M_admin->update_kadaluarsa();
         if($this->session->userdata('level') == 'admin'){
                 redirect('Admin');
         }
@@ -43,7 +44,8 @@ class Home extends CI_Controller {
         ->load
         ->view('register', $data);
     }
-    public function register()
+
+		public function register()
     {
         $data = $this->input->post();
         $error = array();
@@ -183,7 +185,7 @@ class Home extends CI_Controller {
                 'no_registrasi' => $data['no_reg_pp'],
                 'no_dokumen' => $data['no_doc_pp'],
                 'tanggal_daftar' => $data['berlaku_pp'],
-                'status' => "0",
+                'status' => (empty($files_pendukung['pp']))?"":"0",
                 'notif' => "0",
             );
             if (!$this->db->insert('table_pp', $data_pp)) {
@@ -198,7 +200,7 @@ class Home extends CI_Controller {
                 'no_dokumen' => $data['no_doc_pkb'],
                 'no_registrasi' => $data['no_reg_pkb'],
                 'tanggal_daftar' => $data['berlaku_pkb'],
-                'status' => "0",
+                'status' => (empty($files_pendukung['pkb']))?"":"0",
                 'notif' => "0",
             );
             if (!$this->db->insert('table_pkb', $data_pkb)) {
@@ -213,7 +215,7 @@ class Home extends CI_Controller {
                 'no_registrasi' => $data['no_reg_lks'],
                 'no_dokumen' => $data['no_doc_lks'],
                 'tanggal_daftar' => $data['berlaku_lks'],
-                'status' => "0",
+                'status' => (empty($files_pendukung['lks']))?"":"0",
                 'notif' => "0",
             );
             if (!$this->db->insert('table_lks', $data_lks)) {
@@ -228,7 +230,7 @@ class Home extends CI_Controller {
                 'no_registrasi' => $data['no_reg_k3'],
                 'no_dokumen' => $data['no_doc_k3'],
                 'tanggal_daftar' => $data['berlaku_k3'],
-                'status' => "0",
+                'status' => (empty($files_pendukung['k3']))?"":"0",
                 'notif' => "0",
             );
             if (!$this->db->insert('table_k3', $data_k3)) {
@@ -243,7 +245,7 @@ class Home extends CI_Controller {
                 'no_registrasi' => $data['no_reg_wlkp'],
                 'no_dokumen' => $data['no_doc_wlkp'],
                 'tanggal_daftar' => $data['berlaku_wlkp'],
-                'status' => "0",
+                'status' => (empty($files_pendukung['wlkp']))?"":"0",
                 'notif' => "0",
             );
             if (!$this->db->insert('table_wlkp', $data_wlkp)) {
@@ -254,11 +256,13 @@ class Home extends CI_Controller {
         }
 
         $data_pendukung = array(
+						/*
             'pp' =>$data_pp,
             'pkb' => $data_pkb,
             'lks' => $data_lks,
             'k3' => $data_k3,
             'wlkp' => $data_wlkp,
+						*/
         );
 
         $result = [
@@ -288,7 +292,7 @@ class Home extends CI_Controller {
         $data = array();
         if ( ! $this->upload->do_upload($field))
         {
-            $data = array('file_name' => "error", 'error' => $this->upload->display_errors());
+            $data['file'] = array('file_name' => "", 'error' => $this->upload->display_errors());
                                 //$data = "error";
         }
         else

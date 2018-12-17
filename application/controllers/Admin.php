@@ -8,11 +8,13 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('m_admin');
         $this->load->library('pdf');
+				$this->m_admin->update_kadaluarsa();
+				$this->load->library('dom_pdf');
         if($this->session->has_userdata('level') == false){
             redirect('login');
         } elseif ($this->session->userdata('level') != 'admin'){
             redirect('User');
-        } 
+        }
 
     }
     private function load($title = '', $datapath = '')
@@ -20,16 +22,16 @@ class Admin extends CI_Controller {
         $jumlah_perusahaan = array(
                 'p_baru' => $this
                 ->m_admin
-                ->tampil_jumlah_perusahaan_baru(), 
+                ->tampil_jumlah_perusahaan_baru(),
                 'detail_notifikasi' => $this
                 ->m_admin
-                ->tampil_detail_notifikasi_perusahaan_baru(), 
+                ->tampil_detail_notifikasi_perusahaan_baru(),
                 'p_terdaftar' => $this
                 ->m_admin
                 ->tampil_jumlah_perusahaan_terdaftar(),
                 'notif_perusahaan_baru' => $this
                 ->m_admin
-                ->tampil_notifikasi_perusahaan_baru(), 
+                ->tampil_notifikasi_perusahaan_baru(),
         );
         $page = array(
             "header" => $this
@@ -55,14 +57,14 @@ class Admin extends CI_Controller {
     }
 	//HALAMAN UTAMA ADMIN
     public function index()
-    {  
+    {
         $jumlah_perusahaan = array(
                 'p_baru' => $this
                 ->m_admin
                 ->tampil_jumlah_perusahaan_baru(),
                 'notif_perusahaan_baru' => $this
                 ->m_admin
-                ->tampil_notifikasi_perusahaan_baru(), 
+                ->tampil_notifikasi_perusahaan_baru(),
                 'p_terdaftar' => $this
                 ->m_admin
                 ->tampil_jumlah_perusahaan_terdaftar(),
@@ -135,7 +137,7 @@ $pdf = new FPDF('L','mm','A4');
         $pdf->AddPage();
         // setting jenis font yang akan digunakan
         $pdf->SetFont('Times','B',12);
-        // mencetak string 
+        // mencetak string
         $pdf->Cell(300,4,'LIST PERUSAHAAN TERDAFTAR',0,1,'C');
         $pdf->Cell(300,4,'DI KOTA DEPOK',0,1,'C');
         $pdf->Cell(300,4,'BULAN JANUARI s/d DESEMBER 2018',0,1,'C');
@@ -228,14 +230,14 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN USERBARU
     public function userbaru()
-    {  
+    {
         $perusahaan_baru = array(
                 'perusahaan_baru' => $this
                 ->m_admin
                 ->perusahaan_baru(),
                 'detail_data' => $this
                 ->m_admin
-                ->detail_perusahaan_baru(), 
+                ->detail_perusahaan_baru(),
         );
         $path = "";
         $data = array(
@@ -251,7 +253,7 @@ $pdf = new FPDF('L','mm','A4');
 
     // Terima User Baru
     public function terima(){
-        $id    = $this->input->post("id"); 
+        $id    = $this->input->post("id");
         $email = $this->input->post("email");
         $nama = $this->input->post("nama");
         $this->load->library('smtp','phpmailer');
@@ -261,18 +263,18 @@ $pdf = new FPDF('L','mm','A4');
         $email_admin = $akunadmin[0]->email;
         $nama_admin = $akunadmin[0]->nama;
         $password_admin = $akunadmin[0]->password;
-        $mail->IsSMTP();  
+        $mail->IsSMTP();
         $mail->SMTPKeepAlive = true;
         $mail->Charset  = 'UTF-8';
         $mail->IsHTML(true);
         $mail->SMTPAuth = true;
-        $mail->Port = 587; 
+        $mail->Port = 587;
         $mail->Host     = 'ssl://smtp.gmail.com';
         $mail->Username = $email_admin;
         $mail->Password = $password_admin;
         $mail->Mailer   = 'smtp';
-        $mail->WordWrap = 100;       
-        
+        $mail->WordWrap = 100;
+
         $mail->setFrom($email_admin);
         $mail->FromName = $nama_admin;
         $mail->addAddress($email);
@@ -287,8 +289,8 @@ $pdf = new FPDF('L','mm','A4');
             $perusahaan = $this
                         ->m_admin
                         ->terima($id);
-        
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Perusahaan Diterima.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -296,7 +298,7 @@ $pdf = new FPDF('L','mm','A4');
         } else {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }        
+        }
     }
 
     // Tolak Perusahaan Baru
@@ -306,8 +308,8 @@ $pdf = new FPDF('L','mm','A4');
         $perusahaan = $this
                         ->m_admin
                         ->tolak($kode);
-        
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Perusahaan Ditolak.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -322,8 +324,8 @@ $pdf = new FPDF('L','mm','A4');
         $perusahaan = $this
                         ->m_admin
                         ->nonaktif($kode);
-        
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Perusahaan Telah di Nonaktif.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -333,7 +335,7 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN SETTING EMAIL
     public function setting_email()
-    {  
+    {
         $perusahaan = array(
                 'email_setting' => $this
                 ->m_admin
@@ -371,13 +373,13 @@ $pdf = new FPDF('L','mm','A4');
 
         if ( $viewOldPassword[0]->password_lama == $oldPassword ) {
                 $updateEmail = $this->db->query("UPDATE table_email SET email='$email', nama='$nama', password='$password' where id_email='1' ");
-               $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> 
+               $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! Email Berhasil Diganti.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
                 redirect('Admin/setting_email', 'refresh');
             }else{
-                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible"> 
+                $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Login Tidak Benar.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
@@ -388,14 +390,14 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN PERUSAHAAN
     public function perusahaan()
-    {  
+    {
         $perusahaan = array(
                 'data_perusahaan' => $this
                 ->m_admin
                 ->data_perusahaan(),
                 'pengurus' => $this
                 ->m_admin
-                ->jumlah_pengurus_perusahaan(), 
+                ->jumlah_pengurus_perusahaan(),
         );
         $path = "";
         $data = array(
@@ -411,12 +413,12 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN PERUSAHAAN DETAIL
     public function perusahaan_detail()
-    {  
+    {
         $kode = $this->uri->segment(3);
         $perusahaan = array(
                 'data_perusahaan' => $this
                 ->m_admin
-                ->detail_perusahaan($kode), 
+                ->detail_perusahaan($kode),
         );
         $path = "";
         $data = array(
@@ -432,11 +434,11 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN REKAPITULASI PP
     public function rekap_pp()
-    {  
+    {
         $rekap_pp = array(
                 'rekap_pp' => $this
                 ->m_admin
-                ->rekap_pp(), 
+                ->rekap_pp(),
                 'status' => $this
                 ->m_admin
                 ->get_list_countries()
@@ -456,11 +458,11 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN REKAPITULASI PKB
     public function rekap_pkb()
-    {  
+    {
         $rekap_pkb = array(
                 'rekap_pkb' => $this
                 ->m_admin
-                ->rekap_pkb(), 
+                ->rekap_pkb(),
         );
         $path = "";
         $data = array(
@@ -476,11 +478,11 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN REKAPITULASI K3
     public function rekap_k3()
-    {  
+    {
         $rekap_k3 = array(
                 'rekap_k3' => $this
                 ->m_admin
-                ->rekap_k3(), 
+                ->rekap_k3(),
         );
         $path = "";
         $data = array(
@@ -496,11 +498,11 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN REKAPITULASI LKS
     public function rekap_lks()
-    {  
+    {
         $rekap_lks = array(
                 'rekap_lks' => $this
                 ->m_admin
-                ->rekap_lks(), 
+                ->rekap_lks(),
         );
         $path = "";
         $data = array(
@@ -516,11 +518,11 @@ $pdf = new FPDF('L','mm','A4');
 
     //HALAMAN REKAPITULASI WLKP
     public function rekap_wlkp()
-    {  
+    {
         $rekap_wlkp = array(
                 'rekap_wlkp' => $this
                 ->m_admin
-                ->rekap_wlkp(), 
+                ->rekap_wlkp(),
         );
         $path = "";
         $data = array(
@@ -562,152 +564,160 @@ $pdf = new FPDF('L','mm','A4');
         echo json_encode($output);
     }
 
-        //HALAMAN REKAPITULASI K3
-        public function report_k3()
-        {
-                $path = "";
-                $input = $this->input->post();
-                $this->db->select(' per.kode_perusahaan, per.nama_perusahaan, k3.no_registrasi, k3.no_dokumen, k3.status', false);
-                $this->db->from('table_perusahaan as per');
-                $this->db->join('table_k3 as k3', 'per.kode_perusahaan = k3.kode_perusahaan');
-                if (!empty($input['status'])) {
-                    $this->db->where('k3.status = ', $input['status']);
-                }
-                if (!empty($input['tgl_awal'])) {
-                    $this->db->where('k3.tanggal_daftar >= ', $input['tgl_awal']);
-                }
+		//HALAMAN REKAPITULASI K3
+		public function report_k3()
+		{
+				$path = "";
+				$input = $this->input->post();
+				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, k3.no_registrasi, k3.no_dokumen, k3.status', false);
+				$this->db->from('table_perusahaan as per');
+				$this->db->join('table_k3 as k3', 'per.kode_perusahaan = k3.kode_perusahaan');
+				if (!empty($input['status'])) {
+						$this->db->where('k3.status = ', $input['status']);
+				}
+				if (!empty($input['tgl_awal'])) {
+						$this->db->where('k3.tanggal_daftar >= ', $input['tgl_awal']);
+				}
 
-                if (!empty($input['tgl_akhir'])) {
-                    $this->db->where('k3.tanggal_daftar <= ', $input['tgl_akhir']);
-                }
-                $data_k3 = $this->db->get()->result();
-                $viewData = array(
-                    'data_k3' => $data_k3,
-                );
-                $this
-                ->load
-                ->view('report/report_k3', $viewData);
-        }
+				if (!empty($input['tgl_akhir'])) {
+						$this->db->where('k3.tanggal_daftar <= ', $input['tgl_akhir']);
+				}
+				$data_k3 = $this->db->get()->result();
+				$viewData = array(
+						'data_k3' => $data_k3,
+				);
+				// $this->load->view('report/report_k3', $viewData);
+				$this->dom_pdf->setPaper('A4', 'potrait');
+				$this->dom_pdf->filename = "laporan-K3 Perusahaan.pdf";
+				$this->dom_pdf->load_view('report/report_k3', $viewData);
+		}
 
-        public function report_lks()
-        {
-                $path = "";
-                $input = $this->input->post();
-                $this->db->select(' per.kode_perusahaan, per.nama_perusahaan, lks.no_registrasi, lks.no_dokumen, lks.status', false);
-                $this->db->from('table_perusahaan as per');
-                $this->db->join('table_lks as lks', 'per.kode_perusahaan = lks.kode_perusahaan');
-                if (!empty($input['status'])) {
-                    $this->db->where('lks.status = ', $input['status']);
-                }
-                if (!empty($input['tgl_awal'])) {
-                    $this->db->where('lks.tanggal_daftar >= ', $input['tgl_awal']);
-                }
+		public function report_lks()
+		{
+				$path = "";
+				$input = $this->input->post();
+				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, lks.no_registrasi, lks.no_dokumen, lks.status', false);
+				$this->db->from('table_perusahaan as per');
+				$this->db->join('table_lks as lks', 'per.kode_perusahaan = lks.kode_perusahaan');
+				if (!empty($input['status'])) {
+						$this->db->where('lks.status = ', $input['status']);
+				}
+				if (!empty($input['tgl_awal'])) {
+						$this->db->where('lks.tanggal_daftar >= ', $input['tgl_awal']);
+				}
 
-                if (!empty($input['tgl_akhir'])) {
-                    $this->db->where('lks.tanggal_daftar <= ', $input['tgl_akhir']);
-                }
-                $data_lks = $this->db->get()->result();
-                $viewData = array(
-                    'data_lks' => $data_lks,
-                );
-                $this
-                ->load
-                ->view('report/report_lks', $viewData);
-        }
+				if (!empty($input['tgl_akhir'])) {
+						$this->db->where('lks.tanggal_daftar <= ', $input['tgl_akhir']);
+				}
+				$data_lks = $this->db->get()->result();
+				$viewData = array(
+						'data_lks' => $data_lks,
+				);
+				// $this->load->view('report/report_lks', $viewData);
+				$this->dom_pdf->setPaper('A4', 'potrait');
+				$this->dom_pdf->filename = "laporan-LKS Perusahaan.pdf";
+				$this->dom_pdf->load_view('report/report_lks', $viewData);
+		}
 
-        public function report_pkb()
-        {
-                $path = "";
-                $input = $this->input->post();
-                $this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pkb.no_registrasi, pkb.no_dokumen, pkb.status', false);
-                $this->db->from('table_perusahaan as per');
-                $this->db->join('table_pkb as pkb', 'per.kode_perusahaan = pkb.kode_perusahaan');
-                if (!empty($input['status'])) {
-                    $this->db->where('pkb.status = ', $input['status']);
-                }
-                if (!empty($input['tgl_awal'])) {
-                    $this->db->where('pkb.tanggal_daftar >= ', $input['tgl_awal']);
-                }
+		public function report_pkb()
+		{
+				$path = "";
+				$input = $this->input->post();
+				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pkb.no_registrasi, pkb.no_dokumen, pkb.status', false);
+				$this->db->from('table_perusahaan as per');
+				$this->db->join('table_pkb as pkb', 'per.kode_perusahaan = pkb.kode_perusahaan');
+				if (!empty($input['status'])) {
+						$this->db->where('pkb.status = ', $input['status']);
+				}
+				if (!empty($input['tgl_awal'])) {
+						$this->db->where('pkb.tanggal_daftar >= ', $input['tgl_awal']);
+				}
 
-                if (!empty($input['tgl_akhir'])) {
-                    $this->db->where('pkb.tanggal_daftar <= ', $input['tgl_akhir']);
-                }
-                $data_pkb = $this->db->get()->result();
-                $viewData = array(
-                    'data_pkb' => $data_pkb,
-                );
-                $this
-                ->load
-                ->view('report/report_pkb', $viewData);
-        }
+				if (!empty($input['tgl_akhir'])) {
+						$this->db->where('pkb.tanggal_daftar <= ', $input['tgl_akhir']);
+				}
+				$data_pkb = $this->db->get()->result();
+				$viewData = array(
+						'data_pkb' => $data_pkb,
+				);
+				// $this->load->view('report/report_pkb', $viewData);
+				$this->dom_pdf->setPaper('A4', 'potrait');
+				$this->dom_pdf->filename = "laporan-PKB Perusahaan.pdf";
+				$this->dom_pdf->load_view('report/report_pkb', $viewData);
+		}
 
-        public function report_pp()
-        {
-                $path = "";
-                $input = $this->input->post();
-                $this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pp.no_registrasi, pp.no_dokumen, pp.status', false);
-                $this->db->from('table_perusahaan as per');
-                $this->db->join('table_pp as pp', 'per.kode_perusahaan = pp.kode_perusahaan');
-                if (!empty($input['status'])) {
-                    $this->db->where('pp.status = ', $input['status']);
-                }
-                if (!empty($input['tgl_awal'])) {
-                    $this->db->where('pp.tanggal_daftar >= ', $input['tgl_awal']);
-                }
+		public function report_pp()
+		{
+				$path = "";
+				$input = $this->input->post();
+				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pp.no_registrasi, pp.no_dokumen, pp.status', false);
+				$this->db->from('table_perusahaan as per');
+				$this->db->join('table_pp as pp', 'per.kode_perusahaan = pp.kode_perusahaan');
+				if (!empty($input['status'])) {
+						$this->db->where('pp.status = ', $input['status']);
+				}
+				if (!empty($input['tgl_awal'])) {
+						$this->db->where('pp.tanggal_daftar >= ', $input['tgl_awal']);
+				}
 
-                if (!empty($input['tgl_akhir'])) {
-                    $this->db->where('pp.tanggal_daftar <= ', $input['tgl_akhir']);
-                }
-                // $this->db->where('LOWER(u.username)=', strtolower('foobar'));
-                $data_pp = $this->db->get()->result();
-                // $data_pp = $this->db->get('table_pp')->result();
-                 $groups = array();
+				if (!empty($input['tgl_akhir'])) {
+						$this->db->where('pp.tanggal_daftar <= ', $input['tgl_akhir']);
+				}
+				// $this->db->where('LOWER(u.username)=', strtolower('foobar'));
+				$data_pp = $this->db->get()->result();
+				// $data_pp = $this->db->get('table_pp')->result();
+				 $groups = array();
 
-                 foreach ($data_pp as $array_pp) {
-                    $key = $array_pp->status;
-                    if (!array_key_exists($key, $groups)) {
-                        $groups[$key] = array(
-                            'status' => $array_pp->status,
-                        );
-                    } 
-                 }
-                 var_dump($groups);
-                $total = count($array_pp);
-                                
-                $viewData = array(
-                    'data_pp' => $data_pp,
-                    'total' => $groups,
-                );
-                $this
-                ->load
-                ->view('report/report_pp', $viewData);
-        }
+				 foreach ($data_pp as $array_pp) {
+						$key = $array_pp->status;
+						if (!array_key_exists($key, $groups)) {
+								$groups[$key] = array(
+										'status' => $array_pp->status,
+								);
+						}
+				 }
+				// var_dump($groups);
+				$total = count($array_pp);
 
-        public function report_wlkp()
-        {
-                $path = "";
-                $input = $this->input->post();
-                $this->db->select(' per.kode_perusahaan, per.nama_perusahaan, wlkp.no_registrasi, wlkp.no_dokumen, wlkp.status', false);
-                $this->db->from('table_perusahaan as per');
-                $this->db->join('table_wlkp as wlkp', 'per.kode_perusahaan = wlkp.kode_perusahaan');
-                if (!empty($input['status'])) {
-                    $this->db->where('wlkp.status = ', $input['status']);
-                }
-                if (!empty($input['tgl_awal'])) {
-                    $this->db->where('wlkp.tanggal_daftar >= ', $input['tgl_awal']);
-                }
+				$viewData = array(
+						'data_pp' => $data_pp,
+						'total' => $groups,
+				);
+				// $html = $this->load->view('report/test_report', $viewData);
 
-                if (!empty($input['tgl_akhir'])) {
-                    $this->db->where('wlkp.tanggal_daftar <= ', $input['tgl_akhir']);
-                }
-                $data_wlkp = $this->db->get()->result();
-                $viewData = array(
-                    'data_wlkp' => $data_wlkp,
-                );
-                $this
-                ->load
-                ->view('report/report_wlkp', $viewData);
-        }
+				// $this->generatePdf($html, 'report_pp');
+				$this->dom_pdf->setPaper('A4', 'potrait');
+				$this->dom_pdf->filename = "laporan-PP Perusahaan.pdf";
+				$this->dom_pdf->load_view('report/report_pp', $viewData);
+				// $this->load->view('report/test_report', $viewData);
+		}
+
+		public function report_wlkp()
+		{
+				$path = "";
+				$input = $this->input->post();
+				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, wlkp.no_registrasi, wlkp.no_dokumen, wlkp.status', false);
+				$this->db->from('table_perusahaan as per');
+				$this->db->join('table_wlkp as wlkp', 'per.kode_perusahaan = wlkp.kode_perusahaan');
+				if (!empty($input['status'])) {
+						$this->db->where('wlkp.status = ', $input['status']);
+				}
+				if (!empty($input['tgl_awal'])) {
+						$this->db->where('wlkp.tanggal_daftar >= ', $input['tgl_awal']);
+				}
+
+				if (!empty($input['tgl_akhir'])) {
+						$this->db->where('wlkp.tanggal_daftar <= ', $input['tgl_akhir']);
+				}
+				$data_wlkp = $this->db->get()->result();
+				$viewData = array(
+						'data_wlkp' => $data_wlkp,
+				);
+				// $this->load->view('report/report_wlkp', $viewData);
+				$this->dom_pdf->setPaper('A4', 'potrait');
+				$this->dom_pdf->filename = "laporan-WLKP Perusahaan.pdf";
+				$this->dom_pdf->load_view('report/report_wlkp', $viewData);
+		}
 }
 
 ?>
