@@ -1,8 +1,8 @@
 <?php
     $dbhost = 'localhost'; 
-    $dbuser = 'root';     
-    $dbpass = '';    
-    $dbname = 'db_perusahaan';
+    $dbuser = 'walwqigx_SDP';     
+    $dbpass = '!6rbYf#lO1{~';    
+    $dbname = 'walwqigx_sdp';
  
     $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 

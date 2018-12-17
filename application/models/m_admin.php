@@ -394,6 +394,7 @@ class m_admin extends CI_Model {
 
 	public function update_kadaluarsa()
 	{
+	    $get_zone = date_default_timezone_set('Asia/Jakarta');
 		$end = date('Y-m-d', strtotime('-1 years'));
 
 		$query_pp = "SELECT * FROM table_pp WHERE tanggal_daftar <= '".$end."'";

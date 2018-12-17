@@ -190,7 +190,7 @@ $pdf = new FPDF('L','mm','A4');
         $id    = $this->input->post("id");
         $email = $this->input->post("email");
         $nama = $this->input->post("nama");
-        $this->load->library('smtp','phpmailer');
+        $this->load->library('SMTP','PHPmailer');
 
         $mail = new PHPMailer();
         $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
