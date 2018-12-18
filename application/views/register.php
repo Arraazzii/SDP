@@ -411,7 +411,7 @@
                             </div>
                         </fieldset>
                          <div class="register-link m-t-15 text-center mt-3">
-                            <button class="btn btn-info" href="<?php echo base_url();?>">Login</button>
+                            <a class="btn btn-info" href="<?php echo base_url();?>">Login</a>
                         </div>
                     </form>
                     <!-- <buttonc class="btn btn-info" onclick="register()"> submit </button> -->
