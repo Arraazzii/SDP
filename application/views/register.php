@@ -173,11 +173,11 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Kode Klui</label>
-                                  <select class="form-control" name="kode_klui">
-                                      <option hidden="">--Silahkan Pilih Kode Klui--</option>
+                                  <select class="form-control required" name="kode_klui">
+                                      <option value="">--Silahkan Pilih Kode Klui--</option>
                                       <?php
                                           foreach ($kode_klui as $klui) {?>
-                                          <option value="<?php echo $klui['kode_klui'];?>"><?php echo $klui['dsk'];?></option>
+                                          <option value="<?php echo $klui['kode_klui'];?>"><?php echo $klui['kode_klui'];?></option>
                                       <?php }
                                       ?>
                                   </select>
@@ -335,7 +335,7 @@
                                       <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
                                     </div>
                                     <div class="col-4">
-                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
                                       <input name="berlaku_pkb" type="date" class="form-control">
                                     </div>
                                 </div>
@@ -355,7 +355,7 @@
                                       <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
                                     </div>
                                     <div class="col-4">
-                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
                                       <input name="berlaku_lks" type="date" class="form-control">
                                     </div>
                                 </div>
@@ -375,7 +375,7 @@
                                       <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
                                     </div>
                                     <div class="col-4">
-                                      <label for="file-input" class=" form-control-label">Berlaku Sampai</label>
+                                      <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
                                       <input name="berlaku_k3" type="date" class="form-control">
                                     </div>
                                 </div>
@@ -411,7 +411,7 @@
                             </div>
                         </fieldset>
                          <div class="register-link m-t-15 text-center mt-3">
-                            <p><a href="<?php echo base_url();?>">Login</a></p>
+                            <button class="btn btn-info" href="<?php echo base_url();?>">Login</button>
                         </div>
                     </form>
                     <!-- <buttonc class="btn btn-info" onclick="register()"> submit </button> -->
@@ -571,28 +571,30 @@
                   var empty = [];
                   var field = [];
                   $("input.required").each(function(index){
-                    console.log("required");
+                    // console.log("required");
                     if ($(this).val() == "") {
                       empty.push(true);
                       field.push($(this).attr("name"));
                     }
                   });
                   $("textarea.required").each(function(index){
-                    console.log("required");
+                    // console.log("required");
                     if ($(this).val() == "") {
                       empty.push(true);
                       field.push($(this).attr("name"));
                     }
                   });
                   $("select.required").each(function(index){
-                    console.log("required");
+                    // console.log("required");
                     if ($(this).val() == "") {
                       empty.push(true);
                       field.push($(this).attr("name"));
                     }
                   });
 
-                  if (empty.indexOf(true) == -1) {
+                  var verif = $('input[name="agree"]:checked').length > 0;
+                  console.log(verif);
+                  if (empty.indexOf(true) == -1 && verif == true) {
 
                     $.ajax({
                       url : '<?= base_url() ?>Home/register',
@@ -610,8 +612,13 @@
                             text: "Data Berhasil di Input!!!",
                             icon: "success",
                             button: "Ok",
+                          }).then((after) => {
+                            if (after) {
+                              location.href = "<?= base_url()?>Home/";
+                            } else {
+                              // swal("Your imaginary file is safe!");
+                            }
                           });
-                          // window.location("Home/");
                         } else {
                           // alert("Data Gagal di Input!");
                           swal({
@@ -635,8 +642,16 @@
                       }
                     });
 
-                  } else {
+                  } else if (verif == false) {
+                    swal({
+                      title: "Warning!",
+                      text: "Mohon Centang \"Setuju persyaratan dan kebijakan\"!! ",
+                      icon: "warning",
+                      button: "Ok",
+                    });
+                  } else if(empty.indexOf(true) != -1) {
                     console.log(field);
+
                     swal({
                       title: "Warning!",
                       text: "Tolong Isi Form Dengan Lengkap!!",

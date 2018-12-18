@@ -284,6 +284,7 @@ class Home extends CI_Controller {
         $config['upload_path']          = './upload/'.$location;
         $config['allowed_types']        = 'pdf|jpg|png';
         $config['max_size']             = 10000;
+				$config['encrypt_name']				  = true;
                 //$config['max_width']            = 1024;
                 //$config['max_height']           = 768;
 
