@@ -1,3 +1,8 @@
+<style type="text/css">
+    .form-control{
+        width: 100% !important;
+    }
+</style>
  <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">

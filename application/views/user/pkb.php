@@ -107,6 +107,8 @@
                                     <?php } ?>
                                     <p class="card-description">
                                         No. Registrasi : <?php echo $get_pkb[0]['no_registrasi'];?>
+                                        <br>
+                                        No. Dokumen : <?php echo $get_pkb[0]['no_dokumen'];?>
                                     </p>
                                     <a href="<?php echo base_url('upload/pkb/' .$get_pkb[0]['nama_file']);?>" class="btn btn-info btn-round" target="_blank">Download/Detil</a>
                                 </div>
@@ -147,7 +149,7 @@
                                         <tbody>
                                             <?php if ($detail_pkb==NULL) {?>
                                             <tr>
-                                                <td colspan="4" class="text-center"><h4>DATA KOSONG</h4></td>
+                                                <td colspan="6" class="text-center"><h4>DATA KOSONG</h4></td>
                                             </tr>
                                             <?php }else{
                                                 $no =1;

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Report K3</title>
+  <title>Report WLKP</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css">
@@ -84,6 +84,29 @@
               <?php endforeach ?>
             </tbody>
           </table>
+          <?php 
+          $total1 = 0;
+          foreach($data_wlkp as $key => $value) {
+            if ($value->status == 0){
+              $total1 += $value->status==0;
+            }
+          }
+
+          $total2 = 0;
+          foreach($data_wlkp as $key => $value) {
+            if ($value->status == 1){
+              $total2 += $value->status==1;
+            }
+          }
+
+          $total3 = 0;
+          foreach($data_wlkp as $key => $value) {
+            if ($value->status == 2){
+              $total3 += $value->status==2;
+            }
+          }
+          echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1). " Data </span>";
+          ?>
         </div>
       </div>
     </div>

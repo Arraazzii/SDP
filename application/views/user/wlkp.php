@@ -108,6 +108,8 @@
                                     <?php } ?>
                                     <p class="card-description">
                                         No. Registrasi : <?php echo $get_wlkp[0]['no_registrasi'];?>
+                                        <br>
+                                        No. Dokumen : <?php echo $get_wlkp[0]['no_dokumen'];?>
                                     </p>
                                     <a href="<?php echo base_url('upload/wlkp/' .$get_wlkp[0]['nama_file']);?>" class="btn btn-info btn-round" target="_blank">Download/Detil</a>
                                 </div>
@@ -148,7 +150,7 @@
                                             <tbody>
                                                 <?php if ($detail_wlkp==NULL) {?>
                                                 <tr>
-                                                    <td colspan="4" class="text-center"><h4>DATA KOSONG</h4></td>
+                                                    <td colspan="6" class="text-center"><h4>DATA KOSONG</h4></td>
                                                 </tr>
                                                 <?php }else{
                                                     $no =1;

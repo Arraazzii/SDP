@@ -13,9 +13,9 @@
  * @link			https://github.com/ardianta/codeigniter-dompdf
  */
 
-use Dompdf\Dompdf;
+use Dompdf\Dompdf ;
 
-class dom_pdf extends Dompdf{
+class Dom_pdf extends Dompdf {
 
 	/**
 	 * PDF filename

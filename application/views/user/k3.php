@@ -109,7 +109,8 @@
                                     <label class="badge badge-danger">FILE K3 KADALUARSA</label>
                                     <?php } ?>
                                     <p class="card-description">
-                                        No. Registrasi : <?php echo $get_k3[0]['no_registrasi'];?>
+                                        No. Registrasi : <?php echo $get_k3[0]['no_registrasi'];?><br>
+                                        No. Dokumen : <?php echo $get_k3[0]['no_dokumen'];?>
                                     </p>
                                     <a href="<?php echo base_url('upload/k3/' .$get_k3[0]['nama_file']);?>" class="btn btn-info btn-round" target="_blank">Download/Detil</a>
                                 </div>
@@ -150,7 +151,7 @@
                                             <tbody>
                                                 <?php if ($detail_k3==NULL) {?>
                                                 <tr>
-                                                    <td colspan="4" class="text-center"><h4>DATA KOSONG</h4></td>
+                                                    <td colspan="6" class="text-center"><h4>DATA KOSONG</h4></td>
                                                 </tr>
                                                 <?php }else{
                                                     $no =1;
