@@ -493,5 +493,5 @@
             </form>
         </div>
     </div>
-</ftdiv>
+</div>
 <?php endforeach; ?>
