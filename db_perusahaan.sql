@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 04:53 PM
+-- Generation Time: Dec 18, 2018 at 09:03 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -7960,7 +7960,8 @@ INSERT INTO `table_history_pembaruan` (`id`, `kode_perusahaan`, `nama_file`, `no
 (30, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:47'),
 (31, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:52'),
 (32, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:51:23'),
-(33, 'PER2', 'Rekap_PP.pdf', '34323', '34323', '2018-12-17', 'k3', '2018-12-17 15:53:26');
+(33, 'PER2', 'Rekap_PP.pdf', '34323', '34323', '2018-12-17', 'k3', '2018-12-17 15:53:26'),
+(34, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', 'pp', '2018-12-18 08:02:49');
 
 -- --------------------------------------------------------
 
@@ -8205,7 +8206,7 @@ CREATE TABLE `table_pp` (
 --
 
 INSERT INTO `table_pp` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(2, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', '2', '0'),
+(2, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', '1', '0'),
 (3, 'PER2', '09f10bec2eb66c04390196e20c744396.pdf', '11111', '1111', '2018-12-29', '1', '0');
 
 --
@@ -83420,7 +83421,7 @@ ALTER TABLE `table_history_login`
 -- AUTO_INCREMENT for table `table_history_pembaruan`
 --
 ALTER TABLE `table_history_pembaruan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `table_k3`
@@ -83444,7 +83445,7 @@ ALTER TABLE `table_login`
 -- AUTO_INCREMENT for table `table_pengurus`
 --
 ALTER TABLE `table_pengurus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_pkb`
