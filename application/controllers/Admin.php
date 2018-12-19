@@ -186,53 +186,68 @@ $pdf = new FPDF('L','mm','A4');
     }
 
     // Terima User Baru
+    // public function terima(){
+    //     $id    = $this->input->post("id");
+    //     $email = $this->input->post("email");
+    //     $nama = $this->input->post("nama");
+    //     $this->load->library('SMTP','PHPmailer');
+
+    //     $mail = new PHPMailer();
+    //     $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
+    //     $email_admin = $akunadmin[0]->email;
+    //     $nama_admin = $akunadmin[0]->nama;
+    //     $password_admin = $akunadmin[0]->password;
+    //     $mail->IsSMTP();
+    //     $mail->SMTPKeepAlive = true;
+    //     $mail->Charset  = 'UTF-8';
+    //     $mail->IsHTML(true);
+    //     $mail->SMTPAuth = true;
+    //     $mail->Port = 587;
+    //     $mail->Host     = 'ssl://smtp.gmail.com';
+    //     $mail->Username = $email_admin;
+    //     $mail->Password = $password_admin;
+    //     $mail->Mailer   = 'smtp';
+    //     $mail->WordWrap = 100;
+
+    //     $mail->setFrom($email_admin);
+    //     $mail->FromName = $nama_admin;
+    //     $mail->addAddress($email);
+    //     $mail->Subject = 'Registration Completed';
+    //     $mail_data['subject'] = 'Dear '. $nama;
+    //     $mail_data['description'] = "Thank you for registration :)";
+
+    //     $message = $this->load->view('Admin/template/email', $mail_data, TRUE);
+    //     $mail->Body = $message;
+
+    //     if ($mail->send()) {
+    //         $perusahaan = $this
+    //                     ->m_admin
+    //                     ->terima($id);
+
+    //         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+    //         Success! Perusahaan Diterima.
+    //         <button type="button" class="close" data-dismiss="alert">&times</button>
+    //                                             </div>');
+    //         redirect('Admin/userbaru');
+    //     } else {
+    //         echo 'Message could not be sent.';
+    //         echo 'Mailer Error: ' . $mail->ErrorInfo;
+    //     }
+    // }
+
+    // Terima User Baru
     public function terima(){
         $id    = $this->input->post("id");
-        $email = $this->input->post("email");
-        $nama = $this->input->post("nama");
-        $this->load->library('SMTP','PHPmailer');
+        $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
+        $perusahaan = $this
+        ->m_admin
+        ->terima($id);
 
-        $mail = new PHPMailer();
-        $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
-        $email_admin = $akunadmin[0]->email;
-        $nama_admin = $akunadmin[0]->nama;
-        $password_admin = $akunadmin[0]->password;
-        $mail->IsSMTP();
-        $mail->SMTPKeepAlive = true;
-        $mail->Charset  = 'UTF-8';
-        $mail->IsHTML(true);
-        $mail->SMTPAuth = true;
-        $mail->Port = 587;
-        $mail->Host     = 'ssl://smtp.gmail.com';
-        $mail->Username = $email_admin;
-        $mail->Password = $password_admin;
-        $mail->Mailer   = 'smtp';
-        $mail->WordWrap = 100;
-
-        $mail->setFrom($email_admin);
-        $mail->FromName = $nama_admin;
-        $mail->addAddress($email);
-        $mail->Subject = 'Registration Completed';
-        $mail_data['subject'] = 'Dear '. $nama;
-        $mail_data['description'] = "Thank you for registration :)";
-
-        $message = $this->load->view('Admin/template/email', $mail_data, TRUE);
-        $mail->Body = $message;
-
-        if ($mail->send()) {
-            $perusahaan = $this
-                        ->m_admin
-                        ->terima($id);
-
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Perusahaan Diterima.
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+            Success! Perusahaan '.$nama_perusahaan[0]->perusahaan_name.' Diterima.
             <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-            redirect('Admin/userbaru');
-        } else {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }
+            </div>');
+        redirect('Admin/userbaru');
     }
 
     // Tolak Perusahaan Baru

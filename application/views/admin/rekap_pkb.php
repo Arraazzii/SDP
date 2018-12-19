@@ -74,7 +74,7 @@
                 <th>No.</th>
                 <th>Nama Perusahaan</th>
                 <th>No. Registrasi</th>
-                <th>Jumlah</th>
+                <th>No. Dokumen</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -87,8 +87,8 @@
                 <td><?php echo $no++; ?></td>
                 <td><?php echo $row->nama_perusahaan; ?></td>
                 <td><?php echo $row->no_registrasi; ?></td>
-                <td>1</td>
-                <td><?php 
+                <td><?php echo $row->no_dokumen; ?></td>
+                <td><?php
                 if ($row->status == '0') {
                    echo "<span class='badge badge-info'>Baru</span> ";
                } elseif ($row->status == '1') {
@@ -96,7 +96,7 @@
             } elseif ($row->status == '2') {
                 echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
             }
-            ?> 
+            ?>
         </td>
     </tr>
     <?php
@@ -115,4 +115,4 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/bootstrap.dataTables.min.js"></script>
 <script type="text/javascript">
     $('#tableFilter').DataTable();
-</script> 
+</script>
