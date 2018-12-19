@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 04:02 PM
+-- Generation Time: Dec 19, 2018 at 07:53 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -7929,7 +7929,9 @@ INSERT INTO `table_history_pembaruan` (`id`, `kode_perusahaan`, `nama_file`, `no
 (68, 'PER1', '17d7ac859c909ee5dd006031e2f9dfc1.pdf', '32384', '32384', '2018-12-31', 'pkb', '2018-12-19 14:28:03'),
 (69, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2016-01-03', 'lks', '2018-12-19 14:28:03'),
 (70, 'PER1', '9a7a4181531a08d13086290e07c6e815.pdf', '34323', '34323', '2018-12-19', 'k3', '2018-12-19 14:28:03'),
-(71, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', 'wlkp', '2018-12-19 14:28:03');
+(71, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', 'wlkp', '2018-12-19 14:28:03'),
+(511, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2019-10-25', 'lks', '2018-12-19 18:42:31'),
+(512, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2018-11-29', 'lks', '2018-12-19 18:43:35');
 
 -- --------------------------------------------------------
 
@@ -8015,7 +8017,7 @@ CREATE TABLE `table_lks` (
 --
 
 INSERT INTO `table_lks` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(4, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2016-01-03', '2', '0');
+(4, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2018-11-29', '1', '0');
 
 --
 -- Triggers `table_lks`
@@ -83381,7 +83383,7 @@ ALTER TABLE `table_history_login`
 -- AUTO_INCREMENT for table `table_history_pembaruan`
 --
 ALTER TABLE `table_history_pembaruan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
 
 --
 -- AUTO_INCREMENT for table `table_k3`
