@@ -83,27 +83,28 @@
             $no = 1;
             foreach ($rekap_wlkp as $row) {
                ?>
-               <tr>
-                <td><?php echo $no++; ?></td>
-                <td><?php echo $row->nama_perusahaan; ?></td>
-                <td><?php echo $row->no_registrasi; ?></td>
-                <td><?php echo $row->no_dokumen; ?></td>
-                <td><?php
-                if ($row->status == '0') {
-                   echo "<span class='badge badge-info'>Baru</span> ";
-               } elseif ($row->status == '1') {
-                echo "<span class='badge badge-primary'>Perbarui</span> ";
-            } elseif ($row->status == '2') {
-                echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
-            }
+                <tr>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $row->nama_perusahaan; ?></td>
+                    <td><?php echo $row->no_registrasi; ?></td>
+                    <td><?php echo $row->no_dokumen; ?></td>
+                    <td><?php                 
+                    if ($row->status == '') {
+                        echo "<span class='badge badge-warning'>Kosong</span> ";
+                    } elseif ($row->status == '0') {
+                       echo "<span class='badge badge-info'>Baru</span> ";
+                    } elseif ($row->status == '1') {
+                        echo "<span class='badge badge-primary'>Perbarui</span> ";
+                    } elseif ($row->status == '2') {
+                        echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                    }
+                    ?></td>
+                </tr>
+            <?php
+                }
             ?>
-        </td>
-    </tr>
-    <?php
-}
-?>
-</tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 </div>
 </div>

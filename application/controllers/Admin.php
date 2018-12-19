@@ -240,7 +240,7 @@ $pdf = new FPDF('L','mm','A4');
         $id    = $this->input->post("id");
         $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
         $perusahaan = $this
-        ->m_admin
+        ->M_admin
         ->terima($id);
 
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
