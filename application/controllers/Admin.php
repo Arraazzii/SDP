@@ -187,32 +187,32 @@ $pdf = new FPDF('L','mm','A4');
 
     // Terima User Baru
     public function terima(){
-        // $id    = $this->input->post("id");
-        // $email = $this->input->post("email");
-        // $nama = $this->input->post("nama");
+        $id     = $this->input->post("id");
+        $email  = $this->input->post("email");
+        $nama   = $this->input->post("nama");
         $this->load->library('SMTP','PHPmailer');
 
-        $mail = new PHPMailer();
+        $mail   = new PHPMailer();
         // $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
         // $email_admin = $akunadmin[0]->email;
         // $nama_admin = $akunadmin[0]->nama;
         // $password_admin = $akunadmin[0]->password;
-        // $mail->IsSMTP();
-        $mail->SMTPKeepAlive = true;
-        $mail->Charset  = 'UTF-8';
+        $mail->IsSMTP();
+        // $mail->SMTPKeepAlive = true;
+        // $mail->Charset  = 'UTF-8';
         // $mail->IsHTML(true);
         $mail->SMTPAuth = true;
-        $mail->Port = 25;
+        $mail->Port     = 25;
         $mail->Host     = 'sdp.aozoratech.com';
-        $mail->Username = $email_admin;
-        $mail->Password = $password_admin;
+        $mail->Username = 'sdp@aozoratech.com';
+        $mail->Password = '99Y~-P8L]rJX';
         $mail->Mailer   = 'smtp';
         $mail->WordWrap = 100;
 
-        $mail->setFrom($email_admin);
-        $mail->FromName = $nama_admin;
+        $mail->setFrom('sdp@aozoratech.com');
+        $mail->FromName = 'Admin Disnaker';
         $mail->addAddress($email);
-        $mail->Subject = 'Registration Completed';
+        $mail->Subject  = 'Registration Completed';
         $mail_data['subject'] = 'Dear '. $nama;
         $mail_data['description'] = "Thank you for registration :)";
 
