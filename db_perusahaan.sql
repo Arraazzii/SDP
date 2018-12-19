@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 09:03 AM
+-- Generation Time: Dec 19, 2018 at 04:02 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -7864,13 +7864,9 @@ CREATE TABLE `table_alamat` (
 --
 
 INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecamatan`, `kelurahan`, `kode_pos`, `no_telpon`) VALUES
-('ALM1', 'alamat perusahaan 1', 'jawa barat', 'Depok', 'cilodong', 'cilodong', '15466', '0897662655555'),
-('ALM2', 'alamat pengurus 1', 'jawa barat', 'Depok', 'cilodong', 'cilodong', '19832', '08782647273'),
-('ALM3', 'alamat pengurus 2', 'jawa barat', 'Depok', 'cilodong', 'cilodong', '19832', '08782647273'),
-('ALM4', 'adsasd', 'ads', 'w', 'f', 'f', '222', '22'),
-('ALM5', 'alamat perusahaan buncit', 'jawa barat', 'Depok', 'cilodong', 'cilodong', '15466', '08976626171'),
-('ALM6', 'alamat pengurus 123', 'jawa barat', 'Depok', 'cilodong', 'cilodong', '19832', '08782647273'),
-('ALM7', 'asda', 'sd', 'asfasvfasfas', 'asd', 'd', '1231', '213');
+('ALM1', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '0895328976755'),
+('ALM2', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '085216154816'),
+('ALM3', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '02187921825');
 
 -- --------------------------------------------------------
 
@@ -7929,39 +7925,11 @@ CREATE TABLE `table_history_pembaruan` (
 --
 
 INSERT INTO `table_history_pembaruan` (`id`, `kode_perusahaan`, `nama_file`, `no_registrasi`, `no_dokumen`, `tanggal_daftar`, `type`, `time`) VALUES
-(2, 'PER1', '3bff4be92511cae766fbf560b2184b5a.pdf', '111111', '11111', '2018-12-01', 'pkb', '2018-12-15 22:17:20'),
-(3, 'PER2', 'Rekap_PP.pdf', '121312', '121312', '2018-12-17', 'pp', '2018-12-17 13:31:51'),
-(4, 'PER2', 'Rekap_PP.pdf', '32384', '32384', '2018-12-17', 'pkb', '2018-12-17 13:31:51'),
-(5, 'PER2', 'Rekap_PP.pdf', '43943', '43943', '2018-12-17', 'lks', '2018-12-17 13:31:51'),
-(6, 'PER2', 'Rekap_PP.pdf', '34323', '34323', '2018-12-17', 'k3', '2018-12-17 13:31:51'),
-(7, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 13:31:51'),
-(8, 'PER2', '09f10bec2eb66c04390196e20c744396.pdf', '1111', '11111', '2018-12-29', 'pp', '2018-12-17 13:43:02'),
-(9, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', 'pp', '2018-12-17 15:43:54'),
-(10, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:44:07'),
-(11, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:44:25'),
-(12, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:44:25'),
-(13, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:44:28'),
-(14, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:44:30'),
-(15, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:45:04'),
-(16, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:45:34'),
-(17, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', 'wlkp', '2018-12-17 15:46:51'),
-(18, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:39'),
-(19, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:42'),
-(20, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:44'),
-(21, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:55'),
-(22, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:57'),
-(23, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:57'),
-(24, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:59'),
-(25, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:49:59'),
-(26, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:25'),
-(27, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:28'),
-(28, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:37'),
-(29, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:41'),
-(30, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:47'),
-(31, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:50:52'),
-(32, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', 'wlkp', '2018-12-17 15:51:23'),
-(33, 'PER2', 'Rekap_PP.pdf', '34323', '34323', '2018-12-17', 'k3', '2018-12-17 15:53:26'),
-(34, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', 'pp', '2018-12-18 08:02:49');
+(67, 'PER1', '', '', '', '0000-00-00', 'pp', '2018-12-19 14:28:03'),
+(68, 'PER1', '17d7ac859c909ee5dd006031e2f9dfc1.pdf', '32384', '32384', '2018-12-31', 'pkb', '2018-12-19 14:28:03'),
+(69, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2016-01-03', 'lks', '2018-12-19 14:28:03'),
+(70, 'PER1', '9a7a4181531a08d13086290e07c6e815.pdf', '34323', '34323', '2018-12-19', 'k3', '2018-12-19 14:28:03'),
+(71, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', 'wlkp', '2018-12-19 14:28:03');
 
 -- --------------------------------------------------------
 
@@ -7985,8 +7953,7 @@ CREATE TABLE `table_k3` (
 --
 
 INSERT INTO `table_k3` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(1, 'PER1', '1.pdf', '34323', '34323', '2018-12-01', '1', '0'),
-(2, 'PER2', 'Rekap_PP.pdf', '34323', '34323', '2018-12-17', '', '0');
+(4, 'PER1', '9a7a4181531a08d13086290e07c6e815.pdf', '34323', '34323', '2018-12-19', '0', '0');
 
 --
 -- Triggers `table_k3`
@@ -8048,8 +8015,7 @@ CREATE TABLE `table_lks` (
 --
 
 INSERT INTO `table_lks` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(1, 'PER1', '1.pdf', '43943', '43943', '2018-12-01', '1', '0'),
-(2, 'PER2', 'Rekap_PP.pdf', '43943', '43943', '2018-12-17', '0', '0');
+(4, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2016-01-03', '2', '0');
 
 --
 -- Triggers `table_lks`
@@ -8087,9 +8053,8 @@ CREATE TABLE `table_login` (
 --
 
 INSERT INTO `table_login` (`id`, `email`, `password`, `status`, `level`, `kode_perusahaan`) VALUES
-(6, 'admin@buncit.com', '21232f297a57a5a743894a0e4a801fc3', 'sudah', 'admin', ''),
-(10, 'calenger747@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'sudah', 'user', 'PER1'),
-(11, 'mumaraziz2014@gmail.com', '3f265375ee4fb99f2439f3759683b34f', 'sudah', 'user', 'PER2');
+(1, 'admin@buncit.com', '21232f297a57a5a743894a0e4a801fc3', 'sudah', 'admin', ''),
+(13, 'mumaraziz2014@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'sudah', 'user', 'PER1');
 
 -- --------------------------------------------------------
 
@@ -8110,9 +8075,8 @@ CREATE TABLE `table_pengurus` (
 --
 
 INSERT INTO `table_pengurus` (`id`, `nama`, `jabatan`, `kode_alamat`, `kode_perusahaan`) VALUES
-(1, 'ari', 'ob', 'ALM2', 'PER1'),
-(3, 'daman', 'asda', 'ALM4', 'PER1'),
-(4, 'ari', 'pimpinan', 'ALM6', 'PER2');
+(6, 'Purri Anggraeni', 'Ummi', 'ALM2', 'PER1'),
+(7, 'Anta Budaya', 'Abi', 'ALM3', 'PER1');
 
 -- --------------------------------------------------------
 
@@ -8140,8 +8104,7 @@ CREATE TABLE `table_perusahaan` (
 --
 
 INSERT INTO `table_perusahaan` (`kode_perusahaan`, `nama_perusahaan`, `logo`, `deskripsi`, `siup`, `tdp`, `akte`, `hakim`, `domisili`, `kode_alamat`, `kode_klui`, `notif`) VALUES
-('PER1', 'perusahaan buncit1', 'IMG_20180917_164309.jpg', 'deskripsi perusahaan buncit', '69343-ID-none.pdf', '1.pdf', '1.pdf', '1.pdf', '1.pdf', 'ALM1', '--Silahkan', '0'),
-('PER2', 'perusahaan buncit bucin', 'Jellyfish.jpg', 'deskripsi perusahaan buncit', 'chart.pdf', 'chart.pdf', 'chart.pdf', 'chart.pdf', 'chart.pdf', 'ALM5', 'a123', '0');
+('PER1', 'PT. Lumbung Riang', '03d4324243bb8283d34db7872a0d7f1f.jpg', 'Unknown', '4eb3169ef121d0a444500e0bfb420178.pdf', 'a8b4be988e20559ca0932000d8bbb86c.pdf', '9e0b587eaa611b6eb4273f44be2b85e0.pdf', '049f9402867ca08b3a9d7ccd9cf2235b.pdf', '31d0123eab031994f3e841f41c19d226.pdf', 'ALM1', 'a123', '0');
 
 -- --------------------------------------------------------
 
@@ -8165,8 +8128,7 @@ CREATE TABLE `table_pkb` (
 --
 
 INSERT INTO `table_pkb` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(1, 'PER1', '3bff4be92511cae766fbf560b2184b5a.pdf', '11111', '111111', '2018-12-01', '1', '0'),
-(2, 'PER2', 'Rekap_PP.pdf', '32384', '32384', '2018-12-17', '0', '0');
+(4, 'PER1', '17d7ac859c909ee5dd006031e2f9dfc1.pdf', '32384', '32384', '2018-12-31', '0', '0');
 
 --
 -- Triggers `table_pkb`
@@ -8206,8 +8168,7 @@ CREATE TABLE `table_pp` (
 --
 
 INSERT INTO `table_pp` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(2, 'PER1', 'e921edbede91297abbd7fea8fb293fa9.pdf', '121312', '121312', '2018-12-01', '1', '0'),
-(3, 'PER2', '09f10bec2eb66c04390196e20c744396.pdf', '11111', '1111', '2018-12-29', '1', '0');
+(5, 'PER1', '', '', '', '0000-00-00', '', '0');
 
 --
 -- Triggers `table_pp`
@@ -8247,8 +8208,7 @@ CREATE TABLE `table_wlkp` (
 --
 
 INSERT INTO `table_wlkp` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(1, 'PER1', '1.pdf', '643422', '643422', '2018-12-01', '', '0'),
-(2, 'PER2', 'Rekap_PP.pdf', '643422', '643422', '2018-12-17', '0', '0');
+(4, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', '0', '0');
 
 --
 -- Triggers `table_wlkp`
@@ -83421,49 +83381,49 @@ ALTER TABLE `table_history_login`
 -- AUTO_INCREMENT for table `table_history_pembaruan`
 --
 ALTER TABLE `table_history_pembaruan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `table_k3`
 --
 ALTER TABLE `table_k3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_lks`
 --
 ALTER TABLE `table_lks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_login`
 --
 ALTER TABLE `table_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `table_pengurus`
 --
 ALTER TABLE `table_pengurus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `table_pkb`
 --
 ALTER TABLE `table_pkb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_pp`
 --
 ALTER TABLE `table_pp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_wlkp`
 --
 ALTER TABLE `table_wlkp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
