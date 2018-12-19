@@ -4,14 +4,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-stats">
                     <?php
-                    if ($status_pp == NULL){ ?>
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">add</i>
+                    if ($status_pp[0]['status_pp'] == NULL){ ?>
+                    <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">sim_card_alert</i>
+                            </div>
+                            <p class="card-category">Status :</p>
+                            <h3 class="card-title">Tidak Ada Data</h3>
                         </div>
-                        <p class="card-category">Status :</p>
-                        <h3 class="card-title">None</h3>
-                    </div>
                     <?php }else{
                         if ($status_pp[0]['status_pp'] == 0){?>
                         <div class="card-header card-header-success card-header-icon">
@@ -53,14 +53,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-stats">
                     <?php
-                    if ($status_pkb == NULL){ ?>
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">add</i>
+                    if ($status_pkb[0]['status_pkb'] == NULL){ ?>
+                    <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">sim_card_alert</i>
+                            </div>
+                            <p class="card-category">Status :</p>
+                            <h3 class="card-title">Tidak Ada Data</h3>
                         </div>
-                        <p class="card-category">Status :</p>
-                        <h3 class="card-title">None</h3>
-                    </div>
                     <?php }else{
                         if ($status_pkb[0]['status_pkb'] == 0){?>
                         <div class="card-header card-header-success card-header-icon">
@@ -101,14 +101,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-stats">
                     <?php
-                    if ($status_lks == NULL){ ?>
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">add</i>
+                    if ($status_lks[0]['status_lks'] == NULL){ ?>
+                    <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">sim_card_alert</i>
+                            </div>
+                            <p class="card-category">Status :</p>
+                            <h3 class="card-title">Tidak Ada Data</h3>
                         </div>
-                        <p class="card-category">Status :</p>
-                        <h3 class="card-title">None</h3>
-                    </div>
                     <?php }else{
                         if ($status_lks[0]['status_lks'] == 0){?>
                         <div class="card-header card-header-success card-header-icon">
@@ -149,14 +149,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-stats">
                     <?php
-                    if ($status_k3 == NULL){ ?>
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">add</i>
+                    if ($status_k3[0]['status_k3'] == NULL){ ?>
+                    <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">sim_card_alert</i>
+                            </div>
+                            <p class="card-category">Status :</p>
+                            <h3 class="card-title">Tidak Ada Data</h3>
                         </div>
-                        <p class="card-category">Status :</p>
-                        <h3 class="card-title">None</h3>
-                    </div>
                     <?php }else{
                         if ($status_k3[0]['status_k3'] == 0){?>
                         <div class="card-header card-header-success card-header-icon">
@@ -197,14 +197,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card card-stats">
                     <?php
-                    if ($status_wlkp == NULL){ ?>
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">add</i>
+                    if ($status_wlkp[0]['status_wlkp'] == NULL){ ?>
+                    <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">sim_card_alert</i>
+                            </div>
+                            <p class="card-category">Status :</p>
+                            <h3 class="card-title">Tidak Ada Data</h3>
                         </div>
-                        <p class="card-category">Status :</p>
-                        <h3 class="card-title">None</h3>
-                    </div>
                     <?php }else{
                         if ($status_wlkp[0]['status_wlkp'] == 0){?>
                         <div class="card-header card-header-success card-header-icon">
