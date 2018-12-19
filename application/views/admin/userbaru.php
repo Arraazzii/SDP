@@ -222,9 +222,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <object data="<?php echo base_url();?>upload/siup/<?php echo $siup; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                    <?php
+                                                        if ($siup == NULL) { ?>
+                                                           <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a> 
+                                                    <?php
+                                                        } else { ?>
+                                                            <object data="<?php echo base_url();?>upload/siup/<?php echo $siup; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                            <a href="<?php echo base_url();?>upload/siup/<?php echo $siup; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/siup/<?php echo $siup; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,9 +246,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <object data="<?php echo base_url();?>upload/tdp/<?php echo $tdp; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                    <?php
+                                                        if ($tdp == NULL) { ?>
+                                                           <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a> 
+                                                    <?php
+                                                        } else { ?>
+                                                            <object data="<?php echo base_url();?>upload/tdp/<?php echo $tdp; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                            <a href="<?php echo base_url();?>upload/tdp/<?php echo $tdp; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/tdp/<?php echo $tdp; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -252,9 +270,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <object data="<?php echo base_url();?>upload/akte/<?php echo $akte; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                    <?php
+                                                        if ($akte == NULL) { ?>
+                                                           <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a> 
+                                                    <?php
+                                                        } else { ?>
+                                                            <object data="<?php echo base_url();?>upload/akte/<?php echo $akte; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                            <a href="<?php echo base_url();?>upload/akte/<?php echo $akte; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/akte/<?php echo $akte; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,9 +294,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <object data="<?php echo base_url();?>upload/hakim/<?php echo $surat_hakim; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                    <?php
+                                                        if ($akte == NULL) { ?>
+                                                           <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a> 
+                                                    <?php
+                                                        } else { ?>
+                                                            <object data="<?php echo base_url();?>upload/hakim/<?php echo $surat_hakim; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                            <a href="<?php echo base_url();?>upload/hakim/<?php echo $surat_hakim; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/hakim/<?php echo $surat_hakim; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,9 +318,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <object data="<?php echo base_url();?>upload/domisili/<?php echo $domisili; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                    <?php
+                                                        if ($akte == NULL) { ?>
+                                                           <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a> 
+                                                    <?php
+                                                        } else { ?>
+                                                            <object data="<?php echo base_url();?>upload/domisili/<?php echo $domisili; ?>" type="application/pdf" width="100%" height="200"></object>
+                                                            <a href="<?php echo base_url();?>upload/domisili/<?php echo $domisili; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/domisili/<?php echo $domisili; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,9 +383,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <embed src="<?php echo base_url();?>upload/pp/<?php echo $row2['nama_file']; ?>">
+                                                        <?php
+                                                        if ($row2['status'] == '' OR $row2['nama_file'] == '') { ?>
+                                                            <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a>
+                                                    <?php        
+                                                        } else { ?>
+                                                            <embed src="<?php echo base_url();?>upload/pp/<?php echo $row2['nama_file']; ?>" class="img-center"><br>
+                                                            <a href="<?php echo base_url();?>upload/pkb/<a href="<?php echo base_url();?>upload/pp/<?php echo $row2['nama_file']; ?>" target="_blank" class="btn btn-primary col-12">Download</a>   
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/pp/<?php echo $row2['nama_file']; ?>" target="_blank" class="btn btn-primary col-10">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -369,9 +423,19 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <embed src="<?php echo base_url();?>upload/pkb/<?php echo $row3['nama_file']; ?>">
+                                                    <?php
+                                                        if ($row3['status'] == '' || $row3['nama_file'] == NULL) { ?>
+                                                            <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a>
+                                                    <?php        
+                                                        } else { ?>
+                                                            <embed src="<?php echo base_url();?>upload/pkb/<?php echo $row3['nama_file']; ?>" class="img-center"><br>
+                                                            <a href="<?php echo base_url();?>upload/pkb/<?php echo $row3['nama_file']; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>  
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/pkb/<?php echo $row3['nama_file']; ?>" target="_blank" class="btn btn-primary col-10">Download</a>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -400,9 +464,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <embed src="<?php echo base_url();?>upload/lks/<?php echo $row4['nama_file']; ?>">
+                                                    <?php
+                                                        if ($row4['status'] == '' || $row4['nama_file'] == NULL) { ?>
+                                                            <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a>
+                                                    <?php        
+                                                        } else { ?>
+                                                            <embed src="<?php echo base_url();?>upload/lks/<?php echo $row4['nama_file']; ?>" class="img-center"><br>
+                                                            <a href="<?php echo base_url();?>upload/lks/<?php echo $row4['nama_file']; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>                                                   
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/lks/<?php echo $row4['nama_file']; ?>" target="_blank" class="btn btn-primary col-10">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -431,9 +504,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <embed src="<?php echo base_url();?>upload/k3/<?php echo $row5['nama_file']; ?>">
+                                                    <?php
+                                                        if ($row5['status'] == '' || $row5['nama_file'] == NULL) { ?>
+                                                            <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a>
+                                                    <?php        
+                                                        } else { ?>
+                                                            <embed src="<?php echo base_url();?>upload/k3/<?php echo $row5['nama_file']; ?>" class="img-center"><br>
+                                                            <a href="<?php echo base_url();?>upload/k3/<?php echo $row5['nama_file']; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>  
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/k3/<?php echo $row5['nama_file']; ?>" target="_blank" class="btn btn-primary col-10">Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -462,9 +544,18 @@
                                             <div class="file-box">
                                                 <div class="box-content">
                                                     <div class="preview">
-                                                        <embed src="<?php echo base_url();?>upload/wlkp/<?php echo $row6['nama_file']; ?>">
+                                                    <?php
+                                                        if ($row6['status'] == '' || $row6['nama_file'] == NULL) { ?>
+                                                            <img src="<?php echo base_url();?>assets/images/file 128.png" class="img-center">
+                                                            <a class="btn btn-primary col-12 text-white">File Tidak Ada</a>
+                                                    <?php        
+                                                        } else { ?>
+                                                            <embed src="<?php echo base_url();?>upload/wlkp/<?php echo $row6['nama_file']; ?>" class="img-center"><br>
+                                                            <a href="<?php echo base_url();?>upload/wlkp/<?php echo $row6['nama_file']; ?>" target="_blank" class="btn btn-primary col-12">Download</a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     </div>
-                                                    <a href="<?php echo base_url();?>upload/wlkp/<?php echo $row6['nama_file']; ?>" target="_blank" class="btn btn-primary col-10">Download</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -20,6 +20,16 @@
 
             <div class="text-center">
               <?php
+                $total = 0;
+                foreach($data_pkb as $key => $value) {
+                  if ($value->status == ''){
+                    $total += $value->status== '';
+                  }
+                }
+                echo "Kosong : $total,";
+                ?>
+
+              <?php
               $total = 0;
               foreach($data_pkb as $key => $value) {
                 if ($value->status == 0){
@@ -83,6 +93,13 @@
               </tbody>
             </table>
             <?php 
+            $total9 = 0;
+          foreach($data_pkb as $key => $value) {
+            if ($value->status == ''){
+              $total9 += $value->status=='';
+            }
+          }
+
           $total1 = 0;
           foreach($data_pkb as $key => $value) {
             if ($value->status == 0){
@@ -103,7 +120,7 @@
               $total3 += $value->status==2;
             }
           }
-          echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1). " Data </span>";
+          echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1 + $total9). " Data </span>";
           ?>
           </div>
         </div>

@@ -11,7 +11,7 @@
   <script src="<?php echo base_url();?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url();?>assets/custom/js/main.js"></script>
 </head>
-<!-- <body onload="window.print(); window.history.back();"> -->
+<body onload="window.print(); window.history.back();">
   <div class="content mt-3">
     <div class="animated fadeIn">
       <div class="row">
@@ -22,8 +22,18 @@
                 <?php
                 $total = 0;
                 foreach($data_pp as $key => $value) {
-                  if ($value->status == 0){
-                    $total += $value->status==0;
+                  if ($value->status == ''){
+                    $total += $value->status== '';
+                  }
+                }
+                echo "Kosong : $total,";
+                ?>
+
+                <?php
+                $total = 0;
+                foreach($data_pp as $key => $value) {
+                  if ($value->status == '0'){
+                    $total += $value->status== '0';
                   }
                 }
                 echo "Baru : $total,";
@@ -32,8 +42,8 @@
                 <?php
                 $total = 0;
                 foreach($data_pp as $key => $value) {
-                  if ($value->status == 1){
-                    $total += $value->status==1;
+                  if ($value->status == '1'){
+                    $total += $value->status== '1';
                   }
                 }
                 echo "Perbarui : $total,";
@@ -42,8 +52,8 @@
                 <?php
                 $total = 0;
                 foreach($data_pp as $key => $value) {
-                  if ($value->status == 2){
-                    $total += $value->status==2;
+                  if ($value->status == '2'){
+                    $total += $value->status== '2';
                   }
                 }
                 echo "Kadaluarsa : $total";
@@ -68,11 +78,13 @@
                     <td><?php echo $pp->no_dokumen ?></td>
                     <td><?php echo $pp->no_registrasi ?></td>
                     <td><?php
-                    if ($pp->status == 0) {
+                    if ($pp->status == '') {
+                      echo "";
+                    } elseif ($pp->status == '0') {
                       echo "Baru";
-                    } elseif ($pp->status == 1) {
+                    } elseif ($pp->status == '1') {
                       echo "Perbarui";
-                    } elseif ($pp->status == 2) {
+                    } elseif ($pp->status == '2') {
                       echo "Kadaluwarsa";
                     }
                     ?>
@@ -80,7 +92,7 @@
                 </tr>
                 <?php $i++?>
                 <?php 
-                var_dump($pp);
+                // var_dump($pp);
                 //$total =  array_sum($pp->status);
                 //echo"$total";
                 ?>
@@ -88,27 +100,35 @@
             </tbody>
           </table>
           <?php 
+
+          $total9 = 0;
+          foreach($data_pp as $key => $value) {
+            if ($value->status == ''){
+              $total9 += $value->status=='';
+            }
+          }
+
           $total1 = 0;
           foreach($data_pp as $key => $value) {
-            if ($value->status == 0){
-              $total1 += $value->status==0;
+            if ($value->status == '0'){
+              $total1 += $value->status=='0';
             }
           }
 
           $total2 = 0;
           foreach($data_pp as $key => $value) {
-            if ($value->status == 1){
-              $total2 += $value->status==1;
+            if ($value->status == '1'){
+              $total2 += $value->status=='1';
             }
           }
 
           $total3 = 0;
           foreach($data_pp as $key => $value) {
-            if ($value->status == 2){
-              $total3 += $value->status==2;
+            if ($value->status == '2'){
+              $total3 += $value->status=='2';
             }
           }
-          echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1). " Data </span>";
+          echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1 + $total9). " Data </span>";
           ?>
         </div>
       </div>

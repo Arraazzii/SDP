@@ -186,69 +186,69 @@ $pdf = new FPDF('L','mm','A4');
     }
 
     // Terima User Baru
-    public function terima(){
-        $id     = $this->input->post("id");
-        $email  = $this->input->post("email");
-        $nama   = $this->input->post("nama");
-        $this->load->library('SMTP','PHPmailer');
+    // public function terima(){
+    //     $id     = $this->input->post("id");
+    //     $email  = $this->input->post("email");
+    //     $nama   = $this->input->post("nama");
+    //     $this->load->library('SMTP','PHPmailer');
 
-        $mail   = new PHPMailer();
-        // $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
-        // $email_admin = $akunadmin[0]->email;
-        // $nama_admin = $akunadmin[0]->nama;
-        // $password_admin = $akunadmin[0]->password;
-        $mail->IsSMTP();
-        // $mail->SMTPKeepAlive = true;
-        // $mail->Charset  = 'UTF-8';
-        // $mail->IsHTML(true);
-        $mail->SMTPAuth = true;
-        $mail->Port     = 25;
-        $mail->Host     = 'sdp.aozoratech.com';
-        $mail->Username = 'sdp@aozoratech.com';
-        $mail->Password = '99Y~-P8L]rJX';
-        $mail->Mailer   = 'smtp';
-        $mail->WordWrap = 100;
+    //     $mail   = new PHPMailer();
+    //     // $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
+    //     // $email_admin = $akunadmin[0]->email;
+    //     // $nama_admin = $akunadmin[0]->nama;
+    //     // $password_admin = $akunadmin[0]->password;
+    //     $mail->IsSMTP();
+    //     // $mail->SMTPKeepAlive = true;
+    //     // $mail->Charset  = 'UTF-8';
+    //     // $mail->IsHTML(true);
+    //     $mail->SMTPAuth = true;
+    //     $mail->Port     = 25;
+    //     $mail->Host     = 'sdp.aozoratech.com';
+    //     $mail->Username = 'sdp@aozoratech.com';
+    //     $mail->Password = '99Y~-P8L]rJX';
+    //     $mail->Mailer   = 'smtp';
+    //     $mail->WordWrap = 100;
 
-        $mail->setFrom('sdp@aozoratech.com');
-        $mail->FromName = 'Admin Disnaker';
-        $mail->addAddress($email);
-        $mail->Subject  = 'Registration Completed';
-        $mail_data['subject'] = 'Dear '. $nama;
-        $mail_data['description'] = "Thank you for registration :)";
+    //     $mail->setFrom('sdp@aozoratech.com');
+    //     $mail->FromName = 'Admin Disnaker';
+    //     $mail->addAddress($email);
+    //     $mail->Subject  = 'Registration Completed';
+    //     $mail_data['subject'] = 'Dear '. $nama;
+    //     $mail_data['description'] = "Thank you for registration :)";
 
-        $message = $this->load->view('Admin/template/email', $mail_data, TRUE);
-        $mail->Body = $message;
+    //     $message = $this->load->view('Admin/template/email', $mail_data, TRUE);
+    //     $mail->Body = $message;
 
-        if ($mail->send()) {
-            $perusahaan = $this
-                        ->m_admin
-                        ->terima($id);
+    //     if ($mail->send()) {
+    //         $perusahaan = $this
+    //                     ->m_admin
+    //                     ->terima($id);
 
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Perusahaan Diterima.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-            redirect('Admin/userbaru');
-        } else {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }
-    }
+    //         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+    //         Success! Perusahaan Diterima.
+    //         <button type="button" class="close" data-dismiss="alert">&times</button>
+    //                                             </div>');
+    //         redirect('Admin/userbaru');
+    //     } else {
+    //         echo 'Message could not be sent.';
+    //         echo 'Mailer Error: ' . $mail->ErrorInfo;
+    //     }
+    // }
 
     // Terima User Baru
-    // public function terima(){
-    //     $id    = $this->input->post("id");
-    //     $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
-    //     $perusahaan = $this
-    //     ->M_admin
-    //     ->terima($id);
+    public function terima(){
+        $id    = $this->input->post("id");
+        $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
+        $perusahaan = $this
+        ->m_admin
+        ->terima($id);
 
-    //     $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-    //         Success! Perusahaan '.$nama_perusahaan[0]->perusahaan_name.' Diterima.
-    //         <button type="button" class="close" data-dismiss="alert">&times</button>
-    //         </div>');
-    //     redirect('Admin/userbaru');
-    // }
+        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+            Success! Perusahaan '.$nama_perusahaan[0]->perusahaan_name.' Diterima.
+            <button type="button" class="close" data-dismiss="alert">&times</button>
+            </div>');
+        redirect('Admin/userbaru');
+    }
 
     // Tolak Perusahaan Baru
     public function tolak(){
@@ -521,9 +521,9 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, k3.no_registrasi, k3.no_dokumen, k3.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_k3 as k3', 'per.kode_perusahaan = k3.kode_perusahaan');
-				if (!empty($input['status'])) {
-						$this->db->where('k3.status = ', $input['status']);
-				}
+				// if (!empty($input['status'])) {
+				// 		$this->db->where('k3.status = ', $input['status']);
+				// }
 				if (!empty($input['tgl_awal'])) {
 						$this->db->where('k3.tanggal_daftar >= ', $input['tgl_awal']);
 				}
@@ -548,9 +548,9 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, lks.no_registrasi, lks.no_dokumen, lks.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_lks as lks', 'per.kode_perusahaan = lks.kode_perusahaan');
-				if (!empty($input['status'])) {
-						$this->db->where('lks.status = ', $input['status']);
-				}
+				// if (!empty($input['status'])) {
+				// 		$this->db->where('lks.status = ', $input['status']);
+				// }
 				if (!empty($input['tgl_awal'])) {
 						$this->db->where('lks.tanggal_daftar >= ', $input['tgl_awal']);
 				}
@@ -575,9 +575,9 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pkb.no_registrasi, pkb.no_dokumen, pkb.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_pkb as pkb', 'per.kode_perusahaan = pkb.kode_perusahaan');
-				if (!empty($input['status'])) {
-						$this->db->where('pkb.status = ', $input['status']);
-				}
+				// if (!empty($input['status'])) {
+				// 		$this->db->where('pkb.status = ', $input['status']);
+				// }
 				if (!empty($input['tgl_awal'])) {
 						$this->db->where('pkb.tanggal_daftar >= ', $input['tgl_awal']);
 				}
@@ -602,9 +602,9 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pp.no_registrasi, pp.no_dokumen, pp.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_pp as pp', 'per.kode_perusahaan = pp.kode_perusahaan');
-				if (!empty($input['status'])) {
-						$this->db->where('pp.status = ', $input['status']);
-				}
+				// if (!empty($input['status'])) {
+				// 		$this->db->where('pp.status = ', $input['status']);
+				// }
 				if (!empty($input['tgl_awal'])) {
 						$this->db->where('pp.tanggal_daftar >= ', $input['tgl_awal']);
 				}
@@ -648,9 +648,9 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, wlkp.no_registrasi, wlkp.no_dokumen, wlkp.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_wlkp as wlkp', 'per.kode_perusahaan = wlkp.kode_perusahaan');
-				if (!empty($input['status'])) {
-						$this->db->where('wlkp.status = ', $input['status']);
-				}
+				// if (!empty($input['status'])) {
+				// 		$this->db->where('wlkp.status = ', $input['status']);
+				// }
 				if (!empty($input['tgl_awal'])) {
 						$this->db->where('wlkp.tanggal_daftar >= ', $input['tgl_awal']);
 				}

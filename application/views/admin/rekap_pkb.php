@@ -32,42 +32,23 @@
                         <strong class="card-title">Data PKB Perusahaan</strong>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <form class="form-inline" action="<?php echo base_url()?>Admin/report_pkb" target="_blank" method="post" style="width:100%;">
-                                <div class="col-sm-1">
-                                  <div class="form-group">
-                                    <label for=""> status</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                              <select class="form-control" name="status">
-                                <option value=""> pilih status</option>
-                                <option value="0">Baru</option>
-                                <option value="2">Kadaluarsa</option>
-                                <option value="1">Perbarui</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-1">
-                          <span> periode </span>
-                      </div>
-                      <div class="col-sm-3">
-                          <div class="form-group">
-                            <input class="form-control" type="date" name="tgl_awal" value="">
-                        </div>
-                    </div>
-                    <div class="col-sm-1">
-                      <label for="">sampai</label>
-                  </div>
-                  <div class="col-sm-2">
+                        <form class="form-inline" action="<?php echo base_url()?>Admin/report_pkb" target="_blank" method="post">
+                    <div class="col-sm-5">
                       <div class="form-group">
-                        <input class="form-control" type="date" name="tgl_akhir" value="">
+                        <label>Periode</label>
+                        <input class="form-control" type="date" name="tgl_awal" value="">
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                  <button type="submit" class="btn btn-outline-primary float-right"><i class="fa fa-print"></i>&nbsp; Print</button>
-              </div>
-          </form>
-      </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                        <label>Sampai</label>
+                        <input class="form-control" type="date" name="tgl_akhir" value="">
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" class="btn btn-outline-primary float-right"><i class="fa fa-print"></i>&nbsp; Print</button>
+                    </div>
+                </form>
       <table id="tableFilter" class="table table-striped table-bordered">
         <thead>
             <tr>
