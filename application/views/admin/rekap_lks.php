@@ -89,13 +89,15 @@
             <td><?php echo $row->no_registrasi; ?></td>
             <td>1</td>
             <td><?php 
-            if ($row->status == '0') {
-               echo "<span class='badge badge-info'>Baru</span> ";
-           } elseif ($row->status == '1') {
-            echo "<span class='badge badge-primary'>Perbarui</span> ";
-        } elseif ($row->status == '2') {
-            echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
-        }
+            if ($row->status == '') {
+              echo "<span class='badge badge-warning'>Kosong</span> ";
+            } elseif ($row->status == '0') {
+              echo "<span class='badge badge-info'>Baru</span> ";
+            } elseif ($row->status == '1') {
+              echo "<span class='badge badge-primary'>Perbarui</span> ";
+            } elseif ($row->status == '2') {
+              echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+            }
         ?> 
     </td>
 </tr>
