@@ -79,19 +79,19 @@
                     <td><?php echo $pp->no_registrasi ?></td>
                     <td><?php
                     if ($pp->status == '') {
-                      echo "";
-                    } elseif ($pp->status == '0') {
-                      echo "Baru";
-                    } elseif ($pp->status == '1') {
-                      echo "Perbarui";
-                    } elseif ($pp->status == '2') {
-                      echo "Kadaluwarsa";
-                    }
+                          echo "<span class='badge badge-warning'>Kosong</span> ";
+                      } elseif ($pp->status == '0') {
+                         echo "<span class='badge badge-info'>Baru</span> ";
+                      } elseif ($pp->status == '1') {
+                          echo "<span class='badge badge-primary'>Perbarui</span> ";
+                      } elseif ($pp->status == '2') {
+                          echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                      }
                     ?>
                   </td>
                 </tr>
                 <?php $i++?>
-                <?php 
+                <?php
                 // var_dump($pp);
                 //$total =  array_sum($pp->status);
                 //echo"$total";
@@ -99,7 +99,7 @@
               <?php endforeach ?>
             </tbody>
           </table>
-          <?php 
+          <?php
 
           $total9 = 0;
           foreach($data_pp as $key => $value) {

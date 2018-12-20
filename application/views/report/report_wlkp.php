@@ -80,13 +80,15 @@
                     <td><?php echo $wlkp->no_dokumen ?></td>
                     <td><?php echo $wlkp->no_registrasi ?></td>
                     <td><?php
-                    if ($wlkp->status == 0) {
-                      echo "Baru";
-                    } elseif ($wlkp->status == 1) {
-                      echo "Perbarui";
-                    } elseif ($wlkp->status == 2) {
-                      echo "Kadaluwarsa";
-                    }
+                    if ($wlkp->status == '') {
+                          echo "<span class='badge badge-warning'>Kosong</span> ";
+                      } elseif ($wlkp->status == '0') {
+                         echo "<span class='badge badge-info'>Baru</span> ";
+                      } elseif ($wlkp->status == '1') {
+                          echo "<span class='badge badge-primary'>Perbarui</span> ";
+                      } elseif ($wlkp->status == '2') {
+                          echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                      }
                     ?>
                   </td>
                 </tr>
@@ -94,7 +96,7 @@
               <?php endforeach ?>
             </tbody>
           </table>
-          <?php 
+          <?php
           $total9 = 0;
           foreach($data_wlkp as $key => $value) {
             if ($value->status == ''){

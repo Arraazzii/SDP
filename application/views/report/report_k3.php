@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Report K3</title> 
+  <title>Report K3</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css">
@@ -79,13 +79,15 @@
                     <td><?php echo $k3->no_dokumen ?></td>
                     <td><?php echo $k3->no_registrasi ?></td>
                     <td><?php
-                    if ($k3->status == 0) {
-                      echo "Baru";
-                    } elseif ($k3->status == 1) {
-                      echo "Perbarui";
-                    } elseif ($k3->status == 2) {
-                      echo "Kadaluwarsa";
-                    }
+                    if ($k3->status == '') {
+                          echo "<span class='badge badge-warning'>Kosong</span> ";
+                      } elseif ($k3->status == '0') {
+                         echo "<span class='badge badge-info'>Baru</span> ";
+                      } elseif ($k3->status == '1') {
+                          echo "<span class='badge badge-primary'>Perbarui</span> ";
+                      } elseif ($k3->status == '2') {
+                          echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                      }
                     ?>
                   </td>
                 </tr>
@@ -93,7 +95,7 @@
               <?php endforeach ?>
             </tbody>
           </table>
-          <?php 
+          <?php
           $total9 = 0;
           foreach($data_k3 as $key => $value) {
             if ($value->status == ''){

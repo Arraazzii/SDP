@@ -79,20 +79,22 @@
                     <td><?php echo $pkb->no_dokumen ?></td>
                     <td><?php echo $pkb->no_registrasi ?></td>
                     <td><?php
-                    if ($pkb->status == 0) {
-                      echo "Baru";
-                    } elseif ($pkb->status == 1) {
-                      echo "Perbarui";
-                    } elseif ($pkb->status == 2) {
-                      echo "Kadaluwarsa";
-                    }
+                    if ($pkb->status == '') {
+                          echo "<span class='badge badge-warning'>Kosong</span> ";
+                      } elseif ($pkb->status == '0') {
+                         echo "<span class='badge badge-info'>Baru</span> ";
+                      } elseif ($pkb->status == '1') {
+                          echo "<span class='badge badge-primary'>Perbarui</span> ";
+                      } elseif ($pkb->status == '2') {
+                          echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                      }
                     ?>
                   </tr>
                   <?php $i++?>
                 <?php endforeach ?>
               </tbody>
             </table>
-            <?php 
+            <?php
             $total9 = 0;
           foreach($data_pkb as $key => $value) {
             if ($value->status == ''){

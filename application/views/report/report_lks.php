@@ -80,13 +80,15 @@
                     <td><?php echo $lks->no_dokumen ?></td>
                     <td><?php echo $lks->no_registrasi ?></td>
                     <td><?php
-                    if ($lks->status == 0) {
-                      echo "Baru";
-                    } elseif ($lks->status == 1) {
-                      echo "Perbarui";
-                    } elseif ($lks->status == 2) {
-                      echo "Kadaluwarsa";
-                    }
+                    if ($lks->status == '') {
+                          echo "<span class='badge badge-warning'>Kosong</span> ";
+                      } elseif ($lks->status == '0') {
+                         echo "<span class='badge badge-info'>Baru</span> ";
+                      } elseif ($lks->status == '1') {
+                          echo "<span class='badge badge-primary'>Perbarui</span> ";
+                      } elseif ($lks->status == '2') {
+                          echo "<span class='badge badge-danger'>Kadaluarsa</span> ";
+                      }
                     ?>
                   </td>
                 </tr>
@@ -94,7 +96,7 @@
               <?php endforeach ?>
             </tbody>
           </table>
-          <?php 
+          <?php
           $total9 = 0;
           foreach($data_lks as $key => $value) {
             if ($value->status == ''){
