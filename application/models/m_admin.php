@@ -402,37 +402,40 @@ class m_admin extends CI_Model {
 		foreach ($data_pp as $pp) {
 			if (!empty($pp->nama_file)) {
 				// code...
-			$update = [
-				'kode_perusahaan' => $pp->kode_perusahaan,
-				'status' => '2',
-			];
+				if ($pp->status != 2) {
+					$update = [
+						'kode_perusahaan' => $pp->kode_perusahaan,
+						'status' => '2',
+					];
 
-			$where = [
-				'id' => $pp->id,
-				'kode_perusahaan' => $pp->kode_perusahaan,
-			];
+					$where = [
+						'id' => $pp->id,
+						'kode_perusahaan' => $pp->kode_perusahaan,
+					];
 
-			$this->db->where($where);
-			$this->db->update('table_pp', $update);
+					$this->db->where($where);
+					$this->db->update('table_pp', $update);
+				}
 			}
 		}
 		$query_pkb = "SELECT * FROM table_pkb WHERE tanggal_daftar <= '".$end."'";
 		$data_pkb = $this->db->query($query_pkb)->result();
 		foreach ($data_pkb as $pkb) {
 			if (!empty($pkb->nama_file)) {
-				// code...
-			$update = [
-				'kode_perusahaan' => $pkb->kode_perusahaan,
-				'status' => '2',
-			];
+				if ($pkb->status != 2) {
+					$update = [
+						'kode_perusahaan' => $pkb->kode_perusahaan,
+						'status' => '2',
+					];
 
-			$where = [
-				'id' => $pkb->id,
-				'kode_perusahaan' => $pkb->kode_perusahaan,
-			];
+					$where = [
+						'id' => $pkb->id,
+						'kode_perusahaan' => $pkb->kode_perusahaan,
+					];
 
-			$this->db->where($where);
-			$this->db->update('table_pkb', $update);
+					$this->db->where($where);
+					$this->db->update('table_pkb', $update);
+				}
 			}
 		}
 
@@ -440,19 +443,20 @@ class m_admin extends CI_Model {
 		$data_k3 = $this->db->query($query_k3)->result();
 		foreach ($data_k3 as $k3) {
 			if (!empty($k3->nama_file)) {
-				// code...
-			$update = [
-				'kode_perusahaan' => $k3->kode_perusahaan,
-				'status' => '2',
-			];
+				if ($k3->status != 2) {
+					$update = [
+						'kode_perusahaan' => $k3->kode_perusahaan,
+						'status' => '2',
+					];
 
-			$where = [
-				'id' => $k3->id,
-				'kode_perusahaan' => $k3->kode_perusahaan,
-			];
+					$where = [
+						'id' => $k3->id,
+						'kode_perusahaan' => $k3->kode_perusahaan,
+					];
 
-			$this->db->where($where);
-			$this->db->update('table_k3', $update);
+					$this->db->where($where);
+					$this->db->update('table_k3', $update);
+				}
 			}
 		}
 
@@ -460,19 +464,20 @@ class m_admin extends CI_Model {
 		$data_lks = $this->db->query($query_lks)->result();
 		foreach ($data_lks as $lks) {
 			if (!empty($lks->nama_file)) {
-				// code...
-			$update = [
-				'kode_perusahaan' => $lks->kode_perusahaan,
-				'status' => '2',
-			];
+				if ($lks->status != 2) {
+					$update = [
+						'kode_perusahaan' => $lks->kode_perusahaan,
+						'status' => '2',
+					];
 
-			$where = [
-				'id' => $lks->id,
-				'kode_perusahaan' => $lks->kode_perusahaan,
-			];
+					$where = [
+						'id' => $lks->id,
+						'kode_perusahaan' => $lks->kode_perusahaan,
+					];
 
-			$this->db->where($where);
-			$this->db->update('table_lks', $update);
+					$this->db->where($where);
+					$this->db->update('table_lks', $update);
+				}
 			}
 		}
 
@@ -480,22 +485,23 @@ class m_admin extends CI_Model {
 		$data_wlkp = $this->db->query($query_wlkp)->result();
 		foreach ($data_wlkp as $wlkp) {
 			if (!empty($wlkp->nama_file)) {
-				// code...
-			$update = [
-				'kode_perusahaan' => $wlkp->kode_perusahaan,
-				'status' => '2',
-			];
+				if ($wlkp->status != 2) {
+					$update = [
+						'kode_perusahaan' => $wlkp->kode_perusahaan,
+						'status' => '2',
+					];
 
-			$where = [
-				'id' => $pp->id,
-				'kode_perusahaan' => $wlkp->kode_perusahaan,
-			];
+					$where = [
+						'id' => $pp->id,
+						'kode_perusahaan' => $wlkp->kode_perusahaan,
+					];
 
-			$this->db->where($where);
-			$this->db->update('table_wlkp', $update);
+					$this->db->where($where);
+					$this->db->update('table_wlkp', $update);
+				}
 			}
-		}
 
+		}
 		$data = [
 			'data_pp' => $data_pp,
 			'data_pkb' => $data_pkb,
