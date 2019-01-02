@@ -134,7 +134,7 @@
                                   <textarea name="alamat_perusahaan" class="form-control required" required="">alamat perusahaan buncit</textarea>
                               </div>
                             </div>
-                            <div class="col-sm-4">
+                            <!-- <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Provinsi</label>
                                   <input type="text" name="provinsi" class="form-control required" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
@@ -156,6 +156,39 @@
                               <div class="form-group">
                                   <label>Kelurahan</label>
                                   <input type="text" name="kelurahan" class="form-control required" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                              </div>
+                            </div> -->
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Provinsi</label>
+                                <select name="provinsi" class="form-control">
+                                  <option value="">-Pilih Provinsi-</option>
+
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Kabupaten/Kota</label>
+                                <select name="kota" class="form-control">
+                                  <option hidden>-Pilih Kabupaten/Kota-</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Kecamatan</label>
+                                <select name="kecamatan" class="form-control">
+                                  <option hidden>-Pilih Kecamatan-</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="form-group">
+                                <label>Kelurahan</label>
+                                <select name="kelurahan" class="form-control">
+                                  <option hidden>-Pilih Kelurahan-</option>
+                                </select>
                               </div>
                             </div>
                             <div class="col-sm-4">
@@ -252,7 +285,7 @@
                                           <textarea name="alamat_pengurus" class="form-control" required="">alamat pengurus</textarea>
                                       </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <!-- <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Provinsi</label>
                                           <input type="text" name="provinsi_pengurus" class="form-control" placeholder="Provinsi Perusahaan Anda" value="jawa barat" required="">
@@ -274,6 +307,38 @@
                                       <div class="form-group">
                                           <label>Kelurahan</label>
                                           <input type="text" name="kelurahan_pengurus" class="form-control" placeholder="Kelurahan Perusahaan Anda" value="cilodong" required="">
+                                      </div>
+                                    </div> -->
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Provinsi</label>
+                                          <select name="provinsi_pengurus" class="form-control">
+                                              <option hidden>-Pilih Provinsi-</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                          <label>Kabupaten/Kota</label>
+                                          <select name="kota_pengurus" class="form-control">
+                                              <option hidden>-Pilih Kabupaten/Kota-</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                        <label>Kecamatan</label>
+                                        <select name="kecamatan_pengurus" class="form-control">
+                                          <option hidden>-Pilih Kecamatan-</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                        <label>Kelurahan</label>
+                                        <select name="kelurahan_pengurus" class="form-control">
+                                          <option hidden>-Pilih Kelurahan-</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -428,6 +493,8 @@
             $(document).ready(function() {
                 $("#form2").hide();
                 $("#form3").hide();
+                onChangeProvinsi();
+                onChangeProvinsiPengurus();
         //@naresh action dynamic childs
         var next = 0;
         $("#add-more").click(function(e) {
@@ -660,6 +727,216 @@
                     });
                   }
               }
+
+              function onChangeProvinsi(){
+                var form_data = {}
+
+                $.ajax({
+                    url: "<?= base_url() ?>indonesia/get_provinsi",
+                    type: "POST",
+                    data: form_data,
+                    dataType: "json",
+                    success : function(data){
+                        $("select[name='provinsi']").empty();
+                        var option = "<option value=''>-Pilih Provinsi-</option>";
+                        $.each(data, function(index, value){
+                            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                            option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                        });
+                        console.log(data, option);
+                        $("select[name='provinsi']").append(option);
+                    },
+                    error : function(e){
+                        console.log(e);
+                    },
+                    });
+
+
+                $("select[name='provinsi']").change(function(){
+                    var form_data = {
+                        provincesId : $(this).val(),
+                    }
+
+                    $.ajax({
+                        url: "<?= base_url() ?>indonesia/get_kota",
+                        type: "POST",
+                        data: form_data,
+                        dataType: "json",
+                        success : function(data){
+                            $("select[name='kota']").empty();
+                            var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
+                            $.each(data, function(index, value){
+                                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                                option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                            });
+                            console.log(data, option);
+                            $("select[name='kota']").append(option);
+                        },
+                        error : function(e){
+                            console.log(e);
+                        },
+                        });
+                });
+
+              $("select[name='kota']").change(function(){
+                    var form_data = {
+                        regenciesId : $(this).val(),
+                    }
+
+                    $.ajax({
+                        url: "<?= base_url() ?>indonesia/get_kecamatan",
+                        type: "POST",
+                        data: form_data,
+                        dataType: "json",
+                        success : function(data){
+                            $("select[name='kecamatan']").empty();
+                            var option = "<option value=''>-Pilih Kecamatan-</option>";
+                            $.each(data, function(index, value){
+                                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                                option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                            });
+                            console.log(data, option);
+                            $("select[name='kecamatan']").append(option);
+                        },
+                        error : function(e){
+                            console.log(e);
+                        },
+                        });
+                });
+
+                $("select[name='kecamatan']").change(function(){
+                    var form_data = {
+                        districtsId : $(this).val(),
+                    }
+
+                    $.ajax({
+                        url: "<?= base_url() ?>indonesia/get_kelurahan",
+                        type: "POST",
+                        data: form_data,
+                        dataType: "json",
+                        success : function(data){
+                            $("select[name='kelurahan']").empty();
+                            var option = "<option value=''>-Pilih Kelurahan-</option>";
+                            $.each(data, function(index, value){
+                                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                                option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                            });
+                            console.log(data, option);
+                            $("select[name='kelurahan']").append(option);
+                        },
+                        error : function(e){
+                            console.log(e);
+                        },
+                        });
+                });
+            }
+
+            function onChangeProvinsiPengurus(){
+              var form_data = {}
+
+              $.ajax({
+                  url: "<?= base_url() ?>indonesia/get_provinsi",
+                  type: "POST",
+                  data: form_data,
+                  dataType: "json",
+                  success : function(data){
+                      $("select[name='provinsi_pengurus']").empty();
+                      var option = "<option value=''>-Pilih Provinsi-</option>";
+                      $.each(data, function(index, value){
+                          // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                          option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                      });
+                      // console.log(data, option);
+                      $("select[name='provinsi_pengurus']").append(option);
+                  },
+                  error : function(e){
+                      console.log(e);
+                  },
+                  });
+
+
+              $("select[name='provinsi_pengurus']").change(function(){
+                console.log("provinsi change");
+                var parents = $(this).parents(".field0");
+                  var form_data = {
+                      provincesId : $(this).val(),
+                  }
+
+                  $.ajax({
+                      url: "<?= base_url() ?>indonesia/get_kota",
+                      type: "POST",
+                      data: form_data,
+                      dataType: "json",
+                      success : function(data){
+                          parents.find("select[name='kota_pengurus']").empty();
+                          var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
+                          $.each(data, function(index, value){
+                              // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                              option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                          });
+                          // console.log(data, option);
+                          parents.find("select[name='kota_pengurus']").append(option);
+                      },
+                      error : function(e){
+                          console.log(e);
+                      },
+                      });
+              });
+
+            $("select[name='kota_pengurus']").change(function(){
+                  var parents = $(this).parents(".field0");
+                  var form_data = {
+                      regenciesId : $(this).val(),
+                  }
+
+                  $.ajax({
+                      url: "<?= base_url() ?>indonesia/get_kecamatan",
+                      type: "POST",
+                      data: form_data,
+                      dataType: "json",
+                      success : function(data){
+                          parents.find("select[name='kecamatan_pengurus']").empty();
+                          var option = "<option value=''>-Pilih Kecamatan-</option>";
+                          $.each(data, function(index, value){
+                              // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                              option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                          });
+                          // console.log(data, option);
+                          parents.find("select[name='kecamatan_pengurus']").append(option);
+                      },
+                      error : function(e){
+                          console.log(e);
+                      },
+                      });
+              });
+
+              $("select[name='kecamatan_pengurus']").change(function(){
+                var parents = $(this).parents(".field0");
+                  var form_data = {
+                      districtsId : $(this).val(),
+                  }
+
+                  $.ajax({
+                      url: "<?= base_url() ?>indonesia/get_kelurahan",
+                      type: "POST",
+                      data: form_data,
+                      dataType: "json",
+                      success : function(data){
+                          parents.find("select[name='kelurahan_pengurus']").empty();
+                          var option = "<option value=''>-Pilih Kelurahan-</option>";
+                          $.each(data, function(index, value){
+                              // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                              option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                          });
+                          // console.log(data, option);
+                          parents.find("select[name='kelurahan_pengurus']").append(option);
+                      },
+                      error : function(e){
+                          console.log(e);
+                      },
+                      });
+              });
+            }
 
         </script>
         <script type="text/javascript">

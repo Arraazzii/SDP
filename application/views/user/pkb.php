@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <script type="text/javascript" src="<?php echo base_url('assets/assets_user/js/pdfObject.js');?>"></script>
-                <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/jquery.datatables.min.js"></script>
+                <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/jquery.dataTables.min.js"></script>
                 <script type="text/javascript">
                     $('#tableFilter').DataTable();
                 </script>

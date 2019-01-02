@@ -72,6 +72,44 @@
                     </div>
                 </div>
             </div>
+                                <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title mb-3">Pengurus Perusahaan <?php echo $row->nama_perusahaan; ?></strong>
+                    </div>
+                    <div class="card-body">
+                       <div id="field0">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nama Pengurus</th>
+                                    <th>Jabatan</th>
+                                    <th>Alamat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $kode = $this->uri->segment(3);
+                                $sql1 = $this->db->query("SELECT * FROM table_pengurus JOIN table_alamat ON table_pengurus.kode_alamat = table_alamat.kode_alamat WHERE table_pengurus.kode_perusahaan = '$kode' ")->result_array();
+                                $no1 = 1;
+                                foreach ($sql1 as $row1) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row1['nama']; ?></td>
+                                        <td><?php echo $row1['jabatan']; ?></td>
+                                        <td><?php echo $row1['alamat']; ?>, <?php echo $row1['kelurahan']; ?>, <?php echo $row1['kecamatan']; ?>, <?php echo $row1['kota']; ?>, <?php echo $row1['provinsi']; ?> - <?php echo $row1['kode_pos']; ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

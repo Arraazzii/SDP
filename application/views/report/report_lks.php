@@ -23,8 +23,8 @@
                 <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
-                  if ($value->status == ''){
-                    $total += $value->status== '';
+                  if ($value->status === ''){
+                    $total += 1;
                   }
                 }
                 echo "Kosong : $total,";
@@ -33,8 +33,8 @@
                 <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
-                  if ($value->status == 0){
-                    $total += $value->status==0;
+                  if ($value->status === "0"){
+                    $total += 1;
                   }
                 }
                 echo "Baru : $total,";
@@ -43,8 +43,8 @@
                 <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
-                  if ($value->status == 1){
-                    $total += $value->status==1;
+                  if ($value->status == "1"){
+                    $total += 1;
                   }
                 }
                 echo "Perbarui : $total,";
@@ -53,8 +53,8 @@
                 <?php
                 $total = 0;
                 foreach($data_lks as $key => $value) {
-                  if ($value->status == 2){
-                    $total += $value->status==2;
+                  if ($value->status == "2"){
+                    $total += 1;
                   }
                 }
                 echo "Kadaluarsa : $total";
@@ -99,29 +99,29 @@
           <?php
           $total9 = 0;
           foreach($data_lks as $key => $value) {
-            if ($value->status == ''){
-              $total9 += $value->status=='';
+            if ($value->status === ''){
+              $total9 += 1;
             }
           }
 
           $total1 = 0;
           foreach($data_lks as $key => $value) {
-            if ($value->status == 0){
-              $total1 += $value->status==0;
+            if ($value->status === "0"){
+              $total1 += 1;
             }
           }
 
           $total2 = 0;
           foreach($data_lks as $key => $value) {
-            if ($value->status == 1){
-              $total2 += $value->status==1;
+            if ($value->status == "1"){
+              $total2 += 1;
             }
           }
 
           $total3 = 0;
           foreach($data_lks as $key => $value) {
-            if ($value->status == 2){
-              $total3 += $value->status==2;
+            if ($value->status == "2"){
+              $total3 += 1;
             }
           }
           echo "<span class='pull-right'>Jumlah : " .intval($total3 + $total2 + $total1 + $total9). " Data </span>";

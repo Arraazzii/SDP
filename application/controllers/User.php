@@ -35,20 +35,20 @@ class User extends CI_Controller {
         $page = array(
             "header" => $this
             ->load
-            ->view('User/template/header', array(
+            ->view('user/template/header', array(
                 "title" => $title,
                 "count_notif_user" => $this->M_user->count_notif_user($session['kode_perusahaan']),
                 "notif_view" => $this->M_user->show_notif($session['kode_perusahaan']),
             ) , true) ,
             "css" => $this
             ->load
-            ->view('User/template/main_css', false, true) ,
+            ->view('user/template/main_css', false, true) ,
             "sidebar" => $this
             ->load
-            ->view('User/template/sidebar', false, true) ,
+            ->view('user/template/sidebar', false, true) ,
             "js" => $this
             ->load
-            ->view('User/template/main_js', false, true) ,
+            ->view('user/template/main_js', false, true) ,
         );
         return $page;
     }
@@ -68,11 +68,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Dashboard", $path) ,
             "content" => $this
             ->load
-            ->view('User/index', $x , true)
+            ->view('user/index', $x , true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     public function user_wilayah() {
@@ -117,11 +117,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Profile ", $path) ,
             "content" => $this
             ->load
-            ->view('User/user', $x, true)
+            ->view('user/user', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //UPDATE PERUSAHAAN
@@ -191,7 +191,7 @@ class User extends CI_Controller {
             Success! Perusahaan Berhasil Diperbaharui.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-        redirect('User/user', 'refresh');
+        redirect('user/user', 'refresh');
 
     }
 
@@ -262,7 +262,7 @@ class User extends CI_Controller {
             Success! Pengurus Berhasil Diperbaharui.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-        redirect('User/user', 'refresh');
+        redirect('user/user', 'refresh');
     }
 
     //TAMBAH PENGURUS
@@ -331,7 +331,7 @@ class User extends CI_Controller {
             Success! Pengurus Berhasil Ditambahkan.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-          redirect('User/user', 'refresh');
+          redirect('user/user', 'refresh');
       }
 
     //HALAMAN PROFILE SETTING
@@ -343,11 +343,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Setting Profile ", $path) ,
             "content" => $this
             ->load
-            ->view('User/setting', false, true)
+            ->view('user/setting', false, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //HALAMAN SEND FILE PP
@@ -363,11 +363,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Berkas PP ", $path) ,
             "content" => $this
             ->load
-            ->view('User/pp', $x, true)
+            ->view('user/pp', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //HALAMAN SEND FILE PKB
@@ -383,11 +383,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Berkas PKB ", $path) ,
             "content" => $this
             ->load
-            ->view('User/pkb', $x, true)
+            ->view('user/pkb', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //HALAMAN SEND FILE LKS
@@ -403,11 +403,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Berkas LKS ", $path) ,
             "content" => $this
             ->load
-            ->view('User/lks', $x, true)
+            ->view('user/lks', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //HALAMAN SEND FILE K3
@@ -423,11 +423,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Berkas K3 ", $path) ,
             "content" => $this
             ->load
-            ->view('User/k3', $x, true)
+            ->view('user/k3', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //HALAMAN SEND FILE WLKP
@@ -443,11 +443,11 @@ class User extends CI_Controller {
             "page" => $this->load("User - Berkas WLKP ", $path) ,
             "content" => $this
             ->load
-            ->view('User/wlkp', $x, true)
+            ->view('user/wlkp', $x, true)
         );
         $this
         ->load
-        ->view('User/template/user_template', $data);
+        ->view('user/template/user_template', $data);
     }
 
     //FUNGSI CHANGE PASSWORD
@@ -474,20 +474,20 @@ class User extends CI_Controller {
             Success! Password Berhasil Diganti.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-                redirect('User/setting', 'refresh');
+                redirect('user/setting', 'refresh');
             }else{
                 $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Baru Dengan Confirm Password Tidak Sama.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-                redirect('User/setting', 'refresh');
+                redirect('user/setting', 'refresh');
             }
         }else{
             $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Lama Tidak Sesuai.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-            redirect('User/setting', 'refresh');
+            redirect('user/setting', 'refresh');
         }
     }
 
@@ -504,7 +504,7 @@ class User extends CI_Controller {
             Success! Data Pengurus Berhasil Dihapus.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-        redirect('User/user', 'refresh');
+        redirect('user/user', 'refresh');
     }
 
     public function uploadPp(){
@@ -568,7 +568,7 @@ class User extends CI_Controller {
         ->insert('table_pp', $insert_baru);
 
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas PP Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('User/pp', 'refresh');
+        redirect('user/pp', 'refresh');
     }else{
 
         if ($file != NULL)
@@ -586,7 +586,7 @@ class User extends CI_Controller {
             ->update('table_pp', $insert);
 
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas PP Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('User/pp', 'refresh');
+            redirect('user/pp', 'refresh');
         }
         else
         {
@@ -599,7 +599,7 @@ class User extends CI_Controller {
          ->update('table_pp', $update);
 
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-         redirect('User/pp', 'refresh');
+         redirect('user/pp', 'refresh');
      }
  }
 }
@@ -664,7 +664,7 @@ public function uploadPkb(){
         ->insert('table_pkb', $insert_baru);
 
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas PKB Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('User/pkb', 'refresh');
+        redirect('user/pkb', 'refresh');
     }else{
         if ($file != NULL)
         {
@@ -682,7 +682,7 @@ public function uploadPkb(){
             ->update('table_pkb', $insert);
 
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas PKB Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('User/pkb', 'refresh');
+            redirect('user/pkb', 'refresh');
         }
         else
         {
@@ -695,7 +695,7 @@ public function uploadPkb(){
          ->update('table_pkb', $update);
 
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-         redirect('User/pkb', 'refresh');
+         redirect('user/pkb', 'refresh');
      }
  }
 }
@@ -758,7 +758,7 @@ public function uploadLks(){
         ->insert('table_lks', $insert_baru);
 
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas LKS Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('User/lks', 'refresh');
+        redirect('user/lks', 'refresh');
     }else{
         if ($file != NULL)
         {
@@ -774,7 +774,7 @@ public function uploadLks(){
             ->update('table_lks', $insert);
 
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas LKS Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('User/lks', 'refresh');
+            redirect('user/lks', 'refresh');
         }
         else
         {
@@ -787,7 +787,7 @@ public function uploadLks(){
          ->update('table_lks', $update);
 
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-         redirect('User/lks', 'refresh');
+         redirect('user/lks', 'refresh');
      }
  }
 }
@@ -850,7 +850,7 @@ public function uploadK3(){
         ->insert('table_k3', $insert_baru);
 
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas K3 Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('User/k3', 'refresh');
+        redirect('user/k3', 'refresh');
     }else{
         if ($file != NULL)
         {
@@ -863,7 +863,7 @@ public function uploadK3(){
             ->update('table_k3', $insert);
 
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas K3 Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('User/k3', 'refresh');
+            redirect('user/k3', 'refresh');
         }
         else
         {
@@ -876,7 +876,7 @@ public function uploadK3(){
          ->update('table_k3', $update);
 
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-         redirect('User/k3', 'refresh');
+         redirect('user/k3', 'refresh');
      }
  }
 }
@@ -938,7 +938,7 @@ public function uploadWlkp(){
         ->insert('table_wlkp', $insert_baru);
 
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas WLKP Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('User/pkb', 'refresh');
+        redirect('user/pkb', 'refresh');
     }else{
         if ($file != NULL)
         {
@@ -951,7 +951,7 @@ public function uploadWlkp(){
             ->update('table_wlkp', $insert);
 
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Berkas WLKP Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('User/wlkp', 'refresh');
+            redirect('user/wlkp', 'refresh');
         }
         else
         {
@@ -964,7 +964,7 @@ public function uploadWlkp(){
          ->update('table_wlkp', $update);
 
          $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert" style="text-align: center"> Data Berhasil Diperbaharui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-         redirect('User/wlkp', 'refresh');
+         redirect('user/wlkp', 'refresh');
      }
  }
 }

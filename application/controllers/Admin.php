@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
         $page = array(
             "header" => $this
             ->load
-            ->view('Admin/template/header', array(
+            ->view('admin/template/header', array(
                 "title" => $title,
                 "p_baru" => $jumlah_perusahaan['p_baru'],
                 "p_terdaftar" => $jumlah_perusahaan['p_terdaftar'],
@@ -45,13 +45,13 @@ class Admin extends CI_Controller {
             ) , true) ,
             "css" => $this
             ->load
-            ->view('Admin/template/main_css', false, true) ,
+            ->view('admin/template/main_css', false, true) ,
             "sidebar" => $this
             ->load
-            ->view('Admin/template/sidebar', $jumlah_perusahaan, true) ,
+            ->view('admin/template/sidebar', $jumlah_perusahaan, true) ,
             "js" => $this
             ->load
-            ->view('Admin/template/main_js', false, true) ,
+            ->view('admin/template/main_js', false, true) ,
         );
         return $page;
     }
@@ -122,12 +122,12 @@ class Admin extends CI_Controller {
             "page" => $this->load("Admin - Dashboard", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/index', $jumlah_perusahaan, true)
+            ->view('admin/index', $jumlah_perusahaan, true)
            );
 
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     public function print_perusahaan(){
@@ -178,77 +178,80 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Perusahaan Baru", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/userbaru', $perusahaan_baru, true)
+            ->view('admin/userbaru', $perusahaan_baru, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
+    }
+
+    // Terima User Baru
+    public function terima(){
+        $id     = $this->input->post("id");
+        $email  = $this->input->post("email");
+        $nama   = $this->input->post("nama");
+        $this->load->library('SMTP','PHPmailer');
+
+        $mail   = new PHPMailer();
+        $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
+        $email_admin = $akunadmin[0]->email;
+        $nama_admin = $akunadmin[0]->nama;
+        $password_admin = $akunadmin[0]->password;
+        $mail->isSMTP();  
+        $mail->SMTPKeepAlive = true;
+        $mail->Charset  = 'UTF-8';
+        $mail->IsHTML(true);
+        // $mail->SMTPDebug = 2;
+        $mail->SMTPAuth = true;
+        $mail->Host = 'smtp.gmail.com'; 
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Username = $email_admin;
+        $mail->Password = $password_admin;
+        $mail->Mailer   = 'smtp';
+        $mail->WordWrap = 100;       
+        
+
+        $mail->setFrom($email_admin);
+        $mail->FromName = $nama_admin;
+        $mail->addAddress($email);
+        $mail->Subject = 'Registration Completed';
+        $mail_data['subject'] = 'Dear '. $nama;
+        $mail_data['description'] = "Thank you for registration :)";
+        
+        $message = $this->load->view('admin/template/email', $mail_data, TRUE);
+        $mail->Body = $message;
+
+        if ($mail->send()) {
+            $perusahaan = $this
+                        ->m_admin
+                        ->terima($id);
+
+            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+            Success! Perusahaan Diterima.
+            <button type="button" class="close" data-dismiss="alert">&times</button>
+                                                </div>');
+            redirect('admin/userbaru');
+        } else {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
     }
 
     // Terima User Baru
     // public function terima(){
-    //     $id     = $this->input->post("id");
-    //     $email  = $this->input->post("email");
-    //     $nama   = $this->input->post("nama");
-    //     $this->load->library('SMTP','PHPmailer');
+    //     $id    = $this->input->post("id");
+    //     $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
+    //     $perusahaan = $this
+    //     ->m_admin
+    //     ->terima($id);
 
-    //     $mail   = new PHPMailer();
-    //     // $akunadmin = $this->db->query("SELECT * FROM table_email where id_email='1' ")->result();
-    //     // $email_admin = $akunadmin[0]->email;
-    //     // $nama_admin = $akunadmin[0]->nama;
-    //     // $password_admin = $akunadmin[0]->password;
-    //     $mail->IsSMTP();
-    //     // $mail->SMTPKeepAlive = true;
-    //     // $mail->Charset  = 'UTF-8';
-    //     // $mail->IsHTML(true);
-    //     $mail->SMTPAuth = true;
-    //     $mail->Port     = 25;
-    //     $mail->Host     = 'sdp.aozoratech.com';
-    //     $mail->Username = 'sdp@aozoratech.com';
-    //     $mail->Password = '99Y~-P8L]rJX';
-    //     $mail->Mailer   = 'smtp';
-    //     $mail->WordWrap = 100;
-
-    //     $mail->setFrom('sdp@aozoratech.com');
-    //     $mail->FromName = 'Admin Disnaker';
-    //     $mail->addAddress($email);
-    //     $mail->Subject  = 'Registration Completed';
-    //     $mail_data['subject'] = 'Dear '. $nama;
-    //     $mail_data['description'] = "Thank you for registration :)";
-
-    //     $message = $this->load->view('Admin/template/email', $mail_data, TRUE);
-    //     $mail->Body = $message;
-
-    //     if ($mail->send()) {
-    //         $perusahaan = $this
-    //                     ->m_admin
-    //                     ->terima($id);
-
-    //         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-    //         Success! Perusahaan Diterima.
+    //     $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
+    //         Success! Perusahaan '.$nama_perusahaan[0]->perusahaan_name.' Diterima.
     //         <button type="button" class="close" data-dismiss="alert">&times</button>
-    //                                             </div>');
-    //         redirect('Admin/userbaru');
-    //     } else {
-    //         echo 'Message could not be sent.';
-    //         echo 'Mailer Error: ' . $mail->ErrorInfo;
-    //     }
+    //         </div>');
+    //     redirect('admin/userbaru');
     // }
-
-    // Terima User Baru
-    public function terima(){
-        $id    = $this->input->post("id");
-        $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
-        $perusahaan = $this
-        ->m_admin
-        ->terima($id);
-
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Perusahaan '.$nama_perusahaan[0]->perusahaan_name.' Diterima.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-            </div>');
-        redirect('Admin/userbaru');
-    }
 
     // Tolak Perusahaan Baru
     public function tolak(){
@@ -262,7 +265,7 @@ $pdf = new FPDF('L','mm','A4');
             Success! Perusahaan Ditolak.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-            redirect('Admin/userbaru');
+            redirect('admin/userbaru');
 
     }
 
@@ -278,7 +281,7 @@ $pdf = new FPDF('L','mm','A4');
             Success! Perusahaan Telah di Nonaktif.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-            redirect('Admin/perusahaan');
+            redirect('admin/perusahaan');
 
     }
 
@@ -295,11 +298,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Setting Email", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/mail_setting', $perusahaan, true)
+            ->view('admin/mail_setting', $perusahaan, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //GANTI EMAIL
@@ -326,13 +329,13 @@ $pdf = new FPDF('L','mm','A4');
             Success! Email Berhasil Diganti.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-                redirect('Admin/setting_email', 'refresh');
+                redirect('admin/setting_email', 'refresh');
             }else{
                 $this->session->set_flashdata('notif', '<div class="alert alert-danger alert-dismissible">
             Error! Password Login Tidak Benar.
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
-                redirect('Admin/setting_email', 'refresh');
+                redirect('admin/setting_email', 'refresh');
             }
 
     }
@@ -353,11 +356,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Perusahaan", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/perusahaan', $perusahaan, true)
+            ->view('admin/perusahaan', $perusahaan, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN PERUSAHAAN DETAIL
@@ -374,11 +377,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Detail Perusahaan", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/perusahaan_detail', $perusahaan, true)
+            ->view('admin/perusahaan_detail', $perusahaan, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN REKAPITULASI PP
@@ -398,11 +401,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Rekapitulasi PP", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/rekap_pp', $rekap_pp, true)
+            ->view('admin/rekap_pp', $rekap_pp, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN REKAPITULASI PKB
@@ -418,11 +421,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Rekapitulasi PKB", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/rekap_pkb', $rekap_pkb, true)
+            ->view('admin/rekap_pkb', $rekap_pkb, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN REKAPITULASI K3
@@ -438,11 +441,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Rekapitulasi K3", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/rekap_k3', $rekap_k3, true)
+            ->view('admin/rekap_k3', $rekap_k3, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN REKAPITULASI LKS
@@ -458,11 +461,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Rekapitulasi LKS", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/rekap_lks', $rekap_lks, true)
+            ->view('admin/rekap_lks', $rekap_lks, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     //HALAMAN REKAPITULASI WLKP
@@ -478,11 +481,11 @@ $pdf = new FPDF('L','mm','A4');
             "page" => $this->load("Admin - Rekapitulasi WLKP", $path) ,
             "content" => $this
             ->load
-            ->view('Admin/rekap_wlkp', $rekap_wlkp, true)
+            ->view('admin/rekap_wlkp', $rekap_wlkp, true)
         );
         $this
         ->load
-        ->view('Admin/template/admin_template', $data);
+        ->view('admin/template/admin_template', $data);
     }
 
     public function ajax_list_pp()
@@ -521,6 +524,8 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, k3.no_registrasi, k3.no_dokumen, k3.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_k3 as k3', 'per.kode_perusahaan = k3.kode_perusahaan');
+				$this->db->join('table_login as login', 'per.kode_perusahaan = login.kode_perusahaan');
+                $this->db->where('login.status = ', 'sudah');
 				// if (!empty($input['status'])) {
 				// 		$this->db->where('k3.status = ', $input['status']);
 				// }
@@ -548,6 +553,8 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, lks.no_registrasi, lks.no_dokumen, lks.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_lks as lks', 'per.kode_perusahaan = lks.kode_perusahaan');
+				$this->db->join('table_login as login', 'per.kode_perusahaan = login.kode_perusahaan');
+                $this->db->where('login.status = ', 'sudah');
 				// if (!empty($input['status'])) {
 				// 		$this->db->where('lks.status = ', $input['status']);
 				// }
@@ -575,6 +582,8 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pkb.no_registrasi, pkb.no_dokumen, pkb.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_pkb as pkb', 'per.kode_perusahaan = pkb.kode_perusahaan');
+				$this->db->join('table_login as login', 'per.kode_perusahaan = login.kode_perusahaan');
+                $this->db->where('login.status = ', 'sudah');
 				// if (!empty($input['status'])) {
 				// 		$this->db->where('pkb.status = ', $input['status']);
 				// }
@@ -602,6 +611,8 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, pp.no_registrasi, pp.no_dokumen, pp.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_pp as pp', 'per.kode_perusahaan = pp.kode_perusahaan');
+				$this->db->join('table_login as login', 'per.kode_perusahaan = login.kode_perusahaan');
+                $this->db->where('login.status = ', 'sudah');
 				// if (!empty($input['status'])) {
 				// 		$this->db->where('pp.status = ', $input['status']);
 				// }
@@ -648,6 +659,8 @@ $pdf = new FPDF('L','mm','A4');
 				$this->db->select(' per.kode_perusahaan, per.nama_perusahaan, wlkp.no_registrasi, wlkp.no_dokumen, wlkp.status', false);
 				$this->db->from('table_perusahaan as per');
 				$this->db->join('table_wlkp as wlkp', 'per.kode_perusahaan = wlkp.kode_perusahaan');
+				$this->db->join('table_login as login', 'per.kode_perusahaan = login.kode_perusahaan');
+                $this->db->where('login.status = ', 'sudah');
 				// if (!empty($input['status'])) {
 				// 		$this->db->where('wlkp.status = ', $input['status']);
 				// }

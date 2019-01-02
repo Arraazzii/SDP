@@ -510,6 +510,6 @@ class m_admin extends CI_Model {
 			'data_wlkp' => $data_wlkp,
 		];
 
-		//return $data;
+		return $data;
 	}
 }

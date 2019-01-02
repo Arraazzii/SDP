@@ -1,17 +1,11 @@
-<?php
-    $dbhost = 'localhost'; 
-    $dbuser = 'root';     
-    $dbpass = '';    
-    $dbname = 'db_perusahaan';
- 
-    $connect = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
-
-    if ($connect->connect_error) {
-        die('Maaf koneksi gagal: '. $connect->connect_error);
-    }
-?>
-
-
+       <style>
+           .img-center{
+                display: block;
+                float: none;
+                margin: 0px auto;
+           }
+       </style>
+       
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -347,13 +341,12 @@
                                                     <th>Alamat</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                           <tbody>
                                                 <?php
                                                     
-                                                    $sql1 = "SELECT * FROM table_pengurus JOIN table_alamat ON table_pengurus.kode_alamat = table_alamat.kode_alamat WHERE table_pengurus.kode_perusahaan = '$kode_perusahaan'";
-                                                    $result = mysqli_query($connect, $sql1);
+                                                    $sql1 = $this->db->query("SELECT * FROM table_pengurus JOIN table_alamat ON table_pengurus.kode_alamat = table_alamat.kode_alamat WHERE table_pengurus.kode_perusahaan = '$kode_perusahaan'")->result_array();
                                                     $no1 = 1;
-                                                    while ($row1 = mysqli_fetch_array($result)) {
+                                                    foreach ($sql1 as $row1) {
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $row1['nama']; ?></td>
@@ -370,11 +363,10 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-contact<?php echo $kode_perusahaan;?>" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <?php
+                               <?php
                                     
-                                    $sql2 = "SELECT * FROM table_pp JOIN table_perusahaan ON table_pp.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_pp.status = '0'*/";
-                                    $result2 = mysqli_query($connect, $sql2);
-                                    while ($row2 = mysqli_fetch_array($result2)){
+                                    $sql2 = $this->db->query("SELECT * FROM table_pp JOIN table_perusahaan ON table_pp.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_pp.status = '0'*/")->result_array();
+                                    foreach ($sql2 as $row2){
                                 ?>
                                 <div class="form-group">
                                     <div class="row">
@@ -411,9 +403,8 @@
                                 <?php } ?>
                                 <br>
                                 <?php
-                                    $sql3 = "SELECT * FROM table_pkb JOIN table_perusahaan ON table_pkb.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_pkb.status = '0'*/";
-                                    $result3 = mysqli_query($connect, $sql3);
-                                    while ($row3 = mysqli_fetch_array($result3)){
+                                    $sql3 = $this->db->query("SELECT * FROM table_pkb JOIN table_perusahaan ON table_pkb.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_pkb.status = '0'*/")->result_array();
+                                    foreach ($sql3 as $row3){
                                     
                                 ?>
                                 <div class="form-group">
@@ -452,9 +443,8 @@
                                 <?php } ?>
                                 <br>
                                 <?php
-                                    $sql4 = "SELECT * FROM table_lks JOIN table_perusahaan ON table_lks.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_lks.status = '0'*/";
-                                    $result4 = mysqli_query($connect, $sql4);
-                                    while ($row4 = mysqli_fetch_array($result4)){
+                                    $sql4 = $this->db->query("SELECT * FROM table_lks JOIN table_perusahaan ON table_lks.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_lks.status = '0'*/")->result_array();
+                                    foreach ($sql4 as $row4){
                                     
                                 ?>
                                 <div class="form-group">
@@ -492,9 +482,8 @@
                                 <?php } ?>
                                 <br>
                                 <?php
-                                    $sql5 = "SELECT * FROM table_k3 JOIN table_perusahaan ON table_k3.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_k3.status = '0'*/";
-                                    $result5 = mysqli_query($connect, $sql5);
-                                    while ($row5 = mysqli_fetch_array($result5)){
+                                    $sql5 = $this->db->query("SELECT * FROM table_k3 JOIN table_perusahaan ON table_k3.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_k3.status = '0'*/")->result_array();
+                                    foreach ($sql5 as $row5){
                                     
                                 ?>
                                 <div class="form-group">
@@ -532,9 +521,8 @@
                                 <?php } ?>
                                 <br>
                                 <?php
-                                    $sql6 = "SELECT * FROM table_wlkp JOIN table_perusahaan ON table_wlkp.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_wlkp.status = '0'*/";
-                                    $result6 = mysqli_query($connect, $sql6);
-                                    while ($row6 = mysqli_fetch_array($result6)){
+                                    $sql6 = $this->db->query("SELECT * FROM table_wlkp JOIN table_perusahaan ON table_wlkp.kode_perusahaan = table_perusahaan.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$kode_perusahaan' /*AND table_wlkp.status = '0'*/")->result_array();
+                                    foreach ($sql6 as $row6){
                                     
                                 ?>
                                 <div class="form-group">

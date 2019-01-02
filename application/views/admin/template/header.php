@@ -45,7 +45,7 @@
                             <img class="user-avatar rounded-circle" src="<?php echo base_url();?>assets/images/admin.jpg" alt="User Avatar">
                         </a>
                         <div class="user-menu dropdown-menu">
-                            <!-- <a class="nav-link" href="<?php echo base_url();?>Admin/setting_email"><i class="fa fa-envelope"></i> Mail Setting</a> -->
+                            <a class="nav-link" href="<?php echo base_url();?>Admin/setting_email"><i class="fa fa-envelope"></i> Mail Setting</a>
                             <a class="nav-link" href="<?php echo base_url(); ?>Login/logout"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>

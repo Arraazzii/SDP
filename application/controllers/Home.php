@@ -18,6 +18,13 @@ class Home extends CI_Controller {
     }
     private function load($title = '', $datapath = '')
     { }
+    public function kada(){
+        $data = $this->M_admin->update_kadaluarsa();
+        
+        echo "<pre>";
+        var_dump($data);
+        echo "</pre>";
+    }
 	//HALAMAN UTAMA LOGIN
 	public function index()
 	{
