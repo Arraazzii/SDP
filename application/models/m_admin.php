@@ -55,6 +55,8 @@ class m_admin extends CI_Model {
 		return $data;
 	}
 
+
+
 	// Tampil Jumlah Perusahaan Baru
 	public function tampil_jumlah_perusahaan_baru(){
 		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_login ON table_perusahaan.kode_perusahaan = table_login.kode_perusahaan WHERE table_login.status = 'belum'");
@@ -150,6 +152,18 @@ class m_admin extends CI_Model {
 		}
 	}
 
+	// Hapus Kode Klui
+	public function dlt_klui($kode){
+
+		$dlt_klui 	 	 = $this->db->query("DELETE FROM table_klui WHERE kode_klui = '$kode'");
+
+		if ($dlt_klui) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function email($id){
 		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_login ON table_perusahaan.kode_perusahaan = table_login.kode_perusahaan WHERE table_perusahaan.kode_perusahaan = '$id'");
 		return $query->result();
@@ -164,6 +178,18 @@ class m_admin extends CI_Model {
 	// Tampil Detail Data Perusahaan
 	public function detail_perusahaan($kode){
 		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_alamat ON table_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_pengurus ON table_perusahaan.kode_perusahaan = table_pengurus.kode_perusahaan JOIN table_pp ON table_perusahaan.kode_perusahaan = table_pp.kode_perusahaan JOIN table_wlkp ON table_perusahaan.kode_perusahaan = table_wlkp.kode_perusahaan JOIN table_pkb ON table_perusahaan.kode_perusahaan = table_pkb.kode_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan JOIN table_lks ON table_perusahaan.kode_perusahaan = table_lks.kode_perusahaan LEFT JOIN table_klui ON table_perusahaan.kode_klui = table_klui.kode_klui WHERE table_perusahaan.kode_perusahaan = '$kode' GROUP BY table_pengurus.kode_perusahaan ");
+		return $query->result();
+	}
+
+	//Tampil Kode Klui
+	public function kode_klui() {
+		$query = $this->db->query("SELECT * FROM table_klui ORDER BY kode_klui ASC");
+		return $query->result();
+	}
+
+	//Tampil Detail Kode Klui
+	public function detail_kode_klui($kode) {
+		$query = $this->db->query("SELECT * FROM table_klui WHERE kode_klui = 'kode'");
 		return $query->result();
 	}
 
