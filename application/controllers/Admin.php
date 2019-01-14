@@ -185,7 +185,7 @@ $pdf = new FPDF('L','mm','A4');
         ->view('admin/template/admin_template', $data);
     }
 
-    // Terima User Baru
+    // // Terima User Baru
     public function terima(){
         $id     = $this->input->post("id");
         $email  = $this->input->post("email");
@@ -238,7 +238,7 @@ $pdf = new FPDF('L','mm','A4');
         }
     }
 
-    // Terima User Baru
+    //Terima User Baru
     // public function terima(){
     //     $id    = $this->input->post("id");
     //     $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();

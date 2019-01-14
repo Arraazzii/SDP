@@ -20,7 +20,7 @@ class Home extends CI_Controller {
     { }
     public function kada(){
         $data = $this->M_admin->update_kadaluarsa();
-        
+
         echo "<pre>";
         var_dump($data);
         echo "</pre>";
@@ -285,6 +285,17 @@ class Home extends CI_Controller {
         ];
         echo json_encode($result);
     }
+
+		public function emailList(){
+			$this->db->select('email');
+			$this->db->from('table_login');
+			$query = $this->db->get()->result();
+			$email = array();
+			foreach ($query as $data) {
+				$email[] = $data->email;
+			}
+			echo json_encode($email);
+		}
 
     public function do_upload($field, $location)
     {

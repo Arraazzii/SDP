@@ -146,7 +146,7 @@
                                 </p>
                             </div>
                         </div>
-                    <?php } 
+                    <?php }
                 }?>
             </div>
         </div>
@@ -185,7 +185,7 @@
                                             <a href="<?php echo base_url('User/hapusPengurus/'.$data_pengurus['id']);?>" class="btn btn-danger btn-sm" onclick="return confirm('Apa Anda Yakin Menghapus Pengurus <?php echo $data_pengurus['nama'];?> ?')">Hapus</a></td>
                                         </tr>
                                         <!-- Modal -->
-                                        <div id="modalPengurus<?php echo $data_pengurus['id'];?>" class="modal fade" role="dialog">
+                                        <div id="modalPengurus<?php echo $data_pengurus['id'];?>" class="modal-edit modal fade" role="dialog">
                                           <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -236,13 +236,19 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label class="bmd-label-floating">Provinsi</label>
-                                                                        <input type="text" class="form-control" required="" value="<?php echo $data_pengurus['provinsi'];?>" name="provinsi">
+                                                                        <input type="hidden" class="form-control" required="" value="<?php echo $data_pengurus['provinsi'];?>" name="provinsi-edit">
+                                                                        <select name="provinsi" class="form-control">
+                                                                            <option hidden>-Pilih Provinsi-</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label class="bmd-label-floating">Kabupaten/Kota</label>
-                                                                        <input type="text" class="form-control" required="" value="<?php echo $data_pengurus['kota'];?>" name="kota">
+                                                                        <input type="hidden" class="form-control" required="" value="<?php echo $data_pengurus['kota'];?>" name="kota-edit">
+                                                                        <select name="kota" class="form-control">
+                                                                            <option hidden>-Pilih Kabupaten/Kota-</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -250,13 +256,19 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label class="bmd-label-floating">Kecamatan</label>
-                                                                        <input type="text" class="form-control" required="" value="<?php echo $data_pengurus['kecamatan'];?>" name="kecamatan">
+                                                                        <input type="hidden" class="form-control" required="" value="<?php echo $data_pengurus['kecamatan'];?>" name="kecamatan-edit">
+                                                                        <select name="kecamatan" class="form-control">
+                                                                          <option hidden>-Pilih Kecamatan-</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label class="bmd-label-floating">Kelurahan</label>
-                                                                        <input type="text" class="form-control" required="" value="<?php echo $data_pengurus['kelurahan'];?>" name="kelurahan">
+                                                                        <input type="hidden" class="form-control" required="" value="<?php echo $data_pengurus['kelurahan'];?>" name="kelurahan-edit">
+                                                                        <select name="kelurahan" class="form-control">
+                                                                          <option hidden>-Pilih Kelurahan-</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -358,7 +370,7 @@
 </div>
 
 <!-- Modal -->
-<div id="modalAdd" class="modal fade" role="dialog">
+<div id="modalAdd" class="modal-add modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -409,13 +421,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Provinsi</label>
-                                <input type="text" class="form-control" required="" name="provinsi">
+                                <!-- <input type="text" class="form-control" required="" name="provinsi"> -->
+                                <select name="provinsi" class="form-control">
+                                    <option hidden>-Pilih Provinsi-</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Kabupaten/Kota</label>
-                                <input type="text" class="form-control" required="" name="kota">
+                                <!-- <input type="text" class="form-control" required="" name="kota"> -->
+                                <select name="kota" class="form-control">
+                                    <option hidden>-Pilih Kabupaten/Kota-</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -423,13 +441,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Kecamatan</label>
-                                <input type="text" class="form-control" required="" name="kecamatan">
+                                <!-- <input type="text" class="form-control" required="" name="kecamatan"> -->
+                                <select name="kecamatan" class="form-control">
+                                  <option hidden>-Pilih Kecamatan-</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Kelurahan</label>
-                                <input type="text" class="form-control" required="" name="kelurahan">
+                                <!-- <input type="text" class="form-control" required="" name="kelurahan"> -->
+                                <select name="kelurahan" class="form-control">
+                                  <option hidden>-Pilih Kelurahan-</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -446,68 +470,261 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/assets_user/dataTable/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $('#tableFilter').DataTable();
-</script> 
+</script>
 <script type="text/javascript">
-    $("select[name='provinsi']").on('change', function (){
-        $.ajax({
-            type:'GET',
-            url:'<?php echo base_url(); ?>User/user_wilayah',
-            data: 'provinsi=' + $("select[name='provinsi']").val(),
-            success: function(result) {
-                $("select[name='kota']").html("<option>-- Pilih Kota / Kabupaten --</option>");
-                $.each(result, function(nomor,hasil) {
-                    $("select[name='kota']").append($("<option>", {
-                        text: hasil.name,
-                        value: hasil.name
-                    }));
-                })
-                console.log('error');
-            },
-            error: function(result) {
-                console.log("Ajax Error : User/user_wilayah+provinsi");
-            }
+$(document).ready(function(){
+  onChangeProvinsi();
+  onChangeProvinsiEdit();
+});
+function onChangeProvinsi(){
+  var parents = $(".modal-add")
+  var form_data = {}
+
+  $.ajax({
+      url: "<?= base_url() ?>indonesia/get_provinsi",
+      type: "POST",
+      data: form_data,
+      dataType: "json",
+      success : function(data){
+          parents.find("select[name='provinsi']").empty();
+          var option = "<option value=''>-Pilih Provinsi-</option>";
+          $.each(data, function(index, value){
+              // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+              option += "<option value='"+value.name+"'>"+value.name+"</option>";
+          });
+          console.log(data, option);
+          parents.find("select[name='provinsi']").append(option);
+      },
+      error : function(e){
+          console.log(e);
+      },
+      });
+
+
+  parents.find("select[name='provinsi']").change(function(){
+      var form_data = {
+          provincesId : $(this).val(),
+      }
+
+      $.ajax({
+          url: "<?= base_url() ?>indonesia/get_kota",
+          type: "POST",
+          data: form_data,
+          dataType: "json",
+          success : function(data){
+              parents.find("select[name='kota']").empty();
+              var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
+              $.each(data, function(index, value){
+                  // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                  option += "<option value='"+value.name+"'>"+value.name+"</option>";
+              });
+              console.log(data, option);
+              parents.find("select[name='kota']").append(option);
+          },
+          error : function(e){
+              console.log(e);
+          },
+          });
+  });
+
+parents.find("select[name='kota']").change(function(){
+      var form_data = {
+          regenciesId : $(this).val(),
+      }
+
+      $.ajax({
+          url: "<?= base_url() ?>indonesia/get_kecamatan",
+          type: "POST",
+          data: form_data,
+          dataType: "json",
+          success : function(data){
+              parents.find("select[name='kecamatan']").empty();
+              var option = "<option value=''>-Pilih Kecamatan-</option>";
+              $.each(data, function(index, value){
+                  // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                  option += "<option value='"+value.name+"'>"+value.name+"</option>";
+              });
+              console.log(data, option);
+              parents.find("select[name='kecamatan']").append(option);
+          },
+          error : function(e){
+              console.log(e);
+          },
+          });
+  });
+
+  parents.find("select[name='kecamatan']").change(function(){
+      var form_data = {
+          districtsId : $(this).val(),
+      }
+
+      $.ajax({
+          url: "<?= base_url() ?>indonesia/get_kelurahan",
+          type: "POST",
+          data: form_data,
+          dataType: "json",
+          success : function(data){
+              parents.find("select[name='kelurahan']").empty();
+              var option = "<option value=''>-Pilih Kelurahan-</option>";
+              $.each(data, function(index, value){
+                  // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                  option += "<option value='"+value.name+"'>"+value.name+"</option>";
+              });
+              console.log(data, option);
+              parents.find("select[name='kelurahan']").append(option);
+          },
+          error : function(e){
+              console.log(e);
+          },
+          });
+  });
+}
+
+function onChangeProvinsiEdit(){
+  $(".modal-edit").each(function(index){
+    var parents = $(this)
+    var provinsi = parents.find("input[name='provinsi-edit']").val();
+    var kota = parents.find("input[name='kota-edit']").val();
+    var kecamatan = parents.find("input[name='kecamatan-edit']").val();
+    var kelurahan = parents.find("input[name='kelurahan-edit']").val();
+    var form_data = {}
+
+    var provLoad = false ;
+    $.ajax({
+      url: "<?= base_url() ?>indonesia/get_provinsi",
+      type: "POST",
+      data: form_data,
+      async:false,
+      dataType: "json",
+      success : function(data){
+        parents.find("select[name='provinsi']").empty();
+        var option = "<option value=''>-Pilih Provinsi-</option>";
+        $.each(data, function(index, value){
+          // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+          option += "<option value='"+value.name+"'>"+value.name+"</option>";
         });
+        console.log(data, option);
+        parents.find("select[name='provinsi']").append(option);
+        provLoad = true;
+      },
+      error : function(e){
+        console.log(e);
+      },
     });
 
-    $("select[name='kota']").on('change', function (){
-        $.ajax({
-            type:'GET',
-            url:'<?php echo base_url(); ?>User/user_wilayah',
-            data: '&kota=' + $("select[name='kota']").val(),
-            success: function(result) {
-                $("select[name='kecamatan']").html("<option>-- Pilih Kecamatan --</option>");
-                $.each(result, function(nomor,hasil) {
-                    $("select[name='kecamatan']").append($("<option>", {
-                        text: hasil.name,
-                        value: hasil.name
-                    }));
-                })
+    var kotaLoad = false;
+    parents.find("select[name='provinsi']").change(function(){
+      var form_data = {
+        provincesId : $(this).val(),
+      }
 
-            },
-            error: function(result) {
-                console.log("Ajax Error : User/user_wilayah+regency");
-            }
-        });
+      $.ajax({
+        url: "<?= base_url() ?>indonesia/get_kota",
+        type: "POST",
+        data: form_data,
+        dataType: "json",
+        async:false,
+        success : function(data){
+          parents.find("select[name='kota']").empty();
+          var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
+          $.each(data, function(index, value){
+            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+            option += "<option value='"+value.name+"'>"+value.name+"</option>";
+          });
+          console.log(data, option);
+          parents.find("select[name='kota']").append(option);
+          kotaLoad = true;
+        },
+        error : function(e){
+          console.log(e);
+        },
+      });
     });
 
-    $("select[name='kecamatan']").on('change', function (){
-        $.ajax({
-            type:'GET',
-            url:'<?php echo base_url(); ?>User/user_wilayah',
-            data: '&kecamatan=' + $("select[name='kecamatan']").val(),
-            success: function(result) {
-                $("select[name='kelurahan']").html("<option>-- Pilih Kelurahan --</option>");
-                $.each(result, function(nomor,hasil) {
-                    $("select[name='kelurahan']").append($("<option>", {
-                        text: hasil.name,
-                        value: hasil.name
-                    }));
-                })
+    var kecamatanLoad = false;
+    parents.find("select[name='kota']").change(function(){
+      var form_data = {
+        regenciesId : $(this).val(),
+      }
 
-            },
-            error: function(result) {
-                console.log("Ajax Error : User/user_wilayah+regency");
-            }
-        });
+      $.ajax({
+        url: "<?= base_url() ?>indonesia/get_kecamatan",
+        type: "POST",
+        data: form_data,
+        dataType: "json",
+        async:false,
+        success : function(data){
+          parents.find("select[name='kecamatan']").empty();
+          var option = "<option value=''>-Pilih Kecamatan-</option>";
+          $.each(data, function(index, value){
+            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+            option += "<option value='"+value.name+"'>"+value.name+"</option>";
+          });
+          console.log(data, option);
+          parents.find("select[name='kecamatan']").append(option);
+          kecamatanLoad = true;
+        },
+        error : function(e){
+          console.log(e);
+        },
+      });
     });
+
+    var kelurahanLoad = false;
+    parents.find("select[name='kecamatan']").change(function(){
+      var form_data = {
+        districtsId : $(this).val(),
+      }
+
+      $.ajax({
+        url: "<?= base_url() ?>indonesia/get_kelurahan",
+        type: "POST",
+        data: form_data,
+        dataType: "json",
+        async:false,
+        success : function(data){
+          parents.find("select[name='kelurahan']").empty();
+          var option = "<option value=''>-Pilih Kelurahan-</option>";
+          $.each(data, function(index, value){
+            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+            option += "<option value='"+value.name+"'>"+value.name+"</option>";
+          });
+          console.log(data, option);
+          parents.find("select[name='kelurahan']").append(option);
+          kelurahanLoad = true;
+        },
+        error : function(e){
+          console.log(e);
+        },
+      });
+    });
+
+    var provLength = false;
+    if (provinsi != "" && provLoad == true) {
+      parents.find("select[name='provinsi']").val(provinsi.toUpperCase()).change();
+      provLength = true;
+    }
+
+    var kotaLength = false;
+    if (provLength == true && kota != "" && kotaLoad == true) {
+      console.log(kota);
+      parents.find("select[name='kota']").val(kota.toUpperCase()).change();
+      kotaLength = true;
+    }
+
+    var kecamatanLength = false;
+    if (kotaLength == true && kecamatan != "" && kecamatanLoad == true) {
+      parents.find("select[name='kecamatan']").val(kecamatan.toUpperCase()).change();
+      kecamatanLength = true;
+    }
+
+    var kelurahanLength = false;
+    if (kecamatanLength == true && kelurahan != "" && kelurahanLoad == true) {
+      parents.find("select[name='kelurahan']").val(kelurahan.toUpperCase()).change();
+      kelurahanLength = true;
+    }
+    console.log(provinsi.toUpperCase(), kota, kecamatan, kelurahan, provLoad);
+
+  });
+}
 </script>

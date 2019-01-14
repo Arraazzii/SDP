@@ -46,7 +46,7 @@
                         </a>
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="<?php echo base_url();?>Admin/setting_email"><i class="fa fa-envelope"></i> Mail Setting</a>
-                            <a class="nav-link" href="<?php echo base_url();?>Admin/kode_klui"><i class="fa fa-sitemap"></i> Klui</a>
+                            <a class="nav-link" href="<?php echo base_url();?>Admin/kode_klui"><i class="fa fa-sitemap"></i> Kode Klui</a>
                             <a class="nav-link" href="<?php echo base_url(); ?>Login/logout"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>

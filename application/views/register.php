@@ -113,25 +113,27 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Nama Perusahaan</label>
-                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" value="perusahaan buncit bucin" required="">
+                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" required="">
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Email</label>
-                                  <input name="email" type="email" class="form-control required" placeholder="Email" value="perusahaan@email.com" required="">
+                                  <input name="email" type="email" class="form-control required" placeholder="Email" required="">
+                                  <small class='email-used text-danger' style='display:none'>* Email already used!</small>
+                                  <small class='email-available text-success' style='display:none'>* Email available!</small>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Password</label>
-                                  <input name="password" type="password" class="form-control required" placeholder="Password" value="perusahaan" required="">
+                                  <input name="password" type="password" class="form-control required" placeholder="Password" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Alamat Perusahaan</label>
-                                  <textarea name="alamat_perusahaan" class="form-control required" required="">alamat perusahaan buncit</textarea>
+                                  <textarea name="alamat_perusahaan" class="form-control required" required=""></textarea>
                               </div>
                             </div>
                             <!-- <div class="col-sm-4">
@@ -194,13 +196,13 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Kode Pos</label>
-                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" value="15466" required="">
+                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" required="">
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Telp. Perusahaan</label>
-                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" value="08976626171" required="">
+                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
@@ -219,7 +221,7 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Deskripsi Perusahaan</label>
-                                  <textarea name="deskripsi_perusahaan" class="form-control required" required="">deskripsi perusahaan buncit</textarea>
+                                  <textarea name="deskripsi_perusahaan" class="form-control required" required=""></textarea>
                               </div>
                             </div>
                             <div class="col-sm-4">
@@ -344,13 +346,13 @@
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Kode Pos</label>
-                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" value="19832" required="">
+                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" required="">
                                       </div>
                                     </div>
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Telp. Pengurus</label>
-                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" value="08782647273" required="">
+                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" required="">
                                       </div>
                                     </div>
                                   </div>
@@ -373,11 +375,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
+                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
+                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -393,11 +395,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
+                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
+                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -413,11 +415,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
+                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
+                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -433,11 +435,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
+                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
+                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -453,11 +455,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
+                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
+                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -495,6 +497,10 @@
                 $("#form3").hide();
                 onChangeProvinsi();
                 onChangeProvinsiPengurus();
+                $.getJSON( "<?= base_url() ?>Home/emailList", function( data ) {
+                  // console.log(data);
+                  window.emailList = data;
+                });
         //@naresh action dynamic childs
         var next = 0;
         $("#add-more").click(function(e) {
@@ -524,6 +530,23 @@
 
                 $(this).parents(".field0").remove();
             });
+        });
+        window.emailValid = false;
+        $("input[name='email']").change(function(){
+          var val = $(this).val();
+          if (window.emailList.indexOf(val) != -1) {
+            console.log("ada");
+            $(this).css({ 'border-color': '#a94442'});
+            $(".email-available").hide();
+            $(".email-used").show();
+            window.emailValid = false;
+          } else {
+            console.log("tak ada");
+            $(this).css({ 'border-color': '#3c763d'});
+            $(".email-used").hide();
+            $(".email-available").show();
+            window.emailValid = true;
+          }
         });
 
     });
@@ -661,7 +684,7 @@
 
                   var verif = $('input[name="agree"]:checked').length > 0;
                   console.log(verif);
-                  if (empty.indexOf(true) == -1 && verif == true) {
+                  if (empty.indexOf(true) == -1 && verif == true && window.emailValid == true) {
 
                     $.ajax({
                       url : '<?= base_url() ?>Home/register',
@@ -716,7 +739,14 @@
                       icon: "warning",
                       button: "Ok",
                     });
-                  } else if(empty.indexOf(true) != -1) {
+                  }else if (window.emailValid == false) {
+                    swal({
+                      title: "Warning!",
+                      text: "Email sudah digunakan!! ",
+                      icon: "warning",
+                      button: "Ok",
+                    });
+                  }  else if(empty.indexOf(true) != -1) {
                     console.log(field);
 
                     swal({
