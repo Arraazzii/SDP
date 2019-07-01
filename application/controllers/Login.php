@@ -24,6 +24,7 @@ class Login extends CI_Controller {
     public function ceklogin() {
         $username = $this->input->post('user');
         $password = md5($this->input->post('pass'));
+        $this->load->model('Model_login');
         $this->Model_login->ambillogin($username, $password);
     }  
 

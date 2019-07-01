@@ -185,7 +185,7 @@ $pdf = new FPDF('L','mm','A4');
         ->view('admin/template/admin_template', $data);
     }
 
-    // // Terima User Baru
+    // Terima User Baru
     public function terima(){
         $id     = $this->input->post("id");
         $email  = $this->input->post("email");
@@ -238,7 +238,7 @@ $pdf = new FPDF('L','mm','A4');
         }
     }
 
-    //Terima User Baru
+    // Terima User Baru
     // public function terima(){
     //     $id    = $this->input->post("id");
     //     $nama_perusahaan = $this->db->query("SELECT nama_perusahaan as perusahaan_name from table_perusahaan where kode_perusahaan='$id' ")->result();
@@ -282,21 +282,6 @@ $pdf = new FPDF('L','mm','A4');
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
             redirect('admin/perusahaan');
-    }
-
-    // Hapus Kode Klui
-    public function dlt_klui(){
-        $kode = $this->uri->segment(3);
-
-        $perusahaan = $this
-                        ->m_admin
-                        ->dlt_klui($kode);
-
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Kode Klui telah di hapus.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-            redirect('admin/kode_klui');
 
     }
 
@@ -318,102 +303,6 @@ $pdf = new FPDF('L','mm','A4');
         $this
         ->load
         ->view('admin/template/admin_template', $data);
-    }
-
-    //HALAMAN KODE KLUI
-    public function kode_klui() 
-    {
-        $perusahaan = array(
-                'kode_klui' => $this
-                ->m_admin
-                ->kode_klui(),
-        );
-        $path = "";
-        $data = array(
-            "page" => $this->load("Admin - Kode Klui", $path) ,
-            "content" => $this
-            ->load
-            ->view('admin/klui', $perusahaan, true)
-        );
-        $this
-        ->load
-        ->view('admin/template/admin_template', $data);
-    }
-
-    //DETAIL KODE KLUI
-    public function detail_kode_klui() 
-    {
-        $kode = $this->uri->segment(3);
-        $perusahaan = array(
-                'kode_klui' => $this
-                ->m_admin
-                ->detail_kode_klui(),
-        );
-        $path = "";
-        $data = array(
-            "page" => $this->load("Admin - Kode Klui", $path) ,
-            "content" => $this
-            ->load
-            ->view('admin/detail_klui', $perusahaan, true)
-        );
-        $this
-        ->load
-        ->view('admin/template/admin_template', $data);
-    }
-
-    //TAMBAH KODE KLUI
-    public function tambah_kode_klui()
-    {
-        $kode_klui = $this
-        ->input
-        ->post('kode_klui');
-        $deskripsi = $this
-        ->input
-        ->post('deskripsi');
-
-        $insert = array(
-            'kode_klui' => $kode_klui,
-            'dsk' => $deskripsi,
-        );
-
-        $this
-          ->db
-          ->insert('table_klui', $insert);
-
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Klui Berhasil Ditambahkan.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-          redirect('admin/kode_klui', 'refresh');
-    }
-
-    //EDIT KLUI
-    public function edit_kode_klui()
-    {
-        $kode_klui = $this
-        ->input
-        ->post('kode_klui');
-        $deskripsi = $this
-        ->input
-        ->post('deskripsi');
-
-        $update = array(
-            'kode_klui' => $kode_klui,
-            'dsk' => $deskripsi,
-        );
-
-        $this
-        ->db
-        ->where('kode_klui', $kode_klui);
-        $this
-        ->db
-        ->update('table_klui', $update);
-
-        $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! Klui Berhasil Diperbaharui.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-          redirect('admin/kode_klui', 'refresh');
     }
 
     //GANTI EMAIL

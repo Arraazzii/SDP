@@ -113,13 +113,13 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Nama Perusahaan</label>
-                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" required="">
+                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" value="perusahaan buncit bucin" required="">
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Email</label>
-                                  <input name="email" type="email" class="form-control required" placeholder="Email" required="">
+                                  <input name="email" type="email" class="form-control required" placeholder="Email" value="perusahaan@email.com" required="">
                                   <small class='email-used text-danger' style='display:none'>* Email already used!</small>
                                   <small class='email-available text-success' style='display:none'>* Email available!</small>
                               </div>
@@ -127,13 +127,13 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Password</label>
-                                  <input name="password" type="password" class="form-control required" placeholder="Password" required="">
+                                  <input name="password" type="password" class="form-control required" placeholder="Password" value="perusahaan" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Alamat Perusahaan</label>
-                                  <textarea name="alamat_perusahaan" class="form-control required" required=""></textarea>
+                                  <textarea name="alamat_perusahaan" class="form-control required" required="">alamat perusahaan buncit</textarea>
                               </div>
                             </div>
                             <!-- <div class="col-sm-4">
@@ -196,13 +196,13 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Kode Pos</label>
-                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" required="">
+                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" value="15466" required="">
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Telp. Perusahaan</label>
-                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" required="">
+                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" value="08976626171" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
@@ -221,7 +221,7 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Deskripsi Perusahaan</label>
-                                  <textarea name="deskripsi_perusahaan" class="form-control required" required=""></textarea>
+                                  <textarea name="deskripsi_perusahaan" class="form-control required" required="">deskripsi perusahaan buncit</textarea>
                               </div>
                             </div>
                             <div class="col-sm-4">
@@ -346,13 +346,13 @@
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Kode Pos</label>
-                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" required="">
+                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" value="19832" required="">
                                       </div>
                                     </div>
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Telp. Pengurus</label>
-                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" required="">
+                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" value="08782647273" required="">
                                       </div>
                                     </div>
                                   </div>
@@ -375,11 +375,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi">
+                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi">
+                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -395,11 +395,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi">
+                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi">
+                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -415,11 +415,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi">
+                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi">
+                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -435,11 +435,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi">
+                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi">
+                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -455,11 +455,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
+                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
+                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
