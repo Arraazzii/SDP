@@ -577,10 +577,10 @@
                     password             : $("input[name='password']").val(),
                     nama_perusahaan      : $("input[name='nama_perusahaan']").val(),
                     alamat_perusahaan    : $("textarea[name='alamat_perusahaan']").val(),
-                    provinsi             : $("input[name='provinsi']").val(),
-                    kota                 : $("input[name='kota']").val(),
-                    kecamatan            : $("input[name='kecamatan']").val(),
-                    kelurahan            : $("input[name='kelurahan']").val(),
+                    provinsi             : $("select[name='provinsi']").val(),
+                    kota                 : $("select[name='kota']").val(),
+                    kecamatan            : $("select[name='kecamatan']").val(),
+                    kelurahan            : $("select[name='kelurahan']").val(),
                     no_telp_perusahaan   : $("input[name='no_telp_perusahaan']").val(),
                     deskripsi_perusahaan : $("textarea[name='deskripsi_perusahaan']").val(),
                     kode_pos_perusahaan  : $("input[name='kode_pos_perusahaan']").val(),
@@ -602,10 +602,10 @@
                           nama_pengurus      : $(this).find("input[name='nama_pengurus']").val(),
                           jabatan_pengurus    : $(this).find("input[name='jabatan_pengurus']").val(),
                           alamat_pengurus    : $(this).find("textarea[name='alamat_pengurus']").val(),
-                          provinsi_pengurus  : $(this).find("input[name='provinsi_pengurus']").val(),
-                          kota_pengurus      : $(this).find("input[name='kota_pengurus']").val(),
-                          kecamatan_pengurus : $(this).find("input[name='kecamatan_pengurus']").val(),
-                          kelurahan_pengurus : $(this).find("input[name='kelurahan_pengurus']").val(),
+                          provinsi_pengurus  : $(this).find("select[name='provinsi_pengurus']").val(),
+                          kota_pengurus      : $(this).find("select[name='kota_pengurus']").val(),
+                          kecamatan_pengurus : $(this).find("select[name='kecamatan_pengurus']").val(),
+                          kelurahan_pengurus : $(this).find("select[name='kelurahan_pengurus']").val(),
                           kode_pos_pengurus  : $(this).find("input[name='kode_pos_pengurus']").val(),
                           no_telp_pengurus   : $(this).find("input[name='no_telp_pengurus']").val(),
                       }
@@ -704,7 +704,7 @@
                             button: "Ok",
                           }).then((after) => {
                             if (after) {
-                              location.href = "<?= base_url()?>Home/";
+                            //   location.href = "<?= base_url()?>Home/";
                             } else {
                               // swal("Your imaginary file is safe!");
                             }
