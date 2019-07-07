@@ -97,77 +97,98 @@
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
                                         <div class="form-group">
-                                            <label>Nama Perusahaan</label>
-                                            <input type="text" class="form-control" name="nama" placeholder="Input Nama Perusahaan">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Alamat Perusahaan</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Kecamatan</label>
-                                            <input type="text" class="form-control" placeholder="Kecamatan" >
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Kelurahan</label>
-                                            <input type="text" class="form-control" placeholder="Kelurahan" >
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Telp. Perusahaan</label>
-                                            <input type="text" class="form-control" placeholder="Telp. Perusahaan">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Jenis Usaha</label>
-                                            <input type="text" class="form-control" placeholder="Jenis Usaha">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Nama Pemilik</label>
-                                            <input type="text" class="form-control" placeholder="Nama Pemilik">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Nama Pengurus</label>
-                                            <input type="text" class="form-control" placeholder="Nama Pengurus">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Tanggal Pendirian</label>
-                                            <input type="date" class="form-control" placeholder="Tgl Pendirian">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Nomor Pendirian</label>
-                                            <input type="text" class="form-control" placeholder="No Pendirian">
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Keterangan Kantor</label>
-                                            <select class="form-control">
-                                                <option hidden="true">-Silahkan Pilih-</option>
-                                                <option>Pusat</option>
-                                                <option>Cabang</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12">
-                                            <label>Jumlah Kantor Cabang</label>
-                                            <input type="number" class="form-control" value="0">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status Kepemilikan</label>
-                                            <select class="form-control">
-                                                <option hidden="true">-Silahkan Pilih-</option>
-                                                <option>Swasta</option>
-                                                <option>Persero</option>
-                                                <option>Patungan dengan Negara Asing</option>
-                                                <option>Negara Asing</option>
-                                                <option>Perusahaan Umum</option>
-                                                <option>Perusahaan Daerah</option>
-                                                <option>Yayasan</option>
-                                                <option>Koperasi</option>
-                                                <option>Perorangan</option>
-                                                <option>Badan Usaha</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status Permodalan</label>
-                                            <input type="number" class="form-control">
-                                        </div>                                        
+                                            <fieldset>     
+                                                <legend> PROFIL PERUSAHAAN </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <table class="table">
+                                                            <tr>
+                                                                <th colspan="2">Nama Perusahaan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><input type="text" class="form-control" name="nama" placeholder="Input Nama Perusahaan"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Alamat</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><textarea class="form-control"></textarea></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Kecamatan</th>
+                                                                <th>Kelurahan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="text" class="form-control" placeholder="Kecamatan" ></td>
+                                                                <td><input type="text" class="form-control" placeholder="Kelurahan" ></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Telp. Perusahaan</th>
+                                                                <th>Jenis Usaha</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="text" class="form-control" placeholder="Telp. Perusahaan"></td>
+                                                                <td><input type="text" class="form-control" placeholder="Jenis Usaha"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Nama Pemilik</th>
+                                                                <th>Nama Pengurus</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="text" class="form-control" placeholder="Nama Pengurus"></td>
+                                                                <td><input type="date" class="form-control" placeholder="Tgl Pendirian"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tanggal Pendirian</th>
+                                                                <th>Nomor Pendirian</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="date" class="form-control" placeholder="Tgl Pendirian"></td>
+                                                                <td><input type="text" class="form-control" placeholder="No Pendirian"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Keterangan Kantor</th>
+                                                                <th>Jumlah Kantor Cabang</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><select class="form-control">
+                                                                    <option hidden="true">-Silahkan Pilih-</option>
+                                                                    <option>Pusat</option>
+                                                                    <option>Cabang</option>
+                                                                </select></td>
+                                                                <td><input type="number" class="form-control" value="0"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Status Kepemilikan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <select class="form-control">
+                                                                        <option hidden="true">-Silahkan Pilih-</option>
+                                                                        <option>Swasta</option>
+                                                                        <option>Persero</option>
+                                                                        <option>Patungan dengan Negara Asing</option>
+                                                                        <option>Negara Asing</option>
+                                                                        <option>Perusahaan Umum</option>
+                                                                        <option>Perusahaan Daerah</option>
+                                                                        <option>Yayasan</option>
+                                                                        <option>Koperasi</option>
+                                                                        <option>Perorangan</option>
+                                                                        <option>Badan Usaha</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Status Permodalan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><input type="number" class="form-control"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>                         
                                     </div>
                                     <div class="tab-pane fade" id="nav-kerja" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="form-group">
