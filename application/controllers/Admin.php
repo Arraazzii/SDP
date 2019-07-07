@@ -384,6 +384,71 @@ $pdf = new FPDF('L','mm','A4');
         ->view('admin/template/admin_template', $data);
     }
 
+    //HALAMAN WLKP PERUSAHAAN
+    public function wlkp_perusahaan()
+    {
+        $perusahaan = array(
+                'data_perusahaan' => $this
+                ->m_admin
+                ->data_perusahaan(),
+                'pengurus' => $this
+                ->m_admin
+                ->jumlah_pengurus_perusahaan(),
+        );
+        $path = "";
+        $data = array(
+            "page" => $this->load("Admin - WLKP Perusahaan", $path) ,
+            "content" => $this
+            ->load
+            ->view('admin/wlkp_perusahaan', $perusahaan, true)
+        );
+        $this
+        ->load
+        ->view('admin/template/admin_template', $data);
+    }
+
+    //HALAMAN WLKP PERUSAHAAN DETAIL
+    public function wlkp_perusahaan_detail()
+    {
+        $kode = $this->uri->segment(3);
+        $perusahaan = array(
+                'data_perusahaan' => $this
+                ->m_admin
+                ->detail_perusahaan($kode),
+        );
+        $path = "";
+        $data = array(
+            "page" => $this->load("Admin - Detail Perusahaan", $path) ,
+            "content" => $this
+            ->load
+            ->view('admin/perusahaan_detail', $perusahaan, true)
+        );
+        $this
+        ->load
+        ->view('admin/template/admin_template', $data);
+    }
+
+    //HALAMAN TAMBAH WLKP PERUSAHAAN 
+    public function tambah_wlkp()
+    {
+        $kode = $this->uri->segment(3);
+        $perusahaan = array(
+                'data_perusahaan' => $this
+                ->m_admin
+                ->detail_perusahaan($kode),
+        );
+        $path = "";
+        $data = array(
+            "page" => $this->load("Admin - Detail Perusahaan", $path) ,
+            "content" => $this
+            ->load
+            ->view('admin/perusahaan_detail', $perusahaan, true)
+        );
+        $this
+        ->load
+        ->view('admin/template/admin_template', $data);
+    }
+
     //HALAMAN REKAPITULASI PP
     public function rekap_pp()
     {

@@ -19,6 +19,9 @@
                     <li <?php if($this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "perusahaan" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "perusahaan_detail"){ echo " class=\"active\"";}; ?>>
                         <a href="<?php echo base_url();?>Admin/perusahaan"> <i class="menu-icon ti-layout-column4-alt"></i>Perusahaan</a>
                     </li>
+                    <li <?php if($this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "wlkp_perusahaan" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "wlkp_perusahaan_detail"){ echo " class=\"active\"";}; ?>>
+                        <a href="<?php echo base_url();?>Admin/wlkp_perusahaan"> <i class="menu-icon ti-layout-column4-alt"></i>WLKP Perusahaan</a>
+                    </li>
                     <h3 class="menu-title">Laporan</h3><!-- /.menu-title -->
                     <li <?php if($this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "rekap_pp" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "rekap_pkb" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "rekap_lks" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "rekap_k3" || $this->uri->segment(1) == "Admin" && $this->uri->segment(2) == "rekap_wlkp"){ echo " class=\"menu-item-has-children dropdown show\"";}; ?> class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-bookmark-alt"></i>Rekapitulasi</a>
