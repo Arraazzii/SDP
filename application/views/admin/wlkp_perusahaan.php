@@ -101,7 +101,7 @@
                                                 <legend> PROFIL PERUSAHAAN </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <th colspan="2">Nama Perusahaan</th>
                                                             </tr>
@@ -109,7 +109,7 @@
                                                                 <td colspan="2"><input type="text" class="form-control" name="nama" placeholder="Input Nama Perusahaan"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th colspan="2">Alamat</th>
+                                                                <th colspan="2">Alamat Perusahaan</th>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2"><textarea class="form-control"></textarea></td>
@@ -196,11 +196,11 @@
                                                 <legend> WARGA NEGARA INDONESIA </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <th></th>
-                                                                <th>Laki - Laki</th>
-                                                                <th>Perempuan</th>        
+                                                                <th><center>Laki - Laki</center></th>
+                                                                <th><center>Perempuan</center></th>        
                                                             </tr>
                                                             <tr>
                                                                 <td>Dibawah 15 tahun</td>
@@ -233,7 +233,7 @@
                                                 <legend> WARGA NEGARA ASING </legend>    
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <th>Laki - Laki</th>
                                                                 <th>Perempuan</th> 
@@ -319,7 +319,7 @@
                                                 <legend> PENGESAHAN </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <th>Tempat Pengesahan</th>
                                                                 <th>Tanggal Pembuatan</th>
@@ -347,7 +347,7 @@
                                                 <legend> ALAT & BAHAN </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <td><input type="checkbox" value=""> Pesawat Uap </td>
                                                                 <td><input type="checkbox" value=""> Pesawat Angkat </td>
@@ -394,7 +394,7 @@
                                                 <legend> FASILITAS KERJA </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <table class="table">
+                                                        <table class="table borderless">
                                                             <tr>
                                                                 <td><input type="checkbox" value=""> P3K </td>
                                                                 <td><input type="checkbox" value=""> Poliklinik </td>

@@ -25,6 +25,7 @@
         .dataTables_paginate{
             float: right;
         }
+
         fieldset 
         {
             border: 1px solid #ddd !important;
@@ -47,5 +48,9 @@
             border-radius: 4px; 
             padding: 5px 5px 5px 10px; 
             background-color: #ffffff;
+        }
+
+        .borderless td, .borderless th {
+            border: none;
         }
     </style>
