@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 07:53 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 5.6.37
+-- Generation Time: Jul 10, 2019 at 02:19 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -7864,9 +7864,48 @@ CREATE TABLE `table_alamat` (
 --
 
 INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecamatan`, `kelurahan`, `kode_pos`, `no_telpon`) VALUES
-('ALM1', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '0895328976755'),
-('ALM2', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '085216154816'),
-('ALM3', 'Perum Pesona Laguna Block C2/17', 'Jawa Barat', 'Depok', 'Tapos', 'Cilangkap', '16458', '02187921825');
+('ALM1', 'alamat perusahaan buncit', 'BANTEN', 'KABUPATEN TANGERANG', 'SINDANG JAYA', 'SINDANG JAYA', '15466', '08976626171'),
+('ALM2', 'alamat pengurus', 'JAWA TIMUR', 'KABUPATEN MADIUN', 'MADIUN', '3519130010', '19832', '08782647273'),
+('ALM3', 'rumah nenek', '', '', 'cimanggis', 'cisalak', '', '09864204');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_alat_bahan`
+--
+
+CREATE TABLE `table_alat_bahan` (
+  `id` int(11) NOT NULL,
+  `pesawat_uap` varchar(5) DEFAULT NULL,
+  `alat_berat` varchar(5) DEFAULT NULL,
+  `instalasi_listrik` varchar(5) DEFAULT NULL,
+  `lift` varchar(5) DEFAULT NULL,
+  `turbin` varchar(5) DEFAULT NULL,
+  `radio_aktif` varchar(5) DEFAULT NULL,
+  `limbah_padat` varchar(5) DEFAULT NULL,
+  `pesawat_angkat` varchar(5) DEFAULT NULL,
+  `motor` varchar(5) DEFAULT NULL,
+  `instalasi_pemadam` varchar(5) DEFAULT NULL,
+  `bejana_tekan` varchar(5) DEFAULT NULL,
+  `botol_baja` varchar(5) DEFAULT NULL,
+  `penyalur_petir` varchar(5) DEFAULT NULL,
+  `limbah_cair` varchar(5) DEFAULT NULL,
+  `pesawat_angkut` varchar(5) DEFAULT NULL,
+  `amdal` varchar(5) DEFAULT NULL,
+  `instalasi_limbah` varchar(5) DEFAULT NULL,
+  `bahan_beracun` varchar(5) DEFAULT NULL,
+  `perancah` varchar(5) DEFAULT NULL,
+  `pembangkit_listrik` varchar(5) DEFAULT NULL,
+  `limbah_gas` varchar(5) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_alat_bahan`
+--
+
+INSERT INTO `table_alat_bahan` (`id`, `pesawat_uap`, `alat_berat`, `instalasi_listrik`, `lift`, `turbin`, `radio_aktif`, `limbah_padat`, `pesawat_angkat`, `motor`, `instalasi_pemadam`, `bejana_tekan`, `botol_baja`, `penyalur_petir`, `limbah_cair`, `pesawat_angkut`, `amdal`, `instalasi_limbah`, `bahan_beracun`, `perancah`, `pembangkit_listrik`, `limbah_gas`, `kode_wlkp`) VALUES
+(2, NULL, '1', '1', '1', '1', '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'WLKP1');
 
 -- --------------------------------------------------------
 
@@ -7887,6 +7926,46 @@ CREATE TABLE `table_email` (
 
 INSERT INTO `table_email` (`id_email`, `email`, `password`, `nama`) VALUES
 (1, 'mumaraziz2014@gmail.com', '2014umar', 'Admin Disnaker');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_fasilitas`
+--
+
+CREATE TABLE `table_fasilitas` (
+  `id` int(11) NOT NULL,
+  `p3k` varchar(5) DEFAULT NULL,
+  `ahli_k3` varchar(5) DEFAULT NULL,
+  `koperasi` varchar(5) DEFAULT NULL,
+  `sarana_ibadah` varchar(5) DEFAULT NULL,
+  `perumahan` varchar(5) DEFAULT NULL,
+  `pk` varchar(5) DEFAULT NULL,
+  `bipartit` varchar(5) DEFAULT NULL,
+  `p2k3` varchar(5) DEFAULT NULL,
+  `poliklinik` varchar(5) DEFAULT NULL,
+  `paramedis` varchar(5) DEFAULT NULL,
+  `tpa` varchar(5) DEFAULT NULL,
+  `unit_kb` varchar(5) DEFAULT NULL,
+  `bpjs` varchar(5) DEFAULT NULL,
+  `pp` varchar(5) DEFAULT NULL,
+  `sptp` varchar(5) DEFAULT NULL,
+  `dokter` varchar(5) DEFAULT NULL,
+  `pemadam` varchar(5) NOT NULL,
+  `kantin` varchar(5) DEFAULT NULL,
+  `olahraga` varchar(5) DEFAULT NULL,
+  `apindo` varchar(5) DEFAULT NULL,
+  `pkb` varchar(5) DEFAULT NULL,
+  `uksp` varchar(5) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_fasilitas`
+--
+
+INSERT INTO `table_fasilitas` (`id`, `p3k`, `ahli_k3`, `koperasi`, `sarana_ibadah`, `perumahan`, `pk`, `bipartit`, `p2k3`, `poliklinik`, `paramedis`, `tpa`, `unit_kb`, `bpjs`, `pp`, `sptp`, `dokter`, `pemadam`, `kantin`, `olahraga`, `apindo`, `pkb`, `uksp`, `kode_wlkp`) VALUES
+(1, '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'WLKP1');
 
 -- --------------------------------------------------------
 
@@ -7925,13 +8004,11 @@ CREATE TABLE `table_history_pembaruan` (
 --
 
 INSERT INTO `table_history_pembaruan` (`id`, `kode_perusahaan`, `nama_file`, `no_registrasi`, `no_dokumen`, `tanggal_daftar`, `type`, `time`) VALUES
-(67, 'PER1', '', '', '', '0000-00-00', 'pp', '2018-12-19 14:28:03'),
-(68, 'PER1', '17d7ac859c909ee5dd006031e2f9dfc1.pdf', '32384', '32384', '2018-12-31', 'pkb', '2018-12-19 14:28:03'),
-(69, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2016-01-03', 'lks', '2018-12-19 14:28:03'),
-(70, 'PER1', '9a7a4181531a08d13086290e07c6e815.pdf', '34323', '34323', '2018-12-19', 'k3', '2018-12-19 14:28:03'),
-(71, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', 'wlkp', '2018-12-19 14:28:03'),
-(511, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2019-10-25', 'lks', '2018-12-19 18:42:31'),
-(512, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2018-11-29', 'lks', '2018-12-19 18:43:35');
+(513, 'PER1', '', '121312', '121312', '2019-07-02', 'pp', '2019-07-02 15:30:39'),
+(514, 'PER1', '', '32384', '32384', '2019-07-02', 'pkb', '2019-07-02 15:30:39'),
+(515, 'PER1', '', '43943', '43943', '2019-07-02', 'lks', '2019-07-02 15:30:39'),
+(516, 'PER1', '', '34323', '34323', '2019-07-02', 'k3', '2019-07-02 15:30:39'),
+(517, 'PER1', '', '643422', '643422', '2019-07-02', 'wlkp', '2019-07-02 15:30:39');
 
 -- --------------------------------------------------------
 
@@ -7955,7 +8032,7 @@ CREATE TABLE `table_k3` (
 --
 
 INSERT INTO `table_k3` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(4, 'PER1', '9a7a4181531a08d13086290e07c6e815.pdf', '34323', '34323', '2018-12-19', '0', '0');
+(5, 'PER1', '', '34323', '34323', '2019-07-02', '', '0');
 
 --
 -- Triggers `table_k3`
@@ -7972,6 +8049,36 @@ INSERT INTO table_history_pembaruan VALUES(NULL,NEW.kode_perusahaan,NEW.nama_fil
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_ketenagakerjaan`
+--
+
+CREATE TABLE `table_ketenagakerjaan` (
+  `id` int(11) NOT NULL,
+  `jam_kerja` int(11) DEFAULT NULL,
+  `kategori` enum('KECIL','SEDANG','BESAR') DEFAULT NULL,
+  `jumlah_penerima_umr` int(11) DEFAULT NULL,
+  `jumlah_upah` int(11) DEFAULT NULL,
+  `upah_tinggi` int(11) DEFAULT NULL,
+  `upah_rendah` int(11) DEFAULT NULL,
+  `l_mendatang` int(11) DEFAULT NULL,
+  `p_mendatang` int(11) DEFAULT NULL,
+  `l_terakhir` int(11) DEFAULT NULL,
+  `p_terakhir` int(11) DEFAULT NULL,
+  `pekerja_terakhir` int(11) DEFAULT NULL,
+  `pekerja_berhenti` int(11) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_ketenagakerjaan`
+--
+
+INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_penerima_umr`, `jumlah_upah`, `upah_tinggi`, `upah_rendah`, `l_mendatang`, `p_mendatang`, `l_terakhir`, `p_terakhir`, `pekerja_terakhir`, `pekerja_berhenti`, `kode_wlkp`) VALUES
+(3, 6, 'KECIL', 20, 50000, 20000, 5000, 2, 1, 20, 10, 50, 50, 'WLKP1');
 
 -- --------------------------------------------------------
 
@@ -8017,7 +8124,7 @@ CREATE TABLE `table_lks` (
 --
 
 INSERT INTO `table_lks` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(4, 'PER1', '9862f30a7e998003583314c80f9feef2.pdf', '43943', '43943', '2018-11-29', '1', '0');
+(5, 'PER1', '', '43943', '43943', '2019-07-02', '', '0');
 
 --
 -- Triggers `table_lks`
@@ -8056,7 +8163,30 @@ CREATE TABLE `table_login` (
 
 INSERT INTO `table_login` (`id`, `email`, `password`, `status`, `level`, `kode_perusahaan`) VALUES
 (1, 'admin@buncit.com', '21232f297a57a5a743894a0e4a801fc3', 'sudah', 'admin', ''),
-(13, 'mumaraziz2014@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'sudah', 'user', 'PER1');
+(13, 'mumaraziz2014@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'sudah', 'user', 'PER1'),
+(17, 'akum@email.com', 'a8ce419bb10e568c09918ebaf9d08430', 'belum', 'user', 'PER1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_pengesahan`
+--
+
+CREATE TABLE `table_pengesahan` (
+  `id` int(11) NOT NULL,
+  `nip` varchar(50) DEFAULT NULL,
+  `nama_pengesah` varchar(100) DEFAULT NULL,
+  `tanggal_pengesahan` date DEFAULT NULL,
+  `tempat_pengesahan` varchar(100) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_pengesahan`
+--
+
+INSERT INTO `table_pengesahan` (`id`, `nip`, `nama_pengesah`, `tanggal_pengesahan`, `tempat_pengesahan`, `kode_wlkp`) VALUES
+(3, '15464687', 'Ujang Asep', '2019-07-10', 'Depok', 'WLKP1');
 
 -- --------------------------------------------------------
 
@@ -8077,8 +8207,7 @@ CREATE TABLE `table_pengurus` (
 --
 
 INSERT INTO `table_pengurus` (`id`, `nama`, `jabatan`, `kode_alamat`, `kode_perusahaan`) VALUES
-(6, 'Purri Anggraeni', 'Ummi', 'ALM2', 'PER1'),
-(7, 'Anta Budaya', 'Abi', 'ALM3', 'PER1');
+(8, 'nama pengurus', 'Jabatan pengurus', 'ALM2', 'PER1');
 
 -- --------------------------------------------------------
 
@@ -8106,7 +8235,7 @@ CREATE TABLE `table_perusahaan` (
 --
 
 INSERT INTO `table_perusahaan` (`kode_perusahaan`, `nama_perusahaan`, `logo`, `deskripsi`, `siup`, `tdp`, `akte`, `hakim`, `domisili`, `kode_alamat`, `kode_klui`, `notif`) VALUES
-('PER1', 'PT. Lumbung Riang', '03d4324243bb8283d34db7872a0d7f1f.jpg', 'Unknown', '4eb3169ef121d0a444500e0bfb420178.pdf', 'a8b4be988e20559ca0932000d8bbb86c.pdf', '9e0b587eaa611b6eb4273f44be2b85e0.pdf', '049f9402867ca08b3a9d7ccd9cf2235b.pdf', '31d0123eab031994f3e841f41c19d226.pdf', 'ALM1', 'a123', '0');
+('PER1', 'perusahaan buncit bucin', '', 'deskripsi perusahaan buncit', '', '', '', '', '', 'ALM1', 'd123', '0');
 
 -- --------------------------------------------------------
 
@@ -8130,7 +8259,7 @@ CREATE TABLE `table_pkb` (
 --
 
 INSERT INTO `table_pkb` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(4, 'PER1', '17d7ac859c909ee5dd006031e2f9dfc1.pdf', '32384', '32384', '2018-12-31', '0', '0');
+(5, 'PER1', '', '32384', '32384', '2019-07-02', '', '0');
 
 --
 -- Triggers `table_pkb`
@@ -8170,7 +8299,7 @@ CREATE TABLE `table_pp` (
 --
 
 INSERT INTO `table_pp` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(5, 'PER1', '', '', '', '0000-00-00', '', '0');
+(6, 'PER1', '', '121312', '121312', '2019-07-02', '', '0');
 
 --
 -- Triggers `table_pp`
@@ -8187,6 +8316,34 @@ INSERT INTO table_history_pembaruan VALUES(NULL,NEW.kode_perusahaan,NEW.nama_fil
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_warga_negara`
+--
+
+CREATE TABLE `table_warga_negara` (
+  `id` int(11) NOT NULL,
+  `l_dibawah_15` int(11) DEFAULT NULL,
+  `p_dibawah_15` int(11) DEFAULT NULL,
+  `l_dibawah_18` int(11) DEFAULT NULL,
+  `p_dibawah_18` int(11) DEFAULT NULL,
+  `l_diatas_18` int(11) DEFAULT NULL,
+  `p_diatas_18` int(11) DEFAULT NULL,
+  `total_wni` int(11) DEFAULT NULL,
+  `l_wna` int(11) DEFAULT NULL,
+  `p_wna` int(11) DEFAULT NULL,
+  `total_wna` int(11) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_warga_negara`
+--
+
+INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15`, `p_dibawah_15`, `l_dibawah_18`, `p_dibawah_18`, `l_diatas_18`, `p_diatas_18`, `total_wni`, `l_wna`, `p_wna`, `total_wna`, `kode_wlkp`) VALUES
+(3, 1, 2, 3, 4, 5, 6, 21, 7, 8, 15, 'WLKP1');
 
 -- --------------------------------------------------------
 
@@ -8210,7 +8367,7 @@ CREATE TABLE `table_wlkp` (
 --
 
 INSERT INTO `table_wlkp` (`id`, `kode_perusahaan`, `nama_file`, `no_dokumen`, `no_registrasi`, `tanggal_daftar`, `status`, `notif`) VALUES
-(4, 'PER1', '53414e08a67eb9b32f9ea0e58cbe00e2.pdf', '643422', '643422', '2018-12-11', '0', '0');
+(5, 'PER1', '', '643422', '643422', '2019-07-02', '', '0');
 
 --
 -- Triggers `table_wlkp`
@@ -8227,6 +8384,33 @@ INSERT INTO table_history_pembaruan VALUES(NULL,NEW.kode_perusahaan,NEW.nama_fil
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_wlkp_perusahaan`
+--
+
+CREATE TABLE `table_wlkp_perusahaan` (
+  `kode_wlkp` varchar(11) NOT NULL,
+  `nama_perusahaan` varchar(100) DEFAULT NULL,
+  `jenis_usaha` varchar(100) DEFAULT NULL,
+  `nama_pemilik` varchar(100) DEFAULT NULL,
+  `nama_pengurus` varchar(100) DEFAULT NULL,
+  `tanggal_pendirian` date DEFAULT NULL,
+  `nomor_pendirian` varchar(50) DEFAULT NULL,
+  `ket_kantor` enum('PUSAT','CABANG') DEFAULT NULL,
+  `status_kepemilikan` varchar(50) DEFAULT NULL,
+  `status_permodalan` varchar(50) DEFAULT NULL,
+  `kode_alamat` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_wlkp_perusahaan`
+--
+
+INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `nama_pengurus`, `tanggal_pendirian`, `nomor_pendirian`, `ket_kantor`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`) VALUES
+('WLKP1', 'PT AKUM', 'sampingan', 'a', 'b', '2019-07-10', '294628942', 'PUSAT', 'Swasta', 'X', 'ALM3');
 
 -- --------------------------------------------------------
 
@@ -83285,10 +83469,22 @@ ALTER TABLE `table_alamat`
   ADD PRIMARY KEY (`kode_alamat`);
 
 --
+-- Indexes for table `table_alat_bahan`
+--
+ALTER TABLE `table_alat_bahan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_email`
 --
 ALTER TABLE `table_email`
   ADD PRIMARY KEY (`id_email`);
+
+--
+-- Indexes for table `table_fasilitas`
+--
+ALTER TABLE `table_fasilitas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `table_history_login`
@@ -83309,6 +83505,12 @@ ALTER TABLE `table_k3`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_ketenagakerjaan`
+--
+ALTER TABLE `table_ketenagakerjaan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_klui`
 --
 ALTER TABLE `table_klui`
@@ -83324,6 +83526,12 @@ ALTER TABLE `table_lks`
 -- Indexes for table `table_login`
 --
 ALTER TABLE `table_login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `table_pengesahan`
+--
+ALTER TABLE `table_pengesahan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -83351,10 +83559,22 @@ ALTER TABLE `table_pp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_warga_negara`
+--
+ALTER TABLE `table_warga_negara`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_wlkp`
 --
 ALTER TABLE `table_wlkp`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `table_wlkp_perusahaan`
+--
+ALTER TABLE `table_wlkp_perusahaan`
+  ADD PRIMARY KEY (`kode_wlkp`);
 
 --
 -- Indexes for table `villages`
@@ -83368,10 +83588,22 @@ ALTER TABLE `villages`
 --
 
 --
+-- AUTO_INCREMENT for table `table_alat_bahan`
+--
+ALTER TABLE `table_alat_bahan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `table_email`
 --
 ALTER TABLE `table_email`
   MODIFY `id_email` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `table_fasilitas`
+--
+ALTER TABLE `table_fasilitas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `table_history_login`
@@ -83383,49 +83615,67 @@ ALTER TABLE `table_history_login`
 -- AUTO_INCREMENT for table `table_history_pembaruan`
 --
 ALTER TABLE `table_history_pembaruan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
 
 --
 -- AUTO_INCREMENT for table `table_k3`
 --
 ALTER TABLE `table_k3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `table_ketenagakerjaan`
+--
+ALTER TABLE `table_ketenagakerjaan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `table_lks`
 --
 ALTER TABLE `table_lks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_login`
 --
 ALTER TABLE `table_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `table_pengesahan`
+--
+ALTER TABLE `table_pengesahan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `table_pengurus`
 --
 ALTER TABLE `table_pengurus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `table_pkb`
 --
 ALTER TABLE `table_pkb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_pp`
 --
 ALTER TABLE `table_pp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `table_warga_negara`
+--
+ALTER TABLE `table_warga_negara`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `table_wlkp`
 --
 ALTER TABLE `table_wlkp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
