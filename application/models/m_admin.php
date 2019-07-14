@@ -167,6 +167,30 @@ class m_admin extends CI_Model {
 		return $query->result();
 	}
 
+	// Tampil Data WLKP Perusahaan
+	public function data_wlkp_perusahaan(){
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
+		return $query->result();
+	}
+
+	// Tampil Data WLKP Perusahaan
+	public function detail_wlkp_perusahaan($kode){
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
+		return $query->result();
+	}
+
+	// Delete WLKP Perusahaan
+	public function delete_wlkp($kode){
+
+		$login 	 	 = $this->db->query("DELETE FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode'");
+
+		if ($login) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// Rekapitulasi K3
 	public function rekap_k3(){
 		$query = $this->db->query("SELECT * FROM table_perusahaan JOIN table_k3 ON table_perusahaan.kode_perusahaan = table_k3.kode_perusahaan");
