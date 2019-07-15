@@ -458,6 +458,14 @@ $pdf = new FPDF('L','mm','A4');
         $pekerja_terakhir   = $this->input->post('pekerja_terakhir');
         $pekerja_berhenti   = $this->input->post('pekerja_berhenti');
 
+        // TABLE RENCANA TENAGA KERJA
+        $sdm_l          = $this->input->post('sdm_l');
+        $sdm_p          = $this->input->post('sdm_p');
+        $jumlah_sdm     = $this->input->post('jumlah_sdm');
+        $pendidikan     = $this->input->post('pendidikan');
+        $keterampilan   = $this->input->post('keterampilan');
+        $posisi         = $this->input->post('posisi');
+
         // TABLE PENGESAHAN
         $tempat_pengesahan  = $this->input->post('tempat_pengesahan');
         $tgl_pengesahan     = $this->input->post('tgl_pengesahan');
@@ -564,6 +572,16 @@ $pdf = new FPDF('L','mm','A4');
             'kode_wlkp'             => $kode_wlkp
         );
 
+        $data_rencana_tk = array(
+            'sdm_l'         => $sdm_l,
+            'sdm_p'         => $sdm_p,
+            'jumlah_sdm'    => $jumlah_sdm,
+            'pendidikan'    => $pendidikan,
+            'keterampilan'  => $keterampilan,
+            'posisi'        => $posisi,
+            'kode_wlkp'     => $kode_wlkp
+        );
+
         $data_pengesahan = array(
             'nip'                   => $nip,
             'nama_pengesah'         => $nama_pengesah,
@@ -627,6 +645,7 @@ $pdf = new FPDF('L','mm','A4');
         $this->db->insert("table_alamat", $data_alamat);
         $this->db->insert("table_warga_negara", $data_wn);
         $this->db->insert("table_ketenagakerjaan", $data_tenagakerja);
+        $this->db->insert("table_rencana_tenaga_kerja", $data_rencana_tk);
         $this->db->insert("table_pengesahan", $data_pengesahan);
         $this->db->insert("table_alat_bahan", $data_alat_bahan);
         $this->db->insert("table_fasilitas", $data_fasilitas);
@@ -637,7 +656,7 @@ $pdf = new FPDF('L','mm','A4');
         redirect('Admin/wlkp_perusahaan');
     }
 
-    // FUNCTION INPUT WLKP PERUSAHAAN 
+    // FUNCTION UPDATE WLKP PERUSAHAAN 
     public function update_wlkp()
     {
         $kode_wlkp = $this->input->post('kode_wlkp');
@@ -685,6 +704,14 @@ $pdf = new FPDF('L','mm','A4');
         $p_terakhir         = $this->input->post('p_terakhir');
         $pekerja_terakhir   = $this->input->post('pekerja_terakhir');
         $pekerja_berhenti   = $this->input->post('pekerja_berhenti');
+
+        // TABLE RENCANA TENAGA KERJA
+        $sdm_l          = $this->input->post('sdm_l');
+        $sdm_p          = $this->input->post('sdm_p');
+        $jumlah_sdm     = $this->input->post('jumlah_sdm');
+        $pendidikan     = $this->input->post('pendidikan');
+        $keterampilan   = $this->input->post('keterampilan');
+        $posisi         = $this->input->post('posisi');
 
         // TABLE PENGESAHAN
         $tempat_pengesahan  = $this->input->post('tempat_pengesahan');
@@ -788,6 +815,15 @@ $pdf = new FPDF('L','mm','A4');
             'pekerja_berhenti'      => $pekerja_berhenti
         );
 
+        $data_rencana_tk = array(
+            'sdm_l'         => $sdm_l,
+            'sdm_p'         => $sdm_p,
+            'jumlah_sdm'    => $jumlah_sdm,
+            'pendidikan'    => $pendidikan,
+            'keterampilan'  => $keterampilan,
+            'posisi'        => $posisi
+        );
+
         $data_pengesahan = array(
             'nip'                   => $nip,
             'nama_pengesah'         => $nama_pengesah,
@@ -859,6 +895,10 @@ $pdf = new FPDF('L','mm','A4');
         // Update Ketenagakerjaan
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_ketenagakerjaan', $data_tenagakerja);
+
+        // Update Rencana Tenaga Kerja
+        $this->db->where('kode_wlkp', $kode_wlkp);
+        $this->db->update('table_rencana_tenaga_kerja', $data_rencana_tk);
 
         // Update Pengesahan
         $this->db->where('kode_wlkp', $kode_wlkp);

@@ -169,7 +169,7 @@ class m_admin extends CI_Model {
 
 	// Tampil Data WLKP Perusahaan
 	public function data_wlkp_perusahaan(){
-		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
 		return $query->result();
 	}
 

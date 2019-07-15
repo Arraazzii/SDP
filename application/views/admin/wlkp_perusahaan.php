@@ -143,7 +143,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="date" class="form-control" placeholder="Tgl Pendirian" name="tanggal_pendirian"></td>
-                                                                <td><input type="text" class="form-control" placeholder="No Pendirian" name="no_pendirian"></td>
+                                                                <td><input type="number" class="form-control" placeholder="No Pendirian" name="no_pendirian"></td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Keterangan Kantor</th>
@@ -310,6 +310,49 @@
                                                     </div>
                                                 </div>                                            
                                             </fieldset>  
+                                        </div>
+
+                                        <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Rencana Kebutuhan Tenaga Kerja </legend>    
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Pria Di Butuhkan</label>
+                                                            <input type="number" class="form-control" name="sdm_l" value="0" id="sdm_l"> 
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Wanita Di Butuhkan</label>
+                                                            <input type="number" class="form-control" name="sdm_p" value="0" id="sdm_p"> 
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Tenaga Kerja</label>
+                                                            <input type="number" class="form-control" name="jumlah_sdm" value="0" id="jumlah_sdm" readonly> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Tingkat Pendidikan yang Di Butuhkan</label>
+                                                            <select class="form-control" name="pendidikan">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="SD" >SD</option>
+                                                                <option value="SMP">SMP</option>
+                                                                <option value="SMA">SMA/SMK</option>
+                                                                <option value="D3">D3</option>
+                                                                <option value="S1">S1</option>
+                                                                <option value="S2" >S2</option>
+                                                                <option value="S3">S3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Keterampilan yang Di Butuhkan</label>
+                                                            <input type="text" class="form-control" name="keterampilan"> 
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <label>Posisi yang Di Butuhkan</label>
+                                                            <input type="text" class="form-control" name="posisi"> 
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset> 
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-lainnya" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -499,6 +542,14 @@
                 $pekerja_terakhir   = $row->pekerja_terakhir;
                 $pekerja_berhenti   = $row->pekerja_berhenti;
 
+                // TABLE RENCANA TENAGA KERJA
+                $sdm_l          = $row->sdm_l;
+                $sdm_p          = $row->sdm_p;
+                $jumlah_sdm     = $row->jumlah_sdm;
+                $pendidikan     = $row->pendidikan;
+                $keterampilan   = $row->keterampilan;
+                $posisi         = $row->posisi;
+
                 // TABLE PENGESAHAN
                 $tempat_pengesahan  = $row->tempat_pengesahan;
                 $tgl_pengesahan     = $row->tanggal_pengesahan;
@@ -625,7 +676,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="date" class="form-control" placeholder="Tgl Pendirian" name="tanggal_pendirian" value="<?php echo $tanggal_pendirian; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="No Pendirian" name="no_pendirian" value="<?php echo $no_pendirian; ?>"></td>
+                                                                <td><input type="number" class="form-control" placeholder="No Pendirian" name="no_pendirian" value="<?php echo $no_pendirian; ?>"></td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Keterangan Kantor</th>
@@ -848,6 +899,77 @@
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Jumlah Pekerja Berhenti</label>
                                                             <input type="number" class="form-control" name="pekerja_berhenti" value="<?php echo $pekerja_berhenti; ?>"> 
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>
+
+                                        <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Rencana Kebutuhan Tenaga Kerja </legend>    
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Pria Di Butuhkan</label>
+                                                            <input type="number" class="form-control" name="sdm_l" value="<?php echo $sdm_l; ?>" id="esdm_l"> 
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Wanita Di Butuhkan</label>
+                                                            <input type="number" class="form-control" name="sdm_p" value="<?php echo $sdm_p; ?>" id="esdm_p"> 
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Jumlah Tenaga Kerja</label>
+                                                            <input type="number" class="form-control" name="jumlah_sdm" value="<?php echo $jumlah_sdm; ?>" id="ejumlah_sdm" readonly> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Tingkat Pendidikan yang Di Butuhkan</label>
+                                                            <select class="form-control" name="pendidikan">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="SD" 
+                                                                <?php if ($pendidikan == 'SD') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >SD</option>
+                                                                <option value="SMP" 
+                                                                <?php if ($pendidikan == 'SMP') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >SMP</option>
+                                                                <option value="SMA" 
+                                                                <?php if ($pendidikan == 'SMA') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >SMA/SMK</option>
+                                                                <option value="D3" 
+                                                                <?php if ($pendidikan == 'D3') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >D3</option>
+                                                                <option value="S1" 
+                                                                <?php if ($pendidikan == 'S1') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >S1</option>
+                                                                <option value="S2" 
+                                                                <?php if ($pendidikan == 'S2') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >S2</option>
+                                                                <option value="S3" 
+                                                                <?php if ($pendidikan == 'S3') {
+                                                                    echo 'selected';
+                                                                } ?>
+                                                                >S3</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Keterampilan yang Di Butuhkan</label>
+                                                            <input type="text" class="form-control" name="keterampilan" value="<?php echo $keterampilan; ?>"> 
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <label>Posisi yang Di Butuhkan</label>
+                                                            <input type="text" class="form-control" name="posisi" value="<?php echo $posisi; ?>"> 
                                                         </div>
                                                     </div>
                                                 </div>                                            
@@ -1197,6 +1319,67 @@
             var value1 = parseFloat($('#l_wna').val()) || 0;
             var value2 = parseFloat($('#p_wna').val()) || 0;
             $('#total_wna').val(value1 + value2);
+        });
+    });
+
+    // Javascript untuk penambahan jumlah SDM
+    $(function(){
+        $('#sdm_l, #sdm_p').keyup(function(){
+            var value1 = parseFloat($('#sdm_l').val()) || 0;
+            var value2 = parseFloat($('#sdm_p').val()) || 0;
+            $('#jumlah_sdm').val(value1 + value2);
+        });
+    });
+
+    // // Javascript untuk button Submit Disabled
+    // document.getElementById("#nav-lainnya-tab").onclick = function() {
+    //     document.getElementById("#submit").attr("disabled", "false").css("cursor", "pointer");
+    // }
+
+    
+</script>
+
+<script type="text/javascript">
+    // Javascript untuk disabled #kantor_cabang jika #ket_kantor = PUSAT
+    document.getElementById('eket_kantor').onchange = function () {
+        document.getElementById("ekantor_cabang").disabled = (this.value === 'PUSAT');
+    }
+
+    // Javascript untuk penambahan laki laki WNI
+    $(function(){
+        $('#el_dibawah_15, #el_dibawah_18, #el_diatas_18').keyup(function(){
+            var value1 = parseFloat($('#el_dibawah_15').val()) || 0;
+            var value2 = parseFloat($('#el_dibawah_18').val()) || 0;
+            var value3 = parseFloat($('#el_diatas_18').val()) || 0;
+            $('#etotal_l').val(value1 + value2 + value3);
+        });
+    });
+
+    // Javascript untuk penambahan perempuan WNI
+    $(function(){
+        $('#ep_dibawah_15, #ep_dibawah_18, #ep_diatas_18').keyup(function(){
+            var value1 = parseFloat($('#ep_dibawah_15').val()) || 0;
+            var value2 = parseFloat($('#ep_dibawah_18').val()) || 0;
+            var value3 = parseFloat($('#ep_diatas_18').val()) || 0;
+            $('#etotal_p').val(value1 + value2 + value3);
+        });
+    });
+
+    // Javascript untuk penambahan jumlah WNA
+    $(function(){
+        $('#el_wna, #ep_wna').keyup(function(){
+            var value1 = parseFloat($('#el_wna').val()) || 0;
+            var value2 = parseFloat($('#ep_wna').val()) || 0;
+            $('#etotal_wna').val(value1 + value2);
+        });
+    });
+
+    // Javascript untuk penambahan jumlah SDM
+    $(function(){
+        $('#esdm_l, #esdm_p').keyup(function(){
+            var value1 = parseFloat($('#esdm_l').val()) || 0;
+            var value2 = parseFloat($('#esdm_p').val()) || 0;
+            $('#ejumlah_sdm').val(value1 + value2);
         });
     });
 
