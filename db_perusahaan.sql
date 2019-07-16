@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2019 at 02:19 PM
+-- Generation Time: Jul 16, 2019 at 05:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.5
 
@@ -7866,7 +7866,8 @@ CREATE TABLE `table_alamat` (
 INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecamatan`, `kelurahan`, `kode_pos`, `no_telpon`) VALUES
 ('ALM1', 'alamat perusahaan buncit', 'BANTEN', 'KABUPATEN TANGERANG', 'SINDANG JAYA', 'SINDANG JAYA', '15466', '08976626171'),
 ('ALM2', 'alamat pengurus', 'JAWA TIMUR', 'KABUPATEN MADIUN', 'MADIUN', '3519130010', '19832', '08782647273'),
-('ALM3', 'rumah nenek', '', '', 'cimanggis', 'cisalak', '', '09864204');
+('ALM3', 'B', '', '', 'C', 'D', '', '1233242'),
+('ALM4', 'asfafs', '', '', 'asdas', 'sadgsa', '', '13532');
 
 -- --------------------------------------------------------
 
@@ -7905,7 +7906,8 @@ CREATE TABLE `table_alat_bahan` (
 --
 
 INSERT INTO `table_alat_bahan` (`id`, `pesawat_uap`, `alat_berat`, `instalasi_listrik`, `lift`, `turbin`, `radio_aktif`, `limbah_padat`, `pesawat_angkat`, `motor`, `instalasi_pemadam`, `bejana_tekan`, `botol_baja`, `penyalur_petir`, `limbah_cair`, `pesawat_angkut`, `amdal`, `instalasi_limbah`, `bahan_beracun`, `perancah`, `pembangkit_listrik`, `limbah_gas`, `kode_wlkp`) VALUES
-(2, NULL, '1', '1', '1', '1', '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'WLKP1');
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP1'),
+(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP2');
 
 -- --------------------------------------------------------
 
@@ -7951,7 +7953,7 @@ CREATE TABLE `table_fasilitas` (
   `pp` varchar(5) DEFAULT NULL,
   `sptp` varchar(5) DEFAULT NULL,
   `dokter` varchar(5) DEFAULT NULL,
-  `pemadam` varchar(5) NOT NULL,
+  `pemadam` varchar(5) DEFAULT NULL,
   `kantin` varchar(5) DEFAULT NULL,
   `olahraga` varchar(5) DEFAULT NULL,
   `apindo` varchar(5) DEFAULT NULL,
@@ -7965,7 +7967,8 @@ CREATE TABLE `table_fasilitas` (
 --
 
 INSERT INTO `table_fasilitas` (`id`, `p3k`, `ahli_k3`, `koperasi`, `sarana_ibadah`, `perumahan`, `pk`, `bipartit`, `p2k3`, `poliklinik`, `paramedis`, `tpa`, `unit_kb`, `bpjs`, `pp`, `sptp`, `dokter`, `pemadam`, `kantin`, `olahraga`, `apindo`, `pkb`, `uksp`, `kode_wlkp`) VALUES
-(1, '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'WLKP1');
+(5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP1'),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP2');
 
 -- --------------------------------------------------------
 
@@ -8078,7 +8081,8 @@ CREATE TABLE `table_ketenagakerjaan` (
 --
 
 INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_penerima_umr`, `jumlah_upah`, `upah_tinggi`, `upah_rendah`, `l_mendatang`, `p_mendatang`, `l_terakhir`, `p_terakhir`, `pekerja_terakhir`, `pekerja_berhenti`, `kode_wlkp`) VALUES
-(3, 6, 'KECIL', 20, 50000, 20000, 5000, 2, 1, 20, 10, 50, 50, 'WLKP1');
+(8, 0, 'SEDANG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP1'),
+(9, 0, 'SEDANG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP2');
 
 -- --------------------------------------------------------
 
@@ -8163,8 +8167,8 @@ CREATE TABLE `table_login` (
 
 INSERT INTO `table_login` (`id`, `email`, `password`, `status`, `level`, `kode_perusahaan`) VALUES
 (1, 'admin@buncit.com', '21232f297a57a5a743894a0e4a801fc3', 'sudah', 'admin', ''),
-(13, 'mumaraziz2014@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'sudah', 'user', 'PER1'),
-(17, 'akum@email.com', 'a8ce419bb10e568c09918ebaf9d08430', 'belum', 'user', 'PER1');
+(13, 'mumaraziz2014@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'blokir', 'user', 'PER1'),
+(17, 'akum@email.com', 'a8ce419bb10e568c09918ebaf9d08430', 'blokir', 'user', 'PER1');
 
 -- --------------------------------------------------------
 
@@ -8186,7 +8190,8 @@ CREATE TABLE `table_pengesahan` (
 --
 
 INSERT INTO `table_pengesahan` (`id`, `nip`, `nama_pengesah`, `tanggal_pengesahan`, `tempat_pengesahan`, `kode_wlkp`) VALUES
-(3, '15464687', 'Ujang Asep', '2019-07-10', 'Depok', 'WLKP1');
+(8, '0884', 'K', '2019-07-16', 'J', 'WLKP1'),
+(9, '253', 'sad', '2019-07-16', 'asdas', 'WLKP2');
 
 -- --------------------------------------------------------
 
@@ -8320,6 +8325,31 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `table_rencana_tenaga_kerja`
+--
+
+CREATE TABLE `table_rencana_tenaga_kerja` (
+  `id` int(11) NOT NULL,
+  `sdm_l` int(11) DEFAULT NULL,
+  `sdm_p` int(11) DEFAULT NULL,
+  `jumlah_sdm` int(11) DEFAULT NULL,
+  `pendidikan` enum('SD','SMP','SMA','D3','S1','S2','S3') DEFAULT NULL,
+  `keterampilan` varchar(50) DEFAULT NULL,
+  `posisi` varchar(50) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_rencana_tenaga_kerja`
+--
+
+INSERT INTO `table_rencana_tenaga_kerja` (`id`, `sdm_l`, `sdm_p`, `jumlah_sdm`, `pendidikan`, `keterampilan`, `posisi`, `kode_wlkp`) VALUES
+(1, 1, 2, 3, 'SD', 'abc', 'def', 'WLKP1'),
+(2, 0, 0, 0, 'SD', 'sasf', 'sdfsdf', 'WLKP2');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `table_warga_negara`
 --
 
@@ -8343,7 +8373,8 @@ CREATE TABLE `table_warga_negara` (
 --
 
 INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15`, `p_dibawah_15`, `l_dibawah_18`, `p_dibawah_18`, `l_diatas_18`, `p_diatas_18`, `total_wni`, `l_wna`, `p_wna`, `total_wna`, `kode_wlkp`) VALUES
-(3, 1, 2, 3, 4, 5, 6, 21, 7, 8, 15, 'WLKP1');
+(8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP1'),
+(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP2');
 
 -- --------------------------------------------------------
 
@@ -8400,6 +8431,7 @@ CREATE TABLE `table_wlkp_perusahaan` (
   `tanggal_pendirian` date DEFAULT NULL,
   `nomor_pendirian` varchar(50) DEFAULT NULL,
   `ket_kantor` enum('PUSAT','CABANG') DEFAULT NULL,
+  `kantor_cabang` int(11) DEFAULT NULL,
   `status_kepemilikan` varchar(50) DEFAULT NULL,
   `status_permodalan` varchar(50) DEFAULT NULL,
   `kode_alamat` varchar(11) NOT NULL
@@ -8409,8 +8441,9 @@ CREATE TABLE `table_wlkp_perusahaan` (
 -- Dumping data for table `table_wlkp_perusahaan`
 --
 
-INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `nama_pengurus`, `tanggal_pendirian`, `nomor_pendirian`, `ket_kantor`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`) VALUES
-('WLKP1', 'PT AKUM', 'sampingan', 'a', 'b', '2019-07-10', '294628942', 'PUSAT', 'Swasta', 'X', 'ALM3');
+INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `nama_pengurus`, `tanggal_pendirian`, `nomor_pendirian`, `ket_kantor`, `kantor_cabang`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`) VALUES
+('WLKP1', 'A', 'E', 'F', 'G', '2019-07-16', 'H', 'PUSAT', 0, 'Persero', 'I', 'ALM3'),
+('WLKP2', 'asas', 'sadasd', 'asffd', 'dgdg', '2019-07-16', '12526', 'PUSAT', NULL, 'Persero', 'sadad', 'ALM4');
 
 -- --------------------------------------------------------
 
@@ -83559,6 +83592,12 @@ ALTER TABLE `table_pp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_rencana_tenaga_kerja`
+--
+ALTER TABLE `table_rencana_tenaga_kerja`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_warga_negara`
 --
 ALTER TABLE `table_warga_negara`
@@ -83591,7 +83630,7 @@ ALTER TABLE `villages`
 -- AUTO_INCREMENT for table `table_alat_bahan`
 --
 ALTER TABLE `table_alat_bahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `table_email`
@@ -83603,7 +83642,7 @@ ALTER TABLE `table_email`
 -- AUTO_INCREMENT for table `table_fasilitas`
 --
 ALTER TABLE `table_fasilitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `table_history_login`
@@ -83627,7 +83666,7 @@ ALTER TABLE `table_k3`
 -- AUTO_INCREMENT for table `table_ketenagakerjaan`
 --
 ALTER TABLE `table_ketenagakerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `table_lks`
@@ -83645,7 +83684,7 @@ ALTER TABLE `table_login`
 -- AUTO_INCREMENT for table `table_pengesahan`
 --
 ALTER TABLE `table_pengesahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `table_pengurus`
@@ -83666,10 +83705,16 @@ ALTER TABLE `table_pp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `table_rencana_tenaga_kerja`
+--
+ALTER TABLE `table_rencana_tenaga_kerja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `table_warga_negara`
 --
 ALTER TABLE `table_warga_negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `table_wlkp`
