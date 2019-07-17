@@ -164,7 +164,7 @@
                                                                 <td colspan="2">
                                                                     <select class="form-control" name="kepemilikan">
                                                                         <option hidden="true">-Silahkan Pilih-</option>
-                                                                        <option value="Swasta" selected>Swasta</option>
+                                                                        <option value="Swasta">Swasta</option>
                                                                         <option value="Persero">Persero</option>
                                                                         <option value="Patungan dengan Negara Asing">Patungan dengan Negara Asing</option>
                                                                         <option value="Negara Asing">Negara Asing</option>
@@ -181,7 +181,7 @@
                                                                 <th colspan="2">Status Permodalan</th>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2"><input type="text" class="form-control" value="SWASTA NASIONAL" name="permodalan"></td>
+                                                                <td colspan="2"><input type="text" class="form-control" name="permodalan"></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -256,7 +256,7 @@
                                                     <div class="panel-body">
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Waktu Kerja (jam/hari)</label>
-                                                            <input type="number" class="form-control" name="waktu_kerja" value="8"> 
+                                                            <input type="number" class="form-control" name="waktu_kerja" value="0"> 
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Kategori</label>
@@ -367,16 +367,16 @@
                                                                 <th>Tanggal Pembuatan</th>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" class="form-control" name="tempat_pengesahan" placeholder="Tempat Pengesahan" value="DEPOK"></td>
-                                                                <td><input type="date" class="form-control" name="tgl_pengesahan" value="2016-02-01"></td>
+                                                                <td><input type="text" class="form-control" name="tempat_pengesahan" placeholder="Tempat Pengesahan"></td>
+                                                                <td><input type="date" class="form-control" name="tgl_pengesahan"></td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Pengesah</th>
                                                                 <th>NIP. Pengesah</th>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" class="form-control" name="nama_pengesah" placeholder="Nama Pengesah" value="Diah Sadiah, S.Sos, M.Si"></td>
-                                                                <td><input type="text" class="form-control" name="nip" placeholder="NIP Pengesah" value="196809-1319960-3-2005"></td>
+                                                                <td><input type="text" class="form-control" name="nama_pengesah" placeholder="Nama Pengesah"></td>
+                                                                <td><input type="text" class="form-control" name="nip" placeholder="NIP Pengesah"></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -391,9 +391,9 @@
                                                     <div class="panel-body">
                                                         <table class="table borderless">
                                                             <tr>
-                                                                <td><input type="checkbox" name="pesawat_uap" value="1" checked> Pesawat Uap </td>
-                                                                <td><input type="checkbox" name="pesawat_angkat" value="1" checked> Pesawat Angkat </td>
-                                                                <td><input type="checkbox" name="pesawat_angkut" value="1" checked> Pesawat Angkut </td>
+                                                                <td><input type="checkbox" name="pesawat_uap" value="1" > Pesawat Uap </td>
+                                                                <td><input type="checkbox" name="pesawat_angkat" value="1" > Pesawat Angkat </td>
+                                                                <td><input type="checkbox" name="pesawat_angkut" value="1" > Pesawat Angkut </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="checkbox" name="alat_berat" value="1"> Alat - Alat Berat </td>
@@ -401,13 +401,13 @@
                                                                 <td><input type="checkbox" name="amdal" value="1"> Amdal </td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="checkbox" name="ins_listrik" value="1" checked> Instalasi Listrik </td>
-                                                                <td><input type="checkbox" name="ins_pemadam" value="1" checked> Instalasi Pemadam </td>
+                                                                <td><input type="checkbox" name="ins_listrik" value="1" > Instalasi Listrik </td>
+                                                                <td><input type="checkbox" name="ins_pemadam" value="1" > Instalasi Pemadam </td>
                                                                 <td><input type="checkbox" name="ins_limbah" value="1"> Instalasi Pengolah Limbah </td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="checkbox" name="lift" value="1" checked> Lift </td>
-                                                                <td><input type="checkbox" name="bejana" value="1" checked> Bejana Tekan </td>
+                                                                <td><input type="checkbox" name="lift" value="1" > Lift </td>
+                                                                <td><input type="checkbox" name="bejana" value="1" > Bejana Tekan </td>
                                                                 <td><input type="checkbox" name="bahan_beracun" value="1"> Bahan Beracun </td>
                                                             </tr>
                                                             <tr>
@@ -417,8 +417,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="checkbox" name="radio_aktif" value="1"> Bahan Radio Aktif </td>
-                                                                <td><input type="checkbox" name="penyalur_petir" value="1" checked> Penyalur Petir </td>
-                                                                <td><input type="checkbox" name="pembangkit_listrik" value="1" checked> Pembangkit Listrik </td>
+                                                                <td><input type="checkbox" name="penyalur_petir" value="1" > Penyalur Petir </td>
+                                                                <td><input type="checkbox" name="pembangkit_listrik" value="1" > Pembangkit Listrik </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="checkbox" name="limbah_padat" value="1"> Limbah Padat </td>
@@ -438,8 +438,8 @@
                                                     <div class="panel-body">
                                                         <table class="table borderless">
                                                             <tr>
-                                                                <td><input type="checkbox" name="p3k" value="1" checked> P3K </td>
-                                                                <td><input type="checkbox" name="klinik" value="1" checked> Poliklinik </td>
+                                                                <td><input type="checkbox" name="p3k" value="1" > P3K </td>
+                                                                <td><input type="checkbox" name="klinik" value="1" > Poliklinik </td>
                                                                 <td><input type="checkbox" name="dokter" value="1"> Dokter Pemeriksa </td>
                                                             </tr>
                                                             <tr>
@@ -459,12 +459,12 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="checkbox" name="perum" value="1"> Perumahan Karyawan </td>
-                                                                <td><input type="checkbox" name="bpjs" value="1" checked> JAMSOSTEK / BPJS </td>
+                                                                <td><input type="checkbox" name="bpjs" value="1" > JAMSOSTEK / BPJS </td>
                                                                 <td><input type="checkbox" name="apindo" value="1"> APINDO</td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="checkbox" name="pk" value="1" checked> PK </td>
-                                                                <td><input type="checkbox" name="pp" value="1" checked> PP </td>
+                                                                <td><input type="checkbox" name="pk" value="1" > PK </td>
+                                                                <td><input type="checkbox" name="pp" value="1" > PP </td>
                                                                 <td><input type="checkbox" name="pkb" value="1"> PKB </td>
                                                             </tr>
                                                             <tr>
@@ -1300,7 +1300,7 @@
             var value2 = parseFloat($('#l_dibawah_18').val()) || 0;
             var value3 = parseFloat($('#l_diatas_18').val()) || 0;
             $('#total_l').val(value1 + value2 + value3);
-            $('#l_terakhir').val(value1 + value2 + value3);
+            //$('#l_terakhir').val(value1 + value2 + value3);
         });
     });
 
@@ -1311,7 +1311,7 @@
             var value2 = parseFloat($('#p_dibawah_18').val()) || 0;
             var value3 = parseFloat($('#p_diatas_18').val()) || 0;
             $('#total_p').val(value1 + value2 + value3);
-            $('#p_terakhir').val(value1 + value2 + value3);
+            //$('#p_terakhir').val(value1 + value2 + value3);
         });
     });
 
