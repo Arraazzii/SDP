@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2019 at 05:32 AM
+-- Generation Time: Jul 17, 2019 at 10:38 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.5
 
@@ -7865,9 +7865,69 @@ CREATE TABLE `table_alamat` (
 
 INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecamatan`, `kelurahan`, `kode_pos`, `no_telpon`) VALUES
 ('ALM1', 'alamat perusahaan buncit', 'BANTEN', 'KABUPATEN TANGERANG', 'SINDANG JAYA', 'SINDANG JAYA', '15466', '08976626171'),
+('ALM10', 'MARGOCITY DEPOK \r\n', '', '', 'BEJI ', 'KM,MUKA ', '', '021-78884681'),
+('ALM11', 'JL.RAYA CINERE NO.12 RT.1/7\r\n', '', '', 'CINERE ', 'CINERE ', '', '021-7533746'),
+('ALM12', 'JL.MARGONDA NO.194-196 RT.3/8\r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-77218319'),
+('ALM13', 'JL.MARGONDA NO.194-196\r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-77212134'),
+('ALM14', 'JL.CINERE RAYA \r\n', '', '', 'CINERE ', 'CINERE ', '', '021-29403870'),
+('ALM15', 'JL.MARGONDA NO.34D \r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-7773131'),
+('ALM16', 'JL.KARTINI NO.538 RT/3/9\r\n', '', '', 'PANMAS ', 'BEJI ', '', '021-77207658'),
+('ALM17', 'JL,SENTOSA RAYA NO.2 DEPOK II TENGAH \r\n', '', '', 'SUKMAJAYA ', 'MEKARJAYA ', '', '021-77822937'),
+('ALM18', 'JL.M.YUSUF BLOK B.1\r\n', '', '', 'SUKMAJAYA ', 'MEKARJAYA ', '', '021-77205535'),
+('ALM19', 'JL. RAYA JKT BOGOR KM.34\r\n', '', '', 'CIMANGGIS ', 'CURUG ', '', '021-8740532'),
 ('ALM2', 'alamat pengurus', 'JAWA TIMUR', 'KABUPATEN MADIUN', 'MADIUN', '3519130010', '19832', '08782647273'),
-('ALM3', 'B', '', '', 'C', 'D', '', '1233242'),
-('ALM4', 'asfafs', '', '', 'asdas', 'sadgsa', '', '13532');
+('ALM20', 'JL.SILIWANGI NO.9 RT.3/10\r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-87707907'),
+('ALM21', 'GERIYA SAWANGAN NO.13 RT.5/3\r\n', '', '', 'SAWANGAN ', 'BEDAHAN ', '', '021-24212561'),
+('ALM22', 'JL.MARGONDA NO.77 \r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-7777357'),
+('ALM23', 'JL.H.ASMAWI 105C \r\n', '', '', 'BEJI ', 'BEJI ', '', '021-7755727'),
+('ALM24', 'JL.BOJONGSARI NO.99 PARUNG \r\n', '', '', 'SAWANGAN ', 'BJ.SARI ', '', '0251-8612915'),
+('ALM25', 'JL.RAYA BOGOR KM.32 \r\n', '', '', 'CIMANGGIS ', 'CURUG ', '', '021-8741428'),
+('ALM26', 'JL.RAYA BOGOR K.29\r\n', '', '', 'CIMANGGIS ', 'MEKARSARI ', '', '021-29383405'),
+('ALM27', 'DETOS JL.MARGONDA NO.1 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870270'),
+('ALM28', 'JL.JAKARTA BOGOR KM.35 \r\n', '', '', 'TAPOS ', 'SUKAMAJU ', '', '021-8742518'),
+('ALM29', 'JL. MELATI 2 NO.11\r\n', '', '', 'TAPOS ', 'SUKATANI ', '', '021-8743007'),
+('ALM3', 'JL. RAYA KARTINI NO.48 RT.3/9 \r\n', '', '', 'PANMAS ', ' DEPOK ', '', '021-22969143'),
+('ALM30', 'JL. RAYA CITAYAM RUKO KARTINI GRANDE 46\r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-29097539'),
+('ALM31', 'RUKO DEPOK MAHARAJA BLOK AI/9\r\n', '', '', 'PANMAS ', 'RK.JAYA ', '', '021-7788006'),
+('ALM32', 'JL. RAYA SAWANGAN NO.5\r\n', '', '', 'PANMAS ', 'RK.JAYA ', '', '021-77883000'),
+('ALM33', 'JL. RAYA BOGOR KM.38,1\r\n', '', '', 'TAPOS ', 'CILANGKAP ', '', '021-8753731'),
+('ALM34', 'JL. RAYA BOGOR KM.29\r\n', '', '', 'TUGU ', 'TUGU ', '', '021-8710641'),
+('ALM35', 'JL. RAYA KARTINI NO.87A \r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-77216907'),
+('ALM36', 'JL.MARGONDA RAYA NO.88 BLOK B/20 \r\n', '', '', 'BEJI ', 'KM MUKA ', '', '021-7756733'),
+('ALM37', 'JL.RAYA SAWANGAN RT.01/13 \r\n', '', '', 'PANMAS ', 'RKP JAYA ', '', '021-77883737'),
+('ALM38', 'JL.KARTINI RAYA NO.47B\r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-29097507'),
+('ALM39', 'JL.KELAPA DUA RAYA RTM NO.3B \r\n', '', '', 'CIMANGGIS ', 'TUGU ', '', '021-22852171'),
+('ALM4', 'JL. IR.H.JUANDA \r\n', '', '', 'SUKMAJAYA ', 'BHAKTIJAYA ', '', '021-4606962'),
+('ALM40', 'JL.RA KARTINI NO.5 RT.06/04/\r\n', '', '', 'LUAR KOTA ', 'CILANDAK ', '', '021-7507342'),
+('ALM41', 'JL.GARUDA UJUNG NO.35 CINERE \r\n', '', '', 'LIMO ', 'LIMO ', '', ' 021-7534841'),
+('ALM42', 'JL.CIHERANG RAYA RUKO ARKADIA NO.A15\r\n', '', '', 'TAPOS ', 'SUKATANI ', '', '021-87745996'),
+('ALM43', 'JL. MARGONDA LT.6 DETOS \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870402 '),
+('ALM44', 'JL. CINERE RAYA NO.1 \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403890'),
+('ALM45', 'MALL DEPOK MARGONDA \r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-753540'),
+('ALM46', 'JL. RAYA CINERE NO.1 \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-55458'),
+('ALM47', 'BELLEVUE CINERE \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-7535430'),
+('ALM48', 'RUANG 309 3 GEDUNG G\r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78849037'),
+('ALM49', 'JL.TANJUNG 179A RT.3/5\r\n', '', '', 'CINERE ', 'CINERE ', '', '021-22762853'),
+('ALM5', 'JL. MARGONDA\r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-7764647'),
+('ALM50', 'JL. KEADILAN RT.2/1\r\n', '', '', 'PANMAS ', 'RK.JAYA BARU ', '', '021-77889209'),
+('ALM51', 'JL. MARGONDA NO.250C \r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-77212838'),
+('ALM52', 'JL. MARGONDA NO.28 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78890551'),
+('ALM53', 'JL. MARGONDA NO.88 \r\n', '', '', 'BEJI ', 'KM.MUKA ', '', '021-7753488'),
+('ALM54', 'JL.PRAMUKA RAYA NO.35 RT.3/1 \r\n', '', '', 'LIMO ', 'GROGOL ', '', '021-77801940'),
+('ALM55', 'JL. MARGONDA NO.515A\r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-'),
+('ALM56', 'JL. MARGONDA NO.1 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870241'),
+('ALM57', 'JL. RAYA BOGOR KM.29 NO.9 \r\n', '', '', 'CIMANGGIS ', 'MEKARSARI ', '', '021-87721369'),
+('ALM58', 'JL.MUSI VII NO.65 \r\n', '', '', 'SUKMAJAYA ', 'ABADIJAYA ', '', '021-'),
+('ALM59', 'JL. MALAWI IV/32 RT/3/15 \r\n', '', '', 'SUKMAJAYA ', 'ABADIJAYA ', '', '021-'),
+('ALM6', 'RUKO DEPOK BATAVIA NO.1 MARGONDA \r\n', '', '', 'PANMAS ', 'DEPOK ', '', '021-77204524'),
+('ALM60', 'JL.BHINEKA PERMAI BLOK T/8 \r\n', '', '', 'CIMANGGIS ', 'MEKARSARI ', '', '021-87750024 '),
+('ALM61', 'JL. METRO DUTA RAYA BLOK A41 NO.1 RT.1/23 \r\n', '', '', 'SUKMAJAYA ', 'MEKARJAYA ', '', '021-29670670'),
+('ALM62', 'JL.RAYA BOGOR KM.33 \r\n', '', '', 'SUKMAJAYA ', 'CISALAK', '', '021-5307209'),
+('ALM63', 'DEPOK TOWN SQUARE LT.6 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870402'),
+('ALM64', 'CINERE BELLEVUE MALL LT.I CINERE NO.1 \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403890'),
+('ALM7', 'KOMP.AL PK.JATI \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403813'),
+('ALM8', 'MALL CINERE LT.DASAR NO.36\r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-7545045'),
+('ALM9', 'JL.CINERE RAYA RT.3/8\r\n', '', '', 'CINERE ', 'CINERE ', '', '021-7533615');
 
 -- --------------------------------------------------------
 
@@ -7906,8 +7966,68 @@ CREATE TABLE `table_alat_bahan` (
 --
 
 INSERT INTO `table_alat_bahan` (`id`, `pesawat_uap`, `alat_berat`, `instalasi_listrik`, `lift`, `turbin`, `radio_aktif`, `limbah_padat`, `pesawat_angkat`, `motor`, `instalasi_pemadam`, `bejana_tekan`, `botol_baja`, `penyalur_petir`, `limbah_cair`, `pesawat_angkut`, `amdal`, `instalasi_limbah`, `bahan_beracun`, `perancah`, `pembangkit_listrik`, `limbah_gas`, `kode_wlkp`) VALUES
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP1'),
-(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP2');
+(9, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP1'),
+(10, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP2'),
+(11, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP3'),
+(12, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP4'),
+(13, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP5'),
+(14, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP6'),
+(15, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP7'),
+(16, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP8'),
+(17, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP9'),
+(18, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP10'),
+(19, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP11'),
+(20, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP12'),
+(21, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP13'),
+(22, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP14'),
+(23, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP15'),
+(24, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP16'),
+(25, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP17'),
+(26, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP18'),
+(27, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP19'),
+(28, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP20'),
+(29, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP21'),
+(30, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP22'),
+(31, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP23'),
+(32, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP24'),
+(33, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP25'),
+(34, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP26'),
+(35, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP27'),
+(36, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP28'),
+(37, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP29'),
+(38, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP30'),
+(39, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP31'),
+(40, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP32'),
+(41, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP33'),
+(42, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP34'),
+(43, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP35'),
+(44, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP36'),
+(45, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP37'),
+(46, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP38'),
+(47, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP39'),
+(48, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP40'),
+(49, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP41'),
+(50, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP42'),
+(51, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP43'),
+(52, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP44'),
+(53, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP45'),
+(54, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP46'),
+(55, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP47'),
+(56, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP48'),
+(57, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP49'),
+(58, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP50'),
+(59, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP51'),
+(60, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP52'),
+(61, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP53'),
+(62, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP54'),
+(63, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP55'),
+(64, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP56'),
+(65, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP57'),
+(66, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP58'),
+(67, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP59'),
+(68, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP60'),
+(69, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP61'),
+(70, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -7967,8 +8087,68 @@ CREATE TABLE `table_fasilitas` (
 --
 
 INSERT INTO `table_fasilitas` (`id`, `p3k`, `ahli_k3`, `koperasi`, `sarana_ibadah`, `perumahan`, `pk`, `bipartit`, `p2k3`, `poliklinik`, `paramedis`, `tpa`, `unit_kb`, `bpjs`, `pp`, `sptp`, `dokter`, `pemadam`, `kantin`, `olahraga`, `apindo`, `pkb`, `uksp`, `kode_wlkp`) VALUES
-(5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP1'),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP2');
+(7, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP1'),
+(8, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP2'),
+(9, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP3'),
+(10, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP4'),
+(11, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP5'),
+(12, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP6'),
+(13, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP7'),
+(14, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP8'),
+(15, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP9'),
+(16, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP10'),
+(17, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP11'),
+(18, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP12'),
+(19, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP13'),
+(20, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP14'),
+(21, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP15'),
+(22, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP16'),
+(23, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 'WLKP17'),
+(24, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP18'),
+(25, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP19'),
+(26, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'WLKP20'),
+(27, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'WLKP21'),
+(28, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 'WLKP22'),
+(29, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP23'),
+(30, '1', NULL, NULL, NULL, NULL, '1', '1', NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP24'),
+(31, '1', NULL, NULL, NULL, NULL, '1', NULL, '1', '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP25'),
+(32, '1', NULL, NULL, NULL, NULL, '1', '1', NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP26'),
+(33, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP27'),
+(34, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP28'),
+(35, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP29'),
+(36, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP30'),
+(37, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP31'),
+(38, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP32'),
+(39, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP33'),
+(40, '1', NULL, NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP34'),
+(41, '1', NULL, NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, 'WLKP35'),
+(42, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP36'),
+(43, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP37'),
+(44, '1', NULL, NULL, NULL, NULL, '1', '1', NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP38'),
+(45, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP39'),
+(46, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP40'),
+(47, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP41'),
+(48, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP42'),
+(49, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP43'),
+(50, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP44'),
+(51, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP45'),
+(52, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP46'),
+(53, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP47'),
+(54, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP48'),
+(55, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP49'),
+(56, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP50'),
+(57, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP51'),
+(58, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP52'),
+(59, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP53'),
+(60, '1', NULL, NULL, NULL, NULL, '1', '1', NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP54'),
+(61, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP55'),
+(62, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP56'),
+(63, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP57'),
+(64, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP58'),
+(65, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP59'),
+(66, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP60'),
+(67, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP61'),
+(68, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8081,8 +8261,68 @@ CREATE TABLE `table_ketenagakerjaan` (
 --
 
 INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_penerima_umr`, `jumlah_upah`, `upah_tinggi`, `upah_rendah`, `l_mendatang`, `p_mendatang`, `l_terakhir`, `p_terakhir`, `pekerja_terakhir`, `pekerja_berhenti`, `kode_wlkp`) VALUES
-(8, 0, 'SEDANG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP1'),
-(9, 0, 'SEDANG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP2');
+(10, 8, 'SEDANG', 0, 0, 10000000, 3297500, 8, 0, 66, 6, 4, 0, 'WLKP1'),
+(11, 8, 'SEDANG', 0, 0, 0, 0, 0, 0, 31, 3, 0, 0, 'WLKP2'),
+(12, 8, 'KECIL', 0, 0, 5000000, 3300000, 0, 0, 13, 1, 0, 0, 'WLKP3'),
+(13, 8, 'KECIL', 0, 0, 5300000, 3297489, 0, 0, 18, 5, 0, 0, 'WLKP4'),
+(14, 8, 'SEDANG', 0, 0, 7000000, 3297500, 0, 0, 48, 21, 0, 0, 'WLKP5'),
+(15, 8, 'KECIL', 0, 16533445, 3313489, 3303489, 0, 0, 2, 3, 0, 0, 'WLKP6'),
+(16, 8, 'KECIL', 0, 9914467, 3307489, 3301489, 0, 0, 2, 1, 0, 0, 'WLKP7'),
+(17, 8, 'KECIL', 0, 198689348, 3325489, 3305489, 0, 0, 4, 2, 0, 0, 'WLKP8'),
+(18, 8, 'KECIL', 0, 72849780, 3500000, 3297489, 0, 0, 13, 9, 0, 0, 'WLKP9'),
+(19, 8, 'KECIL', 0, 79547269, 3500000, 3297489, 0, 0, 18, 6, 0, 0, 'WLKP10'),
+(20, 8, 'KECIL', 0, 26832423, 3750000, 3297489, 0, 0, 0, 8, 0, 0, 'WLKP11'),
+(21, 8, 'KECIL', 0, 13201956, 3301489, 3299489, 0, 0, 3, 1, 0, 0, 'WLKP12'),
+(22, 8, 'KECIL', 10, 39842000, 7500000, 3050000, 1, 0, 6, 4, 0, 0, 'WLKP13'),
+(23, 8, 'KECIL', 2, 7600000, 3800000, 3800000, 4, 0, 2, 0, 0, 0, 'WLKP14'),
+(24, 8, 'BESAR', 0, 430174136, 3699231, 950000, 0, 0, 99, 173, 0, 0, 'WLKP15'),
+(25, 8, 'SEDANG', 0, 0, 4000000, 3800000, 0, 0, 44, 3, 0, 0, 'WLKP16'),
+(26, 8, 'BESAR', 223, 725597602, 0, 3307489, 3, 0, 224, 38, 0, 0, 'WLKP17'),
+(27, 8, 'KECIL', 6, 83600000, 15000000, 3300000, 15, 10, 11, 4, 0, 0, 'WLKP18'),
+(28, 8, 'KECIL', 0, 13000000, 5000000, 4000000, 0, 0, 5, 2, 0, 0, 'WLKP19'),
+(29, 8, 'SEDANG', 0, 0, 3044265, 0, 0, 0, 33, 19, 0, 0, 'WLKP20'),
+(30, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 4, 1, 0, 0, 'WLKP21'),
+(31, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 3, 0, 0, 'WLKP22'),
+(32, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 4, 0, 0, 'WLKP23'),
+(33, 8, 'SEDANG', 37, 0, 14500000, 3659800, 0, 0, 48, 16, 0, 0, 'WLKP24'),
+(34, 8, 'BESAR', 67, 0, 14500000, 3659800, 0, 0, 74, 26, 0, 0, 'WLKP25'),
+(35, 8, 'SEDANG', 0, 0, 9000000, 3146000, 0, 0, 85, 5, 0, 0, 'WLKP26'),
+(36, 8, 'KECIL', 0, 14400000, 4500000, 2300000, 1, 1, 2, 3, 3, 1, 'WLKP27'),
+(37, 8, 'SEDANG', 0, 0, 11000000, 3400000, 5, 0, 19, 7, 20, 16, 'WLKP28'),
+(38, 8, 'SEDANG', 0, 435000000, 30000000, 3000000, 10, 0, 23, 29, 0, 0, 'WLKP29'),
+(39, 8, 'BESAR', 0, 680000000, 17500000, 2500000, 10, 0, 143, 47, 0, 0, 'WLKP30'),
+(40, 8, 'BESAR', 0, 0, 5000000, 3297489, 0, 0, 277, 151, 0, 0, 'WLKP31'),
+(41, 8, 'KECIL', 0, 0, 3500000, 900000, 0, 0, 14, 9, 0, 0, 'WLKP32'),
+(42, 8, 'KECIL', 0, 49023283, 4408511, 3407500, 1, 0, 5, 5, 0, 0, 'WLKP33'),
+(43, 8, 'SEDANG', 41, 481000000, 7000000, 3300000, 0, 0, 29, 17, 0, 0, 'WLKP34'),
+(44, 8, 'BESAR', 0, 343361755, 10000000, 3297489, 0, 0, 91, 16, 0, 0, 'WLKP35'),
+(45, 8, 'BESAR', 314, 0, 3297489, 3297489, 0, 0, 238, 76, 0, 0, 'WLKP36'),
+(46, 8, 'BESAR', 117, 0, 3300000, 0, 0, 0, 528, 0, 0, 0, 'WLKP37'),
+(47, 8, 'BESAR', 124, 371653581, 4026900, 3791998, 0, 0, 98, 26, 0, 0, 'WLKP38'),
+(48, 8, 'SEDANG', 0, 770000000, 25500000, 3297489, 0, 0, 33, 45, 0, 0, 'WLKP39'),
+(49, 8, 'KECIL', 0, 22000000, 10000000, 4500000, 1, 0, 2, 2, 0, 0, 'WLKP40'),
+(50, 8, 'KECIL', 0, 0, 3060000, 3000000, 0, 0, 14, 8, 0, 0, 'WLKP41'),
+(51, 8, 'SEDANG', 0, 0, 3346000, 3046000, 0, 0, 28, 10, 0, 0, 'WLKP42'),
+(52, 8, 'KECIL', 0, 0, 3436000, 2500000, 0, 0, 9, 8, 0, 0, 'WLKP43'),
+(53, 8, 'KECIL', 0, 0, 3700000, 0, 0, 0, 8, 10, 0, 0, 'WLKP44'),
+(54, 8, 'KECIL', 0, 0, 3500000, 2297000, 0, 0, 4, 5, 0, 0, 'WLKP45'),
+(55, 8, 'KECIL', 0, 16000000, 5500000, 3000000, 0, 0, 4, 0, 0, 0, 'WLKP46'),
+(56, 8, 'KECIL', 0, 0, 3297000, 0, 80, 20, 5, 1, 0, 0, 'WLKP47'),
+(57, 8, 'BESAR', 8, 247000000, 10000000, 2100000, 0, 0, 66, 80, 0, 0, 'WLKP48'),
+(58, 8, 'SEDANG', 0, 0, 0, 2000000, 0, 0, 22, 6, 0, 0, 'WLKP49'),
+(59, 8, 'BESAR', 0, 1417933600, 14116000, 3728000, 0, 0, 38, 256, 0, 0, 'WLKP50'),
+(60, 8, 'BESAR', 0, 0, 10000000, 3297000, 0, 0, 100, 35, 0, 0, 'WLKP51'),
+(61, 8, 'SEDANG', 0, 85900000, 3500000, 2750000, 0, 0, 21, 25, 0, 0, 'WLKP52'),
+(62, 8, 'SEDANG', 0, 0, 10000000, 3297000, 50, 0, 78, 3, 0, 0, 'WLKP53'),
+(63, 8, 'SEDANG', 39, 0, 15000000, 3660000, 2, 8, 29, 56, 10, 8, 'WLKP54'),
+(64, 8, 'SEDANG', 0, 584816728, 23633841, 3445000, 4, 0, 23, 36, 0, 0, 'WLKP55'),
+(65, 8, 'KECIL', 0, 0, 5000000, 2700000, 0, 0, 3, 0, 0, 0, 'WLKP56'),
+(66, 8, 'KECIL', 0, 0, 4000000, 2500000, 0, 0, 2, 1, 0, 0, 'WLKP57'),
+(67, 8, 'KECIL', 9, 78066500, 10500000, 3297489, 0, 0, 16, 2, 0, 0, 'WLKP58'),
+(68, 8, 'KECIL', 5, 19500000, 4324000, 3544000, 0, 2, 1, 4, 0, 0, 'WLKP59'),
+(69, 8, 'KECIL', 0, 40000000, 4850000, 3355750, 0, 0, 9, 2, 0, 0, 'WLKP60'),
+(70, 8, 'KECIL', 0, 0, 3000000, 1950000, 0, 0, 14, 8, 0, 0, 'WLKP61'),
+(71, 8, 'SEDANG', 0, 0, 3346000, 3346000, 0, 0, 28, 18, 0, 0, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8190,8 +8430,68 @@ CREATE TABLE `table_pengesahan` (
 --
 
 INSERT INTO `table_pengesahan` (`id`, `nip`, `nama_pengesah`, `tanggal_pengesahan`, `tempat_pengesahan`, `kode_wlkp`) VALUES
-(8, '0884', 'K', '2019-07-16', 'J', 'WLKP1'),
-(9, '253', 'sad', '2019-07-16', 'asdas', 'WLKP2');
+(10, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP1'),
+(11, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP2'),
+(12, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP3'),
+(13, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP4'),
+(14, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP5'),
+(15, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP6'),
+(16, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP7'),
+(17, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP8'),
+(18, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP9'),
+(19, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP10'),
+(20, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP11'),
+(21, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP12'),
+(22, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP13'),
+(23, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP14'),
+(24, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP15'),
+(25, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP16'),
+(26, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP17'),
+(27, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP18'),
+(28, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP19'),
+(29, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP20'),
+(30, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP21'),
+(31, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP22'),
+(32, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP23'),
+(33, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP24'),
+(34, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP25'),
+(35, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP26'),
+(36, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP27'),
+(37, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP28'),
+(38, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP29'),
+(39, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP30'),
+(40, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP31'),
+(41, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP32'),
+(42, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP33'),
+(43, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP34'),
+(44, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP35'),
+(45, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP36'),
+(46, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP37'),
+(47, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP38'),
+(48, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP39'),
+(49, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP40'),
+(50, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP41'),
+(51, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP42'),
+(52, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP43'),
+(53, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP44'),
+(54, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP45'),
+(55, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP46'),
+(56, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP47'),
+(57, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP48'),
+(58, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP49'),
+(59, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP50'),
+(60, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP51'),
+(61, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP52'),
+(62, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP53'),
+(63, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP54'),
+(64, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP55'),
+(65, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP56'),
+(66, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP57'),
+(67, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP58'),
+(68, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP59'),
+(69, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP60'),
+(70, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP61'),
+(71, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8344,8 +8644,68 @@ CREATE TABLE `table_rencana_tenaga_kerja` (
 --
 
 INSERT INTO `table_rencana_tenaga_kerja` (`id`, `sdm_l`, `sdm_p`, `jumlah_sdm`, `pendidikan`, `keterampilan`, `posisi`, `kode_wlkp`) VALUES
-(1, 1, 2, 3, 'SD', 'abc', 'def', 'WLKP1'),
-(2, 0, 0, 0, 'SD', 'sasf', 'sdfsdf', 'WLKP2');
+(3, 0, 0, 0, '', '', '', 'WLKP1'),
+(4, 0, 0, 0, '', '', '', 'WLKP2'),
+(5, 0, 0, 0, '', '', '', 'WLKP3'),
+(6, 0, 0, 0, '', '', '', 'WLKP4'),
+(7, 0, 0, 0, '', '', '', 'WLKP5'),
+(8, 0, 0, 0, '', '', '', 'WLKP6'),
+(9, 0, 0, 0, '', '', '', 'WLKP7'),
+(10, 0, 0, 0, '', '', '', 'WLKP8'),
+(11, 0, 0, 0, '', '', '', 'WLKP9'),
+(12, 0, 0, 0, '', '', '', 'WLKP10'),
+(13, 0, 0, 0, '', '', '', 'WLKP11'),
+(14, 0, 0, 0, '', '', '', 'WLKP12'),
+(15, 0, 0, 0, '', '', '', 'WLKP13'),
+(16, 0, 0, 0, '', '', '', 'WLKP14'),
+(17, 0, 0, 0, '', '', '', 'WLKP15'),
+(18, 0, 0, 0, '', '', '', 'WLKP16'),
+(19, 0, 0, 0, '', '', '', 'WLKP17'),
+(20, 0, 0, 0, '', '', '', 'WLKP18'),
+(21, 0, 0, 0, '', '', '', 'WLKP19'),
+(22, 0, 0, 0, '', '', '', 'WLKP20'),
+(23, 0, 0, 0, '', '', '', 'WLKP21'),
+(24, 0, 0, 0, '', '', '', 'WLKP22'),
+(25, 0, 0, 0, '', '', '', 'WLKP23'),
+(26, 0, 0, 0, '', '', '', 'WLKP24'),
+(27, 0, 0, 0, '', '', '', 'WLKP25'),
+(28, 0, 0, 0, '', '', '', 'WLKP26'),
+(29, 0, 0, 0, '', '', '', 'WLKP27'),
+(30, 0, 0, 0, '', '', '', 'WLKP28'),
+(31, 0, 0, 0, '', '', '', 'WLKP29'),
+(32, 0, 0, 0, '', '', '', 'WLKP30'),
+(33, 0, 0, 0, '', '', '', 'WLKP31'),
+(34, 0, 0, 0, '', '', '', 'WLKP32'),
+(35, 0, 0, 0, '', '', '', 'WLKP33'),
+(36, 0, 0, 0, '', '', '', 'WLKP34'),
+(37, 0, 0, 0, '', '', '', 'WLKP35'),
+(38, 0, 0, 0, '', '', '', 'WLKP36'),
+(39, 0, 0, 0, '', '', '', 'WLKP37'),
+(40, 0, 0, 0, '', '', '', 'WLKP38'),
+(41, 0, 0, 0, '', '', '', 'WLKP39'),
+(42, 0, 0, 0, '', '', '', 'WLKP40'),
+(43, 0, 0, 0, '', '', '', 'WLKP41'),
+(44, 0, 0, 0, '', '', '', 'WLKP42'),
+(45, 0, 0, 0, '', '', '', 'WLKP43'),
+(46, 0, 0, 0, '', '', '', 'WLKP44'),
+(47, 0, 0, 0, '', '', '', 'WLKP45'),
+(48, 0, 0, 0, '', '', '', 'WLKP46'),
+(49, 0, 0, 0, '', '', '', 'WLKP47'),
+(50, 0, 0, 0, '', '', '', 'WLKP48'),
+(51, 0, 0, 0, '', '', '', 'WLKP49'),
+(52, 0, 0, 0, '', '', '', 'WLKP50'),
+(53, 0, 0, 0, '', '', '', 'WLKP51'),
+(54, 0, 0, 0, '', '', '', 'WLKP52'),
+(55, 0, 0, 0, '', '', '', 'WLKP53'),
+(56, 0, 0, 0, '', '', '', 'WLKP54'),
+(57, 0, 0, 0, '', '', '', 'WLKP55'),
+(58, 0, 0, 0, '', '', '', 'WLKP56'),
+(59, 0, 0, 0, '', '', '', 'WLKP57'),
+(60, 0, 0, 0, '', '', '', 'WLKP58'),
+(61, 0, 0, 0, '', '', '', 'WLKP59'),
+(62, 0, 0, 0, '', '', '', 'WLKP60'),
+(63, 0, 0, 0, '', '', '', 'WLKP61'),
+(64, 0, 0, 0, '', '', '', 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8373,8 +8733,68 @@ CREATE TABLE `table_warga_negara` (
 --
 
 INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15`, `p_dibawah_15`, `l_dibawah_18`, `p_dibawah_18`, `l_diatas_18`, `p_diatas_18`, `total_wni`, `l_wna`, `p_wna`, `total_wna`, `kode_wlkp`) VALUES
-(8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP1'),
-(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP2');
+(10, 0, 0, 0, 0, 66, 6, 72, 0, 0, 0, 'WLKP1'),
+(11, 0, 0, 0, 0, 31, 3, 34, 0, 0, 0, 'WLKP2'),
+(12, 0, 0, 0, 0, 13, 1, 14, 0, 0, 0, 'WLKP3'),
+(13, 0, 0, 0, 0, 18, 5, 23, 0, 0, 0, 'WLKP4'),
+(14, 0, 0, 0, 0, 48, 21, 69, 0, 0, 0, 'WLKP5'),
+(15, 0, 0, 0, 0, 2, 3, 5, 0, 0, 0, 'WLKP6'),
+(16, 0, 0, 0, 0, 2, 1, 3, 0, 0, 0, 'WLKP7'),
+(17, 0, 0, 0, 0, 4, 2, 6, 0, 0, 0, 'WLKP8'),
+(18, 0, 0, 0, 0, 13, 9, 22, 0, 0, 0, 'WLKP9'),
+(19, 0, 0, 0, 0, 18, 6, 24, 0, 0, 0, 'WLKP10'),
+(20, 0, 0, 0, 0, 0, 8, 8, 0, 0, 0, 'WLKP11'),
+(21, 0, 0, 0, 0, 3, 1, 4, 0, 0, 0, 'WLKP12'),
+(22, 0, 0, 0, 0, 6, 4, 10, 0, 0, 0, 'WLKP13'),
+(23, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 'WLKP14'),
+(24, 0, 0, 0, 0, 99, 173, 272, 0, 0, 0, 'WLKP15'),
+(25, 0, 0, 0, 0, 44, 3, 47, 0, 0, 0, 'WLKP16'),
+(26, 0, 0, 0, 0, 224, 5, 229, 0, 0, 0, 'WLKP17'),
+(27, 0, 0, 0, 0, 11, 4, 15, 0, 0, 0, 'WLKP18'),
+(28, 0, 0, 0, 0, 4, 2, 6, 1, 0, 1, 'WLKP19'),
+(29, 0, 0, 0, 0, 33, 19, 52, 0, 0, 0, 'WLKP20'),
+(30, 0, 0, 0, 0, 4, 1, 5, 0, 0, 0, 'WLKP21'),
+(31, 0, 0, 0, 0, 3, 3, 6, 0, 0, 0, 'WLKP22'),
+(32, 0, 0, 0, 0, 3, 4, 7, 0, 0, 0, 'WLKP23'),
+(33, 0, 0, 0, 0, 48, 16, 64, 0, 0, 0, 'WLKP24'),
+(34, 0, 0, 0, 0, 74, 26, 100, 0, 0, 0, 'WLKP25'),
+(35, 0, 0, 0, 0, 85, 5, 90, 0, 0, 0, 'WLKP26'),
+(36, 0, 0, 0, 0, 2, 3, 5, 0, 0, 0, 'WLKP27'),
+(37, 0, 0, 0, 0, 19, 7, 26, 0, 0, 0, 'WLKP28'),
+(38, 0, 0, 0, 0, 23, 29, 52, 0, 0, 0, 'WLKP29'),
+(39, 0, 0, 0, 0, 143, 47, 190, 0, 0, 0, 'WLKP30'),
+(40, 0, 0, 0, 0, 277, 151, 428, 0, 0, 0, 'WLKP31'),
+(41, 0, 0, 0, 0, 14, 9, 23, 0, 0, 0, 'WLKP32'),
+(42, 0, 0, 0, 0, 5, 5, 10, 0, 0, 0, 'WLKP33'),
+(43, 0, 0, 0, 0, 29, 17, 46, 0, 0, 0, 'WLKP34'),
+(44, 0, 0, 0, 0, 91, 16, 107, 0, 0, 0, 'WLKP35'),
+(45, 0, 0, 0, 0, 238, 76, 314, 0, 0, 0, 'WLKP36'),
+(46, 0, 0, 0, 0, 528, 0, 528, 0, 0, 0, 'WLKP37'),
+(47, 0, 0, 0, 0, 98, 26, 124, 0, 0, 0, 'WLKP38'),
+(48, 0, 0, 0, 0, 33, 45, 78, 0, 0, 0, 'WLKP39'),
+(49, 0, 0, 0, 0, 2, 2, 4, 0, 0, 0, 'WLKP40'),
+(50, 0, 0, 0, 0, 14, 8, 22, 0, 0, 0, 'WLKP41'),
+(51, 0, 0, 0, 0, 28, 10, 38, 0, 0, 0, 'WLKP42'),
+(52, 0, 0, 0, 0, 9, 8, 17, 0, 0, 0, 'WLKP43'),
+(53, 0, 0, 0, 0, 8, 10, 18, 0, 0, 0, 'WLKP44'),
+(54, 0, 0, 0, 0, 4, 5, 9, 0, 0, 0, 'WLKP45'),
+(55, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 'WLKP46'),
+(56, 0, 0, 0, 0, 5, 1, 6, 0, 0, 0, 'WLKP47'),
+(57, 0, 0, 0, 20, 66, 60, 146, 0, 0, 0, 'WLKP48'),
+(58, 0, 0, 0, 0, 22, 6, 28, 0, 0, 0, 'WLKP49'),
+(59, 0, 0, 0, 0, 38, 256, 294, 0, 0, 0, 'WLKP50'),
+(60, 0, 0, 0, 0, 100, 35, 135, 0, 0, 0, 'WLKP51'),
+(61, 0, 0, 0, 0, 21, 25, 46, 0, 0, 0, 'WLKP52'),
+(62, 0, 0, 0, 0, 78, 3, 81, 0, 0, 0, 'WLKP53'),
+(63, 0, 0, 0, 0, 29, 56, 85, 0, 0, 0, 'WLKP54'),
+(64, 0, 0, 0, 0, 17, 18, 35, 0, 0, 0, 'WLKP55'),
+(65, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 'WLKP56'),
+(66, 0, 0, 0, 0, 2, 1, 3, 0, 0, 0, 'WLKP57'),
+(67, 0, 0, 0, 0, 16, 2, 18, 0, 0, 0, 'WLKP58'),
+(68, 0, 0, 0, 0, 1, 4, 5, 1, 4, 5, 'WLKP59'),
+(69, 0, 0, 0, 0, 9, 2, 11, 0, 0, 0, 'WLKP60'),
+(70, 0, 0, 0, 0, 14, 8, 22, 0, 0, 0, 'WLKP61'),
+(71, 0, 0, 0, 0, 28, 18, 46, 0, 0, 0, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8442,8 +8862,68 @@ CREATE TABLE `table_wlkp_perusahaan` (
 --
 
 INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `nama_pengurus`, `tanggal_pendirian`, `nomor_pendirian`, `ket_kantor`, `kantor_cabang`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`) VALUES
-('WLKP1', 'A', 'E', 'F', 'G', '2019-07-16', 'H', 'PUSAT', 0, 'Persero', 'I', 'ALM3'),
-('WLKP2', 'asas', 'sadasd', 'asffd', 'dgdg', '2019-07-16', '12526', 'PUSAT', NULL, 'Persero', 'sadad', 'ALM4');
+('WLKP1', 'RADANA BHASKARA FINANCE ', 'PEMBIAYAAN ', 'IMAN SYATOTO ', 'RADANA BHASKARA ', '1972-09-20', '41', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL ', 'ALM3'),
+('WLKP10', 'SARI RASA NUSANTARA 2', 'RESTORAN ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2007-12-26', '268', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM12'),
+('WLKP11', 'PRIMA INTERNATIONAL ', 'APOTEK ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2002-02-20', '114', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM13'),
+('WLKP12', 'OPTIK MELAWAI PRIMA 4', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-01-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM14'),
+('WLKP13', 'SRIWIJAYA AIR ', 'JASA PENERBANGAN ', 'CHANDRA LIE ', 'IRWANT VALENT ', '2004-03-25', '81', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM15'),
+('WLKP14', 'FADHILLAH AROFAH ', 'BIRO PERJALANAN UMROH HAJI ', 'ALI SAMAN HASAN ', 'ALI SAMAN HASAN ', '2003-04-15', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM16'),
+('WLKP15', 'YAYASAN PENDIDIKAN TUGU IBU ', 'JASA PENDIDIKAN ', 'H.MARIS RINALDI ', 'SRI MURJANTI ', '1975-01-25', '1', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM17'),
+('WLKP16', 'TIKI DEPOK INDONESIA ', 'TITIPAN SWASTA ', 'IGNATIUS ARIYA ', 'YERRI INTARTO ', '2015-07-13', '14', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM18'),
+('WLKP17', 'PEARL STAR INTERNATIONAL ', 'PRODUKSI PLASTIK LEMBARAN ', 'JOHAN D.JIMANTO', '', '1989-04-20', '37', 'PUSAT', NULL, 'Swasta', 'PMA', 'ALM19'),
+('WLKP18', 'UDON AJI PERKASA ', 'PERDAGANGAN MAKANAN DAN MINUMAN ', 'LEDIAH PURNAMASARI ', 'LEDIAH PURNAMASARI ', '2016-02-20', '41', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM20'),
+('WLKP19', 'JACK MONTESSORI MATERIAL ', 'ALAT-ALAT SEKOLAH ', 'BUDI HARTOMO ', 'ADE AROSIYA ', '2013-07-17', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM21'),
+('WLKP2', 'TATA MULYA NUSANTARA INDAH ', 'KONTRAKTOR ', 'TATA MULYA ', 'FAUKI AHADIYAT ', '1993-12-17', '67', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM4'),
+('WLKP20', 'BTPBN KC.DEPOK ', 'PERBANKAN ', 'BTPN ', 'SILVI YUNARNI ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM22'),
+('WLKP21', 'BTPN TANAH BARU ', 'PERBANKAN ', 'BTPN ', 'EDISON SIANIPAR ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM23'),
+('WLKP22', 'BTPN SAWANGAN ', 'PERBANKAN ', 'BTPN ', 'ERWIN LUBIS ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM24'),
+('WLKP23', 'BTPN CIMANGGIS ', 'PERBANKAN ', 'BTPN ', 'BUDI IRAWAN ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM25'),
+('WLKP24', 'MATAHARI PUTRA PRIMA 2', 'RETAIL ', 'HYPERMART CIMANGGIS ', 'YUNI MULYANINGSIH ', '2012-01-20', '26', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM26'),
+('WLKP25', 'HYPERMART ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', 'DONI RAHADI ', '2012-01-20', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM27'),
+('WLKP26', 'INDAGRO ', 'FORMULASI PESTISIDA ', 'WIJOYO SUYONO ', 'DRS.HARIJANTO ', '1974-05-01', '44', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM28'),
+('WLKP27', 'JASA MEGA KARTIKA ', 'JASA KONSULTASI MANAJEMEN ', 'RINI RIYANTI ', '', '2014-07-23', '3', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM29'),
+('WLKP28', 'MNC FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'BHAKTI CAPITAL INDONESIA ', 'INDRA SYAILANA ', '1989-11-14', '64', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM30'),
+('WLKP29', 'ARTHA GUNA SEJAHTERA ', 'PERBANKAN ', 'VOLIANA ', 'SITI KOMARIAH ', '1994-01-07', '14', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM31'),
+('WLKP3', 'JAKARTA INTILAND ', 'JASA ', 'JAKARTA INTILAND ', 'RACHMAT BUDIMAN ', '1993-10-18', '38', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM5'),
+('WLKP30', 'METAGUNA INNOVA ', 'PERDAGANGAN BARANG DAN JASA ', 'VOLIANA ', 'SITI KOMARIAH ', '2004-07-26', '2', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM32'),
+('WLKP31', 'SUPER EXIMSARI ', 'INDUSTRI PLASTIK ', 'ONIY BIE HUA ', 'GANJAR PURNOMO ', '0000-00-00', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM33'),
+('WLKP32', 'KATINEUNG RASA MANDIRI ', 'JASA BOGA/KATERING ', 'DEDEH YULIASIH ', 'EKO AJIWIBOWO ', '2015-06-09', '329', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM34'),
+('WLKP33', 'YUDHA BHAKTI  BANK ', 'PERBANKAN ', 'ASABRI PERSERO ', 'ARIFIN ', '1989-08-19', '68', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM35'),
+('WLKP34', 'MANDIRI TUNAS FINANCE ', 'LEMBAGA PEMBIYAAN ', 'IWAN TRISNADI ', 'IGNATIUS SUSATYOWIJOYO ', '1985-05-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM36'),
+('WLKP35', 'ADIRA DINAMIKA MULTI FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'WILLY SUWANDI DARMA ', 'WAWAN HERMANSYAH ', '2010-12-02', '4', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM37'),
+('WLKP36', 'DINAMIKA INTI KARYA ', 'JASA OUTSOURCHING ', 'DEDE RIDWAN ', '', '2005-07-12', '26', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM38'),
+('WLKP37', 'TRISULA PRIMA AGUNG ', 'JASA PENGAMANAN ', 'GUNARDI ', 'GUNARDI ', '2003-04-03', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM39'),
+('WLKP38', 'USAHA JAYA PRIMA KARYA ', 'PERDAGANGAN ', 'PLN ', 'SUKARTONO HARIYADI ', '2003-03-25', '8', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM40'),
+('WLKP39', 'YAYASAN LAZUARDI HAYATI ', 'PENDIDIKAN ', 'HAIDAR BAGIR ', 'ZARONAH ', '2006-02-24', '15', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM41'),
+('WLKP4', 'INDOMOBIL FINANCE INDONESIA ', 'LEASING PERBANKAN ', 'SUBROTO LARAS ', 'EKO.S HARYADI ', '2004-01-14', '2137', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM6'),
+('WLKP40', 'MUKTI SEJAHTERA TEKNIK ', 'PERDAGANGAN ', 'DHANI PRASETYO ', '', '2010-06-10', '38', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM42'),
+('WLKP41', 'VENUS RUMAH BERNYANYI 2', 'HIBURAN ', 'DWI JAYA ', 'DWI JAYA ', '2009-09-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM43'),
+('WLKP42', 'BIOSKOP CINERE BELLEVUE XXI - 2', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', 'WAHYU GUNA HADI ', '2014-12-03', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM44'),
+('WLKP43', 'SINAR SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2003-01-11', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM45'),
+('WLKP44', 'CAHAYA SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2001-01-09', '8', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM46'),
+('WLKP45', 'SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2001-01-09', '8', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM47'),
+('WLKP46', 'PUSAT KAJIAN DAN TERAPAN K3 ', 'JASA K3 ', 'DONI HIKMAT ', '', '1996-08-01', '20', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM48'),
+('WLKP47', 'ACLARIN PRIMA SEJAHTERA ', 'OUTSOURCHING ', 'ANNY PRITARINI ', 'HERU PRITOKO ', '2017-01-01', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM49'),
+('WLKP48', 'DWI KARYA SEJAHTERA ABADI ', 'PENGADAAN BARANG DAN JASA ', 'SARWADI ', 'SARWADI ', '0000-00-00', '4', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM50'),
+('WLKP49', 'MITRA PINASHTIKA MUSTIKA FINANCE ', 'PEMBIAYAAN/PENDANAAN ', 'ANTON SRI NUGROHO ', '', '2012-02-29', '68', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM51'),
+('WLKP5', 'MATAHARI PUTRA PRIMA ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', 'TONI ALIANDI ', '1986-11-03', '30', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM7'),
+('WLKP50', 'BUNDA MEDIK (RS.BUNDA MARGONDA)', 'RUMAH SAKIT ', 'DR. IMELDA RACHMAWATI ', 'RIVA RIANI ', '2006-05-15', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM52'),
+('WLKP51', 'PROPINDO SEDAYU ', 'PROPERTY ', 'IR. TEDDY BUDIARTA ', 'DESTU PARADIFA ', '1993-08-17', '160', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM53'),
+('WLKP52', 'SYAHRAN ', 'PERDAGANGAN BBM ', 'SYAHRAN ', 'SYAHRAN ', '2012-11-15', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM54'),
+('WLKP53', 'ADHI KARYA ', 'JASA KONSTRUKSI ', 'ADHI KARYA ', 'HERY PRAYONO ', '0000-00-00', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM55'),
+('WLKP54', 'MATAHARI DEPT. STORE ', 'RETAIL ', 'MATAHARI DEPT STORE ', 'ERFIN WIDI PRAMONO ', '2009-10-30', '61', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM56'),
+('WLKP55', 'BRI KCP CIMANGGIS ', 'PERBANKAN ', 'POPPY AGUSTIN ', '', '2008-09-02', '1', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM57'),
+('WLKP56', 'SENTRA SOLUSI SERVICE ', 'PERDAGANGAN UMUM DAN JASA ', 'BUDI SETIAWAN ', '', '2014-06-04', '16', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM58'),
+('WLKP57', 'WARNA MAINT ', 'TRAINING AND SRVICE ', 'A. SUGANDI R ', 'A. BAMBANG H ', '2003-09-01', '1', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM59'),
+('WLKP58', 'MARUSINDO AJIMANDIRI ', 'KONSTRUKSI DAN JASA ', 'IR. DJOKO STYO WIDODO ', '', '1995-08-30', '25', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM60'),
+('WLKP59', 'SUMBER MEDIKA LESTARI ', 'PERDAGANGAN BESAR ', 'LO VANA ', 'DWI KRISNAWAN ', '2014-10-20', '20', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM61'),
+('WLKP6', 'OPTIK MELAWAI PRIMA ', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM8'),
+('WLKP60', 'ANUGERAH MANDIRI KARYABERSAMA', 'PERGDANGAN UMUM DAN JASA ', 'LINA ', 'WINDU ', '2006-09-13', '1', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM62'),
+('WLKP61', 'VENUS RUMAH BERNYANYI ', 'HIBURAN DAN OLAH RAGA ', 'DWI JAYA ', 'DWI JAYA ', '1999-09-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM63'),
+('WLKP62', 'BIOSKOP CINERE BELLEVUE XXI', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', 'WAHYU GUNA HADI ', '2014-12-03', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM64'),
+('WLKP7', 'OPTIK MELAWAI PRIMA 2', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM9'),
+('WLKP8', 'OPTIK MELAWAI PRIMA 3', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM10'),
+('WLKP9', 'SARI RASA NUSANTARA ', 'RESTORAN ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2007-12-26', '268', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM11');
 
 -- --------------------------------------------------------
 
@@ -83630,7 +84110,7 @@ ALTER TABLE `villages`
 -- AUTO_INCREMENT for table `table_alat_bahan`
 --
 ALTER TABLE `table_alat_bahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `table_email`
@@ -83642,7 +84122,7 @@ ALTER TABLE `table_email`
 -- AUTO_INCREMENT for table `table_fasilitas`
 --
 ALTER TABLE `table_fasilitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `table_history_login`
@@ -83666,7 +84146,7 @@ ALTER TABLE `table_k3`
 -- AUTO_INCREMENT for table `table_ketenagakerjaan`
 --
 ALTER TABLE `table_ketenagakerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `table_lks`
@@ -83684,7 +84164,7 @@ ALTER TABLE `table_login`
 -- AUTO_INCREMENT for table `table_pengesahan`
 --
 ALTER TABLE `table_pengesahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `table_pengurus`
@@ -83708,13 +84188,13 @@ ALTER TABLE `table_pp`
 -- AUTO_INCREMENT for table `table_rencana_tenaga_kerja`
 --
 ALTER TABLE `table_rencana_tenaga_kerja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `table_warga_negara`
 --
 ALTER TABLE `table_warga_negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `table_wlkp`
