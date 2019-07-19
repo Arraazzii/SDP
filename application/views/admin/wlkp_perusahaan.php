@@ -35,6 +35,7 @@
                                             <th>No.</th>
                                             <th>Nama Perusahaan</th>
                                             <th>No. Telepon</th>
+                                            <th>Alamat</th>
                                             <th>Tanggal Kadaluarsa</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -47,6 +48,7 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $row->nama_perusahaan; ?></td>
+                                            <td><?php echo $row->alamat; ?>, KEC. <?php echo $row->kecamatan; ?></td>
                                             <td><?php echo $row->no_telpon; ?></td>
                                             <td><?php echo $row->tgl_kadaluarsa; ?></td>
                                             <td>
