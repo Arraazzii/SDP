@@ -34,8 +34,8 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Perusahaan</th>
-                                            <th>Pemilik</th>
                                             <th>No. Telepon</th>
+                                            <th>Tanggal Kadaluarsa</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -47,8 +47,8 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $row->nama_perusahaan; ?></td>
-                                            <td><?php echo $row->nama_pemilik; ?></td>
                                             <td><?php echo $row->no_telpon; ?></td>
+                                            <td><?php echo $row->tgl_kadaluarsa; ?></td>
                                             <td>
                                                 <a href="" data-toggle="modal" title="Detail Data" data-target="#myModalEdit<?php echo $row->kode_wlkp;?>"><button type="button" class="btn btn-outline-primary">Detail</button></a>
                                                 <a href="<?php echo base_url(); ?>Admin/delete_wlkp/<?php echo $row->kode_wlkp; ?>">
