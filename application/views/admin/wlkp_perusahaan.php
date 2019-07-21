@@ -48,7 +48,7 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $row->nama_perusahaan; ?></td>
-                                            <td><?php echo $row->alamat; ?>, KEC. <?php echo $row->kecamatan; ?></td>
+                                            <td><?php echo $row->alamat; ?>, KEC.  <?php echo $row->kecamatan; ?></td>
                                             <td><?php echo $row->no_telpon; ?></td>
                                             <td><?php echo $row->tgl_kadaluarsa; ?></td>
                                             <td>
@@ -92,11 +92,12 @@
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Data Perusahaan</a>
                                         <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja" role="tab" aria-controls="nav-kerja" aria-selected="false">Data Ketenagakerjaan</a>
+                                        <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana" role="tab" aria-controls="nav-rencana" aria-selected="false">Data Rencana Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya" role="tab" aria-controls="nav-lainnya" aria-selected="false">Data Lainnya</a>
                                     </div>
                                 </nav>
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="form-group">
                                             <fieldset>     
                                                 <legend> PROFIL PERUSAHAAN </legend>
@@ -140,12 +141,70 @@
                                                                 <td><input type="text" class="form-control" placeholder="Nama Pengurus" name="nama_pengurus"></td>
                                                             </tr>
                                                             <tr>
-                                                                <th>Tanggal Pendirian</th>
-                                                                <th>Nomor Pendirian</th>
+                                                                <th>Alamat Pemilik</th>
+                                                                <th>Alamat Pengurus</th>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="date" class="form-control" placeholder="Tgl Pendirian" name="tanggal_pendirian"></td>
+                                                                <td><textarea class="form-control" name="alamat_pemilik"></textarea></td>
+                                                                <td><textarea class="form-control" name="alamat_pengurus"></textarea></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Tanggal Pendirian</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><input type="date" class="form-control" placeholder="Tgl Pendirian" name="tanggal_pendirian"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tanggal Akte Pendirian</th>
+                                                                <th>No. Akte Pendirian</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="date" class="form-control" placeholder="Tgl Pendirian" name="tanggal_akte_pendirian"></td>
                                                                 <td><input type="number" class="form-control" placeholder="No Pendirian" name="no_pendirian"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tanggal Akte Perubahan</th>
+                                                                <th>No. Akte Perubahan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="date" class="form-control" name="tanggal_akte_perubahan"></td>
+                                                                <td><input type="number" class="form-control" placeholder="No Perubahan" name="no_perubahan"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>No. SIUP</th>
+                                                                <th>No. TDP</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="number" class="form-control" name="no_siup"></td>
+                                                                <td><input type="number" class="form-control" name="no_tdp"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>No. NPWP</th>
+                                                                <th>No. KBLI</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="number" class="form-control" name="no_npwp"></td>
+                                                                <td><input type="number" class="form-control" name="no_kbli"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>No. Edabu BPJS Kesehatan</th>
+                                                                <th>No. BPJS Tenaga Kerja</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="number" class="form-control" name="no_bpjskes"></td>
+                                                                <td><input type="number" class="form-control" name="no_bpjstk"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Perpindahan Perusahaan</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><input type="text" class="form-control" name="pindah_perusahaan"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="2">Alamat Lama</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"><textarea class="form-control" name="alamat_lama"></textarea></td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Keterangan Kantor</th>
@@ -191,7 +250,8 @@
                                             </fieldset>  
                                         </div>                         
                                     </div>
-                                    <div class="tab-pane fade" id="nav-kerja" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                                    <div class="tab-pane fade" id="nav-kerja" role="tabpanel" aria-labelledby="nav-kerja-tab">
                                         <div class="form-group">
                                             <fieldset>     
                                                 <legend> WARGA NEGARA INDONESIA </legend>
@@ -200,28 +260,77 @@
                                                         <table class="table borderless">
                                                             <tr>
                                                                 <th></th>
-                                                                <th><center>Laki - Laki</center></th>
-                                                                <th><center>Perempuan</center></th>        
+                                                                <th><center>CPUH</center></th>
+                                                                <th><center>CPUBR</center></th>   
+                                                                <th><center>CPUBL</center></th>
+                                                                <th><center>HL</center></th>   
+                                                                <th><center>BR</center></th>
+                                                                <th><center>KR</center></th>        
+                                                            </tr>
+                                                            <tr>
+                                                                <th colspan="7">Laki - Laki</th>    
                                                             </tr>
                                                             <tr>
                                                                 <td>Dibawah 15 tahun</td>
-                                                                <td><input type="number" class="form-control" name="l_dibawah_15" value="0" id="l_dibawah_15"></td>
-                                                                <td><input type="number" class="form-control" name="p_dibawah_15" value="0" id="p_dibawah_15"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_cpuh" value="0" id="l_dibawah_15_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_cpubr" value="0" id="l_dibawah_15_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_cpubl" value="0" id="l_dibawah_15_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_hl" value="0" id="l_dibawah_15_hl"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_br" value="0" id="l_dibawah_15_br"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_15_kr" value="0" id="l_dibawah_15_kr"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Diantara 15 - 18 tahun</td>
-                                                                <td><input type="number" class="form-control" name="l_dibawah_18" value="0" id="l_dibawah_18"></td>
-                                                                <td><input type="number" class="form-control" name="p_dibawah_18" value="0" id="p_dibawah_18"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_cpuh" value="0" id="l_dibawah_18_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_cpubr" value="0" id="l_dibawah_18_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_cpubl" value="0" id="l_dibawah_18_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_hl" value="0" id="l_dibawah_18_hl"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_br" value="0" id="l_dibawah_18_br"></td>
+                                                                <td><input type="number" class="form-control" name="l_dibawah_18_kr" value="0" id="l_dibawah_18_kr"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Diatas 18 tahun</td>
-                                                                <td><input type="number" class="form-control" name="l_diatas_18" value="0" id="l_diatas_18"></td>
-                                                                <td><input type="number" class="form-control" name="p_diatas_18" value="0" id="p_diatas_18"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_cpuh" value="0" id="l_diatas_18_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_cpubr" value="0" id="l_diatas_18_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_cpubl" value="0" id="l_diatas_18_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_hl" value="0" id="l_diatas_18_hl"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_br" value="0" id="l_diatas_18_br"></td>
+                                                                <td><input type="number" class="form-control" name="l_diatas_18_kr" value="0" id="l_diatas_18_kr"></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="7">Perempuan</th>      
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dibawah 15 tahun</td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_cpuh" value="0" id="p_dibawah_15_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_cpubr" value="0" id="p_dibawah_15_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_cpubl" value="0" id="p_dibawah_15_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_hl" value="0" id="p_dibawah_15_hl"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_br" value="0" id="p_dibawah_15_br"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_15_kr" value="0" id="p_dibawah_15_kr"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Diantara 15 - 18 tahun</td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_cpuh" value="0" id="p_dibawah_18_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_cpubr" value="0" id="p_dibawah_18_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_cpubl" value="0" id="p_dibawah_18_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_hl" value="0" id="p_dibawah_18_hl"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_br" value="0" id="p_dibawah_18_br"></td>
+                                                                <td><input type="number" class="form-control" name="p_dibawah_18_kr" value="0" id="p_dibawah_18_kr"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Diatas 18 tahun</td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_cpuh" value="0" id="p_diatas_18_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_cpubr" value="0" id="p_diatas_18_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_cpubl" value="0" id="p_diatas_18_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_hl" value="0" id="p_diatas_18_hl"></td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_br" value="0" id="p_diatas_18_br"></td>
+                                                                <td><input type="number" class="form-control" name="p_diatas_18_kr" value="0" id="p_diatas_18_kr"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><strong>Total :</strong></td>
-                                                                <td><input type="number" class="form-control" name="total_l" value="0" id="total_l" readonly></td>
-                                                                <td><input type="number" class="form-control" name="total_p" value="0" id="total_p" readonly></td>
+                                                                <td colspan="6"><input type="number" class="form-control" name="total_wni" value="0" id="total_wni" readonly></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -236,14 +345,35 @@
                                                     <div class="panel-body">
                                                         <table class="table borderless">
                                                             <tr>
-                                                                <th>Laki - Laki</th>
-                                                                <th>Perempuan</th> 
-                                                                <th>Total</th>       
+                                                                <th></th>
+                                                                <th><center>CPUH</center></th>
+                                                                <th><center>CPUBR</center></th>   
+                                                                <th><center>CPUBL</center></th>
+                                                                <th><center>HL</center></th>   
+                                                                <th><center>BR</center></th>
+                                                                <th><center>KR</center></th>        
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="number" class="form-control" name="l_wna" value="0" id="l_wna"></td>
-                                                                <td><input type="number" class="form-control" name="p_wna" value="0" id="p_wna"></td>
-                                                                <td><input type="number" class="form-control" name="total_wna" value="0" id="total_wna" readonly></td>
+                                                                <td>Laki - Laki</td>
+                                                                <td><input type="number" class="form-control" name="l_wna_cpuh" value="0" id="l_wna_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="l_wna_cpubr" value="0" id="l_wna_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="l_wna_cpubl" value="0" id="l_wna_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="l_wna_hl" value="0" id="l_wna_hl"></td>
+                                                                <td><input type="number" class="form-control" name="l_wna_br" value="0" id="l_wna_br"></td>
+                                                                <td><input type="number" class="form-control" name="l_wna_kr" value="0" id="l_wna_kr"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Perempuan</td>
+                                                                <td><input type="number" class="form-control" name="p_wna_cpuh" value="0" id="p_wna_cpuh"></td>
+                                                                <td><input type="number" class="form-control" name="p_wna_cpubr" value="0" id="p_wna_cpubr"></td>
+                                                                <td><input type="number" class="form-control" name="p_wna_cpubl" value="0" id="p_wna_cpubl"></td>
+                                                                <td><input type="number" class="form-control" name="p_wna_hl" value="0" id="p_wna_hl"></td>
+                                                                <td><input type="number" class="form-control" name="p_wna_br" value="0" id="p_wna_br"></td>
+                                                                <td><input type="number" class="form-control" name="p_wna_kr" value="0" id="p_wna_kr"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Total :</strong></td>
+                                                                <td colspan="6"><input type="number" class="form-control" name="total_wna" value="0" id="total_wna" readonly></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -257,8 +387,18 @@
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group col-md-6 col-sm-12">
-                                                            <label>Waktu Kerja (jam/hari)</label>
-                                                            <input type="number" class="form-control" name="waktu_kerja" value="0"> 
+                                                            <label>Waktu Kerja</label>
+                                                            <select class="form-control" name="waktu_kerja">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="7 jam/hari dan 40 jam/minggu">7 jam/hari dan 40 jam/minggu</option>
+                                                                <option value="8 jam/hari dan 40 jam/minggu">8 jam/hari dan 40 jam/minggu</option>         
+                                                                <option value="12 jam/hari dan 40 jam/minggu">12 jam/hari dan 40 jam/minggu</option>
+                                                                <option value="12 jam/hari selama 10 hari terus menerus">12 jam/hari selama 10 hari terus menerus</option>
+                                                                <option value="12 jam/hari selama 14 hari terus menerus">12 jam/hari selama 14 hari terus menerus</option>
+                                                                <option value="Lebih lama dari 7  dan 8 jam/hari dan 40 jam/minggu kurang dari 12 jam/hari selama 10 hari terus menerus">Lebih lama dari 7  dan 8 jam/hari dan 40 jam/minggu kurang dari 12 jam/hari selama 10 hari terus menerus</option>
+                                                                <option value="Kurang atau sama dengan 24 jam/minggu">Kurang atau sama dengan 24 jam/minggu</option>
+                                                                <option value="Kurang atau sama dengan 20 jam/minggu">Kurang atau sama dengan 20 jam/minggu</option>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Kategori</label>
@@ -309,12 +449,125 @@
                                                             <label>Jumlah Pekerja Berhenti</label>
                                                             <input type="number" class="form-control" name="pekerja_berhenti" value="0"> 
                                                         </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <label>Tunjangan Hari Raya Keagamaan</label>
+                                                            <select class="form-control" name="thr">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="1 Bulan Upah">1 Bulan Upah</option>
+                                                                <option value="Lebih dari 1 Bulan Upah">Lebih dari 1 Bulan Upah</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>                                            
                                             </fieldset>  
                                         </div>
 
                                         <div class="form-group">
+                                            <fieldset>     
+                                                <legend> BPJS Tenaga Kerja </legend>    
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Mulai Menjadi Peserta</label>
+                                                            <input type="date" class="form-control" name="tgl_bpjs"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Nomor Pendaftaran</label>
+                                                            <input type="number" class="form-control" name="no_daftar_bpjs"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jumlah Peserta (Tenaga Kerja)</label>
+                                                            <input type="number" class="form-control" name="peserta_tk"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jumlah Peserta (Keluarga)</label>
+                                                            <input type="number" class="form-control" name="peserta_kel"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jaminan Kecelakaan</label>
+                                                            <input type="text" class="form-control" name="jaminan_kecelakaan"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jaminan Kematian</label>
+                                                            <input type="text" class="form-control" name="jaminan_kematian"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jaminan Hari Tua</label>
+                                                            <input type="text" class="form-control" name="jaminan_haritua"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-6">
+                                                            <label>Jaminan Pensiun</label>
+                                                            <input type="text" class="form-control" name="jaminan_pensiun"> 
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset> 
+                                        </div>
+
+                                        <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Program Pemagangan </legend>    
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Kebutuhan Pemagangan</label>
+                                                            <input type="text" class="form-control" name="kebutuhan_magang"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Jumlah Peserta</label>
+                                                            <input type="number" class="form-control" name="peserta_magang"> 
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Standarisasi</label>
+                                                            <select class="form-control" name="standarisasi">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="Khusus">Khusus</option>
+                                                                <option value="Internasional">Internasional</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Skema</label>
+                                                            <select class="form-control" name="skema">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="Kualifikasi">Kualifikasi</option>
+                                                                <option value="Okupasi">Okupasi</option>
+                                                                <option value="Kluster">Kluster</option>
+                                                            </select>
+                                                        </div>
+                                                        <fieldset>
+                                                            <legend>LSP</legend>    
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-body">
+                                                                    <div class="form-group col-md-4 col-sm-12">
+                                                                        <label>P1</label>
+                                                                        <input type="text" class="form-control" name="P1"> 
+                                                                    </div>
+                                                                    <div class="form-group col-md-4 col-sm-12">
+                                                                        <label>P2</label>
+                                                                        <input type="text" class="form-control" name="P2"> 
+                                                                    </div>
+                                                                    <div class="form-group col-md-4 col-sm-12">
+                                                                        <label>P3</label>
+                                                                        <input type="text" class="form-control" name="P3"> 
+                                                                    </div>
+                                                                    <div class="form-group col-md-12 col-sm-12">
+                                                                        <label>Nama</label>
+                                                                        <input type="text" class="form-control" name="lsp_nama"> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <br>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <label>Penempatan</label>
+                                                            <input type="text" class="form-control" name="penempata"> 
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset> 
+                                        </div>
+
+                                        <!-- <div class="form-group">
                                             <fieldset>     
                                                 <legend> Rencana Kebutuhan Tenaga Kerja </legend>    
                                                 <div class="panel panel-default">
@@ -355,9 +608,88 @@
                                                     </div>
                                                 </div>                                            
                                             </fieldset> 
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="tab-pane fade" id="nav-lainnya" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                                    <div class="tab-pane fade show active" id="nav-rencana" role="tabpanel" aria-labelledby="nav-rencana-tab">
+                                        <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Rencana Pekerja Yang Dibutuhkan </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Laki - Laki</label>
+                                                            <input type="number" class="form-control" name="rencana_pekerja_l">
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Perempuan</label>
+                                                            <input type="number" class="form-control" name="rencana_pekerja_p">
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Tingkat Pendidikan</label>
+                                                            <select class="form-control" name="pendidikan">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="SD" >SD</option>
+                                                                <option value="SMP">SMP</option>
+                                                                <option value="SMA">SMA/SMK</option>
+                                                                <option value="D3">D3</option>
+                                                                <option value="S1">S1</option>
+                                                                <option value="S2" >S2</option>
+                                                                <option value="S3">S3</option>
+                                                            </select>
+                                                        </div>                                         
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Kualifikasi</label>
+                                                            <input type="text" class="form-control" name="kualifikasi">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Untuk Posisi/Jabatan</label>
+                                                            <input type="text" class="form-control" name="jabatan">
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                            <br>
+                                            <fieldset>     
+                                                <legend> Pekerja Pada 12 Bulan Terakhir </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Laki - Laki</label>
+                                                            <input type="number" class="form-control" name="pekerja_l_terakhir">
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Perempuan</label>
+                                                            <input type="number" class="form-control" name="pekerja_p_terakhir">
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-12">
+                                                            <label>Tingkat Pendidikan</label>
+                                                            <select class="form-control" name="pendidikan_terakhir">
+                                                                <option hidden>-Silahkan Pilih-</option>
+                                                                <option value="SD" >SD</option>
+                                                                <option value="SMP">SMP</option>
+                                                                <option value="SMA">SMA/SMK</option>
+                                                                <option value="D3">D3</option>
+                                                                <option value="S1">S1</option>
+                                                                <option value="S2" >S2</option>
+                                                                <option value="S3">S3</option>
+                                                            </select>
+                                                        </div>                                         
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Kualifikasi</label>
+                                                            <input type="text" class="form-control" name="kualifikasi_terakhir">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-sm-12">
+                                                            <label>Untuk Posisi/Jabatan</label>
+                                                            <input type="text" class="form-control" name="jabatan_terakhir">
+                                                        </div>                             
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>  
+                                    </div>                       
+
+                                    <div class="tab-pane fade" id="nav-lainnya" role="tabpanel" aria-labelledby="nav-lainnya-tab">
                                        <div class="form-group">
                                             <fieldset>     
                                                 <legend> PENGESAHAN </legend>
@@ -481,7 +813,66 @@
                                                     </div>
                                                 </div>                                            
                                             </fieldset>  
-                                        </div>       
+                                        </div>    
+
+                                       <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Perangkat Hubungan Industrial </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <fieldset>
+                                                            <legend> Perangkat Hubungan Kerja </legend>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-body">
+                                                                    <table class="table borderless">
+                                                                        <tr>
+                                                                            <th>PK</th>
+                                                                            <th>PP</th>
+                                                                            <th>PKB</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><input type="text" class="form-control" name="phk_pk"></td>
+                                                                            <td><input type="text" class="form-control" name="phk_pp"></td>
+                                                                            <td><input type="text" class="form-control" name="phk_pkb"></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>    
+                                                        </fieldset>
+                                                        <br>
+                                                        <fieldset>
+                                                            <legend> Perangkat Organisasi Ketenagakerjaan </legend>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-body">
+                                                                    <table class="table borderless">
+                                                                        <tr>
+                                                                            <th>Bipartit</th>
+                                                                            <th>SPTP</th>
+                                                                            <th>UKSP</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><input type="text" class="form-control" name="pok_bipartit"></td>
+                                                                            <td><input type="text" class="form-control" name="pok_sptp"></td>
+                                                                            <td><input type="text" class="form-control" name="pok_uksp"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>P2K3</th>
+                                                                            <th>Apindo</th>
+                                                                            <th>Kadin</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><input type="text" class="form-control" name="pok_p2k3"></td>
+                                                                            <td><input type="text" class="form-control" name="pok_apindo"></td>
+                                                                            <td><input type="text" class="form-control" name="pok_kadin"></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>    
+                                                        </fieldset>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>   
                                     </div>
                                 </div>
                             </div>                    
