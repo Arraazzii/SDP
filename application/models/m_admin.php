@@ -182,9 +182,15 @@ class m_admin extends CI_Model {
 	// Delete WLKP Perusahaan
 	public function delete_wlkp($kode){
 
-		$login 	 	 = $this->db->query("DELETE FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode'");
+		$wlkp_perusahaan 	= $this->db->query("DELETE FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode'");
+		$warga_negara 		= $this->db->query("DELETE FROM table_warga_negara WHERE kode_wlkp = '$kode'");
+		$pengesahan 		= $this->db->query("DELETE FROM table_pengesahan WHERE kode_wlkp = '$kode'");
+		$tenaga_kerja 		= $this->db->query("DELETE FROM table_ketenagakerjaan WHERE kode_wlkp = '$kode'");
+		$fasilitas 	 		= $this->db->query("DELETE FROM table_fasilitas WHERE kode_wlkp = '$kode'");
+		$alat_bahan	 		= $this->db->query("DELETE FROM table_alat_bahan WHERE kode_wlkp = '$kode'");
+		$alamat 			= $this->db->query("DELETE FROM table_alamat WHERE kode_alamat = (SELECT kode_alamat FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode')");
 
-		if ($login) {
+		if ($wlkp_perusahaan && $warga_negara && $pengesahan && $tenaga_kerja && $fasilitas && $alat_bahan && $alamat) {
 			return true;
 		} else {
 			return false;
