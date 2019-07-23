@@ -94,6 +94,7 @@
                                         <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja" role="tab" aria-controls="nav-kerja" aria-selected="false" onclick="kerja()">Data Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana" role="tab" aria-controls="nav-rencana" aria-selected="false" onclick="rencana()">Data Rencana Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya" role="tab" aria-controls="nav-lainnya" aria-selected="false" onclick="lainnya()">Data Lainnya</a>
+                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false">Tanggal Lapor</a>
                                     </div>
                                 </nav>
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
@@ -250,7 +251,6 @@
                                             </fieldset>  
                                         </div>                         
                                     </div>
-
                                     <div class="tab-pane fade" id="nav-kerja" role="tabpanel" aria-labelledby="nav-kerja-tab">
                                         <div class="form-group">
                                             <fieldset>     
@@ -579,7 +579,6 @@
                                             </fieldset> 
                                         </div>
                                     </div>
-
                                     <div class="tab-pane fade" id="nav-rencana" role="tabpanel" aria-labelledby="nav-rencana-tab">
                                         <div class="form-group">
                                             <fieldset>     
@@ -672,8 +671,7 @@
                                                 </div>                                            
                                             </fieldset>  
                                         </div>  
-                                    </div>                       
-
+                                    </div>
                                     <div class="tab-pane fade" id="nav-lainnya" role="tabpanel" aria-labelledby="nav-lainnya-tab">
                                        <div class="form-group">
                                             <fieldset>     
@@ -858,6 +856,25 @@
                                                 </div>                                            
                                             </fieldset>  
                                         </div>   
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-tanggal_lapor" role="tabpanel" aria-labelledby="nav-tanggal_lapor">
+                                       <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Tanggal Lapor </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <table class="table borderless">
+                                                            <tr>
+                                                                <th>Tanggal Lapor</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="date" class="form-control" name="tgl_lapor"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>
                                     </div>
                                 </div>
                             </div>                    
