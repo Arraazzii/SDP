@@ -169,28 +169,44 @@ class m_admin extends CI_Model {
 
 	// Tampil Data WLKP Perusahaan
 	public function data_wlkp_perusahaan(){
-		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_bpjs ON table_wlkp_perusahaan.kode_wlkp = table_bpjs.kode_wlkp JOIN table_pemagangan ON table_wlkp_perusahaan.kode_wlkp = table_pemagangan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp JOIN table_industrial ON table_wlkp_perusahaan.kode_wlkp = table_industrial.kode_wlkp");
 		return $query->result();
 	}
 
 	// Tampil Data WLKP Perusahaan
 	public function detail_wlkp_perusahaan($kode){
-		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_bpjs ON table_wlkp_perusahaan.kode_wlkp = table_bpjs.kode_wlkp JOIN table_pemagangan ON table_wlkp_perusahaan.kode_wlkp = table_pemagangan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp JOIN table_industrial ON table_wlkp_perusahaan.kode_wlkp = table_industrial.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
 		return $query->result();
 	}
+
+	// Tampil Data WLKP Perusahaan
+	// public function data_wlkp_perusahaan(){
+	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
+	// 	return $query->result();
+	// }
+
+	// Tampil Data WLKP Perusahaan
+	// public function detail_wlkp_perusahaan($kode){
+	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
+	// 	return $query->result();
+	// }
 
 	// Delete WLKP Perusahaan
 	public function delete_wlkp($kode){
 
 		$wlkp_perusahaan 	= $this->db->query("DELETE FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode'");
 		$warga_negara 		= $this->db->query("DELETE FROM table_warga_negara WHERE kode_wlkp = '$kode'");
-		$pengesahan 		= $this->db->query("DELETE FROM table_pengesahan WHERE kode_wlkp = '$kode'");
 		$tenaga_kerja 		= $this->db->query("DELETE FROM table_ketenagakerjaan WHERE kode_wlkp = '$kode'");
-		$fasilitas 	 		= $this->db->query("DELETE FROM table_fasilitas WHERE kode_wlkp = '$kode'");
+		$bpjs	 			= $this->db->query("DELETE FROM table_bpjs WHERE kode_wlkp = '$kode'");
+		$pemagangan	 		= $this->db->query("DELETE FROM table_pemagangan WHERE kode_wlkp = '$kode'");
+		$rencana 	 		= $this->db->query("DELETE FROM table_rencana_tenaga_kerja WHERE kode_wlkp = '$kode'");
+		$pengesahan 		= $this->db->query("DELETE FROM table_pengesahan WHERE kode_wlkp = '$kode'");
 		$alat_bahan	 		= $this->db->query("DELETE FROM table_alat_bahan WHERE kode_wlkp = '$kode'");
+		$fasilitas 	 		= $this->db->query("DELETE FROM table_fasilitas WHERE kode_wlkp = '$kode'");
+		$industrial 		= $this->db->query("DELETE FROM table_industrial WHERE kode_wlkp = '$kode'");
 		$alamat 			= $this->db->query("DELETE FROM table_alamat WHERE kode_alamat = (SELECT kode_alamat FROM table_wlkp_perusahaan WHERE kode_wlkp = '$kode')");
 
-		if ($wlkp_perusahaan && $warga_negara && $pengesahan && $tenaga_kerja && $fasilitas && $alat_bahan && $alamat) {
+		if ($wlkp_perusahaan && $warga_negara && $pengesahan && $tenaga_kerja && $fasilitas && $alat_bahan && $alamat && $bpjs && $pemagangan && $rencana && $industrial) {
 			return true;
 		} else {
 			return false;

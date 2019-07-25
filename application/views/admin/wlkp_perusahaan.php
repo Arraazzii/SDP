@@ -94,7 +94,7 @@
                                         <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja" role="tab" aria-controls="nav-kerja" aria-selected="false" onclick="kerja()">Data Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana" role="tab" aria-controls="nav-rencana" aria-selected="false" onclick="rencana()">Data Rencana Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya" role="tab" aria-controls="nav-lainnya" aria-selected="false" onclick="lainnya()">Data Lainnya</a>
-                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false">Tanggal Lapor</a>
+                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false" onclick="tanggal_lapor()">Tanggal Lapor</a>
                                     </div>
                                 </nav>
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
@@ -122,8 +122,16 @@
                                                                 <th>Kelurahan</th>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" class="form-control" placeholder="Kecamatan" name="kecamatan_perusahaan"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Kelurahan" name="kelurahan_perusahaan"></td>
+                                                                <td>
+                                                                <select name="kecamatan_perusahaan" class="form-control">
+                                                                    <option hidden>-Pilih Kecamatan-</option>
+                                                                </select>
+                                                                </td>
+                                                                <td>
+                                                                <select name="kelurahan_perusahaan" class="form-control">
+                                                                    <option hidden>-Pilih Kelurahan-</option>
+                                                                </select>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Telp. Perusahaan</th>
@@ -899,29 +907,94 @@
                 $kecamatan_perusahaan   = $row->kecamatan;
                 $kelurahan_perusahaan   = $row->kelurahan;
                 $telp_perusahaan        = $row->no_telpon;
-                $jenis_usaha            = $row->jenis_usaha;
+                $jenis_usaha            = $row->jenis_usaha;                
                 $nama_pemilik           = $row->nama_pemilik;
+                $alamat_pemilik         = $row->alamat_pemilik;
                 $nama_pengurus          = $row->nama_pengurus;
+                $alamat_pengurus        = $row->alamat_pengurus;
                 $tanggal_pendirian      = $row->tanggal_pendirian;
-                $no_pendirian           = $row->nomor_pendirian;
+                $tanggal_akte_pendirian = $row->tanggal_akte_pendirian;
+                $no_pendirian           = $row->no_pendirian;
+                $tanggal_akte_perubahan = $row->tanggal_akte_perubahan;
+                $no_perubahan           = $row->no_perubahan;
+                $no_siup                = $row->no_siup;
+                $no_tdp                 = $row->no_tdp;
+                $no_npwp                = $row->no_npwp;
+                $no_kbli                = $row->no_kbli;
+                $no_bpjskes             = $row->no_bpjskes;
+                $no_bpjstk              = $row->no_bpjstk;
+                $pindah_perusahaan      = $row->pindah_perusahaan;
+                $alamat_lama            = $row->alamat_lama;
                 $ket_kantor             = $row->ket_kantor;
                 $kantor_cabang          = $row->kantor_cabang;
                 $kepemilikan            = $row->status_kepemilikan;
                 $permodalan             = $row->status_permodalan;
+                $tgl_lapor              = $row->tgl_lapor;
+                $tgl_kadaluarsa         = $row->tgl_kadaluarsa;
 
                 // TABLE WARGA NEGARA
-                $l_dibawah_15   = $row->l_dibawah_15;
-                $p_dibawah_15   = $row->p_dibawah_15;
-                $l_dibawah_18   = $row->l_dibawah_18;
-                $p_dibawah_18   = $row->p_dibawah_18;
-                $l_diatas_18    = $row->l_diatas_18;
-                $p_diatas_18    = $row->p_diatas_18;
-                $l_wna          = $row->l_wna;
-                $p_wna          = $row->p_wna;
+                $l_dibawah_15_cpuh  = $row->l_dibawah_15_cpuh;
+                $l_dibawah_15_cpubr = $row->l_dibawah_15_cpubr;
+                $l_dibawah_15_cpubl = $row->l_dibawah_15_cpubl;
+                $l_dibawah_15_hl    = $row->l_dibawah_15_hl;
+                $l_dibawah_15_br    = $row->l_dibawah_15_br;
+                $l_dibawah_15_kr    = $row->l_dibawah_15_kr;
+
+                $p_dibawah_15_cpuh  = $row->p_dibawah_15_cpuh;
+                $p_dibawah_15_cpubr = $row->p_dibawah_15_cpubr;
+                $p_dibawah_15_cpubl = $row->p_dibawah_15_cpubl;
+                $p_dibawah_15_hl    = $row->p_dibawah_15_hl;
+                $p_dibawah_15_br    = $row->p_dibawah_15_br;
+                $p_dibawah_15_kr    = $row->p_dibawah_15_kr;
+
+                $l_dibawah_18_cpuh  = $row->l_dibawah_18_cpuh;
+                $l_dibawah_18_cpubr = $row->l_dibawah_18_cpubr;
+                $l_dibawah_18_cpubl = $row->l_dibawah_18_cpubl;
+                $l_dibawah_18_hl    = $row->l_dibawah_18_hl;
+                $l_dibawah_18_br    = $row->l_dibawah_18_br;
+                $l_dibawah_18_kr    = $row->l_dibawah_18_kr;
+
+                $p_dibawah_18_cpuh  = $row->p_dibawah_18_cpuh;
+                $p_dibawah_18_cpubr = $row->p_dibawah_18_cpubr;
+                $p_dibawah_18_cpubl = $row->p_dibawah_18_cpubl;
+                $p_dibawah_18_hl    = $row->p_dibawah_18_hl;
+                $p_dibawah_18_br    = $row->p_dibawah_18_br;
+                $p_dibawah_18_kr    = $row->p_dibawah_18_kr;
+
+                $l_diatas_18_cpuh  = $row->l_diatas_18_cpuh;
+                $l_diatas_18_cpubr = $row->l_diatas_18_cpubr;
+                $l_diatas_18_cpubl = $row->l_diatas_18_cpubl;
+                $l_diatas_18_hl    = $row->l_diatas_18_hl;
+                $l_diatas_18_br    = $row->l_diatas_18_br;
+                $l_diatas_18_kr    = $row->l_diatas_18_kr;
+
+                $p_diatas_18_cpuh  = $row->p_diatas_18_cpuh;
+                $p_diatas_18_cpubr = $row->p_diatas_18_cpubr;
+                $p_diatas_18_cpubl = $row->p_diatas_18_cpubl;
+                $p_diatas_18_hl    = $row->p_diatas_18_hl;
+                $p_diatas_18_br    = $row->p_diatas_18_br;
+                $p_diatas_18_kr    = $row->p_diatas_18_kr;
+
+                $l_wna_cpuh  = $row->l_wna_cpuh;
+                $l_wna_cpubr = $row->l_wna_cpubr;
+                $l_wna_cpubl = $row->l_wna_cpubl;
+                $l_wna_hl    = $row->l_wna_hl;
+                $l_wna_br    = $row->l_wna_br;
+                $l_wna_kr    = $row->l_wna_kr;
+
+                $p_wna_cpuh  = $row->p_wna_cpuh;
+                $p_wna_cpubr = $row->p_wna_cpubr;
+                $p_wna_cpubl = $row->p_wna_cpubl;
+                $p_wna_hl    = $row->p_wna_hl;
+                $p_wna_br    = $row->p_wna_br;
+                $p_wna_kr    = $row->p_wna_kr;
+
+                $total_wni_l    = $row->total_wni_l;
+                $total_wni_p    = $row->total_wni_p;
                 $total_wni      = $row->total_wni;
-                $total_wna      = $row->total_wna;                
-                $total_l        = $l_dibawah_15 + $l_dibawah_18 + $l_diatas_18;
-                $total_p        = $p_dibawah_15 + $p_dibawah_18 + $p_diatas_18;
+                $total_l_wna    = $row->total_l_wna;
+                $total_p_wna    = $row->total_p_wna;
+                $total_wna      = $row->total_wna; 
 
                 // TABLE KETENAGAKERJAAN
                 $waktu_kerja        = $row->jam_kerja;
@@ -936,14 +1009,37 @@
                 $p_terakhir         = $row->p_terakhir;
                 $pekerja_terakhir   = $row->pekerja_terakhir;
                 $pekerja_berhenti   = $row->pekerja_berhenti;
+                $thr                = $row->thr;
+
+                // TABLE BPJS
+                $tanggal_mulai      = $row->tanggal_mulai;
+                $no_daftar_bpjs     = $row->no_daftar_bpjs;
+                $peserta_tk         = $row->peserta_tk;
+                $peserta_kel        = $row->peserta_keluarga;
+                $jaminan_kecelakaan = $row->jaminan_kecelakaan;
+                $jaminan_kematian   = $row->jaminan_kematian;
+                $jaminan_haritua    = $row->jaminan_haritua;
+                $jaminan_pensiun    = $row->jaminan_pensiun;
+
+                // TABLE PEMAGANGAN
+                $kebutuhan_magang   = $row->kebutuhan_magang;
+                $jmlh_peserta       = $row->jmlh_peserta;
+                $standarisasi       = $row->standarisasi;
+                $skema              = $row->skema;
+                $P1                 = $row->lsp_p1;
+                $P2                 = $row->lsp_p2;
+                $P3                 = $row->lsp_p3;
+                $lsp_nama           = $row->lsp_nama;
+                $penempatan         = $row->penempatan;
 
                 // TABLE RENCANA TENAGA KERJA
                 $sdm_l          = $row->sdm_l;
                 $sdm_p          = $row->sdm_p;
                 $jumlah_sdm     = $row->jumlah_sdm;
                 $pendidikan     = $row->pendidikan;
-                $keterampilan   = $row->keterampilan;
-                $posisi         = $row->posisi;
+                $kualifikasi    = $row->kualifikasi;
+                $jabatan        = $row->posisi;
+                $tipe           = $row->tipe;
 
                 // TABLE PENGESAHAN
                 $tempat_pengesahan  = $row->tempat_pengesahan;
@@ -997,6 +1093,17 @@
                 $sptp           = $row->sptp;
                 $uksp           = $row->uksp;
                 $p2k3           = $row->p2k3;
+
+                // TABLE INDUSTRIAL
+                $phk_pk         = $row->phk_pk;
+                $phk_pp         = $row->phk_pp;
+                $phk_pkb        = $row->phk_pkb;
+                $pok_bipartit   = $row->pok_bipartit;
+                $pok_sptp       = $row->pok_sptp;
+                $pok_uksp       = $row->pok_uksp;
+                $pok_p2k3       = $row->pok_p2k3;
+                $pok_apindo     = $row->pok_apindo;
+                $pok_kadin      = $row->pok_kadin;
         ?>
 
         <!-- MODAL EDIT -->
@@ -1020,6 +1127,7 @@
                                         <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-kerja" aria-selected="false" onclick="kerja()">Data Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-rencana" aria-selected="false" onclick="rencana()">Data Rencana Ketenagakerjaan</a>
                                         <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-lainnya" aria-selected="false" onclick="lainnya()">Data Lainnya</a>
+                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false" onclick="tanggal_lapor()">Tanggal Lapor</a>
                                     </div>
                                 </nav>
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
@@ -1047,8 +1155,12 @@
                                                                 <th>Kelurahan</th>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" class="form-control" placeholder="Kecamatan" name="kecamatan_perusahaan" value="<?php echo $kecamatan_perusahaan; ?>"></td>
-                                                                <td><input type="text" class="form-control" placeholder="Kelurahan" name="kelurahan_perusahaan" value="<?php echo $kelurahan_perusahaan; ?>"></td>
+                                                                <td>
+                                                                <input type="text" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" name="kecamatan_perusahaan">
+                                                                </td>
+                                                                <td>
+                                                                <input type="text" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" name="kelurahan_perusahaan">
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Telp. Perusahaan</th>
@@ -1345,7 +1457,7 @@
                                                                 <td><input type="number" class="form-control" name="l_wna_hl" value="<?php echo $l_wna_hl; ?>" id="l_wna_hl<?php echo $kode_wlkp; ?>"></td>
                                                                 <td><input type="number" class="form-control" name="l_wna_br" value="<?php echo $l_wna_br; ?>" id="l_wna_br<?php echo $kode_wlkp; ?>"></td>
                                                                 <td><input type="number" class="form-control" name="l_wna_kr" value="<?php echo $l_wna_kr; ?>" id="l_wna_kr<?php echo $kode_wlkp; ?>"></td>
-                                                                <td style="display: none"><input type="number" class="form-control" name="l_wna" value="<?php echo $l_wna; ?>" id="l_wna<?php echo $kode_wlkp; ?>"></td>
+                                                                <td style="display: none"><input type="number" class="form-control" name="l_wna" value="<?php echo $total_l_wna; ?>" id="l_wna<?php echo $kode_wlkp; ?>"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Perempuan</td>             
@@ -1355,7 +1467,7 @@
                                                                 <td><input type="number" class="form-control" name="p_wna_hl" value="<?php echo $p_wna_hl; ?>" id="p_wna_hl<?php echo $kode_wlkp; ?>"></td>
                                                                 <td><input type="number" class="form-control" name="p_wna_br" value="<?php echo $p_wna_br; ?>" id="p_wna_br<?php echo $kode_wlkp; ?>"></td>
                                                                 <td><input type="number" class="form-control" name="p_wna_kr" value="<?php echo $p_wna_kr; ?>" id="p_wna_kr<?php echo $kode_wlkp; ?>"></td>
-                                                                <td style="display: none"><input type="number" class="form-control" name="p_wna" value="<?php echo $p_wna; ?>" id="p_wna<?php echo $kode_wlkp; ?>"></td>
+                                                                <td style="display: none"><input type="number" class="form-control" name="p_wna" value="<?php echo $total_p_wna; ?>" id="p_wna<?php echo $kode_wlkp; ?>"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><strong>Total :</strong></td>
@@ -1507,7 +1619,7 @@
                                                     <div class="panel-body">
                                                         <div class="form-group col-md-6 col-sm-6">
                                                             <label>Mulai Menjadi Peserta</label>
-                                                            <input type="date" class="form-control" name="tgl_bpjs" value="<?php echo $tgl_bpjs; ?>"> 
+                                                            <input type="date" class="form-control" name="tgl_bpjs" value="<?php echo $tanggal_mulai; ?>"> 
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-6">
                                                             <label>Nomor Pendaftaran</label>
@@ -1553,7 +1665,7 @@
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Jumlah Peserta</label>
-                                                            <input type="number" class="form-control" name="peserta_magang" value="<?php echo $peserta_magang; ?>"> 
+                                                            <input type="number" class="form-control" name="peserta_magang" value="<?php echo $jmlh_peserta; ?>"> 
                                                         </div>
                                                         <div class="form-group col-md-6 col-sm-12">
                                                             <label>Standarisasi</label>
@@ -2077,6 +2189,26 @@
                                             </fieldset>  
                                         </div>    
                                     </div>
+
+                                    <div class="tab-pane fade" id="nav-tanggal_lapor" role="tabpanel" aria-labelledby="nav-tanggal_lapor">
+                                       <div class="form-group">
+                                            <fieldset>     
+                                                <legend> Tanggal Lapor </legend>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <table class="table borderless">
+                                                            <tr>
+                                                                <th>Tanggal Lapor</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="date" class="form-control" name="tgl_lapor" value="<?php echo $tgl_lapor; ?>"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>                                            
+                                            </fieldset>  
+                                        </div>
+                                    </div>
                                 </div>
                             </div>                    
                         </div>
@@ -2239,6 +2371,10 @@
     }
 
     function lainnya() {
+        $('#submit').css('display', 'none');
+    }
+
+    function tanggal_lapor() {
         $('#submit').css('display', '');
     }
     
@@ -2396,7 +2532,80 @@ foreach ($data_wlkp_perusahaan as $row):
         });
     });
 
-    
+    $(function() {
+        $("#myModalEdit<?php echo $kode_wlkp; ?>").each(function(index){
+        var parents = $(this)
+        var kecamatan = parents.find("input[name='kecamatan-edit']").val();
+        var kelurahan = parents.find("input[name='kelurahan-edit']").val();
+        var form_data = {}
+
+        var kecamatanLoad = false;
+          $.ajax({
+            url: "<?= base_url() ?>indonesia/get_kecamatan",
+            type: "POST",
+            data: form_data,
+            dataType: "json",
+            async:false,
+            success : function(data){
+              parents.find("select[name='kecamatan_perusahaan']").empty();
+              var option = "<option value=''>-Pilih Kecamatan-</option>";
+              $.each(data, function(index, value){
+                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                option += "<option value='"+value.name+"'>"+value.name+"</option>";
+              });
+              console.log(data, option);
+              parents.find("select[name='kecamatan_perusahaan']").append(option);
+              kecamatanLoad = true;
+            },
+            error : function(e){
+              console.log(e);
+            },
+          });
+        });
+
+        var kelurahanLoad = false;
+        parents.find("select[name='kecamatan_perusahaan']").change(function(){
+          var form_data = {
+            districtsId : $(this).val(),
+          }
+
+          $.ajax({
+            url: "<?= base_url() ?>indonesia/get_kelurahan",
+            type: "POST",
+            data: form_data,
+            dataType: "json",
+            async:false,
+            success : function(data){
+              parents.find("select[name='kelurahan_perusahaan']").empty();
+              var option = "<option value=''>-Pilih Kelurahan-</option>";
+              $.each(data, function(index, value){
+                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                option += "<option value='"+value.name+"'>"+value.name+"</option>";
+              });
+              console.log(data, option);
+              parents.find("select[name='kelurahan_perusahaan']").append(option);
+              kelurahanLoad = true;
+            },
+            error : function(e){
+              console.log(e);
+            },
+          });
+        });
+
+        var kecamatanLength = false;
+        if (kecamatan != "" && kecamatanLoad == true) {
+          parents.find("select[name='kecamatan_perusahaan']").val(kecamatan.toUpperCase()).change();
+          kecamatanLength = true;
+        }
+
+        var kelurahanLength = false;
+        if (kecamatanLength == true && kelurahan != "" && kelurahanLoad == true) {
+          parents.find("select[name='kelurahan_perusahaan']").val(kelurahan.toUpperCase()).change();
+          kelurahanLength = true;
+        }
+        console.log(provinsi.toUpperCase(), kecamatan, kelurahan);
+
+    });
 </script>
 
 
@@ -2459,3 +2668,56 @@ foreach ($data_wlkp_perusahaan as $row):
         $(idrows).remove();
     }
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form_data = { }
+
+        $.ajax({
+            url: "<?= base_url() ?>indonesia/get_kecamatan",
+            type: "POST",
+            data: form_data,
+            dataType: "json",
+            success : function(data){
+                $("select[name='kecamatan_perusahaan']").empty();
+                var option = "<option value=''>-Pilih Kecamatan-</option>";
+                $.each(data, function(index, value){
+                    // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                    option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                });
+                console.log(data, option);
+                $("select[name='kecamatan_perusahaan']").append(option);
+            },
+            error : function(e){
+                console.log(e);
+            },
+        });
+
+        $("select[name='kecamatan_perusahaan']").change(function(){
+            var form_data = {
+                districtsId : $(this).val(),
+            }
+            
+            $.ajax({
+                url: "<?= base_url() ?>indonesia/get_kelurahan",
+                type: "POST",
+                data: form_data,
+                dataType: "json",
+                success : function(data){
+                    $("select[name='kelurahan_perusahaan']").empty();
+                    var option = "<option value=''>-Pilih Kelurahan-</option>";
+                    $.each(data, function(index, value){
+                        // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                        option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                    });
+                    console.log(data, option);
+                    $("select[name='kelurahan_perusahaan']").append(option);
+                },
+                error : function(e){
+                    console.log(e);
+                },
+            });
+        });
+    });
+</script>
+

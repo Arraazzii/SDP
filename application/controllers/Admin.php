@@ -423,26 +423,91 @@ $pdf = new FPDF('L','mm','A4');
         $telp_perusahaan        = $this->input->post('telp_perusahaan');
         $jenis_usaha            = $this->input->post('jenis_usaha');
         $nama_pemilik           = $this->input->post('nama_pemilik');
+        $alamat_pemilik         = $this->input->post('alamat_pemilik');
         $nama_pengurus          = $this->input->post('nama_pengurus');
+        $alamat_pengurus        = $this->input->post('alamat_pengurus');
         $tanggal_pendirian      = $this->input->post('tanggal_pendirian');
+        $tanggal_akte_pendirian = $this->input->post('tanggal_akte_pendirian');
         $no_pendirian           = $this->input->post('no_pendirian');
+        $tanggal_akte_perubahan = $this->input->post('tanggal_akte_perubahan');
+        $no_perubahan           = $this->input->post('no_perubahan');
+        $no_siup                = $this->input->post('no_siup');
+        $no_tdp                 = $this->input->post('no_tdp');
+        $no_npwp                = $this->input->post('no_npwp');
+        $no_kbli                = $this->input->post('no_kbli');
+        $no_bpjskes             = $this->input->post('no_bpjskes');
+        $no_bpjstk              = $this->input->post('no_bpjstk');
+        $pindah_perusahaan      = $this->input->post('pindah_perusahaan');
+        $alamat_lama            = $this->input->post('alamat_lama');
         $ket_kantor             = $this->input->post('ket_kantor');
         $kantor_cabang          = $this->input->post('kantor_cabang');
         $kepemilikan            = $this->input->post('kepemilikan');
         $permodalan             = $this->input->post('permodalan');
 
         // TABLE WARGA NEGARA
-        $l_dibawah_15   = $this->input->post('l_dibawah_15');
-        $p_dibawah_15   = $this->input->post('p_dibawah_15');
-        $l_dibawah_18   = $this->input->post('l_dibawah_18');
-        $p_dibawah_18   = $this->input->post('p_dibawah_18');
-        $l_diatas_18    = $this->input->post('l_diatas_18');
-        $p_diatas_18    = $this->input->post('p_diatas_18');
-        $l_wna          = $this->input->post('l_wna');
-        $p_wna          = $this->input->post('p_wna');
-        $total_wni      = $l_dibawah_15 + $p_dibawah_15 + $l_dibawah_18 
-                          + $p_dibawah_18 + $l_diatas_18 + $p_diatas_18;
-        $total_wna      = $l_wna + $p_wna;
+        $l_dibawah_15_cpuh  = $this->input->post('l_dibawah_15_cpuh');
+        $l_dibawah_15_cpubr = $this->input->post('l_dibawah_15_cpubr');
+        $l_dibawah_15_cpubl = $this->input->post('l_dibawah_15_cpubl');
+        $l_dibawah_15_hl    = $this->input->post('l_dibawah_15_hl');
+        $l_dibawah_15_br    = $this->input->post('l_dibawah_15_br');
+        $l_dibawah_15_kr    = $this->input->post('l_dibawah_15_kr');
+
+        $p_dibawah_15_cpuh  = $this->input->post('p_dibawah_15_cpuh');
+        $p_dibawah_15_cpubr = $this->input->post('p_dibawah_15_cpubr');
+        $p_dibawah_15_cpubl = $this->input->post('p_dibawah_15_cpubl');
+        $p_dibawah_15_hl    = $this->input->post('p_dibawah_15_hl');
+        $p_dibawah_15_br    = $this->input->post('p_dibawah_15_br');
+        $p_dibawah_15_kr    = $this->input->post('p_dibawah_15_kr');
+
+        $l_dibawah_18_cpuh  = $this->input->post('l_dibawah_18_cpuh');
+        $l_dibawah_18_cpubr = $this->input->post('l_dibawah_18_cpubr');
+        $l_dibawah_18_cpubl = $this->input->post('l_dibawah_18_cpubl');
+        $l_dibawah_18_hl    = $this->input->post('l_dibawah_18_hl');
+        $l_dibawah_18_br    = $this->input->post('l_dibawah_18_br');
+        $l_dibawah_18_kr    = $this->input->post('l_dibawah_18_kr');
+
+        $p_dibawah_18_cpuh  = $this->input->post('p_dibawah_18_cpuh');
+        $p_dibawah_18_cpubr = $this->input->post('p_dibawah_18_cpubr');
+        $p_dibawah_18_cpubl = $this->input->post('p_dibawah_18_cpubl');
+        $p_dibawah_18_hl    = $this->input->post('p_dibawah_18_hl');
+        $p_dibawah_18_br    = $this->input->post('p_dibawah_18_br');
+        $p_dibawah_18_kr    = $this->input->post('p_dibawah_18_kr');
+
+        $l_diatas_18_cpuh  = $this->input->post('l_diatas_18_cpuh');
+        $l_diatas_18_cpubr = $this->input->post('l_diatas_18_cpubr');
+        $l_diatas_18_cpubl = $this->input->post('l_diatas_18_cpubl');
+        $l_diatas_18_hl    = $this->input->post('l_diatas_18_hl');
+        $l_diatas_18_br    = $this->input->post('l_diatas_18_br');
+        $l_diatas_18_kr    = $this->input->post('l_diatas_18_kr');
+
+        $p_diatas_18_cpuh  = $this->input->post('p_diatas_18_cpuh');
+        $p_diatas_18_cpubr = $this->input->post('p_diatas_18_cpubr');
+        $p_diatas_18_cpubl = $this->input->post('p_diatas_18_cpubl');
+        $p_diatas_18_hl    = $this->input->post('p_diatas_18_hl');
+        $p_diatas_18_br    = $this->input->post('p_diatas_18_br');
+        $p_diatas_18_kr    = $this->input->post('p_diatas_18_kr');
+
+        $l_wna_cpuh  = $this->input->post('l_wna_cpuh');
+        $l_wna_cpubr = $this->input->post('l_wna_cpubr');
+        $l_wna_cpubl = $this->input->post('l_wna_cpubl');
+        $l_wna_hl    = $this->input->post('l_wna_hl');
+        $l_wna_br    = $this->input->post('l_wna_br');
+        $l_wna_kr    = $this->input->post('l_wna_kr');
+
+        $p_wna_cpuh  = $this->input->post('p_wna_cpuh');
+        $p_wna_cpubr = $this->input->post('p_wna_cpubr');
+        $p_wna_cpubl = $this->input->post('p_wna_cpubl');
+        $p_wna_hl    = $this->input->post('p_wna_hl');
+        $p_wna_br    = $this->input->post('p_wna_br');
+        $p_wna_kr    = $this->input->post('p_wna_kr');
+
+        $total_wni_l    = $this->input->post('total_wni_l');
+        $total_wni_p    = $this->input->post('total_wni_p');
+        $total_wni      = $this->input->post('total_wni');
+        $total_l_wna    = $this->input->post('total_l_wna');
+        $total_p_wna    = $this->input->post('total_p_wna');
+        $total_wna      = $this->input->post('total_wna'); 
+
 
         // TABLE KETENAGAKERJAAN
         $waktu_kerja        = $this->input->post('waktu_kerja');
@@ -457,14 +522,37 @@ $pdf = new FPDF('L','mm','A4');
         $p_terakhir         = $this->input->post('p_terakhir');
         $pekerja_terakhir   = $this->input->post('pekerja_terakhir');
         $pekerja_berhenti   = $this->input->post('pekerja_berhenti');
+        $thr                = $this->input->post('thr');
+
+        // TABLE BPJS
+        $tanggal_mulai      =$this->input->post('tanggal_mulai');
+        $no_daftar_bpjs     =$this->input->post('no_daftar_bpjs');
+        $peserta_tk         =$this->input->post('peserta_tk');
+        $peserta_kel        =$this->input->post('peserta_keluarga');
+        $jaminan_kecelakaan =$this->input->post('jaminan_kecelakaan');
+        $jaminan_kematian   =$this->input->post('jaminan_kematian');
+        $jaminan_haritua    =$this->input->post('jaminan_haritua');
+        $jaminan_pensiun    =$this->input->post('jaminan_pensiun');
+
+        // TABLE PEMAGANGAN
+        $kebutuhan_magang   =$this->input->post('kebutuhan_magang');
+        $jmlh_peserta       =$this->input->post('jmlh_peserta');
+        $standarisasi       =$this->input->post('standarisasi');
+        $skema              =$this->input->post('skema');
+        $P1                 =$this->input->post('lsp_p1');
+        $P2                 =$this->input->post('lsp_p2');
+        $P3                 =$this->input->post('lsp_p3');
+        $lsp_nama           =$this->input->post('lsp_nama');
+        $penempatan         =$this->input->post('penempatan');
 
         // TABLE RENCANA TENAGA KERJA
-        $sdm_l          = $this->input->post('sdm_l');
-        $sdm_p          = $this->input->post('sdm_p');
-        $jumlah_sdm     = $this->input->post('jumlah_sdm');
-        $pendidikan     = $this->input->post('pendidikan');
-        $keterampilan   = $this->input->post('keterampilan');
-        $posisi         = $this->input->post('posisi');
+        $sdm_l          =$this->input->post('sdm_l');
+        $sdm_p          =$this->input->post('sdm_p');
+        $jumlah_sdm     =$this->input->post('jumlah_sdm');
+        $pendidikan     =$this->input->post('pendidikan');
+        $kualifikasi    =$this->input->post('kualifikasi');
+        $jabatan        =$this->input->post('posisi');
+        $tipe           =$this->input->post('tipe');
 
         // TABLE PENGESAHAN
         $tempat_pengesahan  = $this->input->post('tempat_pengesahan');
@@ -518,6 +606,17 @@ $pdf = new FPDF('L','mm','A4');
         $sptp           = $this->input->post('sptp');
         $uksp           = $this->input->post('uksp');
         $p2k3           = $this->input->post('p2k3');
+
+        // TABLE INDUSTRIAL
+        $phk_pk         = $this->input->post('phk_pk');
+        $phk_pp         = $this->input->post('phk_pp');
+        $phk_pkb        = $this->input->post('phk_pkb');
+        $pok_bipartit   = $this->input->post('pok_bipartit');
+        $pok_sptp       = $this->input->post('pok_sptp');
+        $pok_uksp       = $this->input->post('pok_uksp');
+        $pok_p2k3       = $this->input->post('pok_p2k3');
+        $pok_apindo     = $this->input->post('pok_apindo');
+        $pok_kadin      = $this->input->post('pok_kadin');
 
         $data_wlkp = array(
             'kode_wlkp'             => $kode_wlkp,

@@ -18,7 +18,7 @@ class M_Indonesia extends CI_Model
 
         $this->db->select('*');
         $this->db->from('regencies');
-        $this->db->where('province_id', $query->id);
+        $this->db->where('province_id', '32');
         $query = $this->db->get();
         return $query->result();
     }
@@ -32,7 +32,7 @@ class M_Indonesia extends CI_Model
 
         $this->db->select('*');
         $this->db->from('districts');
-        $this->db->where('regency_id', $query->id);
+        $this->db->where('regency_id', '3276');
         $query = $this->db->get();
         return $query->result();
     }

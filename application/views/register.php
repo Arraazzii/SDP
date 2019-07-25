@@ -113,13 +113,13 @@
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Nama Perusahaan</label>
-                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" value="perusahaan buncit bucin" required="">
+                                  <input name="nama_perusahaan" type="text" class="form-control required" placeholder="Nama Perusahaan" required="">
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Email</label>
-                                  <input name="email" type="email" class="form-control required" placeholder="Email" value="perusahaan@email.com" required="">
+                                  <input name="email" type="email" class="form-control required" placeholder="Email" required="">
                                   <small class='email-used text-danger' style='display:none'>* Email already used!</small>
                                   <small class='email-available text-success' style='display:none'>* Email available!</small>
                               </div>
@@ -127,13 +127,13 @@
                             <div class="col-sm-6">
                               <div class="form-group">
                                   <label>Password</label>
-                                  <input name="password" type="password" class="form-control required" placeholder="Password" value="perusahaan" required="">
+                                  <input name="password" type="password" class="form-control required" placeholder="Password" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Alamat Perusahaan</label>
-                                  <textarea name="alamat_perusahaan" class="form-control required" required="">alamat perusahaan buncit</textarea>
+                                  <textarea name="alamat_perusahaan" class="form-control required" required=""></textarea>
                               </div>
                             </div>
                             <!-- <div class="col-sm-4">
@@ -163,18 +163,19 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label>Provinsi</label>
-                                <select name="provinsi" class="form-control">
-                                  <option value="">-Pilih Provinsi-</option>
-
-                                </select>
+                                <!-- <select name="provinsi" class="form-control" readonly>
+                                  <option hidden value="JAWA BARAT">JAWA BARAT</option>
+                                </select> -->
+                                <input name="provinsi" type="text" class="form-control" value="JAWA BARAT" readonly>
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
                                 <label>Kabupaten/Kota</label>
-                                <select name="kota" class="form-control">
-                                  <option hidden>-Pilih Kabupaten/Kota-</option>
-                                </select>
+                              <!--   <select name="kota" class="form-control" readonly>
+                                  <option hidden value="KOTA DEPOK">KOTA DEPOK</option>
+                                </select> -->
+                                <input name="kota" type="text" class="form-control" value="KOTA DEPOK" readonly>
                               </div>
                             </div>
                             <div class="col-sm-4">
@@ -196,32 +197,25 @@
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Kode Pos</label>
-                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" value="15466" required="">
+                                  <input name="kode_pos_perusahaan" type="text" class="form-control required" placeholder="Kode Pos" required="">
                               </div>
                             </div>
                             <div class="col-sm-4">
                               <div class="form-group">
                                   <label>Telp. Perusahaan</label>
-                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" value="08976626171" required="">
+                                  <input name="no_telp_perusahaan" type="text" class="form-control required" placeholder="Telp. Perusahaan" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Kode Klui</label>
-                                  <select class="form-control required" name="kode_klui">
-                                      <option value="">--Silahkan Pilih Kode Klui--</option>
-                                      <?php
-                                          foreach ($kode_klui as $klui) {?>
-                                          <option value="<?php echo $klui['kode_klui'];?>"><?php echo $klui['kode_klui'];?></option>
-                                      <?php }
-                                      ?>
-                                  </select>
+                                  <input name="kode_klui" type="text" class="form-control required" placeholder="Kode Klui" required="">
                               </div>
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group">
                                   <label>Deskripsi Perusahaan</label>
-                                  <textarea name="deskripsi_perusahaan" class="form-control required" required="">deskripsi perusahaan buncit</textarea>
+                                  <textarea name="deskripsi_perusahaan" class="form-control required" required=""></textarea>
                               </div>
                             </div>
                             <div class="col-sm-4">
@@ -272,19 +266,19 @@
                                     <div class="col-sm-6">
                                       <div class="form-group">
                                           <label>Nama Pengurus</label>
-                                          <input name="nama_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="nama pengurus" required="">
+                                          <input name="nama_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" required="">
                                       </div>
                                     </div>
                                     <div class="col-sm-6">
                                       <div class="form-group">
                                           <label>Jabatan Pengurus</label>
-                                          <input name="jabatan_pengurus" type="text" class="form-control" placeholder="Nama Pengurus" value="Jabatan pengurus" required="">
+                                          <input name="jabatan_pengurus" type="text" class="form-control" placeholder="Jabatan Pengurus" required="">
                                       </div>
                                     </div>
                                     <div class="col-sm-12">
                                       <div class="form-group">
                                           <label>Alamat Pengurus</label>
-                                          <textarea name="alamat_pengurus" class="form-control" required="">alamat pengurus</textarea>
+                                          <textarea name="alamat_pengurus" class="form-control" required=""></textarea>
                                       </div>
                                     </div>
                                     <!-- <div class="col-sm-4">
@@ -346,13 +340,13 @@
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Kode Pos</label>
-                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" value="19832" required="">
+                                          <input name="kode_pos_pengurus" type="text" class="form-control" placeholder="Kode Pos" required="">
                                       </div>
                                     </div>
                                     <div class="col-sm-4">
                                       <div class="form-group">
                                           <label>Telp. Pengurus</label>
-                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" value="08782647273" required="">
+                                          <input name="no_telp_pengurus" type="text" class="form-control" placeholder="Telp. Pengurus" required="">
                                       </div>
                                     </div>
                                   </div>
@@ -375,11 +369,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
+                                        <input name="no_reg_pp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi" value="121312">
+                                      <input name="no_doc_pp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -395,11 +389,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
+                                        <input name="no_reg_pkb" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi" value="32384">
+                                      <input name="no_doc_pkb" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -415,11 +409,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
+                                        <input name="no_reg_lks" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi" value="43943">
+                                      <input name="no_doc_lks" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -435,11 +429,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
+                                        <input name="no_reg_k3" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi" value="34323">
+                                      <input name="no_doc_k3" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -455,11 +449,11 @@
                                     </div>
                                     <div class="col-4">
                                         <label for="file-input" class=" form-control-label">No. Registrasi</label>
-                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
+                                        <input name="no_reg_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">No. Dokumen</label>
-                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi" value="643422">
+                                      <input name="no_doc_wlkp" type="text" class="form-control" placeholder="No. Registrasi">
                                     </div>
                                     <div class="col-4">
                                       <label for="file-input" class=" form-control-label">Tanggal Daftar</label>
@@ -761,62 +755,64 @@
               function onChangeProvinsi(){
                 var form_data = {}
 
-                $.ajax({
-                    url: "<?= base_url() ?>indonesia/get_provinsi",
-                    type: "POST",
-                    data: form_data,
-                    dataType: "json",
-                    success : function(data){
-                        $("select[name='provinsi']").empty();
-                        var option = "<option value=''>-Pilih Provinsi-</option>";
-                        $.each(data, function(index, value){
-                            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                            option += "<option value='"+value.name+"'>"+value.name+"</option>";
-                        });
-                        console.log(data, option);
-                        $("select[name='provinsi']").append(option);
-                    },
-                    error : function(e){
-                        console.log(e);
-                    },
-                    });
+                // $.ajax({
+                //     url: "<?= base_url() ?>indonesia/get_provinsi",
+                //     type: "POST",
+                //     data: form_data,
+                //     dataType: "json",
+                //     success : function(data){
+                //         $("select[name='provinsi']").empty();
+                //         var option = "<option value=''>-Pilih Provinsi-</option>";
+                //         $.each(data, function(index, value){
+                //             // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                //             option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                //         });
+                //         console.log(data, option);
+                //         $("select[name='provinsi']").append(option);
+                //     },
+                //     error : function(e){
+                //         console.log(e);
+                //     },
+                //     });
 
 
-                $("select[name='provinsi']").change(function(){
-                    var form_data = {
-                        provincesId : $(this).val(),
-                    }
+                // $("select[name='provinsi']").change(function(){
+                //     var form_data = {
+                //         provincesId : $(this).val(),
+                //     }
 
-                    $.ajax({
-                        url: "<?= base_url() ?>indonesia/get_kota",
-                        type: "POST",
-                        data: form_data,
-                        dataType: "json",
-                        success : function(data){
-                            $("select[name='kota']").empty();
-                            var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
-                            $.each(data, function(index, value){
-                                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                                option += "<option value='"+value.name+"'>"+value.name+"</option>";
-                            });
-                            console.log(data, option);
-                            $("select[name='kota']").append(option);
-                        },
-                        error : function(e){
-                            console.log(e);
-                        },
-                        });
-                });
+                //     $.ajax({
+                //         url: "<?= base_url() ?>indonesia/get_kota",
+                //         type: "POST",
+                //         data: form_data,
+                //         dataType: "json",
+                //         success : function(data){
+                //             $("select[name='kota']").empty();
+                //             var option = "<option value=''>-Pilih Kabupaten/Kota-</option>";
+                //             $.each(data, function(index, value){
+                //                 // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                //                 option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                //             });
+                //             console.log(data, option);
+                //             $("select[name='kota']").append(option);
+                //         },
+                //         error : function(e){
+                //             console.log(e);
+                //         },
+                //         });
+                // });
 
-              $("select[name='kota']").change(function(){
-                    var form_data = {
-                        regenciesId : $(this).val(),
-                    }
+                // $("select[name='kota']").change(function(){
+                    var form_data = { }
+
+                //  var form_data = {
+                //         regenciesid : $(this).val(),
+                //     }
 
                     $.ajax({
                         url: "<?= base_url() ?>indonesia/get_kecamatan",
                         type: "POST",
-                        data: form_data,
+                        data: "form_data",
                         dataType: "json",
                         success : function(data){
                             $("select[name='kecamatan']").empty();
@@ -832,7 +828,7 @@
                             console.log(e);
                         },
                         });
-                });
+                // });
 
                 $("select[name='kecamatan']").change(function(){
                     var form_data = {
