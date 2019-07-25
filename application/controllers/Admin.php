@@ -443,6 +443,38 @@ $pdf = new FPDF('L','mm','A4');
         $kantor_cabang          = $this->input->post('kantor_cabang');
         $kepemilikan            = $this->input->post('kepemilikan');
         $permodalan             = $this->input->post('permodalan');
+        $tgl_lapor              = $this->input->post('tgl_lapor');
+        $tgl_kadaluarsa         = date('Y-m-d', strtotime('+1 year', strtotime($tgl_lapor)));
+
+        $data_wlkp = array(
+            'kode_wlkp'             => $kode_wlkp,
+            'nama_perusahaan'       => $nama_perusahaan,
+            'jenis_usaha'           => $jenis_usaha,
+            'nama_pemilik'          => $nama_pemilik,
+            'alamat_pemilik'        => $alamat_pemilik,
+            'nama_pengurus'         => $nama_pengurus,
+            'alamat_pengurus'       => $alamat_pengurus,
+            'tanggal_pendirian'     => $tanggal_pendirian,
+            'tanggal_akte_pendirian'=> $tanggal_akte_pendirian,
+            'nomor_pendirian'       => $no_pendirian,
+            'tanggal_akte_perubahan'=> $tanggal_akte_perubahan,
+            'nomor_perubahan'       => $no_perubahan,
+            'nomor_siup'            => $no_siup,
+            'nomor_tdp'             => $no_tdp,
+            'nomor_npwp'            => $no_npwp,
+            'nomor_kbli'            => $no_kbli,
+            'nomor_bpjskes'         => $no_bpjskes,
+            'no_bpjstk'             => $no_bpjstk,
+            'pindah_perusahaan'     => $pindah_perusahaan,
+            'alamat_lama'           => $alamat_lama,
+            'ket_kantor'            => $ket_kantor,
+            'kantor_cabang'         => $kantor_cabang,
+            'status_kepemilikan'    => $kepemilikan,
+            'status_permodalan'     => $permodalan,
+            'kode_alamat'           => $kode_alamat,
+            'tgl_lapor'             => $tgl_lapor,
+            'tgl_kadaluarsa'        => $tgl_kadaluarsa
+        );
 
         // TABLE WARGA NEGARA
         $l_dibawah_15_cpuh  = $this->input->post('l_dibawah_15_cpuh');
@@ -618,20 +650,7 @@ $pdf = new FPDF('L','mm','A4');
         $pok_apindo     = $this->input->post('pok_apindo');
         $pok_kadin      = $this->input->post('pok_kadin');
 
-        $data_wlkp = array(
-            'kode_wlkp'             => $kode_wlkp,
-            'nama_perusahaan'       => $nama_perusahaan,
-            'jenis_usaha'           => $jenis_usaha,
-            'nama_pemilik'          => $nama_pemilik,
-            'nama_pengurus'         => $nama_pengurus,
-            'tanggal_pendirian'     => $tanggal_pendirian,
-            'nomor_pendirian'       => $no_pendirian,
-            'ket_kantor'            => $ket_kantor,
-            'kantor_cabang'         => $kantor_cabang,
-            'status_kepemilikan'    => $kepemilikan,
-            'status_permodalan'     => $permodalan,
-            'kode_alamat'           => $kode_alamat
-        );
+        
 
         $data_alamat = array(
             'kode_alamat'   => $kode_alamat,
