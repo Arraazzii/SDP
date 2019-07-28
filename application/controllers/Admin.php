@@ -395,7 +395,7 @@ $pdf = new FPDF('L','mm','A4');
                 ->data_wlkp_perusahaan(),
                 'detail_wlkp_perusahaan' => $this
                 ->m_admin
-                ->detail_wlkp_perusahaan($kode)
+                ->detail_wlkp_perusahaan()
         );
         $path = "";
         $data = array(
@@ -459,11 +459,11 @@ $pdf = new FPDF('L','mm','A4');
             'nomor_pendirian'       => $no_pendirian,
             'tanggal_akte_perubahan'=> $tanggal_akte_perubahan,
             'nomor_perubahan'       => $no_perubahan,
-            'nomor_siup'            => $no_siup,
-            'nomor_tdp'             => $no_tdp,
-            'nomor_npwp'            => $no_npwp,
-            'nomor_kbli'            => $no_kbli,
-            'nomor_bpjskes'         => $no_bpjskes,
+            'no_siup'            => $no_siup,
+            'no_tdp'             => $no_tdp,
+            'no_npwp'            => $no_npwp,
+            'no_kbli'            => $no_kbli,
+            'no_bpjskes'         => $no_bpjskes,
             'no_bpjstk'             => $no_bpjstk,
             'pindah_perusahaan'     => $pindah_perusahaan,
             'alamat_lama'           => $alamat_lama,
@@ -474,6 +474,14 @@ $pdf = new FPDF('L','mm','A4');
             'kode_alamat'           => $kode_alamat,
             'tgl_lapor'             => $tgl_lapor,
             'tgl_kadaluarsa'        => $tgl_kadaluarsa
+        );
+
+        $data_alamat = array(
+            'kode_alamat'   => $kode_alamat,
+            'alamat'        => $alamat_perusahaan,
+            'kecamatan'     => $kecamatan_perusahaan,
+            'kelurahan'     => $kelurahan_perusahaan,
+            'no_telpon'     => $telp_perusahaan
         );
 
         // TABLE WARGA NEGARA
@@ -540,6 +548,71 @@ $pdf = new FPDF('L','mm','A4');
         $total_p_wna    = $this->input->post('total_p_wna');
         $total_wna      = $this->input->post('total_wna'); 
 
+        $data_wn = array(
+            'l_dibawah_15_cpuh'  => $l_dibawah_15_cpuh,
+            'l_dibawah_15_cpubr'  => $l_dibawah_15_cpubr,
+            'l_dibawah_15_cpubl'  => $l_dibawah_15_cpubl,
+            'l_dibawah_15_hl'  => $l_dibawah_15_hl,
+            'l_dibawah_15_br'  => $l_dibawah_15_br,
+            'l_dibawah_15_kr'  => $l_dibawah_15_kr,
+
+            'p_dibawah_15_cpuh'  => $p_dibawah_15_cpuh,
+            'p_dibawah_15_cpubr'  => $p_dibawah_15_cpubr,
+            'p_dibawah_15_cpubl'  => $p_dibawah_15_cpubl,
+            'p_dibawah_15_hl'  => $p_dibawah_15_hl,
+            'p_dibawah_15_br'  => $p_dibawah_15_br,
+            'p_dibawah_15_kr'  => $p_dibawah_15_kr,
+
+            'l_dibawah_18_cpuh'  => $l_dibawah_18_cpuh,
+            'l_dibawah_18_cpubr'  => $l_dibawah_18_cpubr,
+            'l_dibawah_18_cpubl'  => $l_dibawah_18_cpubl,
+            'l_dibawah_18_hl'  => $l_dibawah_18_hl,
+            'l_dibawah_18_br'  => $l_dibawah_18_br,
+            'l_dibawah_18_kr'  => $l_dibawah_18_kr,
+
+            'p_dibawah_18_cpuh'  => $p_dibawah_18_cpuh,
+            'p_dibawah_18_cpubr'  => $p_dibawah_18_cpubr,
+            'p_dibawah_18_cpubl'  => $p_dibawah_18_cpubl,
+            'p_dibawah_18_hl'  => $p_dibawah_18_hl,
+            'p_dibawah_18_br'  => $p_dibawah_18_br,
+            'p_dibawah_18_kr'  => $p_dibawah_18_kr,
+
+            'l_diatas_18_cpuh'  => $l_diatas_18_cpuh,
+            'l_diatas_18_cpubr'  => $l_diatas_18_cpubr,
+            'l_diatas_18_cpubl'  => $l_diatas_18_cpubl,
+            'l_diatas_18_hl'  => $l_diatas_18_hl,
+            'l_diatas_18_br'  => $l_diatas_18_br,
+            'l_diatas_18_kr'  => $l_diatas_18_kr,
+
+            'p_diatas_18_cpuh'  => $p_diatas_18_cpuh,
+            'p_diatas_18_cpubr'  => $p_diatas_18_cpubr,
+            'p_diatas_18_cpubl'  => $p_diatas_18_cpubl,
+            'p_diatas_18_hl'  => $p_diatas_18_hl,
+            'p_diatas_18_br'  => $p_diatas_18_br,
+            'p_diatas_18_kr'  => $p_diatas_18_kr,
+
+            'l_wna_cpuh'  => $l_wna_cpuh,
+            'l_wna_cpubr'  => $l_wna_cpubr,
+            'l_wna_cpubl'  => $l_wna_cpubl,
+            'l_wna_hl'  => $l_wna_hl,
+            'l_wna_br'  => $l_wna_br,
+            'l_wna_kr'  => $l_wna_kr,
+
+            'p_wna_cpuh'  => $p_wna_cpuh,
+            'p_wna_cpubr'  => $p_wna_cpubr,
+            'p_wna_cpubl'  => $p_wna_cpubl,
+            'p_wna_hl'  => $p_wna_hl,
+            'p_wna_br'  => $p_wna_br,
+            'p_wna_kr'  => $p_wna_kr,
+
+            'total_wni_l'  => $total_wni_l,
+            'total_wni_p'  => $total_wni_p,
+            'total_wni'  => $total_wni,
+            'total_l_wna'  => $total_l_wna,
+            'total_p_wna'  => $total_p_wna,
+            'total_wna'  => $total_wna, 
+            'kode_wlkp'     => $kode_wlkp
+        );
 
         // TABLE KETENAGAKERJAAN
         $waktu_kerja        = $this->input->post('waktu_kerja');
@@ -556,41 +629,126 @@ $pdf = new FPDF('L','mm','A4');
         $pekerja_berhenti   = $this->input->post('pekerja_berhenti');
         $thr                = $this->input->post('thr');
 
+        $data_tenagakerja = array(
+            'jam_kerja'             => $waktu_kerja,
+            'kategori'              => $kategori,
+            'jumlah_penerima_umr'   => $penerima_umr,
+            'jumlah_upah'           => $jumlah_upah,
+            'upah_tinggi'           => $upah_tinggi,
+            'upah_rendah'           => $upah_rendah,
+            'l_mendatang'           => $l_mendatang,
+            'p_mendatang'           => $p_mendatang,
+            'l_terakhir'            => $l_terakhir,
+            'p_terakhir'            => $p_terakhir,
+            'pekerja_terakhir'      => $pekerja_terakhir,
+            'pekerja_berhenti'      => $pekerja_berhenti,
+            'thr'                   => $thr,
+            'kode_wlkp'             => $kode_wlkp
+        );
+        
         // TABLE BPJS
         $tanggal_mulai      =$this->input->post('tanggal_mulai');
         $no_daftar_bpjs     =$this->input->post('no_daftar_bpjs');
         $peserta_tk         =$this->input->post('peserta_tk');
-        $peserta_kel        =$this->input->post('peserta_keluarga');
+        $peserta_kel        =$this->input->post('peserta_kel');
         $jaminan_kecelakaan =$this->input->post('jaminan_kecelakaan');
         $jaminan_kematian   =$this->input->post('jaminan_kematian');
         $jaminan_haritua    =$this->input->post('jaminan_haritua');
         $jaminan_pensiun    =$this->input->post('jaminan_pensiun');
 
+        $data_bpjs = array(
+            'tanggal_mulai'         => $tanggal_mulai,
+            'no_daftar_bpjs'        => $no_daftar_bpjs,
+            'peserta_tk'            => $peserta_tk,
+            'peserta_keluarga'      => $peserta_kel,
+            'jaminan_kecelakaan'    => $jaminan_kecelakaan,
+            'jaminan_kematian'      => $jaminan_kematian,
+            'jaminan_haritua'       => $jaminan_haritua,
+            'jaminan_pensiun'       => $jaminan_pensiun,
+            'kode_wlkp'             => $kode_wlkp
+        );
+
         // TABLE PEMAGANGAN
         $kebutuhan_magang   =$this->input->post('kebutuhan_magang');
-        $jmlh_peserta       =$this->input->post('jmlh_peserta');
+        $jmlh_peserta       =$this->input->post('peserta_magang');
         $standarisasi       =$this->input->post('standarisasi');
         $skema              =$this->input->post('skema');
-        $P1                 =$this->input->post('lsp_p1');
-        $P2                 =$this->input->post('lsp_p2');
-        $P3                 =$this->input->post('lsp_p3');
+        $P1                 =$this->input->post('P1');
+        $P2                 =$this->input->post('P2');
+        $P3                 =$this->input->post('P3');
         $lsp_nama           =$this->input->post('lsp_nama');
         $penempatan         =$this->input->post('penempatan');
 
-        // TABLE RENCANA TENAGA KERJA
-        $sdm_l          =$this->input->post('sdm_l');
-        $sdm_p          =$this->input->post('sdm_p');
-        $jumlah_sdm     =$this->input->post('jumlah_sdm');
-        $pendidikan     =$this->input->post('pendidikan');
-        $kualifikasi    =$this->input->post('kualifikasi');
-        $jabatan        =$this->input->post('posisi');
-        $tipe           =$this->input->post('tipe');
+        $data_magang = array(
+            'kebutuhan_magang'  => $kebutuhan_magang,
+            'jmlh_peserta'      => $jmlh_peserta,
+            'standarisasi'      => $standarisasi,
+            'skema'             => $skema,
+            'lsp_p1'            => $P1,
+            'lsp_p2'            => $P2,
+            'lsp_p3'            => $P3,
+            'lsp_nama'          => $lsp_nama,
+            'penempatan'        => $penempatan,
+            'kode_wlkp'         => $kode_wlkp
+        );
+
+        // TABLE RENCANA TENAGA KERJA TIPE 1
+        $rencana_pekerja_l  = $this->input->post('rencana_pekerja_l');
+        $rencana_pekerja_p  = $this->input->post('rencana_pekerja_p');
+        $jumlah_pekerja     = $rencana_pekerja_l + $rencana_pekerja_p;
+        $pendidikan         = $this->input->post('pendidikan');
+        $kualifikasi        = $this->input->post('kualifikasi');
+        $jabatan            = $this->input->post('jabatan');
+
+        $array = count($this->input->post('rencana_pekerja_l'));
+        for($i = 0; $i < $array; $i++) {
+            $data = array (
+                'rencana_pekerja_l'    => $_POST['rencana_pekerja_l'][$i],
+                'rencana_pekerja_p'    => $_POST['rencana_pekerja_p'][$i],
+                'jumlah_pekerja'       => $_POST['rencana_pekerja_l'][$i] + $_POST['rencana_pekerja_p'][$i],
+                'pendidikan'           => $_POST['pendidikan'][$i],
+                'kualifikasi'          => $_POST['kualifikasi'][$i],
+                'jabatan'              => $_POST['jabatan'][$i],
+                'kode_wlkp'            => $kode_wlkp
+            );
+            $this->db->insert("table_rencana_butuh_tk", $data);
+        }
+
+        // TABLE RENCANA TENAGA KERJA TIPE 2
+        $pekerja_l_terakhir     = $this->input->post('pekerja_l_terakhir');
+        $pekerja_p_terakhir     = $this->input->post('pekerja_p_terakhir');
+        $jumlah_sdm             = $pekerja_l_terakhir + $pekerja_p_terakhir;
+        $pendidikan_terakhir    = $this->input->post('pendidikan_terakhir');
+        $kualifikasi_terakhir   = $this->input->post('kualifikasi_terakhir');
+        $jabatan_terakhir       = $this->input->post('jabatan_terakhir');
+
+        $arrays = count($this->input->post('pekerja_l_terakhir'));
+        for($j = 0; $j < $arrays; $j++) {
+            $datas = array (
+                'pekerja_l_terakhir'    => $_POST['pekerja_l_terakhir'][$j],
+                'pekerja_p_terakhir'    => $_POST['pekerja_p_terakhir'][$j],
+                'jumlah_sdm'            => $_POST['pekerja_l_terakhir'][$j] + $_POST['pekerja_p_terakhir'][$j],
+                'pendidikan_terakhir'   => $_POST['pendidikan_terakhir'][$j],
+                'kualifikasi_terakhir'  => $_POST['kualifikasi_terakhir'][$j],
+                'jabatan_terakhir'      => $_POST['jabatan_terakhir'][$j],
+                'kode_wlkp'             => $kode_wlkp
+            );
+            $this->db->insert("table_rencana_tk_terakhir", $datas);
+        }
 
         // TABLE PENGESAHAN
         $tempat_pengesahan  = $this->input->post('tempat_pengesahan');
         $tgl_pengesahan     = $this->input->post('tgl_pengesahan');
         $nama_pengesah      = $this->input->post('nama_pengesah');
         $nip                = $this->input->post('nip');
+
+        $data_pengesahan = array(
+            'nip'                   => $nip,
+            'nama_pengesah'         => $nama_pengesah,
+            'tanggal_pengesahan'    => $tgl_pengesahan,
+            'tempat_pengesahan'     => $tempat_pengesahan,
+            'kode_wlkp'             => $kode_wlkp
+        );
 
         // TABLE ALAT & BAHAN
         $pesawat_uap        = $this->input->post('pesawat_uap');
@@ -614,99 +772,6 @@ $pdf = new FPDF('L','mm','A4');
         $limbah_padat       = $this->input->post('limbah_padat');
         $limbah_cair        = $this->input->post('limbah_cair');
         $limbah_gas         = $this->input->post('limbah_gas');
-
-        // TABLE FASILITAS
-        $p3k            = $this->input->post('p3k');
-        $klinik         = $this->input->post('klinik');
-        $dokter         = $this->input->post('dokter');
-        $ahli_k3        = $this->input->post('ahli_k3');
-        $medis          = $this->input->post('medis');
-        $pemadam        = $this->input->post('pemadam');
-        $koperasi       = $this->input->post('koperasi');
-        $tpa            = $this->input->post('tpa');
-        $kantin         = $this->input->post('kantin');
-        $sarana_ibadah  = $this->input->post('sarana_ibadah');
-        $unit_kb        = $this->input->post('unit_kb');
-        $olahraga       = $this->input->post('olahraga');
-        $perum          = $this->input->post('perum');
-        $bpjs           = $this->input->post('bpjs');
-        $apindo         = $this->input->post('apindo');
-        $pk             = $this->input->post('pk');
-        $pp             = $this->input->post('pp');
-        $pkb            = $this->input->post('pkb');
-        $bipartit       = $this->input->post('bipartit');
-        $sptp           = $this->input->post('sptp');
-        $uksp           = $this->input->post('uksp');
-        $p2k3           = $this->input->post('p2k3');
-
-        // TABLE INDUSTRIAL
-        $phk_pk         = $this->input->post('phk_pk');
-        $phk_pp         = $this->input->post('phk_pp');
-        $phk_pkb        = $this->input->post('phk_pkb');
-        $pok_bipartit   = $this->input->post('pok_bipartit');
-        $pok_sptp       = $this->input->post('pok_sptp');
-        $pok_uksp       = $this->input->post('pok_uksp');
-        $pok_p2k3       = $this->input->post('pok_p2k3');
-        $pok_apindo     = $this->input->post('pok_apindo');
-        $pok_kadin      = $this->input->post('pok_kadin');
-
-        
-
-        $data_alamat = array(
-            'kode_alamat'   => $kode_alamat,
-            'alamat'        => $alamat_perusahaan,
-            'kecamatan'     => $kecamatan_perusahaan,
-            'kelurahan'     => $kelurahan_perusahaan,
-            'no_telpon'     => $telp_perusahaan
-        );
-
-        $data_wn = array(
-            'l_dibawah_15'  => $l_dibawah_15,
-            'p_dibawah_15'  => $p_dibawah_15,
-            'l_dibawah_18'  => $l_dibawah_18,
-            'p_dibawah_18'  => $p_dibawah_18,
-            'l_diatas_18'   => $l_diatas_18,
-            'p_diatas_18'   => $p_diatas_18,
-            'total_wni'     => $total_wni,
-            'l_wna'         => $l_wna,
-            'p_wna'         => $p_wna,
-            'total_wna'     => $total_wna,
-            'kode_wlkp'     => $kode_wlkp
-        );
-
-        $data_tenagakerja = array(
-            'jam_kerja'             => $waktu_kerja,
-            'kategori'              => $kategori,
-            'jumlah_penerima_umr'   => $penerima_umr,
-            'jumlah_upah'           => $jumlah_upah,
-            'upah_tinggi'           => $upah_tinggi,
-            'upah_rendah'           => $upah_rendah,
-            'l_mendatang'           => $l_mendatang,
-            'p_mendatang'           => $p_mendatang,
-            'l_terakhir'            => $l_terakhir,
-            'p_terakhir'            => $p_terakhir,
-            'pekerja_terakhir'      => $pekerja_terakhir,
-            'pekerja_berhenti'      => $pekerja_berhenti,
-            'kode_wlkp'             => $kode_wlkp
-        );
-
-        $data_rencana_tk = array(
-            'sdm_l'         => $sdm_l,
-            'sdm_p'         => $sdm_p,
-            'jumlah_sdm'    => $jumlah_sdm,
-            'pendidikan'    => $pendidikan,
-            'keterampilan'  => $keterampilan,
-            'posisi'        => $posisi,
-            'kode_wlkp'     => $kode_wlkp
-        );
-
-        $data_pengesahan = array(
-            'nip'                   => $nip,
-            'nama_pengesah'         => $nama_pengesah,
-            'tanggal_pengesahan'    => $tgl_pengesahan,
-            'tempat_pengesahan'     => $tempat_pengesahan,
-            'kode_wlkp'             => $kode_wlkp
-        );
 
         $data_alat_bahan = array(
             'pesawat_uap'           => $pesawat_uap,
@@ -732,6 +797,30 @@ $pdf = new FPDF('L','mm','A4');
             'limbah_gas'            => $limbah_gas,
             'kode_wlkp'             => $kode_wlkp
         );
+
+        // TABLE FASILITAS
+        $p3k            = $this->input->post('p3k');
+        $klinik         = $this->input->post('klinik');
+        $dokter         = $this->input->post('dokter');
+        $ahli_k3        = $this->input->post('ahli_k3');
+        $medis          = $this->input->post('medis');
+        $pemadam        = $this->input->post('pemadam');
+        $koperasi       = $this->input->post('koperasi');
+        $tpa            = $this->input->post('tpa');
+        $kantin         = $this->input->post('kantin');
+        $sarana_ibadah  = $this->input->post('sarana_ibadah');
+        $unit_kb        = $this->input->post('unit_kb');
+        $olahraga       = $this->input->post('olahraga');
+        $perum          = $this->input->post('perum');
+        $bpjs           = $this->input->post('bpjs');
+        $apindo         = $this->input->post('apindo');
+        $pk             = $this->input->post('pk');
+        $pp             = $this->input->post('pp');
+        $pkb            = $this->input->post('pkb');
+        $bipartit       = $this->input->post('bipartit');
+        $sptp           = $this->input->post('sptp');
+        $uksp           = $this->input->post('uksp');
+        $p2k3           = $this->input->post('p2k3');
 
         $data_fasilitas = array(
             'p3k'           => $p3k,
@@ -759,14 +848,42 @@ $pdf = new FPDF('L','mm','A4');
             'kode_wlkp'     => $kode_wlkp
         );
 
+        // TABLE INDUSTRIAL
+        $phk_pk         = $this->input->post('phk_pk');
+        $phk_pp         = $this->input->post('phk_pp');
+        $phk_pkb        = $this->input->post('phk_pkb');
+        $pok_bipartit   = $this->input->post('pok_bipartit');
+        $pok_sptp       = $this->input->post('pok_sptp');
+        $pok_uksp       = $this->input->post('pok_uksp');
+        $pok_p2k3       = $this->input->post('pok_p2k3');
+        $pok_apindo     = $this->input->post('pok_apindo');
+        $pok_kadin      = $this->input->post('pok_kadin');
+
+        $data_industrial = array(
+            'phk_pk'        => $phk_pk,
+            'phk_pp'        => $phk_pp,
+            'phk_pkb'       => $phk_pkb,
+            'pok_bipartit'  => $pok_bipartit,
+            'pok_sptp'      => $pok_sptp,
+            'pok_uksp'      => $pok_uksp,
+            'pok_p2k3'      => $pok_p2k3,
+            'pok_apindo'    => $pok_apindo,
+            'pok_kadin'     => $pok_kadin,
+            'kode_wlkp'     => $kode_wlkp
+        );
+
         $this->db->insert("table_wlkp_perusahaan", $data_wlkp);
         $this->db->insert("table_alamat", $data_alamat);
         $this->db->insert("table_warga_negara", $data_wn);
         $this->db->insert("table_ketenagakerjaan", $data_tenagakerja);
-        $this->db->insert("table_rencana_tenaga_kerja", $data_rencana_tk);
+        $this->db->insert("table_bpjs", $data_bpjs);
+        $this->db->insert("table_pemagangan", $data_magang);
+        // $this->db->insert("table_rencana_butuh_tk", $data_rencana_tk_1);
+        // $this->db->insert("table_rencana_tk_terakhir", $data_rencana_tk_2);
         $this->db->insert("table_pengesahan", $data_pengesahan);
         $this->db->insert("table_alat_bahan", $data_alat_bahan);
         $this->db->insert("table_fasilitas", $data_fasilitas);
+        $this->db->insert("table_industrial", $data_industrial);
 
         $this->session->set_flashdata("globalmsg", "Money Box Successfully Added!");
 
@@ -788,26 +905,193 @@ $pdf = new FPDF('L','mm','A4');
         $telp_perusahaan        = $this->input->post('telp_perusahaan');
         $jenis_usaha            = $this->input->post('jenis_usaha');
         $nama_pemilik           = $this->input->post('nama_pemilik');
+        $alamat_pemilik         = $this->input->post('alamat_pemilik');
         $nama_pengurus          = $this->input->post('nama_pengurus');
+        $alamat_pengurus        = $this->input->post('alamat_pengurus');
         $tanggal_pendirian      = $this->input->post('tanggal_pendirian');
+        $tanggal_akte_pendirian = $this->input->post('tanggal_akte_pendirian');
         $no_pendirian           = $this->input->post('no_pendirian');
+        $tanggal_akte_perubahan = $this->input->post('tanggal_akte_perubahan');
+        $no_perubahan           = $this->input->post('no_perubahan');
+        $no_siup                = $this->input->post('no_siup');
+        $no_tdp                 = $this->input->post('no_tdp');
+        $no_npwp                = $this->input->post('no_npwp');
+        $no_kbli                = $this->input->post('no_kbli');
+        $no_bpjskes             = $this->input->post('no_bpjskes');
+        $no_bpjstk              = $this->input->post('no_bpjstk');
+        $pindah_perusahaan      = $this->input->post('pindah_perusahaan');
+        $alamat_lama            = $this->input->post('alamat_lama');
         $ket_kantor             = $this->input->post('ket_kantor');
         $kantor_cabang          = $this->input->post('kantor_cabang');
         $kepemilikan            = $this->input->post('kepemilikan');
         $permodalan             = $this->input->post('permodalan');
+        $tgl_lapor              = $this->input->post('tgl_lapor');
+        $tgl_kadaluarsa         = date('Y-m-d', strtotime('+1 year', strtotime($tgl_lapor)));
+
+        $data_wlkp = array(
+            'nama_perusahaan'       => $nama_perusahaan,
+            'jenis_usaha'           => $jenis_usaha,
+            'nama_pemilik'          => $nama_pemilik,
+            'alamat_pemilik'        => $alamat_pemilik,
+            'nama_pengurus'         => $nama_pengurus,
+            'alamat_pengurus'       => $alamat_pengurus,
+            'tanggal_pendirian'     => $tanggal_pendirian,
+            'tanggal_akte_pendirian'=> $tanggal_akte_pendirian,
+            'nomor_pendirian'       => $no_pendirian,
+            'tanggal_akte_perubahan'=> $tanggal_akte_perubahan,
+            'nomor_perubahan'       => $no_perubahan,
+            'no_siup'               => $no_siup,
+            'no_tdp'                => $no_tdp,
+            'no_npwp'               => $no_npwp,
+            'no_kbli'               => $no_kbli,
+            'no_bpjskes'            => $no_bpjskes,
+            'no_bpjstk'             => $no_bpjstk,
+            'pindah_perusahaan'     => $pindah_perusahaan,
+            'alamat_lama'           => $alamat_lama,
+            'ket_kantor'            => $ket_kantor,
+            'kantor_cabang'         => $kantor_cabang,
+            'status_kepemilikan'    => $kepemilikan,
+            'status_permodalan'     => $permodalan,
+            'kode_alamat'           => $kode_alamat,
+            'tgl_lapor'             => $tgl_lapor,
+            'tgl_kadaluarsa'        => $tgl_kadaluarsa
+        );
+
+        $data_alamat = array(
+            'alamat'        => $alamat_perusahaan,
+            'kecamatan'     => $kecamatan_perusahaan,
+            'kelurahan'     => $kelurahan_perusahaan,
+            'no_telpon'     => $telp_perusahaan
+        );
 
         // TABLE WARGA NEGARA
-        $l_dibawah_15   = $this->input->post('l_dibawah_15');
-        $p_dibawah_15   = $this->input->post('p_dibawah_15');
-        $l_dibawah_18   = $this->input->post('l_dibawah_18');
-        $p_dibawah_18   = $this->input->post('p_dibawah_18');
-        $l_diatas_18    = $this->input->post('l_diatas_18');
-        $p_diatas_18    = $this->input->post('p_diatas_18');
-        $l_wna          = $this->input->post('l_wna');
-        $p_wna          = $this->input->post('p_wna');
-        $total_wni      = $l_dibawah_15 + $p_dibawah_15 + $l_dibawah_18 
-                          + $p_dibawah_18 + $l_diatas_18 + $p_diatas_18;
-        $total_wna      = $l_wna + $p_wna;
+        $l_dibawah_15_cpuh  = $this->input->post('l_dibawah_15_cpuh');
+        $l_dibawah_15_cpubr = $this->input->post('l_dibawah_15_cpubr');
+        $l_dibawah_15_cpubl = $this->input->post('l_dibawah_15_cpubl');
+        $l_dibawah_15_hl    = $this->input->post('l_dibawah_15_hl');
+        $l_dibawah_15_br    = $this->input->post('l_dibawah_15_br');
+        $l_dibawah_15_kr    = $this->input->post('l_dibawah_15_kr');
+
+        $p_dibawah_15_cpuh  = $this->input->post('p_dibawah_15_cpuh');
+        $p_dibawah_15_cpubr = $this->input->post('p_dibawah_15_cpubr');
+        $p_dibawah_15_cpubl = $this->input->post('p_dibawah_15_cpubl');
+        $p_dibawah_15_hl    = $this->input->post('p_dibawah_15_hl');
+        $p_dibawah_15_br    = $this->input->post('p_dibawah_15_br');
+        $p_dibawah_15_kr    = $this->input->post('p_dibawah_15_kr');
+
+        $l_dibawah_18_cpuh  = $this->input->post('l_dibawah_18_cpuh');
+        $l_dibawah_18_cpubr = $this->input->post('l_dibawah_18_cpubr');
+        $l_dibawah_18_cpubl = $this->input->post('l_dibawah_18_cpubl');
+        $l_dibawah_18_hl    = $this->input->post('l_dibawah_18_hl');
+        $l_dibawah_18_br    = $this->input->post('l_dibawah_18_br');
+        $l_dibawah_18_kr    = $this->input->post('l_dibawah_18_kr');
+
+        $p_dibawah_18_cpuh  = $this->input->post('p_dibawah_18_cpuh');
+        $p_dibawah_18_cpubr = $this->input->post('p_dibawah_18_cpubr');
+        $p_dibawah_18_cpubl = $this->input->post('p_dibawah_18_cpubl');
+        $p_dibawah_18_hl    = $this->input->post('p_dibawah_18_hl');
+        $p_dibawah_18_br    = $this->input->post('p_dibawah_18_br');
+        $p_dibawah_18_kr    = $this->input->post('p_dibawah_18_kr');
+
+        $l_diatas_18_cpuh  = $this->input->post('l_diatas_18_cpuh');
+        $l_diatas_18_cpubr = $this->input->post('l_diatas_18_cpubr');
+        $l_diatas_18_cpubl = $this->input->post('l_diatas_18_cpubl');
+        $l_diatas_18_hl    = $this->input->post('l_diatas_18_hl');
+        $l_diatas_18_br    = $this->input->post('l_diatas_18_br');
+        $l_diatas_18_kr    = $this->input->post('l_diatas_18_kr');
+
+        $p_diatas_18_cpuh  = $this->input->post('p_diatas_18_cpuh');
+        $p_diatas_18_cpubr = $this->input->post('p_diatas_18_cpubr');
+        $p_diatas_18_cpubl = $this->input->post('p_diatas_18_cpubl');
+        $p_diatas_18_hl    = $this->input->post('p_diatas_18_hl');
+        $p_diatas_18_br    = $this->input->post('p_diatas_18_br');
+        $p_diatas_18_kr    = $this->input->post('p_diatas_18_kr');
+
+        $l_wna_cpuh  = $this->input->post('l_wna_cpuh');
+        $l_wna_cpubr = $this->input->post('l_wna_cpubr');
+        $l_wna_cpubl = $this->input->post('l_wna_cpubl');
+        $l_wna_hl    = $this->input->post('l_wna_hl');
+        $l_wna_br    = $this->input->post('l_wna_br');
+        $l_wna_kr    = $this->input->post('l_wna_kr');
+
+        $p_wna_cpuh  = $this->input->post('p_wna_cpuh');
+        $p_wna_cpubr = $this->input->post('p_wna_cpubr');
+        $p_wna_cpubl = $this->input->post('p_wna_cpubl');
+        $p_wna_hl    = $this->input->post('p_wna_hl');
+        $p_wna_br    = $this->input->post('p_wna_br');
+        $p_wna_kr    = $this->input->post('p_wna_kr');
+
+        $total_wni_l    = $this->input->post('total_wni_l');
+        $total_wni_p    = $this->input->post('total_wni_p');
+        $total_wni      = $this->input->post('total_wni');
+        $total_l_wna    = $this->input->post('total_l_wna');
+        $total_p_wna    = $this->input->post('total_p_wna');
+        $total_wna      = $this->input->post('total_wna'); 
+
+        $data_wn = array(
+            'l_dibawah_15_cpuh'     => $l_dibawah_15_cpuh,
+            'l_dibawah_15_cpubr'    => $l_dibawah_15_cpubr,
+            'l_dibawah_15_cpubl'    => $l_dibawah_15_cpubl,
+            'l_dibawah_15_hl'       => $l_dibawah_15_hl,
+            'l_dibawah_15_br'       => $l_dibawah_15_br,
+            'l_dibawah_15_kr'       => $l_dibawah_15_kr,
+
+            'p_dibawah_15_cpuh'     => $p_dibawah_15_cpuh,
+            'p_dibawah_15_cpubr'    => $p_dibawah_15_cpubr,
+            'p_dibawah_15_cpubl'    => $p_dibawah_15_cpubl,
+            'p_dibawah_15_hl'       => $p_dibawah_15_hl,
+            'p_dibawah_15_br'       => $p_dibawah_15_br,
+            'p_dibawah_15_kr'       => $p_dibawah_15_kr,
+
+            'l_dibawah_18_cpuh'     => $l_dibawah_18_cpuh,
+            'l_dibawah_18_cpubr'    => $l_dibawah_18_cpubr,
+            'l_dibawah_18_cpubl'    => $l_dibawah_18_cpubl,
+            'l_dibawah_18_hl'       => $l_dibawah_18_hl,
+            'l_dibawah_18_br'       => $l_dibawah_18_br,
+            'l_dibawah_18_kr'       => $l_dibawah_18_kr,
+
+            'p_dibawah_18_cpuh'     => $p_dibawah_18_cpuh,
+            'p_dibawah_18_cpubr'    => $p_dibawah_18_cpubr,
+            'p_dibawah_18_cpubl'    => $p_dibawah_18_cpubl,
+            'p_dibawah_18_hl'       => $p_dibawah_18_hl,
+            'p_dibawah_18_br'       => $p_dibawah_18_br,
+            'p_dibawah_18_kr'       => $p_dibawah_18_kr,
+
+            'l_diatas_18_cpuh'  => $l_diatas_18_cpuh,
+            'l_diatas_18_cpubr' => $l_diatas_18_cpubr,
+            'l_diatas_18_cpubl' => $l_diatas_18_cpubl,
+            'l_diatas_18_hl'    => $l_diatas_18_hl,
+            'l_diatas_18_br'    => $l_diatas_18_br,
+            'l_diatas_18_kr'    => $l_diatas_18_kr,
+
+            'p_diatas_18_cpuh'  => $p_diatas_18_cpuh,
+            'p_diatas_18_cpubr' => $p_diatas_18_cpubr,
+            'p_diatas_18_cpubl' => $p_diatas_18_cpubl,
+            'p_diatas_18_hl'    => $p_diatas_18_hl,
+            'p_diatas_18_br'    => $p_diatas_18_br,
+            'p_diatas_18_kr'    => $p_diatas_18_kr,
+
+            'l_wna_cpuh'    => $l_wna_cpuh,
+            'l_wna_cpubr'   => $l_wna_cpubr,
+            'l_wna_cpubl'   => $l_wna_cpubl,
+            'l_wna_hl'      => $l_wna_hl,
+            'l_wna_br'      => $l_wna_br,
+            'l_wna_kr'      => $l_wna_kr,
+
+            'p_wna_cpuh'    => $p_wna_cpuh,
+            'p_wna_cpubr'   => $p_wna_cpubr,
+            'p_wna_cpubl'   => $p_wna_cpubl,
+            'p_wna_hl'      => $p_wna_hl,
+            'p_wna_br'      => $p_wna_br,
+            'p_wna_kr'      => $p_wna_kr,
+
+            'total_wni_l'   => $total_wni_l,
+            'total_wni_p'   => $total_wni_p,
+            'total_wni'     => $total_wni,
+            'total_l_wna'   => $total_l_wna,
+            'total_p_wna'   => $total_p_wna,
+            'total_wna'     => $total_wna
+        );
 
         // TABLE KETENAGAKERJAAN
         $waktu_kerja        = $this->input->post('waktu_kerja');
@@ -822,20 +1106,122 @@ $pdf = new FPDF('L','mm','A4');
         $p_terakhir         = $this->input->post('p_terakhir');
         $pekerja_terakhir   = $this->input->post('pekerja_terakhir');
         $pekerja_berhenti   = $this->input->post('pekerja_berhenti');
+        $thr                = $this->input->post('thr');
 
-        // TABLE RENCANA TENAGA KERJA
-        $sdm_l          = $this->input->post('sdm_l');
-        $sdm_p          = $this->input->post('sdm_p');
-        $jumlah_sdm     = $this->input->post('jumlah_sdm');
-        $pendidikan     = $this->input->post('pendidikan');
-        $keterampilan   = $this->input->post('keterampilan');
-        $posisi         = $this->input->post('posisi');
+        $data_tenagakerja = array(
+            'jam_kerja'             => $waktu_kerja,
+            'kategori'              => $kategori,
+            'jumlah_penerima_umr'   => $penerima_umr,
+            'jumlah_upah'           => $jumlah_upah,
+            'upah_tinggi'           => $upah_tinggi,
+            'upah_rendah'           => $upah_rendah,
+            'l_mendatang'           => $l_mendatang,
+            'p_mendatang'           => $p_mendatang,
+            'l_terakhir'            => $l_terakhir,
+            'p_terakhir'            => $p_terakhir,
+            'pekerja_terakhir'      => $pekerja_terakhir,
+            'pekerja_berhenti'      => $pekerja_berhenti,
+            'thr'                   => $thr
+        );
+        
+        // TABLE BPJS
+        $tanggal_mulai      =$this->input->post('tanggal_mulai');
+        $no_daftar_bpjs     =$this->input->post('no_daftar_bpjs');
+        $peserta_tk         =$this->input->post('peserta_tk');
+        $peserta_kel        =$this->input->post('peserta_kel');
+        $jaminan_kecelakaan =$this->input->post('jaminan_kecelakaan');
+        $jaminan_kematian   =$this->input->post('jaminan_kematian');
+        $jaminan_haritua    =$this->input->post('jaminan_haritua');
+        $jaminan_pensiun    =$this->input->post('jaminan_pensiun');
+
+        $data_bpjs = array(
+            'tanggal_mulai'         => $tanggal_mulai,
+            'no_daftar_bpjs'        => $no_daftar_bpjs,
+            'peserta_tk'            => $peserta_tk,
+            'peserta_keluarga'      => $peserta_kel,
+            'jaminan_kecelakaan'    => $jaminan_kecelakaan,
+            'jaminan_kematian'      => $jaminan_kematian,
+            'jaminan_haritua'       => $jaminan_haritua,
+            'jaminan_pensiun'       => $jaminan_pensiun
+        );
+
+        // TABLE PEMAGANGAN
+        $kebutuhan_magang   =$this->input->post('kebutuhan_magang');
+        $jmlh_peserta       =$this->input->post('peserta_magang');
+        $standarisasi       =$this->input->post('standarisasi');
+        $skema              =$this->input->post('skema');
+        $P1                 =$this->input->post('P1');
+        $P2                 =$this->input->post('P2');
+        $P3                 =$this->input->post('P3');
+        $lsp_nama           =$this->input->post('lsp_nama');
+        $penempatan         =$this->input->post('penempatan');
+
+        $data_magang = array(
+            'kebutuhan_magang'  => $kebutuhan_magang,
+            'jmlh_peserta'      => $jmlh_peserta,
+            'standarisasi'      => $standarisasi,
+            'skema'             => $skema,
+            'lsp_p1'            => $P1,
+            'lsp_p2'            => $P2,
+            'lsp_p3'            => $P3,
+            'lsp_nama'          => $lsp_nama,
+            'penempatan'        => $penempatan
+        );
+
+        // TABLE RENCANA TENAGA KERJA TIPE 1
+        $rencana_pekerja_l  = $this->input->post('rencana_pekerja_l');
+        $rencana_pekerja_p  = $this->input->post('rencana_pekerja_p');
+        $jumlah_pekerja     = $rencana_pekerja_l + $rencana_pekerja_p;
+        $pendidikan         = $this->input->post('pendidikan');
+        $kualifikasi        = $this->input->post('kualifikasi');
+        $jabatan            = $this->input->post('jabatan');
+
+        $array = count($this->input->post('rencana_pekerja_l'));
+        for($i = 0; $i < $array; $i++) {
+            $data = array (
+                'rencana_pekerja_l'    => $_POST['rencana_pekerja_l'][$i],
+                'rencana_pekerja_p'    => $_POST['rencana_pekerja_p'][$i],
+                'jumlah_pekerja'       => $_POST['rencana_pekerja_l'][$i] + $_POST['rencana_pekerja_p'][$i],
+                'pendidikan'           => $_POST['pendidikan'][$i],
+                'kualifikasi'          => $_POST['kualifikasi'][$i],
+                'jabatan'              => $_POST['jabatan'][$i]
+            );
+            $this->db->insert("table_rencana_butuh_tk", $data);
+        }
+
+        // TABLE RENCANA TENAGA KERJA TIPE 2
+        $pekerja_l_terakhir     = $this->input->post('pekerja_l_terakhir');
+        $pekerja_p_terakhir     = $this->input->post('pekerja_p_terakhir');
+        $jumlah_sdm             = $pekerja_l_terakhir + $pekerja_p_terakhir;
+        $pendidikan_terakhir    = $this->input->post('pendidikan_terakhir');
+        $kualifikasi_terakhir   = $this->input->post('kualifikasi_terakhir');
+        $jabatan_terakhir       = $this->input->post('jabatan_terakhir');
+
+        $arrays = count($this->input->post('pekerja_l_terakhir'));
+        for($j = 0; $j < $arrays; $j++) {
+            $datas = array (
+                'pekerja_l_terakhir'    => $_POST['pekerja_l_terakhir'][$j],
+                'pekerja_p_terakhir'    => $_POST['pekerja_p_terakhir'][$j],
+                'jumlah_sdm'            => $_POST['pekerja_l_terakhir'][$j] + $_POST['pekerja_p_terakhir'][$j],
+                'pendidikan_terakhir'   => $_POST['pendidikan_terakhir'][$j],
+                'kualifikasi_terakhir'  => $_POST['kualifikasi_terakhir'][$j],
+                'jabatan_terakhir'      => $_POST['jabatan_terakhir'][$j]
+            );
+            $this->db->insert("table_rencana_tk_terakhir", $datas);
+        }
 
         // TABLE PENGESAHAN
         $tempat_pengesahan  = $this->input->post('tempat_pengesahan');
         $tgl_pengesahan     = $this->input->post('tgl_pengesahan');
         $nama_pengesah      = $this->input->post('nama_pengesah');
         $nip                = $this->input->post('nip');
+
+        $data_pengesahan = array(
+            'nip'                   => $nip,
+            'nama_pengesah'         => $nama_pengesah,
+            'tanggal_pengesahan'    => $tgl_pengesahan,
+            'tempat_pengesahan'     => $tempat_pengesahan
+        );
 
         // TABLE ALAT & BAHAN
         $pesawat_uap        = $this->input->post('pesawat_uap');
@@ -860,95 +1246,6 @@ $pdf = new FPDF('L','mm','A4');
         $limbah_cair        = $this->input->post('limbah_cair');
         $limbah_gas         = $this->input->post('limbah_gas');
 
-        // TABLE FASILITAS
-        $p3k            = $this->input->post('p3k');
-        $klinik         = $this->input->post('klinik');
-        $dokter         = $this->input->post('dokter');
-        $ahli_k3        = $this->input->post('ahli_k3');
-        $medis          = $this->input->post('medis');
-        $pemadam        = $this->input->post('pemadam');
-        $koperasi       = $this->input->post('koperasi');
-        $tpa            = $this->input->post('tpa');
-        $kantin         = $this->input->post('kantin');
-        $sarana_ibadah  = $this->input->post('sarana_ibadah');
-        $unit_kb        = $this->input->post('unit_kb');
-        $olahraga       = $this->input->post('olahraga');
-        $perum          = $this->input->post('perum');
-        $bpjs           = $this->input->post('bpjs');
-        $apindo         = $this->input->post('apindo');
-        $pk             = $this->input->post('pk');
-        $pp             = $this->input->post('pp');
-        $pkb            = $this->input->post('pkb');
-        $bipartit       = $this->input->post('bipartit');
-        $sptp           = $this->input->post('sptp');
-        $uksp           = $this->input->post('uksp');
-        $p2k3           = $this->input->post('p2k3');
-
-        $data_wlkp = array(
-            'nama_perusahaan'       => $nama_perusahaan,
-            'jenis_usaha'           => $jenis_usaha,
-            'nama_pemilik'          => $nama_pemilik,
-            'nama_pengurus'         => $nama_pengurus,
-            'tanggal_pendirian'     => $tanggal_pendirian,
-            'nomor_pendirian'       => $no_pendirian,
-            'ket_kantor'            => $ket_kantor,
-            'kantor_cabang'         => $kantor_cabang,
-            'status_kepemilikan'    => $kepemilikan,
-            'status_permodalan'     => $permodalan,
-            'kode_alamat'           => $kode_alamat
-        );
-
-        $data_alamat = array(
-            'alamat'        => $alamat_perusahaan,
-            'kecamatan'     => $kecamatan_perusahaan,
-            'kelurahan'     => $kelurahan_perusahaan,
-            'no_telpon'     => $telp_perusahaan
-        );
-
-        $data_wn = array(
-            'l_dibawah_15'  => $l_dibawah_15,
-            'p_dibawah_15'  => $p_dibawah_15,
-            'l_dibawah_18'  => $l_dibawah_18,
-            'p_dibawah_18'  => $p_dibawah_18,
-            'l_diatas_18'   => $l_diatas_18,
-            'p_diatas_18'   => $p_diatas_18,
-            'total_wni'     => $total_wni,
-            'l_wna'         => $l_wna,
-            'p_wna'         => $p_wna,
-            'total_wna'     => $total_wna
-        );
-
-        $data_tenagakerja = array(
-            'jam_kerja'             => $waktu_kerja,
-            'kategori'              => $kategori,
-            'jumlah_penerima_umr'   => $penerima_umr,
-            'jumlah_upah'           => $jumlah_upah,
-            'upah_tinggi'           => $upah_tinggi,
-            'upah_rendah'           => $upah_rendah,
-            'l_mendatang'           => $l_mendatang,
-            'p_mendatang'           => $p_mendatang,
-            'l_terakhir'            => $l_terakhir,
-            'p_terakhir'            => $p_terakhir,
-            'pekerja_terakhir'      => $pekerja_terakhir,
-            'pekerja_berhenti'      => $pekerja_berhenti
-        );
-
-        $data_rencana_tk = array(
-            'sdm_l'         => $sdm_l,
-            'sdm_p'         => $sdm_p,
-            'jumlah_sdm'    => $jumlah_sdm,
-            'pendidikan'    => $pendidikan,
-            'keterampilan'  => $keterampilan,
-            'posisi'        => $posisi
-        );
-
-        $data_pengesahan = array(
-            'nip'                   => $nip,
-            'nama_pengesah'         => $nama_pengesah,
-            'tanggal_pengesahan'    => $tgl_pengesahan,
-            'tempat_pengesahan'     => $tempat_pengesahan
-        );
-
         $data_alat_bahan = array(
             'pesawat_uap'           => $pesawat_uap,
             'alat_berat'            => $alat_berat,
@@ -972,6 +1269,30 @@ $pdf = new FPDF('L','mm','A4');
             'pembangkit_listrik'    => $pembangkit_listrik,
             'limbah_gas'            => $limbah_gas
         );
+
+        // TABLE FASILITAS
+        $p3k            = $this->input->post('p3k');
+        $klinik         = $this->input->post('klinik');
+        $dokter         = $this->input->post('dokter');
+        $ahli_k3        = $this->input->post('ahli_k3');
+        $medis          = $this->input->post('medis');
+        $pemadam        = $this->input->post('pemadam');
+        $koperasi       = $this->input->post('koperasi');
+        $tpa            = $this->input->post('tpa');
+        $kantin         = $this->input->post('kantin');
+        $sarana_ibadah  = $this->input->post('sarana_ibadah');
+        $unit_kb        = $this->input->post('unit_kb');
+        $olahraga       = $this->input->post('olahraga');
+        $perum          = $this->input->post('perum');
+        $bpjs           = $this->input->post('bpjs');
+        $apindo         = $this->input->post('apindo');
+        $pk             = $this->input->post('pk');
+        $pp             = $this->input->post('pp');
+        $pkb            = $this->input->post('pkb');
+        $bipartit       = $this->input->post('bipartit');
+        $sptp           = $this->input->post('sptp');
+        $uksp           = $this->input->post('uksp');
+        $p2k3           = $this->input->post('p2k3');
 
         $data_fasilitas = array(
             'p3k'           => $p3k,
@@ -998,6 +1319,29 @@ $pdf = new FPDF('L','mm','A4');
             'uksp'          => $uksp
         );
 
+        // TABLE INDUSTRIAL
+        $phk_pk         = $this->input->post('phk_pk');
+        $phk_pp         = $this->input->post('phk_pp');
+        $phk_pkb        = $this->input->post('phk_pkb');
+        $pok_bipartit   = $this->input->post('pok_bipartit');
+        $pok_sptp       = $this->input->post('pok_sptp');
+        $pok_uksp       = $this->input->post('pok_uksp');
+        $pok_p2k3       = $this->input->post('pok_p2k3');
+        $pok_apindo     = $this->input->post('pok_apindo');
+        $pok_kadin      = $this->input->post('pok_kadin');
+
+        $data_industrial = array(
+            'phk_pk'        => $phk_pk,
+            'phk_pp'        => $phk_pp,
+            'phk_pkb'       => $phk_pkb,
+            'pok_bipartit'  => $pok_bipartit,
+            'pok_sptp'      => $pok_sptp,
+            'pok_uksp'      => $pok_uksp,
+            'pok_p2k3'      => $pok_p2k3,
+            'pok_apindo'    => $pok_apindo,
+            'pok_kadin'     => $pok_kadin
+        );
+
         // Update WLKP Perusahaan
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_wlkp_perusahaan', $data_wlkp);
@@ -1014,9 +1358,23 @@ $pdf = new FPDF('L','mm','A4');
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_ketenagakerjaan', $data_tenagakerja);
 
-        // Update Rencana Tenaga Kerja
+
+        // Update BPJS
         $this->db->where('kode_wlkp', $kode_wlkp);
-        $this->db->update('table_rencana_tenaga_kerja', $data_rencana_tk);
+        $this->db->update('table_bpjs', $data_bpjs);
+
+
+        // Update Pemagangan
+        $this->db->where('kode_wlkp', $kode_wlkp);
+        $this->db->update('table_pemagangan', $data_magang);
+
+        // Update Rencana Butuh Tenaga Kerja
+        $this->db->where('kode_wlkp', $kode_wlkp);
+        $this->db->update('table_rencana_butuh_tk', $data_rencana_tk_1);
+
+        // Update Rencana Tenaga Kerja Terakhir
+        $this->db->where('kode_wlkp', $kode_wlkp);
+        $this->db->update('table_rencana_tk_terakhir', $data_rencana_tk_2);
 
         // Update Pengesahan
         $this->db->where('kode_wlkp', $kode_wlkp);
@@ -1029,6 +1387,10 @@ $pdf = new FPDF('L','mm','A4');
         // Update Fasilitas
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_fasilitas', $data_fasilitas);
+
+        // Update Fasilitas
+        $this->db->where('kode_wlkp', $kode_wlkp);
+        $this->db->update('table_industrial', $data_industrial);
 
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
             Success! WLKP Perusahaan Berhasil Diperbaharui.

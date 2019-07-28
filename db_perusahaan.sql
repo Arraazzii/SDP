@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2019 at 09:06 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 5.6.37
+-- Generation Time: Jul 28, 2019 at 06:36 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -7925,6 +7925,8 @@ INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecama
 ('ALM62', 'JL.RAYA BOGOR KM.33 \r\n', '', '', 'SUKMAJAYA ', 'CISALAK', '', '021-5307209'),
 ('ALM63', 'DEPOK TOWN SQUARE LT.6 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870402'),
 ('ALM64', 'CINERE BELLEVUE MALL LT.I CINERE NO.1 \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403890'),
+('ALM65', 'b', '', '', 'SUKMA JAYA', 'CISALAK', '', '123'),
+('ALM66', 'basecamp', '', '', 'CIMANGGIS', 'CISALAK PASAR', '', ''),
 ('ALM7', 'KOMP.AL PK.JATI \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403813'),
 ('ALM8', 'MALL CINERE LT.DASAR NO.36\r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-7545045'),
 ('ALM9', 'JL.CINERE RAYA RT.3/8\r\n', '', '', 'CINERE ', 'CINERE ', '', '021-7533615');
@@ -8027,7 +8029,36 @@ INSERT INTO `table_alat_bahan` (`id`, `pesawat_uap`, `alat_berat`, `instalasi_li
 (67, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP59'),
 (68, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP60'),
 (69, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP61'),
-(70, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP62');
+(70, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP62'),
+(72, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP63'),
+(73, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP64');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_bpjs`
+--
+
+CREATE TABLE `table_bpjs` (
+  `id` int(11) NOT NULL,
+  `tanggal_mulai` date DEFAULT NULL,
+  `no_daftar_bpjs` varchar(50) DEFAULT NULL,
+  `peserta_tk` int(11) DEFAULT NULL,
+  `peserta_keluarga` int(11) DEFAULT NULL,
+  `jaminan_kecelakaan` varchar(50) DEFAULT NULL,
+  `jaminan_kematian` varchar(50) DEFAULT NULL,
+  `jaminan_haritua` varchar(50) DEFAULT NULL,
+  `jaminan_pensiun` varchar(50) DEFAULT NULL,
+  `kode_wlkp` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_bpjs`
+--
+
+INSERT INTO `table_bpjs` (`id`, `tanggal_mulai`, `no_daftar_bpjs`, `peserta_tk`, `peserta_keluarga`, `jaminan_kecelakaan`, `jaminan_kematian`, `jaminan_haritua`, `jaminan_pensiun`, `kode_wlkp`) VALUES
+(5, NULL, '0', 0, NULL, 'y', 'y', 'y', 'y', 'WLKP63'),
+(6, NULL, '', 0, 0, '', '', '', '', 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8148,7 +8179,9 @@ INSERT INTO `table_fasilitas` (`id`, `p3k`, `ahli_k3`, `koperasi`, `sarana_ibada
 (65, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP59'),
 (66, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP60'),
 (67, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP61'),
-(68, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP62');
+(68, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP62'),
+(70, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP63'),
+(71, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8192,6 +8225,34 @@ INSERT INTO `table_history_pembaruan` (`id`, `kode_perusahaan`, `nama_file`, `no
 (515, 'PER1', '', '43943', '43943', '2019-07-02', 'lks', '2019-07-02 15:30:39'),
 (516, 'PER1', '', '34323', '34323', '2019-07-02', 'k3', '2019-07-02 15:30:39'),
 (517, 'PER1', '', '643422', '643422', '2019-07-02', 'wlkp', '2019-07-02 15:30:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_industrial`
+--
+
+CREATE TABLE `table_industrial` (
+  `id` int(11) NOT NULL,
+  `phk_pk` varchar(20) DEFAULT NULL,
+  `phk_pp` varchar(20) DEFAULT NULL,
+  `phk_pkb` varchar(20) DEFAULT NULL,
+  `pok_bipartit` varchar(20) DEFAULT NULL,
+  `pok_sptp` varchar(20) DEFAULT NULL,
+  `pok_uksp` varchar(20) DEFAULT NULL,
+  `pok_p2k3` varchar(20) DEFAULT NULL,
+  `pok_apindo` varchar(20) DEFAULT NULL,
+  `pok_kadin` varchar(20) DEFAULT NULL,
+  `kode_wlkp` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_industrial`
+--
+
+INSERT INTO `table_industrial` (`id`, `phk_pk`, `phk_pp`, `phk_pkb`, `pok_bipartit`, `pok_sptp`, `pok_uksp`, `pok_p2k3`, `pok_apindo`, `pok_kadin`, `kode_wlkp`) VALUES
+(2, '0', '0', '0', '0', '0', '0', '0', '0', '0', 'WLKP63'),
+(3, '', '', '', '', '', '', '', '', '', 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8241,7 +8302,7 @@ DELIMITER ;
 
 CREATE TABLE `table_ketenagakerjaan` (
   `id` int(11) NOT NULL,
-  `jam_kerja` int(11) DEFAULT NULL,
+  `jam_kerja` varchar(100) DEFAULT NULL,
   `kategori` enum('KECIL','SEDANG','BESAR') DEFAULT NULL,
   `jumlah_penerima_umr` int(11) DEFAULT NULL,
   `jumlah_upah` int(11) DEFAULT NULL,
@@ -8253,6 +8314,7 @@ CREATE TABLE `table_ketenagakerjaan` (
   `p_terakhir` int(11) DEFAULT NULL,
   `pekerja_terakhir` int(11) DEFAULT NULL,
   `pekerja_berhenti` int(11) DEFAULT NULL,
+  `thr` varchar(50) DEFAULT NULL,
   `kode_wlkp` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -8260,69 +8322,71 @@ CREATE TABLE `table_ketenagakerjaan` (
 -- Dumping data for table `table_ketenagakerjaan`
 --
 
-INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_penerima_umr`, `jumlah_upah`, `upah_tinggi`, `upah_rendah`, `l_mendatang`, `p_mendatang`, `l_terakhir`, `p_terakhir`, `pekerja_terakhir`, `pekerja_berhenti`, `kode_wlkp`) VALUES
-(10, 8, 'SEDANG', 0, 0, 10000000, 3297500, 8, 0, 66, 6, 4, 0, 'WLKP1'),
-(11, 8, 'SEDANG', 0, 0, 0, 0, 0, 0, 31, 3, 0, 0, 'WLKP2'),
-(12, 8, 'KECIL', 0, 0, 5000000, 3300000, 0, 0, 13, 1, 0, 0, 'WLKP3'),
-(13, 8, 'KECIL', 0, 0, 5300000, 3297489, 0, 0, 18, 5, 0, 0, 'WLKP4'),
-(14, 8, 'SEDANG', 0, 0, 7000000, 3297500, 0, 0, 48, 21, 0, 0, 'WLKP5'),
-(15, 8, 'KECIL', 0, 16533445, 3313489, 3303489, 0, 0, 2, 3, 0, 0, 'WLKP6'),
-(16, 8, 'KECIL', 0, 9914467, 3307489, 3301489, 0, 0, 2, 1, 0, 0, 'WLKP7'),
-(17, 8, 'KECIL', 0, 198689348, 3325489, 3305489, 0, 0, 4, 2, 0, 0, 'WLKP8'),
-(18, 8, 'KECIL', 0, 72849780, 3500000, 3297489, 0, 0, 13, 9, 0, 0, 'WLKP9'),
-(19, 8, 'KECIL', 0, 79547269, 3500000, 3297489, 0, 0, 18, 6, 0, 0, 'WLKP10'),
-(20, 8, 'KECIL', 0, 26832423, 3750000, 3297489, 0, 0, 0, 8, 0, 0, 'WLKP11'),
-(21, 8, 'KECIL', 0, 13201956, 3301489, 3299489, 0, 0, 3, 1, 0, 0, 'WLKP12'),
-(22, 8, 'KECIL', 10, 39842000, 7500000, 3050000, 1, 0, 6, 4, 0, 0, 'WLKP13'),
-(23, 8, 'KECIL', 2, 7600000, 3800000, 3800000, 4, 0, 2, 0, 0, 0, 'WLKP14'),
-(24, 8, 'BESAR', 0, 430174136, 3699231, 950000, 0, 0, 99, 173, 0, 0, 'WLKP15'),
-(25, 8, 'SEDANG', 0, 0, 4000000, 3800000, 0, 0, 44, 3, 0, 0, 'WLKP16'),
-(26, 8, 'BESAR', 223, 725597602, 0, 3307489, 3, 0, 224, 38, 0, 0, 'WLKP17'),
-(27, 8, 'KECIL', 6, 83600000, 15000000, 3300000, 15, 10, 11, 4, 0, 0, 'WLKP18'),
-(28, 8, 'KECIL', 0, 13000000, 5000000, 4000000, 0, 0, 5, 2, 0, 0, 'WLKP19'),
-(29, 8, 'SEDANG', 0, 0, 3044265, 0, 0, 0, 33, 19, 0, 0, 'WLKP20'),
-(30, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 4, 1, 0, 0, 'WLKP21'),
-(31, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 3, 0, 0, 'WLKP22'),
-(32, 8, 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 4, 0, 0, 'WLKP23'),
-(33, 8, 'SEDANG', 37, 0, 14500000, 3659800, 0, 0, 48, 16, 0, 0, 'WLKP24'),
-(34, 8, 'BESAR', 67, 0, 14500000, 3659800, 0, 0, 74, 26, 0, 0, 'WLKP25'),
-(35, 8, 'SEDANG', 0, 0, 9000000, 3146000, 0, 0, 85, 5, 0, 0, 'WLKP26'),
-(36, 8, 'KECIL', 0, 14400000, 4500000, 2300000, 1, 1, 2, 3, 3, 1, 'WLKP27'),
-(37, 8, 'SEDANG', 0, 0, 11000000, 3400000, 5, 0, 19, 7, 20, 16, 'WLKP28'),
-(38, 8, 'SEDANG', 0, 435000000, 30000000, 3000000, 10, 0, 23, 29, 0, 0, 'WLKP29'),
-(39, 8, 'BESAR', 0, 680000000, 17500000, 2500000, 10, 0, 143, 47, 0, 0, 'WLKP30'),
-(40, 8, 'BESAR', 0, 0, 5000000, 3297489, 0, 0, 277, 151, 0, 0, 'WLKP31'),
-(41, 8, 'KECIL', 0, 0, 3500000, 900000, 0, 0, 14, 9, 0, 0, 'WLKP32'),
-(42, 8, 'KECIL', 0, 49023283, 4408511, 3407500, 1, 0, 5, 5, 0, 0, 'WLKP33'),
-(43, 8, 'SEDANG', 41, 481000000, 7000000, 3300000, 0, 0, 29, 17, 0, 0, 'WLKP34'),
-(44, 8, 'BESAR', 0, 343361755, 10000000, 3297489, 0, 0, 91, 16, 0, 0, 'WLKP35'),
-(45, 8, 'BESAR', 314, 0, 3297489, 3297489, 0, 0, 238, 76, 0, 0, 'WLKP36'),
-(46, 8, 'BESAR', 117, 0, 3300000, 0, 0, 0, 528, 0, 0, 0, 'WLKP37'),
-(47, 8, 'BESAR', 124, 371653581, 4026900, 3791998, 0, 0, 98, 26, 0, 0, 'WLKP38'),
-(48, 8, 'SEDANG', 0, 770000000, 25500000, 3297489, 0, 0, 33, 45, 0, 0, 'WLKP39'),
-(49, 8, 'KECIL', 0, 22000000, 10000000, 4500000, 1, 0, 2, 2, 0, 0, 'WLKP40'),
-(50, 8, 'KECIL', 0, 0, 3060000, 3000000, 0, 0, 14, 8, 0, 0, 'WLKP41'),
-(51, 8, 'SEDANG', 0, 0, 3346000, 3046000, 0, 0, 28, 10, 0, 0, 'WLKP42'),
-(52, 8, 'KECIL', 0, 0, 3436000, 2500000, 0, 0, 9, 8, 0, 0, 'WLKP43'),
-(53, 8, 'KECIL', 0, 0, 3700000, 0, 0, 0, 8, 10, 0, 0, 'WLKP44'),
-(54, 8, 'KECIL', 0, 0, 3500000, 2297000, 0, 0, 4, 5, 0, 0, 'WLKP45'),
-(55, 8, 'KECIL', 0, 16000000, 5500000, 3000000, 0, 0, 4, 0, 0, 0, 'WLKP46'),
-(56, 8, 'KECIL', 0, 0, 3297000, 0, 80, 20, 5, 1, 0, 0, 'WLKP47'),
-(57, 8, 'BESAR', 8, 247000000, 10000000, 2100000, 0, 0, 66, 80, 0, 0, 'WLKP48'),
-(58, 8, 'SEDANG', 0, 0, 0, 2000000, 0, 0, 22, 6, 0, 0, 'WLKP49'),
-(59, 8, 'BESAR', 0, 1417933600, 14116000, 3728000, 0, 0, 38, 256, 0, 0, 'WLKP50'),
-(60, 8, 'BESAR', 0, 0, 10000000, 3297000, 0, 0, 100, 35, 0, 0, 'WLKP51'),
-(61, 8, 'SEDANG', 0, 85900000, 3500000, 2750000, 0, 0, 21, 25, 0, 0, 'WLKP52'),
-(62, 8, 'SEDANG', 0, 0, 10000000, 3297000, 50, 0, 78, 3, 0, 0, 'WLKP53'),
-(63, 8, 'SEDANG', 39, 0, 15000000, 3660000, 2, 8, 29, 56, 10, 8, 'WLKP54'),
-(64, 8, 'SEDANG', 0, 584816728, 23633841, 3445000, 4, 0, 23, 36, 0, 0, 'WLKP55'),
-(65, 8, 'KECIL', 0, 0, 5000000, 2700000, 0, 0, 3, 0, 0, 0, 'WLKP56'),
-(66, 8, 'KECIL', 0, 0, 4000000, 2500000, 0, 0, 2, 1, 0, 0, 'WLKP57'),
-(67, 8, 'KECIL', 9, 78066500, 10500000, 3297489, 0, 0, 16, 2, 0, 0, 'WLKP58'),
-(68, 8, 'KECIL', 5, 19500000, 4324000, 3544000, 0, 2, 1, 4, 0, 0, 'WLKP59'),
-(69, 8, 'KECIL', 0, 40000000, 4850000, 3355750, 0, 0, 9, 2, 0, 0, 'WLKP60'),
-(70, 8, 'KECIL', 0, 0, 3000000, 1950000, 0, 0, 14, 8, 0, 0, 'WLKP61'),
-(71, 8, 'SEDANG', 0, 0, 3346000, 3346000, 0, 0, 28, 18, 0, 0, 'WLKP62');
+INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_penerima_umr`, `jumlah_upah`, `upah_tinggi`, `upah_rendah`, `l_mendatang`, `p_mendatang`, `l_terakhir`, `p_terakhir`, `pekerja_terakhir`, `pekerja_berhenti`, `thr`, `kode_wlkp`) VALUES
+(10, '8', 'SEDANG', 0, 0, 10000000, 3297500, 8, 0, 66, 6, 4, 0, NULL, 'WLKP1'),
+(11, '8', 'SEDANG', 0, 0, 0, 0, 0, 0, 31, 3, 0, 0, NULL, 'WLKP2'),
+(12, '8', 'KECIL', 0, 0, 5000000, 3300000, 0, 0, 13, 1, 0, 0, NULL, 'WLKP3'),
+(13, '8', 'KECIL', 0, 0, 5300000, 3297489, 0, 0, 18, 5, 0, 0, NULL, 'WLKP4'),
+(14, '8', 'SEDANG', 0, 0, 7000000, 3297500, 0, 0, 48, 21, 0, 0, NULL, 'WLKP5'),
+(15, '8', 'KECIL', 0, 16533445, 3313489, 3303489, 0, 0, 2, 3, 0, 0, NULL, 'WLKP6'),
+(16, '8', 'KECIL', 0, 9914467, 3307489, 3301489, 0, 0, 2, 1, 0, 0, NULL, 'WLKP7'),
+(17, '8', 'KECIL', 0, 198689348, 3325489, 3305489, 0, 0, 4, 2, 0, 0, NULL, 'WLKP8'),
+(18, '8', 'KECIL', 0, 72849780, 3500000, 3297489, 0, 0, 13, 9, 0, 0, NULL, 'WLKP9'),
+(19, '8', 'KECIL', 0, 79547269, 3500000, 3297489, 0, 0, 18, 6, 0, 0, NULL, 'WLKP10'),
+(20, '8', 'KECIL', 0, 26832423, 3750000, 3297489, 0, 0, 0, 8, 0, 0, NULL, 'WLKP11'),
+(21, '8', 'KECIL', 0, 13201956, 3301489, 3299489, 0, 0, 3, 1, 0, 0, NULL, 'WLKP12'),
+(22, '8', 'KECIL', 10, 39842000, 7500000, 3050000, 1, 0, 6, 4, 0, 0, NULL, 'WLKP13'),
+(23, '8', 'KECIL', 2, 7600000, 3800000, 3800000, 4, 0, 2, 0, 0, 0, NULL, 'WLKP14'),
+(24, '8', 'BESAR', 0, 430174136, 3699231, 950000, 0, 0, 99, 173, 0, 0, NULL, 'WLKP15'),
+(25, '8', 'SEDANG', 0, 0, 4000000, 3800000, 0, 0, 44, 3, 0, 0, NULL, 'WLKP16'),
+(26, '8', 'BESAR', 223, 725597602, 0, 3307489, 3, 0, 224, 38, 0, 0, NULL, 'WLKP17'),
+(27, '8', 'KECIL', 6, 83600000, 15000000, 3300000, 15, 10, 11, 4, 0, 0, NULL, 'WLKP18'),
+(28, '8', 'KECIL', 0, 13000000, 5000000, 4000000, 0, 0, 5, 2, 0, 0, NULL, 'WLKP19'),
+(29, '8', 'SEDANG', 0, 0, 3044265, 0, 0, 0, 33, 19, 0, 0, NULL, 'WLKP20'),
+(30, '8', 'KECIL', 0, 3044265, 0, 0, 0, 0, 4, 1, 0, 0, NULL, 'WLKP21'),
+(31, '8', 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 3, 0, 0, NULL, 'WLKP22'),
+(32, '8', 'KECIL', 0, 3044265, 0, 0, 0, 0, 3, 4, 0, 0, NULL, 'WLKP23'),
+(33, '8', 'SEDANG', 37, 0, 14500000, 3659800, 0, 0, 48, 16, 0, 0, NULL, 'WLKP24'),
+(34, '8', 'BESAR', 67, 0, 14500000, 3659800, 0, 0, 74, 26, 0, 0, NULL, 'WLKP25'),
+(35, '8', 'SEDANG', 0, 0, 9000000, 3146000, 0, 0, 85, 5, 0, 0, NULL, 'WLKP26'),
+(36, '8', 'KECIL', 0, 14400000, 4500000, 2300000, 1, 1, 2, 3, 3, 1, NULL, 'WLKP27'),
+(37, '8', 'SEDANG', 0, 0, 11000000, 3400000, 5, 0, 19, 7, 20, 16, NULL, 'WLKP28'),
+(38, '8', 'SEDANG', 0, 435000000, 30000000, 3000000, 10, 0, 23, 29, 0, 0, NULL, 'WLKP29'),
+(39, '8', 'BESAR', 0, 680000000, 17500000, 2500000, 10, 0, 143, 47, 0, 0, NULL, 'WLKP30'),
+(40, '8', 'BESAR', 0, 0, 5000000, 3297489, 0, 0, 277, 151, 0, 0, NULL, 'WLKP31'),
+(41, '8', 'KECIL', 0, 0, 3500000, 900000, 0, 0, 14, 9, 0, 0, NULL, 'WLKP32'),
+(42, '8', 'KECIL', 0, 49023283, 4408511, 3407500, 1, 0, 5, 5, 0, 0, NULL, 'WLKP33'),
+(43, '8', 'SEDANG', 41, 481000000, 7000000, 3300000, 0, 0, 29, 17, 0, 0, NULL, 'WLKP34'),
+(44, '8', 'BESAR', 0, 343361755, 10000000, 3297489, 0, 0, 91, 16, 0, 0, NULL, 'WLKP35'),
+(45, '8', 'BESAR', 314, 0, 3297489, 3297489, 0, 0, 238, 76, 0, 0, NULL, 'WLKP36'),
+(46, '8', 'BESAR', 117, 0, 3300000, 0, 0, 0, 528, 0, 0, 0, NULL, 'WLKP37'),
+(47, '8', 'BESAR', 124, 371653581, 4026900, 3791998, 0, 0, 98, 26, 0, 0, NULL, 'WLKP38'),
+(48, '8', 'SEDANG', 0, 770000000, 25500000, 3297489, 0, 0, 33, 45, 0, 0, NULL, 'WLKP39'),
+(49, '8', 'KECIL', 0, 22000000, 10000000, 4500000, 1, 0, 2, 2, 0, 0, NULL, 'WLKP40'),
+(50, '8', 'KECIL', 0, 0, 3060000, 3000000, 0, 0, 14, 8, 0, 0, NULL, 'WLKP41'),
+(51, '8', 'SEDANG', 0, 0, 3346000, 3046000, 0, 0, 28, 10, 0, 0, NULL, 'WLKP42'),
+(52, '8', 'KECIL', 0, 0, 3436000, 2500000, 0, 0, 9, 8, 0, 0, NULL, 'WLKP43'),
+(53, '8', 'KECIL', 0, 0, 3700000, 0, 0, 0, 8, 10, 0, 0, NULL, 'WLKP44'),
+(54, '8', 'KECIL', 0, 0, 3500000, 2297000, 0, 0, 4, 5, 0, 0, NULL, 'WLKP45'),
+(55, '8', 'KECIL', 0, 16000000, 5500000, 3000000, 0, 0, 4, 0, 0, 0, NULL, 'WLKP46'),
+(56, '8', 'KECIL', 0, 0, 3297000, 0, 80, 20, 5, 1, 0, 0, NULL, 'WLKP47'),
+(57, '8', 'BESAR', 8, 247000000, 10000000, 2100000, 0, 0, 66, 80, 0, 0, NULL, 'WLKP48'),
+(58, '8', 'SEDANG', 0, 0, 0, 2000000, 0, 0, 22, 6, 0, 0, NULL, 'WLKP49'),
+(59, '8', 'BESAR', 0, 1417933600, 14116000, 3728000, 0, 0, 38, 256, 0, 0, NULL, 'WLKP50'),
+(60, '8', 'BESAR', 0, 0, 10000000, 3297000, 0, 0, 100, 35, 0, 0, NULL, 'WLKP51'),
+(61, '8', 'SEDANG', 0, 85900000, 3500000, 2750000, 0, 0, 21, 25, 0, 0, NULL, 'WLKP52'),
+(62, '8', 'SEDANG', 0, 0, 10000000, 3297000, 50, 0, 78, 3, 0, 0, NULL, 'WLKP53'),
+(63, '8', 'SEDANG', 39, 0, 15000000, 3660000, 2, 8, 29, 56, 10, 8, NULL, 'WLKP54'),
+(64, '8', 'SEDANG', 0, 584816728, 23633841, 3445000, 4, 0, 23, 36, 0, 0, NULL, 'WLKP55'),
+(65, '8', 'KECIL', 0, 0, 5000000, 2700000, 0, 0, 3, 0, 0, 0, NULL, 'WLKP56'),
+(66, '8', 'KECIL', 0, 0, 4000000, 2500000, 0, 0, 2, 1, 0, 0, NULL, 'WLKP57'),
+(67, '8', 'KECIL', 9, 78066500, 10500000, 3297489, 0, 0, 16, 2, 0, 0, NULL, 'WLKP58'),
+(68, '8', 'KECIL', 5, 19500000, 4324000, 3544000, 0, 2, 1, 4, 0, 0, NULL, 'WLKP59'),
+(69, '8', 'KECIL', 0, 40000000, 4850000, 3355750, 0, 0, 9, 2, 0, 0, NULL, 'WLKP60'),
+(70, '8', 'KECIL', 0, 0, 3000000, 1950000, 0, 0, 14, 8, 0, 0, NULL, 'WLKP61'),
+(71, '8', 'SEDANG', 0, 0, 3346000, 3346000, 0, 0, 28, 18, 0, 0, NULL, 'WLKP62'),
+(76, '8 jam/hari dan 40 jam/minggu', 'KECIL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1 Bulan Upah', 'WLKP63'),
+(77, '-Silahkan Pilih-', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '-Silahkan Pilih-', 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8413,6 +8477,34 @@ INSERT INTO `table_login` (`id`, `email`, `password`, `status`, `level`, `kode_p
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `table_pemagangan`
+--
+
+CREATE TABLE `table_pemagangan` (
+  `id` int(11) NOT NULL,
+  `kebutuhan_magang` varchar(50) DEFAULT NULL,
+  `jmlh_peserta` int(11) DEFAULT NULL,
+  `standarisasi` enum('KHUSUS','INTERNASIONAL') DEFAULT NULL,
+  `skema` enum('KUALIFIKASI','OKUPASI','KLUSTER') DEFAULT NULL,
+  `lsp_p1` varchar(20) DEFAULT NULL,
+  `lsp_p2` varchar(20) DEFAULT NULL,
+  `lsp_p3` varchar(20) DEFAULT NULL,
+  `lsp_nama` varchar(50) DEFAULT NULL,
+  `penempatan` varchar(50) DEFAULT NULL,
+  `kode_wlkp` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_pemagangan`
+--
+
+INSERT INTO `table_pemagangan` (`id`, `kebutuhan_magang`, `jmlh_peserta`, `standarisasi`, `skema`, `lsp_p1`, `lsp_p2`, `lsp_p3`, `lsp_nama`, `penempatan`, `kode_wlkp`) VALUES
+(5, 'k', NULL, 'KHUSUS', 'OKUPASI', '0', '0', '0', 'l', 'm', 'WLKP63'),
+(6, '', 0, '', '', '', '', '', '', '', 'WLKP64');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `table_pengesahan`
 --
 
@@ -8491,7 +8583,9 @@ INSERT INTO `table_pengesahan` (`id`, `nip`, `nama_pengesah`, `tanggal_pengesaha
 (68, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP59'),
 (69, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP60'),
 (70, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP61'),
-(71, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP62');
+(71, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP62'),
+(73, '135465', 'tompul', '0000-00-00', 'Depok', 'WLKP63'),
+(74, '', '', '0000-00-00', '', 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8531,7 +8625,7 @@ CREATE TABLE `table_perusahaan` (
   `hakim` varchar(50) NOT NULL,
   `domisili` varchar(50) NOT NULL,
   `kode_alamat` varchar(11) NOT NULL,
-  `kode_klui` varchar(10) NOT NULL,
+  `kode_klui` varchar(100) NOT NULL,
   `notif` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -8625,87 +8719,54 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `table_rencana_tenaga_kerja`
+-- Table structure for table `table_rencana_butuh_tk`
 --
 
-CREATE TABLE `table_rencana_tenaga_kerja` (
+CREATE TABLE `table_rencana_butuh_tk` (
   `id` int(11) NOT NULL,
-  `sdm_l` int(11) DEFAULT NULL,
-  `sdm_p` int(11) DEFAULT NULL,
-  `jumlah_sdm` int(11) DEFAULT NULL,
-  `pendidikan` enum('SD','SMP','SMA','D3','S1','S2','S3') DEFAULT NULL,
-  `keterampilan` varchar(50) DEFAULT NULL,
-  `posisi` varchar(50) DEFAULT NULL,
+  `rencana_pekerja_l` int(11) DEFAULT NULL,
+  `rencana_pekerja_p` int(11) DEFAULT NULL,
+  `jumlah_pekerja` int(11) DEFAULT NULL,
+  `pendidikan` varchar(10) DEFAULT NULL,
+  `kualifikasi` varchar(50) DEFAULT NULL,
+  `jabatan` varchar(50) DEFAULT NULL,
   `kode_wlkp` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `table_rencana_tenaga_kerja`
+-- Dumping data for table `table_rencana_butuh_tk`
 --
 
-INSERT INTO `table_rencana_tenaga_kerja` (`id`, `sdm_l`, `sdm_p`, `jumlah_sdm`, `pendidikan`, `keterampilan`, `posisi`, `kode_wlkp`) VALUES
-(3, 0, 0, 0, '', '', '', 'WLKP1'),
-(4, 0, 0, 0, '', '', '', 'WLKP2'),
-(5, 0, 0, 0, '', '', '', 'WLKP3'),
-(6, 0, 0, 0, '', '', '', 'WLKP4'),
-(7, 0, 0, 0, '', '', '', 'WLKP5'),
-(8, 0, 0, 0, '', '', '', 'WLKP6'),
-(9, 0, 0, 0, '', '', '', 'WLKP7'),
-(10, 0, 0, 0, '', '', '', 'WLKP8'),
-(11, 0, 0, 0, '', '', '', 'WLKP9'),
-(12, 0, 0, 0, '', '', '', 'WLKP10'),
-(13, 0, 0, 0, '', '', '', 'WLKP11'),
-(14, 0, 0, 0, '', '', '', 'WLKP12'),
-(15, 0, 0, 0, '', '', '', 'WLKP13'),
-(16, 0, 0, 0, '', '', '', 'WLKP14'),
-(17, 0, 0, 0, '', '', '', 'WLKP15'),
-(18, 0, 0, 0, '', '', '', 'WLKP16'),
-(19, 0, 0, 0, '', '', '', 'WLKP17'),
-(20, 0, 0, 0, '', '', '', 'WLKP18'),
-(21, 0, 0, 0, '', '', '', 'WLKP19'),
-(22, 0, 0, 0, '', '', '', 'WLKP20'),
-(23, 0, 0, 0, '', '', '', 'WLKP21'),
-(24, 0, 0, 0, '', '', '', 'WLKP22'),
-(25, 0, 0, 0, '', '', '', 'WLKP23'),
-(26, 0, 0, 0, '', '', '', 'WLKP24'),
-(27, 0, 0, 0, '', '', '', 'WLKP25'),
-(28, 0, 0, 0, '', '', '', 'WLKP26'),
-(29, 0, 0, 0, '', '', '', 'WLKP27'),
-(30, 0, 0, 0, '', '', '', 'WLKP28'),
-(31, 0, 0, 0, '', '', '', 'WLKP29'),
-(32, 0, 0, 0, '', '', '', 'WLKP30'),
-(33, 0, 0, 0, '', '', '', 'WLKP31'),
-(34, 0, 0, 0, '', '', '', 'WLKP32'),
-(35, 0, 0, 0, '', '', '', 'WLKP33'),
-(36, 0, 0, 0, '', '', '', 'WLKP34'),
-(37, 0, 0, 0, '', '', '', 'WLKP35'),
-(38, 0, 0, 0, '', '', '', 'WLKP36'),
-(39, 0, 0, 0, '', '', '', 'WLKP37'),
-(40, 0, 0, 0, '', '', '', 'WLKP38'),
-(41, 0, 0, 0, '', '', '', 'WLKP39'),
-(42, 0, 0, 0, '', '', '', 'WLKP40'),
-(43, 0, 0, 0, '', '', '', 'WLKP41'),
-(44, 0, 0, 0, '', '', '', 'WLKP42'),
-(45, 0, 0, 0, '', '', '', 'WLKP43'),
-(46, 0, 0, 0, '', '', '', 'WLKP44'),
-(47, 0, 0, 0, '', '', '', 'WLKP45'),
-(48, 0, 0, 0, '', '', '', 'WLKP46'),
-(49, 0, 0, 0, '', '', '', 'WLKP47'),
-(50, 0, 0, 0, '', '', '', 'WLKP48'),
-(51, 0, 0, 0, '', '', '', 'WLKP49'),
-(52, 0, 0, 0, '', '', '', 'WLKP50'),
-(53, 0, 0, 0, '', '', '', 'WLKP51'),
-(54, 0, 0, 0, '', '', '', 'WLKP52'),
-(55, 0, 0, 0, '', '', '', 'WLKP53'),
-(56, 0, 0, 0, '', '', '', 'WLKP54'),
-(57, 0, 0, 0, '', '', '', 'WLKP55'),
-(58, 0, 0, 0, '', '', '', 'WLKP56'),
-(59, 0, 0, 0, '', '', '', 'WLKP57'),
-(60, 0, 0, 0, '', '', '', 'WLKP58'),
-(61, 0, 0, 0, '', '', '', 'WLKP59'),
-(62, 0, 0, 0, '', '', '', 'WLKP60'),
-(63, 0, 0, 0, '', '', '', 'WLKP61'),
-(64, 0, 0, 0, '', '', '', 'WLKP62');
+INSERT INTO `table_rencana_butuh_tk` (`id`, `rencana_pekerja_l`, `rencana_pekerja_p`, `jumlah_pekerja`, `pendidikan`, `kualifikasi`, `jabatan`, `kode_wlkp`) VALUES
+(4, 0, 0, 0, 'SD', 'n', 'o', 'WLKP63'),
+(5, 0, 0, 0, 'SD', 'a', 'b', 'WLKP64'),
+(6, 0, 0, 0, 'D3', 'g', 'h', 'WLKP64');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_rencana_tk_terakhir`
+--
+
+CREATE TABLE `table_rencana_tk_terakhir` (
+  `id` int(11) NOT NULL,
+  `pekerja_l_terakhir` int(11) DEFAULT NULL,
+  `pekerja_p_terakhir` int(11) DEFAULT NULL,
+  `jumlah_sdm` int(11) DEFAULT NULL,
+  `pendidikan_terakhir` varchar(10) DEFAULT NULL,
+  `kualifikasi_terakhir` varchar(50) DEFAULT NULL,
+  `jabatan_terakhir` varchar(50) DEFAULT NULL,
+  `kode_wlkp` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_rencana_tk_terakhir`
+--
+
+INSERT INTO `table_rencana_tk_terakhir` (`id`, `pekerja_l_terakhir`, `pekerja_p_terakhir`, `jumlah_sdm`, `pendidikan_terakhir`, `kualifikasi_terakhir`, `jabatan_terakhir`, `kode_wlkp`) VALUES
+(2, 0, 0, 0, 'SMP', 'p', 'q', 'WLKP63'),
+(3, 0, 0, 0, 'SMP', 'c', 'd', 'WLKP64'),
+(4, 0, 0, 0, 'SMA', 'e', 'f', 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8716,55 +8777,58 @@ INSERT INTO `table_rencana_tenaga_kerja` (`id`, `sdm_l`, `sdm_p`, `jumlah_sdm`, 
 CREATE TABLE `table_warga_negara` (
   `id` int(11) NOT NULL,
   `l_dibawah_15_cpuh` int(11) DEFAULT NULL,
-  `l_dibawah_15_cpbur` int(11) NOT NULL,
-  `l_dibawah_15_cpbul` int(11) NOT NULL,
-  `l_dibawah_15_hl` int(11) NOT NULL,
-  `l_dibawah_15_br` int(11) NOT NULL,
-  `l_dibawah_15_kr` int(11) NOT NULL,
+  `l_dibawah_15_cpubr` int(11) DEFAULT NULL,
+  `l_dibawah_15_cpubl` int(11) DEFAULT NULL,
+  `l_dibawah_15_hl` int(11) DEFAULT NULL,
+  `l_dibawah_15_br` int(11) DEFAULT NULL,
+  `l_dibawah_15_kr` int(11) DEFAULT NULL,
   `p_dibawah_15_cpuh` int(11) DEFAULT NULL,
-  `p_dibawah_15_cpubr` int(11) NOT NULL,
-  `p_dibawah_15_cpubl` int(11) NOT NULL,
-  `p_dibawah_15_cphl` int(11) NOT NULL,
-  `p_dibawah_15_cpbl` int(11) NOT NULL,
-  `p_dibawah_15_cpkr` int(11) NOT NULL,
+  `p_dibawah_15_cpubr` int(11) DEFAULT NULL,
+  `p_dibawah_15_cpubl` int(11) DEFAULT NULL,
+  `p_dibawah_15_hl` int(11) DEFAULT NULL,
+  `p_dibawah_15_br` int(11) DEFAULT NULL,
+  `p_dibawah_15_kr` int(11) DEFAULT NULL,
   `l_dibawah_18_cpuh` int(11) DEFAULT NULL,
-  `l_dibawah_18_cpubr` int(11) NOT NULL,
-  `l_dibawah_18_cpubl` int(11) NOT NULL,
-  `l_dibawah_18_cphl` int(11) NOT NULL,
-  `l_dibawah_18_cpbr` int(11) NOT NULL,
-  `l_dibawah_18_cpkr` int(11) NOT NULL,
+  `l_dibawah_18_cpubr` int(11) DEFAULT NULL,
+  `l_dibawah_18_cpubl` int(11) DEFAULT NULL,
+  `l_dibawah_18_hl` int(11) DEFAULT NULL,
+  `l_dibawah_18_br` int(11) DEFAULT NULL,
+  `l_dibawah_18_kr` int(11) DEFAULT NULL,
   `p_dibawah_18_cpuh` int(11) DEFAULT NULL,
-  `p_dibawah_18_cpubr` int(11) NOT NULL,
-  `p_dibawah_18_cpubl` int(11) NOT NULL,
-  `p_dibawah_18_cphl` int(11) NOT NULL,
-  `p_dibawah_18_cpbr` int(11) NOT NULL,
-  `p_dibawah_18_cpkr` int(11) NOT NULL,
+  `p_dibawah_18_cpubr` int(11) DEFAULT NULL,
+  `p_dibawah_18_cpubl` int(11) DEFAULT NULL,
+  `p_dibawah_18_hl` int(11) DEFAULT NULL,
+  `p_dibawah_18_br` int(11) DEFAULT NULL,
+  `p_dibawah_18_kr` int(11) DEFAULT NULL,
   `l_diatas_18_cpuh` int(11) DEFAULT NULL,
-  `l_diatas_18_cpubr` int(11) NOT NULL,
-  `l_diatas_18_cpubl` int(11) NOT NULL,
-  `l_diatas_18_cphl` int(11) NOT NULL,
-  `l_diatas_18_cpbr` int(11) NOT NULL,
-  `l_diatas_18_cpkr` int(11) NOT NULL,
+  `l_diatas_18_cpubr` int(11) DEFAULT NULL,
+  `l_diatas_18_cpubl` int(11) DEFAULT NULL,
+  `l_diatas_18_hl` int(11) DEFAULT NULL,
+  `l_diatas_18_br` int(11) DEFAULT NULL,
+  `l_diatas_18_kr` int(11) DEFAULT NULL,
   `p_diatas_18_cpuh` int(11) DEFAULT NULL,
-  `p_diatas_18_cpubr` int(11) NOT NULL,
-  `p_diatas_18_cpubl` int(11) NOT NULL,
-  `p_diatas_18_cphl` int(11) NOT NULL,
-  `p_diatas_18_cpbr` int(11) NOT NULL,
-  `p_diatas_18_cpkr` int(11) NOT NULL,
+  `p_diatas_18_cpubr` int(11) DEFAULT NULL,
+  `p_diatas_18_cpubl` int(11) DEFAULT NULL,
+  `p_diatas_18_hl` int(11) DEFAULT NULL,
+  `p_diatas_18_br` int(11) DEFAULT NULL,
+  `p_diatas_18_kr` int(11) DEFAULT NULL,
   `total_wni_l` int(11) DEFAULT NULL,
   `total_wni_p` int(11) DEFAULT NULL,
+  `total_wni` int(11) DEFAULT NULL,
   `l_wna_cpuh` int(11) DEFAULT NULL,
-  `l_wna_cpubl` int(11) NOT NULL,
-  `l_wna_cpubr` int(11) NOT NULL,
-  `l_wna_cpbl` int(11) NOT NULL,
-  `l_wna_cpbr` int(11) NOT NULL,
-  `l_wna_cpkr` int(11) NOT NULL,
+  `l_wna_cpubl` int(11) DEFAULT NULL,
+  `l_wna_cpubr` int(11) DEFAULT NULL,
+  `l_wna_hl` int(11) DEFAULT NULL,
+  `l_wna_br` int(11) DEFAULT NULL,
+  `l_wna_kr` int(11) DEFAULT NULL,
   `p_wna_cpuh` int(11) DEFAULT NULL,
-  `p_wna_cpubr` int(11) NOT NULL,
-  `p_wna_cpubl` int(11) NOT NULL,
-  `p_wna_cphl` int(11) NOT NULL,
-  `p_wna_cpbr` int(11) NOT NULL,
-  `p_wna_cpkr` int(11) NOT NULL,
+  `p_wna_cpubr` int(11) DEFAULT NULL,
+  `p_wna_cpubl` int(11) DEFAULT NULL,
+  `p_wna_hl` int(11) DEFAULT NULL,
+  `p_wna_br` int(11) DEFAULT NULL,
+  `p_wna_kr` int(11) DEFAULT NULL,
+  `total_l_wna` int(11) DEFAULT NULL,
+  `total_p_wna` int(11) DEFAULT NULL,
   `total_wna` int(11) DEFAULT NULL,
   `kode_wlkp` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -8773,69 +8837,71 @@ CREATE TABLE `table_warga_negara` (
 -- Dumping data for table `table_warga_negara`
 --
 
-INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15_cpuh`, `l_dibawah_15_cpbur`, `l_dibawah_15_cpbul`, `l_dibawah_15_hl`, `l_dibawah_15_br`, `l_dibawah_15_kr`, `p_dibawah_15_cpuh`, `p_dibawah_15_cpubr`, `p_dibawah_15_cpubl`, `p_dibawah_15_cphl`, `p_dibawah_15_cpbl`, `p_dibawah_15_cpkr`, `l_dibawah_18_cpuh`, `l_dibawah_18_cpubr`, `l_dibawah_18_cpubl`, `l_dibawah_18_cphl`, `l_dibawah_18_cpbr`, `l_dibawah_18_cpkr`, `p_dibawah_18_cpuh`, `p_dibawah_18_cpubr`, `p_dibawah_18_cpubl`, `p_dibawah_18_cphl`, `p_dibawah_18_cpbr`, `p_dibawah_18_cpkr`, `l_diatas_18_cpuh`, `l_diatas_18_cpubr`, `l_diatas_18_cpubl`, `l_diatas_18_cphl`, `l_diatas_18_cpbr`, `l_diatas_18_cpkr`, `p_diatas_18_cpuh`, `p_diatas_18_cpubr`, `p_diatas_18_cpubl`, `p_diatas_18_cphl`, `p_diatas_18_cpbr`, `p_diatas_18_cpkr`, `total_wni_l`, `total_wni_p`, `l_wna_cpuh`, `l_wna_cpubl`, `l_wna_cpubr`, `l_wna_cpbl`, `l_wna_cpbr`, `l_wna_cpkr`, `p_wna_cpuh`, `p_wna_cpubr`, `p_wna_cpubl`, `p_wna_cphl`, `p_wna_cpbr`, `p_wna_cpkr`, `total_wna`, `kode_wlkp`) VALUES
-(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 72, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP1'),
-(11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 34, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP2'),
-(12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP3'),
-(13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 23, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP4'),
-(14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 69, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP5'),
-(15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP6'),
-(16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP7'),
-(17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP8'),
-(18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 22, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP9'),
-(19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 24, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP10'),
-(20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP11'),
-(21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP12'),
-(22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP13'),
-(23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP14'),
-(24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 173, 0, 0, 0, 0, 0, 272, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP15'),
-(25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 47, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP16'),
-(26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 229, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP17'),
-(27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 15, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP18'),
-(28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 'WLKP19'),
-(29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 52, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP20'),
-(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP21'),
-(31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP22'),
-(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 7, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP23'),
-(33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 64, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP24'),
-(34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 100, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP25'),
-(35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 90, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP26'),
-(36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP27'),
-(37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 26, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP28'),
-(38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 52, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP29'),
-(39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 143, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 190, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP30'),
-(40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 277, 0, 0, 0, 0, 0, 151, 0, 0, 0, 0, 0, 428, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP31'),
-(41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 23, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP32'),
-(42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 10, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP33'),
-(43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 46, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP34'),
-(44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 107, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP35'),
-(45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 238, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 0, 314, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP36'),
-(46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 528, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 528, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP37'),
-(47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 124, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP38'),
-(48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 78, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP39'),
-(49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP40'),
-(50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 22, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP41'),
-(51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 38, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP42'),
-(52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 17, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP43'),
-(53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 18, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP44'),
-(54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 9, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP45'),
-(55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP46'),
-(56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP47'),
-(57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 146, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP48'),
-(58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 28, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP49'),
-(59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 294, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP50'),
-(60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 135, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP51'),
-(61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 46, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP52'),
-(62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 78, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 81, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP53'),
-(63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 85, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP54'),
-(64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 35, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP55'),
-(65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP56'),
-(66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP57'),
-(67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 18, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP58'),
-(68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 'WLKP59'),
-(69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP60'),
-(70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 22, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP61'),
-(71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 46, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'WLKP62');
+INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15_cpuh`, `l_dibawah_15_cpubr`, `l_dibawah_15_cpubl`, `l_dibawah_15_hl`, `l_dibawah_15_br`, `l_dibawah_15_kr`, `p_dibawah_15_cpuh`, `p_dibawah_15_cpubr`, `p_dibawah_15_cpubl`, `p_dibawah_15_hl`, `p_dibawah_15_br`, `p_dibawah_15_kr`, `l_dibawah_18_cpuh`, `l_dibawah_18_cpubr`, `l_dibawah_18_cpubl`, `l_dibawah_18_hl`, `l_dibawah_18_br`, `l_dibawah_18_kr`, `p_dibawah_18_cpuh`, `p_dibawah_18_cpubr`, `p_dibawah_18_cpubl`, `p_dibawah_18_hl`, `p_dibawah_18_br`, `p_dibawah_18_kr`, `l_diatas_18_cpuh`, `l_diatas_18_cpubr`, `l_diatas_18_cpubl`, `l_diatas_18_hl`, `l_diatas_18_br`, `l_diatas_18_kr`, `p_diatas_18_cpuh`, `p_diatas_18_cpubr`, `p_diatas_18_cpubl`, `p_diatas_18_hl`, `p_diatas_18_br`, `p_diatas_18_kr`, `total_wni_l`, `total_wni_p`, `total_wni`, `l_wna_cpuh`, `l_wna_cpubl`, `l_wna_cpubr`, `l_wna_hl`, `l_wna_br`, `l_wna_kr`, `p_wna_cpuh`, `p_wna_cpubr`, `p_wna_cpubl`, `p_wna_hl`, `p_wna_br`, `p_wna_kr`, `total_l_wna`, `total_p_wna`, `total_wna`, `kode_wlkp`) VALUES
+(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 72, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP1'),
+(11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 34, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP2'),
+(12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP3'),
+(13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 23, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP4'),
+(14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 69, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP5'),
+(15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP6'),
+(16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP7'),
+(17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP8'),
+(18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 22, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP9'),
+(19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 24, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP10'),
+(20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP11'),
+(21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP12'),
+(22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP13'),
+(23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP14'),
+(24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 173, 0, 0, 0, 0, 0, 272, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP15'),
+(25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 47, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP16'),
+(26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 229, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP17'),
+(27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 15, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP18'),
+(28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 1, 'WLKP19'),
+(29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 52, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP20'),
+(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP21'),
+(31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP22'),
+(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 7, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP23'),
+(33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 64, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP24'),
+(34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 100, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP25'),
+(35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 90, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP26'),
+(36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP27'),
+(37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 26, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP28'),
+(38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 52, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP29'),
+(39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 143, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 190, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP30'),
+(40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 277, 0, 0, 0, 0, 0, 151, 0, 0, 0, 0, 0, 428, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP31'),
+(41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 23, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP32'),
+(42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 10, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP33'),
+(43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 46, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP34'),
+(44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 107, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP35'),
+(45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 238, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 0, 314, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP36'),
+(46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 528, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 528, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP37'),
+(47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 124, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP38'),
+(48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 78, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP39'),
+(49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP40'),
+(50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 22, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP41'),
+(51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 38, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP42'),
+(52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 17, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP43'),
+(53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 18, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP44'),
+(54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 9, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP45'),
+(55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP46'),
+(56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP47'),
+(57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 146, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP48'),
+(58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 28, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP49'),
+(59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 294, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP50'),
+(60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 135, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP51'),
+(61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 46, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP52'),
+(62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 78, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 81, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP53'),
+(63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 85, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP54'),
+(64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 35, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP55'),
+(65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP56'),
+(66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP57'),
+(67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 18, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP58'),
+(68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, NULL, NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, NULL, NULL, 5, 'WLKP59'),
+(69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP60'),
+(70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 22, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP61'),
+(71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 46, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP62'),
+(76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP63'),
+(77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP64');
 
 -- --------------------------------------------------------
 
@@ -8888,85 +8954,100 @@ CREATE TABLE `table_wlkp_perusahaan` (
   `nama_perusahaan` varchar(100) DEFAULT NULL,
   `jenis_usaha` varchar(100) DEFAULT NULL,
   `nama_pemilik` varchar(100) DEFAULT NULL,
+  `alamat_pemilik` text,
   `nama_pengurus` varchar(100) DEFAULT NULL,
+  `alamat_pengurus` text,
   `tanggal_pendirian` date DEFAULT NULL,
+  `tanggal_akte_pendirian` date DEFAULT NULL,
   `nomor_pendirian` varchar(50) DEFAULT NULL,
+  `tanggal_akte_perubahan` date DEFAULT NULL,
+  `nomor_perubahan` varchar(50) DEFAULT NULL,
+  `no_siup` varchar(50) DEFAULT NULL,
+  `no_tdp` varchar(50) DEFAULT NULL,
+  `no_npwp` varchar(50) DEFAULT NULL,
+  `no_kbli` varchar(50) DEFAULT NULL,
+  `no_bpjskes` varchar(50) DEFAULT NULL,
+  `no_bpjstk` varchar(50) DEFAULT NULL,
+  `pindah_perusahaan` varchar(100) DEFAULT NULL,
+  `alamat_lama` text,
   `ket_kantor` enum('PUSAT','CABANG') DEFAULT NULL,
   `kantor_cabang` int(11) DEFAULT NULL,
   `status_kepemilikan` varchar(50) DEFAULT NULL,
   `status_permodalan` varchar(50) DEFAULT NULL,
   `kode_alamat` varchar(11) NOT NULL,
-  `tgl_input` date NOT NULL,
-  `tgl_kadaluarsa` date NOT NULL
+  `tgl_lapor` date DEFAULT NULL,
+  `tgl_kadaluarsa` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `table_wlkp_perusahaan`
 --
 
-INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `nama_pengurus`, `tanggal_pendirian`, `nomor_pendirian`, `ket_kantor`, `kantor_cabang`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`, `tgl_input`, `tgl_kadaluarsa`) VALUES
-('WLKP1', 'RADANA BHASKARA FINANCE ', 'PEMBIAYAAN ', 'IMAN SYATOTO ', 'RADANA BHASKARA ', '1972-09-20', '41', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL ', 'ALM3', '2019-07-17', '2020-07-17'),
-('WLKP10', 'SARI RASA NUSANTARA 2', 'RESTORAN ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2007-12-26', '268', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM12', '2019-07-17', '2020-07-17'),
-('WLKP11', 'PRIMA INTERNATIONAL ', 'APOTEK ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2002-02-20', '114', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM13', '2019-07-17', '2020-07-17'),
-('WLKP12', 'OPTIK MELAWAI PRIMA 4', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-01-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM14', '2019-07-17', '2020-07-17'),
-('WLKP13', 'SRIWIJAYA AIR ', 'JASA PENERBANGAN ', 'CHANDRA LIE ', 'IRWANT VALENT ', '2004-03-25', '81', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM15', '2019-07-17', '2020-07-17'),
-('WLKP14', 'FADHILLAH AROFAH ', 'BIRO PERJALANAN UMROH HAJI ', 'ALI SAMAN HASAN ', 'ALI SAMAN HASAN ', '2003-04-15', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM16', '2019-07-17', '2020-07-17'),
-('WLKP15', 'YAYASAN PENDIDIKAN TUGU IBU ', 'JASA PENDIDIKAN ', 'H.MARIS RINALDI ', 'SRI MURJANTI ', '1975-01-25', '1', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM17', '2019-07-17', '2020-07-17'),
-('WLKP16', 'TIKI DEPOK INDONESIA ', 'TITIPAN SWASTA ', 'IGNATIUS ARIYA ', 'YERRI INTARTO ', '2015-07-13', '14', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM18', '2019-07-17', '2020-07-17'),
-('WLKP17', 'PEARL STAR INTERNATIONAL ', 'PRODUKSI PLASTIK LEMBARAN ', 'JOHAN D.JIMANTO', '', '1989-04-20', '37', 'PUSAT', NULL, 'Swasta', 'PMA', 'ALM19', '2019-07-17', '2020-07-17'),
-('WLKP18', 'UDON AJI PERKASA ', 'PERDAGANGAN MAKANAN DAN MINUMAN ', 'LEDIAH PURNAMASARI ', 'LEDIAH PURNAMASARI ', '2016-02-20', '41', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM20', '2019-07-17', '2020-07-17'),
-('WLKP19', 'JACK MONTESSORI MATERIAL ', 'ALAT-ALAT SEKOLAH ', 'BUDI HARTOMO ', 'ADE AROSIYA ', '2013-07-17', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM21', '2019-07-17', '2020-07-17'),
-('WLKP2', 'TATA MULYA NUSANTARA INDAH ', 'KONTRAKTOR ', 'TATA MULYA ', 'FAUKI AHADIYAT ', '1993-12-17', '67', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM4', '2019-07-17', '2020-07-17'),
-('WLKP20', 'BTPBN KC.DEPOK ', 'PERBANKAN ', 'BTPN ', 'SILVI YUNARNI ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM22', '2019-07-17', '2020-07-17'),
-('WLKP21', 'BTPN TANAH BARU ', 'PERBANKAN ', 'BTPN ', 'EDISON SIANIPAR ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM23', '2019-07-17', '2020-07-17'),
-('WLKP22', 'BTPN SAWANGAN ', 'PERBANKAN ', 'BTPN ', 'ERWIN LUBIS ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM24', '2019-07-17', '2020-07-17'),
-('WLKP23', 'BTPN CIMANGGIS ', 'PERBANKAN ', 'BTPN ', 'BUDI IRAWAN ', '1985-02-16', '31', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM25', '2019-07-17', '2020-07-17'),
-('WLKP24', 'MATAHARI PUTRA PRIMA 2', 'RETAIL ', 'HYPERMART CIMANGGIS ', 'YUNI MULYANINGSIH ', '2012-01-20', '26', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM26', '2019-07-17', '2020-07-17'),
-('WLKP25', 'HYPERMART ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', 'DONI RAHADI ', '2012-01-20', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM27', '2019-07-17', '2020-07-17'),
-('WLKP26', 'INDAGRO ', 'FORMULASI PESTISIDA ', 'WIJOYO SUYONO ', 'DRS.HARIJANTO ', '1974-05-01', '44', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM28', '2019-07-17', '2020-07-17'),
-('WLKP27', 'JASA MEGA KARTIKA ', 'JASA KONSULTASI MANAJEMEN ', 'RINI RIYANTI ', '', '2014-07-23', '3', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM29', '2019-07-17', '2020-07-17'),
-('WLKP28', 'MNC FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'BHAKTI CAPITAL INDONESIA ', 'INDRA SYAILANA ', '1989-11-14', '64', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM30', '2019-07-17', '2020-07-17'),
-('WLKP29', 'ARTHA GUNA SEJAHTERA ', 'PERBANKAN ', 'VOLIANA ', 'SITI KOMARIAH ', '1994-01-07', '14', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM31', '2019-07-17', '2020-07-17'),
-('WLKP3', 'JAKARTA INTILAND ', 'JASA ', 'JAKARTA INTILAND ', 'RACHMAT BUDIMAN ', '1993-10-18', '38', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM5', '2019-07-17', '2020-07-17'),
-('WLKP30', 'METAGUNA INNOVA ', 'PERDAGANGAN BARANG DAN JASA ', 'VOLIANA ', 'SITI KOMARIAH ', '2004-07-26', '2', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM32', '2019-07-17', '2020-07-17'),
-('WLKP31', 'SUPER EXIMSARI ', 'INDUSTRI PLASTIK ', 'ONIY BIE HUA ', 'GANJAR PURNOMO ', '0000-00-00', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM33', '2019-07-17', '2020-07-17'),
-('WLKP32', 'KATINEUNG RASA MANDIRI ', 'JASA BOGA/KATERING ', 'DEDEH YULIASIH ', 'EKO AJIWIBOWO ', '2015-06-09', '329', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM34', '2019-07-17', '2020-07-17'),
-('WLKP33', 'YUDHA BHAKTI  BANK ', 'PERBANKAN ', 'ASABRI PERSERO ', 'ARIFIN ', '1989-08-19', '68', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM35', '2019-07-17', '2020-07-17'),
-('WLKP34', 'MANDIRI TUNAS FINANCE ', 'LEMBAGA PEMBIYAAN ', 'IWAN TRISNADI ', 'IGNATIUS SUSATYOWIJOYO ', '1985-05-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM36', '2019-07-17', '2020-07-17'),
-('WLKP35', 'ADIRA DINAMIKA MULTI FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'WILLY SUWANDI DARMA ', 'WAWAN HERMANSYAH ', '2010-12-02', '4', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM37', '2019-07-17', '2020-07-17'),
-('WLKP36', 'DINAMIKA INTI KARYA ', 'JASA OUTSOURCHING ', 'DEDE RIDWAN ', '', '2005-07-12', '26', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM38', '2019-07-17', '2020-07-17'),
-('WLKP37', 'TRISULA PRIMA AGUNG ', 'JASA PENGAMANAN ', 'GUNARDI ', 'GUNARDI ', '2003-04-03', '10', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM39', '2019-07-17', '2020-07-17'),
-('WLKP38', 'USAHA JAYA PRIMA KARYA ', 'PERDAGANGAN ', 'PLN ', 'SUKARTONO HARIYADI ', '2003-03-25', '8', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM40', '2019-07-17', '2020-07-17'),
-('WLKP39', 'YAYASAN LAZUARDI HAYATI ', 'PENDIDIKAN ', 'HAIDAR BAGIR ', 'ZARONAH ', '2006-02-24', '15', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM41', '2019-07-17', '2020-07-17'),
-('WLKP4', 'INDOMOBIL FINANCE INDONESIA ', 'LEASING PERBANKAN ', 'SUBROTO LARAS ', 'EKO.S HARYADI ', '2004-01-14', '2137', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM6', '2019-07-17', '2020-07-17'),
-('WLKP40', 'MUKTI SEJAHTERA TEKNIK ', 'PERDAGANGAN ', 'DHANI PRASETYO ', '', '2010-06-10', '38', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM42', '2019-07-17', '2020-07-17'),
-('WLKP41', 'VENUS RUMAH BERNYANYI 2', 'HIBURAN ', 'DWI JAYA ', 'DWI JAYA ', '2009-09-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM43', '2019-07-17', '2020-07-17'),
-('WLKP42', 'BIOSKOP CINERE BELLEVUE XXI - 2', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', 'WAHYU GUNA HADI ', '2014-12-03', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM44', '2019-07-17', '2020-07-17'),
-('WLKP43', 'SINAR SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2003-01-11', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM45', '2019-07-17', '2020-07-17'),
-('WLKP44', 'CAHAYA SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2001-01-09', '8', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM46', '2019-07-17', '2020-07-17'),
-('WLKP45', 'SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', 'RUSTONO ', '2001-01-09', '8', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM47', '2019-07-17', '2020-07-17'),
-('WLKP46', 'PUSAT KAJIAN DAN TERAPAN K3 ', 'JASA K3 ', 'DONI HIKMAT ', '', '1996-08-01', '20', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM48', '2019-07-17', '2020-07-17'),
-('WLKP47', 'ACLARIN PRIMA SEJAHTERA ', 'OUTSOURCHING ', 'ANNY PRITARINI ', 'HERU PRITOKO ', '2017-01-01', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM49', '2019-07-17', '2020-07-17'),
-('WLKP48', 'DWI KARYA SEJAHTERA ABADI ', 'PENGADAAN BARANG DAN JASA ', 'SARWADI ', 'SARWADI ', '0000-00-00', '4', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM50', '2019-07-17', '2020-07-17'),
-('WLKP49', 'MITRA PINASHTIKA MUSTIKA FINANCE ', 'PEMBIAYAAN/PENDANAAN ', 'ANTON SRI NUGROHO ', '', '2012-02-29', '68', '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM51', '2019-07-17', '2020-07-17'),
-('WLKP5', 'MATAHARI PUTRA PRIMA ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', 'TONI ALIANDI ', '1986-11-03', '30', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM7', '2019-07-17', '2020-07-17'),
-('WLKP50', 'BUNDA MEDIK (RS.BUNDA MARGONDA)', 'RUMAH SAKIT ', 'DR. IMELDA RACHMAWATI ', 'RIVA RIANI ', '2006-05-15', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM52', '2019-07-17', '2020-07-17'),
-('WLKP51', 'PROPINDO SEDAYU ', 'PROPERTY ', 'IR. TEDDY BUDIARTA ', 'DESTU PARADIFA ', '1993-08-17', '160', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM53', '2019-07-17', '2020-07-17'),
-('WLKP52', 'SYAHRAN ', 'PERDAGANGAN BBM ', 'SYAHRAN ', 'SYAHRAN ', '2012-11-15', '', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM54', '2019-07-17', '2020-07-17'),
-('WLKP53', 'ADHI KARYA ', 'JASA KONSTRUKSI ', 'ADHI KARYA ', 'HERY PRAYONO ', '0000-00-00', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM55', '2019-07-17', '2020-07-17'),
-('WLKP54', 'MATAHARI DEPT. STORE ', 'RETAIL ', 'MATAHARI DEPT STORE ', 'ERFIN WIDI PRAMONO ', '2009-10-30', '61', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM56', '2019-07-17', '2020-07-17'),
-('WLKP55', 'BRI KCP CIMANGGIS ', 'PERBANKAN ', 'POPPY AGUSTIN ', '', '2008-09-02', '1', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM57', '2019-07-17', '2020-07-17'),
-('WLKP56', 'SENTRA SOLUSI SERVICE ', 'PERDAGANGAN UMUM DAN JASA ', 'BUDI SETIAWAN ', '', '2014-06-04', '16', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM58', '2019-07-17', '2020-07-17'),
-('WLKP57', 'WARNA MAINT ', 'TRAINING AND SRVICE ', 'A. SUGANDI R ', 'A. BAMBANG H ', '2003-09-01', '1', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM59', '2019-07-17', '2020-07-17'),
-('WLKP58', 'MARUSINDO AJIMANDIRI ', 'KONSTRUKSI DAN JASA ', 'IR. DJOKO STYO WIDODO ', '', '1995-08-30', '25', 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM60', '2019-07-17', '2020-07-17'),
-('WLKP59', 'SUMBER MEDIKA LESTARI ', 'PERDAGANGAN BESAR ', 'LO VANA ', 'DWI KRISNAWAN ', '2014-10-20', '20', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM61', '2019-07-17', '2020-07-17'),
-('WLKP6', 'OPTIK MELAWAI PRIMA ', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM8', '2019-07-17', '2020-07-17'),
-('WLKP60', 'ANUGERAH MANDIRI KARYABERSAMA', 'PERGDANGAN UMUM DAN JASA ', 'LINA ', 'WINDU ', '2006-09-13', '1', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM62', '2019-07-17', '2020-07-17'),
-('WLKP61', 'VENUS RUMAH BERNYANYI ', 'HIBURAN DAN OLAH RAGA ', 'DWI JAYA ', 'DWI JAYA ', '1999-09-17', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM63', '2019-07-17', '2020-07-17'),
-('WLKP62', 'BIOSKOP CINERE BELLEVUE XXI', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', 'WAHYU GUNA HADI ', '2014-12-03', '', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM64', '2019-07-17', '2020-07-17'),
-('WLKP7', 'OPTIK MELAWAI PRIMA 2', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM9', '2019-07-17', '2020-07-17'),
-('WLKP8', 'OPTIK MELAWAI PRIMA 3', 'TOKO KACA MATA ', 'RETNOWATI ', 'ROBERT B.SUPARNO ', '2013-10-31', '165', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM10', '2019-07-17', '2020-07-17'),
-('WLKP9', 'SARI RASA NUSANTARA ', 'RESTORAN ', 'BENNY HADISURJO ', 'ROBERT B.SUPARNO ', '2007-12-26', '268', 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM11', '2019-07-17', '2020-07-17');
+INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usaha`, `nama_pemilik`, `alamat_pemilik`, `nama_pengurus`, `alamat_pengurus`, `tanggal_pendirian`, `tanggal_akte_pendirian`, `nomor_pendirian`, `tanggal_akte_perubahan`, `nomor_perubahan`, `no_siup`, `no_tdp`, `no_npwp`, `no_kbli`, `no_bpjskes`, `no_bpjstk`, `pindah_perusahaan`, `alamat_lama`, `ket_kantor`, `kantor_cabang`, `status_kepemilikan`, `status_permodalan`, `kode_alamat`, `tgl_lapor`, `tgl_kadaluarsa`) VALUES
+('WLKP1', 'RADANA BHASKARA FINANCE ', 'PEMBIAYAAN ', 'IMAN SYATOTO ', NULL, 'RADANA BHASKARA ', NULL, '1972-09-20', NULL, '41', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL ', 'ALM3', '2019-07-17', '2020-07-17'),
+('WLKP10', 'SARI RASA NUSANTARA 2', 'RESTORAN ', 'BENNY HADISURJO ', NULL, 'ROBERT B.SUPARNO ', NULL, '2007-12-26', NULL, '268', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM12', '2019-07-17', '2020-07-17'),
+('WLKP11', 'PRIMA INTERNATIONAL ', 'APOTEK ', 'BENNY HADISURJO ', NULL, 'ROBERT B.SUPARNO ', NULL, '2002-02-20', NULL, '114', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM13', '2019-07-17', '2020-07-17'),
+('WLKP12', 'OPTIK MELAWAI PRIMA 4', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-01-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM14', '2019-07-17', '2020-07-17'),
+('WLKP13', 'SRIWIJAYA AIR ', 'JASA PENERBANGAN ', 'CHANDRA LIE ', NULL, 'IRWANT VALENT ', NULL, '2004-03-25', NULL, '81', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM15', '2019-07-17', '2020-07-17'),
+('WLKP14', 'FADHILLAH AROFAH ', 'BIRO PERJALANAN UMROH HAJI ', 'ALI SAMAN HASAN ', NULL, 'ALI SAMAN HASAN ', NULL, '2003-04-15', NULL, '10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM16', '2019-07-17', '2020-07-17'),
+('WLKP15', 'YAYASAN PENDIDIKAN TUGU IBU ', 'JASA PENDIDIKAN ', 'H.MARIS RINALDI ', NULL, 'SRI MURJANTI ', NULL, '1975-01-25', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM17', '2019-07-17', '2020-07-17'),
+('WLKP16', 'TIKI DEPOK INDONESIA ', 'TITIPAN SWASTA ', 'IGNATIUS ARIYA ', NULL, 'YERRI INTARTO ', NULL, '2015-07-13', NULL, '14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM18', '2019-07-17', '2020-07-17'),
+('WLKP17', 'PEARL STAR INTERNATIONAL ', 'PRODUKSI PLASTIK LEMBARAN ', 'JOHAN D.JIMANTO', NULL, '', NULL, '1989-04-20', NULL, '37', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'PMA', 'ALM19', '2019-07-17', '2020-07-17'),
+('WLKP18', 'UDON AJI PERKASA ', 'PERDAGANGAN MAKANAN DAN MINUMAN ', 'LEDIAH PURNAMASARI ', NULL, 'LEDIAH PURNAMASARI ', NULL, '2016-02-20', NULL, '41', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM20', '2019-07-17', '2020-07-17'),
+('WLKP19', 'JACK MONTESSORI MATERIAL ', 'ALAT-ALAT SEKOLAH ', 'BUDI HARTOMO ', NULL, 'ADE AROSIYA ', NULL, '2013-07-17', NULL, '10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM21', '2019-07-17', '2020-07-17'),
+('WLKP2', 'TATA MULYA NUSANTARA INDAH ', 'KONTRAKTOR ', 'TATA MULYA ', NULL, 'FAUKI AHADIYAT ', NULL, '1993-12-17', NULL, '67', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM4', '2019-07-17', '2020-07-17'),
+('WLKP20', 'BTPBN KC.DEPOK ', 'PERBANKAN ', 'BTPN ', NULL, 'SILVI YUNARNI ', NULL, '1985-02-16', NULL, '31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM22', '2019-07-17', '2020-07-17'),
+('WLKP21', 'BTPN TANAH BARU ', 'PERBANKAN ', 'BTPN ', NULL, 'EDISON SIANIPAR ', NULL, '1985-02-16', NULL, '31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM23', '2019-07-17', '2020-07-17'),
+('WLKP22', 'BTPN SAWANGAN ', 'PERBANKAN ', 'BTPN ', NULL, 'ERWIN LUBIS ', NULL, '1985-02-16', NULL, '31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM24', '2019-07-17', '2020-07-17'),
+('WLKP23', 'BTPN CIMANGGIS ', 'PERBANKAN ', 'BTPN ', NULL, 'BUDI IRAWAN ', NULL, '1985-02-16', NULL, '31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM25', '2019-07-17', '2020-07-17'),
+('WLKP24', 'MATAHARI PUTRA PRIMA 2', 'RETAIL ', 'HYPERMART CIMANGGIS ', NULL, 'YUNI MULYANINGSIH ', NULL, '2012-01-20', NULL, '26', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM26', '2019-07-17', '2020-07-17'),
+('WLKP25', 'HYPERMART ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', NULL, 'DONI RAHADI ', NULL, '2012-01-20', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM27', '2019-07-17', '2020-07-17'),
+('WLKP26', 'INDAGRO ', 'FORMULASI PESTISIDA ', 'WIJOYO SUYONO ', NULL, 'DRS.HARIJANTO ', NULL, '1974-05-01', NULL, '44', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM28', '2019-07-17', '2020-07-17'),
+('WLKP27', 'JASA MEGA KARTIKA ', 'JASA KONSULTASI MANAJEMEN ', 'RINI RIYANTI ', NULL, '', NULL, '2014-07-23', NULL, '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM29', '2019-07-17', '2020-07-17'),
+('WLKP28', 'MNC FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'BHAKTI CAPITAL INDONESIA ', NULL, 'INDRA SYAILANA ', NULL, '1989-11-14', NULL, '64', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM30', '2019-07-17', '2020-07-17'),
+('WLKP29', 'ARTHA GUNA SEJAHTERA ', 'PERBANKAN ', 'VOLIANA ', NULL, 'SITI KOMARIAH ', NULL, '1994-01-07', NULL, '14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM31', '2019-07-17', '2020-07-17'),
+('WLKP3', 'JAKARTA INTILAND ', 'JASA ', 'JAKARTA INTILAND ', NULL, 'RACHMAT BUDIMAN ', NULL, '1993-10-18', NULL, '38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM5', '2019-07-17', '2020-07-17'),
+('WLKP30', 'METAGUNA INNOVA ', 'PERDAGANGAN BARANG DAN JASA ', 'VOLIANA ', NULL, 'SITI KOMARIAH ', NULL, '2004-07-26', NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM32', '2019-07-17', '2020-07-17'),
+('WLKP31', 'SUPER EXIMSARI ', 'INDUSTRI PLASTIK ', 'ONIY BIE HUA ', NULL, 'GANJAR PURNOMO ', NULL, '0000-00-00', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM33', '2019-07-17', '2020-07-17'),
+('WLKP32', 'KATINEUNG RASA MANDIRI ', 'JASA BOGA/KATERING ', 'DEDEH YULIASIH ', NULL, 'EKO AJIWIBOWO ', NULL, '2015-06-09', NULL, '329', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM34', '2019-07-17', '2020-07-17'),
+('WLKP33', 'YUDHA BHAKTI  BANK ', 'PERBANKAN ', 'ASABRI PERSERO ', NULL, 'ARIFIN ', NULL, '1989-08-19', NULL, '68', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM35', '2019-07-17', '2020-07-17'),
+('WLKP34', 'MANDIRI TUNAS FINANCE ', 'LEMBAGA PEMBIYAAN ', 'IWAN TRISNADI ', NULL, 'IGNATIUS SUSATYOWIJOYO ', NULL, '1985-05-17', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM36', '2019-07-17', '2020-07-17'),
+('WLKP35', 'ADIRA DINAMIKA MULTI FINANCE ', 'LEMBAGA PEMBIAYAAN ', 'WILLY SUWANDI DARMA ', NULL, 'WAWAN HERMANSYAH ', NULL, '2010-12-02', NULL, '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM37', '2019-07-17', '2020-07-17'),
+('WLKP36', 'DINAMIKA INTI KARYA ', 'JASA OUTSOURCHING ', 'DEDE RIDWAN ', NULL, '', NULL, '2005-07-12', NULL, '26', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM38', '2019-07-17', '2020-07-17'),
+('WLKP37', 'TRISULA PRIMA AGUNG ', 'JASA PENGAMANAN ', 'GUNARDI ', NULL, 'GUNARDI ', NULL, '2003-04-03', NULL, '10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM39', '2019-07-17', '2020-07-17'),
+('WLKP38', 'USAHA JAYA PRIMA KARYA ', 'PERDAGANGAN ', 'PLN ', NULL, 'SUKARTONO HARIYADI ', NULL, '2003-03-25', NULL, '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM40', '2019-07-17', '2020-07-17'),
+('WLKP39', 'YAYASAN LAZUARDI HAYATI ', 'PENDIDIKAN ', 'HAIDAR BAGIR ', NULL, 'ZARONAH ', NULL, '2006-02-24', NULL, '15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM41', '2019-07-17', '2020-07-17'),
+('WLKP4', 'INDOMOBIL FINANCE INDONESIA ', 'LEASING PERBANKAN ', 'SUBROTO LARAS ', NULL, 'EKO.S HARYADI ', NULL, '2004-01-14', NULL, '2137', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM6', '2019-07-17', '2020-07-17'),
+('WLKP40', 'MUKTI SEJAHTERA TEKNIK ', 'PERDAGANGAN ', 'DHANI PRASETYO ', NULL, '', NULL, '2010-06-10', NULL, '38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM42', '2019-07-17', '2020-07-17'),
+('WLKP41', 'VENUS RUMAH BERNYANYI 2', 'HIBURAN ', 'DWI JAYA ', NULL, 'DWI JAYA ', NULL, '2009-09-17', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM43', '2019-07-17', '2020-07-17'),
+('WLKP42', 'BIOSKOP CINERE BELLEVUE XXI - 2', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', NULL, 'WAHYU GUNA HADI ', NULL, '2014-12-03', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM44', '2019-07-17', '2020-07-17'),
+('WLKP43', 'SINAR SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', NULL, 'RUSTONO ', NULL, '2003-01-11', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM45', '2019-07-17', '2020-07-17'),
+('WLKP44', 'CAHAYA SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', NULL, 'RUSTONO ', NULL, '2001-01-09', NULL, '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM46', '2019-07-17', '2020-07-17'),
+('WLKP45', 'SOLARIA ', 'RESTORAN ', 'ALIUYANTO ', NULL, 'RUSTONO ', NULL, '2001-01-09', NULL, '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM47', '2019-07-17', '2020-07-17'),
+('WLKP46', 'PUSAT KAJIAN DAN TERAPAN K3 ', 'JASA K3 ', 'DONI HIKMAT ', NULL, '', NULL, '1996-08-01', NULL, '20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM48', '2019-07-17', '2020-07-17'),
+('WLKP47', 'ACLARIN PRIMA SEJAHTERA ', 'OUTSOURCHING ', 'ANNY PRITARINI ', NULL, 'HERU PRITOKO ', NULL, '2017-01-01', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM49', '2019-07-17', '2020-07-17'),
+('WLKP48', 'DWI KARYA SEJAHTERA ABADI ', 'PENGADAAN BARANG DAN JASA ', 'SARWADI ', NULL, 'SARWADI ', NULL, '0000-00-00', NULL, '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM50', '2019-07-17', '2020-07-17'),
+('WLKP49', 'MITRA PINASHTIKA MUSTIKA FINANCE ', 'PEMBIAYAAN/PENDANAAN ', 'ANTON SRI NUGROHO ', NULL, '', NULL, '2012-02-29', NULL, '68', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM51', '2019-07-17', '2020-07-17'),
+('WLKP5', 'MATAHARI PUTRA PRIMA ', 'RETAIL ', 'MATAHARI PUTRA PRIMA ', NULL, 'TONI ALIANDI ', NULL, '1986-11-03', NULL, '30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM7', '2019-07-17', '2020-07-17'),
+('WLKP50', 'BUNDA MEDIK (RS.BUNDA MARGONDA)', 'RUMAH SAKIT ', 'DR. IMELDA RACHMAWATI ', NULL, 'RIVA RIANI ', NULL, '2006-05-15', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM52', '2019-07-17', '2020-07-17'),
+('WLKP51', 'PROPINDO SEDAYU ', 'PROPERTY ', 'IR. TEDDY BUDIARTA ', NULL, 'DESTU PARADIFA ', NULL, '1993-08-17', NULL, '160', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM53', '2019-07-17', '2020-07-17'),
+('WLKP52', 'SYAHRAN ', 'PERDAGANGAN BBM ', 'SYAHRAN ', NULL, 'SYAHRAN ', NULL, '2012-11-15', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM54', '2019-07-17', '2020-07-17'),
+('WLKP53', 'ADHI KARYA ', 'JASA KONSTRUKSI ', 'ADHI KARYA ', NULL, 'HERY PRAYONO ', NULL, '0000-00-00', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM55', '2019-07-17', '2020-07-17'),
+('WLKP54', 'MATAHARI DEPT. STORE ', 'RETAIL ', 'MATAHARI DEPT STORE ', NULL, 'ERFIN WIDI PRAMONO ', NULL, '2009-10-30', NULL, '61', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM56', '2019-07-17', '2020-07-17'),
+('WLKP55', 'BRI KCP CIMANGGIS ', 'PERBANKAN ', 'POPPY AGUSTIN ', NULL, '', NULL, '2008-09-02', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM57', '2019-07-17', '2020-07-17'),
+('WLKP56', 'SENTRA SOLUSI SERVICE ', 'PERDAGANGAN UMUM DAN JASA ', 'BUDI SETIAWAN ', NULL, '', NULL, '2014-06-04', NULL, '16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM58', '2019-07-17', '2020-07-17'),
+('WLKP57', 'WARNA MAINT ', 'TRAINING AND SRVICE ', 'A. SUGANDI R ', NULL, 'A. BAMBANG H ', NULL, '2003-09-01', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM59', '2019-07-17', '2020-07-17'),
+('WLKP58', 'MARUSINDO AJIMANDIRI ', 'KONSTRUKSI DAN JASA ', 'IR. DJOKO STYO WIDODO ', NULL, '', NULL, '1995-08-30', NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUSAT', NULL, 'Swasta', 'SWASTA NASIONAL', 'ALM60', '2019-07-17', '2020-07-17'),
+('WLKP59', 'SUMBER MEDIKA LESTARI ', 'PERDAGANGAN BESAR ', 'LO VANA ', NULL, 'DWI KRISNAWAN ', NULL, '2014-10-20', NULL, '20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM61', '2019-07-17', '2020-07-17'),
+('WLKP6', 'OPTIK MELAWAI PRIMA ', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-10-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL ', 'ALM8', '2019-07-17', '2020-07-17'),
+('WLKP60', 'ANUGERAH MANDIRI KARYABERSAMA', 'PERGDANGAN UMUM DAN JASA ', 'LINA ', NULL, 'WINDU ', NULL, '2006-09-13', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM62', '2019-07-17', '2020-07-17'),
+('WLKP61', 'VENUS RUMAH BERNYANYI ', 'HIBURAN DAN OLAH RAGA ', 'DWI JAYA ', NULL, 'DWI JAYA ', NULL, '1999-09-17', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM63', '2019-07-17', '2020-07-17'),
+('WLKP62', 'BIOSKOP CINERE BELLEVUE XXI', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', NULL, 'WAHYU GUNA HADI ', NULL, '2014-12-03', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM64', '2019-07-17', '2020-07-17'),
+('WLKP63', 'a', 'c', 'd', 'f', 'e', 'g', '0000-00-00', '0000-00-00', '1', '0000-00-00', '2', '3', '4', '5', '6', '7', '8', 'h', 'i', 'PUSAT', NULL, 'Persero', 'j', 'ALM65', '2019-07-28', '2020-07-28'),
+('WLKP64', 'akum', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', 0, '-Silahkan Pilih-', '', 'ALM66', '2019-07-26', '2020-07-26'),
+('WLKP7', 'OPTIK MELAWAI PRIMA 2', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-10-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM9', '2019-07-17', '2020-07-17'),
+('WLKP8', 'OPTIK MELAWAI PRIMA 3', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-10-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM10', '2019-07-17', '2020-07-17'),
+('WLKP9', 'SARI RASA NUSANTARA ', 'RESTORAN ', 'BENNY HADISURJO ', NULL, 'ROBERT B.SUPARNO ', NULL, '2007-12-26', NULL, '268', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM11', '2019-07-17', '2020-07-17');
 
 -- --------------------------------------------------------
 
@@ -84031,6 +84112,12 @@ ALTER TABLE `table_alat_bahan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_bpjs`
+--
+ALTER TABLE `table_bpjs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_email`
 --
 ALTER TABLE `table_email`
@@ -84052,6 +84139,12 @@ ALTER TABLE `table_history_login`
 -- Indexes for table `table_history_pembaruan`
 --
 ALTER TABLE `table_history_pembaruan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `table_industrial`
+--
+ALTER TABLE `table_industrial`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -84085,6 +84178,12 @@ ALTER TABLE `table_login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_pemagangan`
+--
+ALTER TABLE `table_pemagangan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_pengesahan`
 --
 ALTER TABLE `table_pengesahan`
@@ -84115,9 +84214,15 @@ ALTER TABLE `table_pp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `table_rencana_tenaga_kerja`
+-- Indexes for table `table_rencana_butuh_tk`
 --
-ALTER TABLE `table_rencana_tenaga_kerja`
+ALTER TABLE `table_rencana_butuh_tk`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `table_rencana_tk_terakhir`
+--
+ALTER TABLE `table_rencana_tk_terakhir`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -84153,7 +84258,13 @@ ALTER TABLE `villages`
 -- AUTO_INCREMENT for table `table_alat_bahan`
 --
 ALTER TABLE `table_alat_bahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT for table `table_bpjs`
+--
+ALTER TABLE `table_bpjs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `table_email`
@@ -84165,7 +84276,7 @@ ALTER TABLE `table_email`
 -- AUTO_INCREMENT for table `table_fasilitas`
 --
 ALTER TABLE `table_fasilitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `table_history_login`
@@ -84180,6 +84291,12 @@ ALTER TABLE `table_history_pembaruan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
 
 --
+-- AUTO_INCREMENT for table `table_industrial`
+--
+ALTER TABLE `table_industrial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `table_k3`
 --
 ALTER TABLE `table_k3`
@@ -84189,7 +84306,7 @@ ALTER TABLE `table_k3`
 -- AUTO_INCREMENT for table `table_ketenagakerjaan`
 --
 ALTER TABLE `table_ketenagakerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `table_lks`
@@ -84204,10 +84321,16 @@ ALTER TABLE `table_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `table_pemagangan`
+--
+ALTER TABLE `table_pemagangan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `table_pengesahan`
 --
 ALTER TABLE `table_pengesahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `table_pengurus`
@@ -84228,16 +84351,22 @@ ALTER TABLE `table_pp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `table_rencana_tenaga_kerja`
+-- AUTO_INCREMENT for table `table_rencana_butuh_tk`
 --
-ALTER TABLE `table_rencana_tenaga_kerja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+ALTER TABLE `table_rencana_butuh_tk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `table_rencana_tk_terakhir`
+--
+ALTER TABLE `table_rencana_tk_terakhir`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_warga_negara`
 --
 ALTER TABLE `table_warga_negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `table_wlkp`

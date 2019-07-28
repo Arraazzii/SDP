@@ -897,7 +897,7 @@
         </div>
 
         <?php
-            foreach ($data_wlkp_perusahaan as $row):
+            foreach ($detail_wlkp_perusahaan as $row):
                 $kode_wlkp      = $row->kode_wlkp;
                 $kode_alamat    = $row->kode_alamat;
 
@@ -914,9 +914,9 @@
                 $alamat_pengurus        = $row->alamat_pengurus;
                 $tanggal_pendirian      = $row->tanggal_pendirian;
                 $tanggal_akte_pendirian = $row->tanggal_akte_pendirian;
-                $no_pendirian           = $row->no_pendirian;
+                $no_pendirian           = $row->nomor_pendirian;
                 $tanggal_akte_perubahan = $row->tanggal_akte_perubahan;
-                $no_perubahan           = $row->no_perubahan;
+                $no_perubahan           = $row->nomor_perubahan;
                 $no_siup                = $row->no_siup;
                 $no_tdp                 = $row->no_tdp;
                 $no_npwp                = $row->no_npwp;
@@ -1032,14 +1032,21 @@
                 $lsp_nama           = $row->lsp_nama;
                 $penempatan         = $row->penempatan;
 
-                // TABLE RENCANA TENAGA KERJA
-                $sdm_l          = $row->sdm_l;
-                $sdm_p          = $row->sdm_p;
-                $jumlah_sdm     = $row->jumlah_sdm;
-                $pendidikan     = $row->pendidikan;
-                $kualifikasi    = $row->kualifikasi;
-                $jabatan        = $row->posisi;
-                $tipe           = $row->tipe;
+                // TABLE RENCANA BUTUH TENAGA KERJA
+                $rencana_pekerja_l  = $row->rencana_pekerja_l;
+                $rencana_pekerja_p  = $row->rencana_pekerja_p;
+                $jumlah_pekerja     = $row->jumlah_pekerja;
+                $pendidikan         = $row->pendidikan;
+                $kualifikasi        = $row->kualifikasi;
+                $jabatan            = $row->jabatan;
+
+                // TABLE RENCANA TENAGA KERJA TERAKHIR
+                $pekerja_l_terakhir     = $row->pekerja_l_terakhir;
+                $pekerja_p_terakhir     = $row->pekerja_p_terakhir;
+                $jumlah_sdm             = $row->jumlah_sdm;
+                $pendidikan_terakhir    = $row->pendidikan_terakhir;
+                $kualifikasi_terakhir   = $row->kualifikasi_terakhir;
+                $jabatan_terakhir       = $row->jabatan_terakhir;
 
                 // TABLE PENGESAHAN
                 $tempat_pengesahan  = $row->tempat_pengesahan;
@@ -1155,11 +1162,17 @@
                                                                 <th>Kelurahan</th>
                                                             </tr>
                                                             <tr>
-                                                                <td>
-                                                                <input type="text" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" name="kecamatan_perusahaan">
+                                                                <td>              
+                                                                <input type="text" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" id="kecamatan<?php echo $kode_wlkp; ?>">
+                                                                <select name="kecamatan_perusahaan" class="form-control" id="ekecamatan<?php echo $kode_wlkp; ?>">
+                                                                    <option hidden>-Pilih Kecamatan-</option>
+                                                                </select>
                                                                 </td>
                                                                 <td>
-                                                                <input type="text" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" name="kelurahan_perusahaan">
+                                                                <input type="text" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" id="kelurahan<?php echo $kode_wlkp; ?>">
+                                                                <select name="kelurahan_perusahaan" class="form-control" id="ekelurahan<?php echo $kode_wlkp; ?>">
+                                                                    <option hidden>-Pilih Kelurahan-</option>
+                                                                </select>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1671,13 +1684,13 @@
                                                             <label>Standarisasi</label>
                                                             <select class="form-control" name="standarisasi">
                                                                 <option hidden>-Silahkan Pilih-</option>
-                                                                <option value="Khusus"
-                                                                    <?php if ($standarisasi == 'Khusus') {
+                                                                <option value="KHUSUS"
+                                                                    <?php if ($standarisasi == 'KHUSUS') {
                                                                         echo 'selected';
                                                                     } ?>
                                                                 >Khusus</option>
-                                                                <option value="Internasional"
-                                                                    <?php if ($standarisasi == 'Internasional') {
+                                                                <option value="INTERNASIONAL"
+                                                                    <?php if ($standarisasi == 'INTERNASIONAL') {
                                                                         echo 'selected';
                                                                     } ?>
                                                                 >Internasional</option>
@@ -1687,18 +1700,18 @@
                                                             <label>Skema</label>
                                                             <select class="form-control" name="skema">
                                                                 <option hidden>-Silahkan Pilih-</option>
-                                                                <option value="Kualifikasi"
-                                                                    <?php if ($skema == 'Kualifikasi') {
+                                                                <option value="KUALIFIKASI"
+                                                                    <?php if ($skema == 'KUALIFIKASI') {
                                                                         echo 'selected';
                                                                     } ?>
                                                                 >Kualifikasi</option>
-                                                                <option value="Okupasi"
-                                                                    <?php if ($skema == 'Okupasi') {
+                                                                <option value="OKUPASI"
+                                                                    <?php if ($skema == 'OKUPASI') {
                                                                         echo 'selected';
                                                                     } ?>
                                                                 >Okupasi</option>
-                                                                <option value="Kluster"
-                                                                    <?php if ($skema == 'Kluster') {
+                                                                <option value="KLUSTER"
+                                                                    <?php if ($skema == 'KLUSTER') {
                                                                         echo 'selected';
                                                                     } ?>
                                                                 >Kluster</option>
@@ -2190,7 +2203,7 @@
                                         </div>    
                                     </div>
 
-                                    <div class="tab-pane fade" id="nav-tanggal_lapor" role="tabpanel" aria-labelledby="nav-tanggal_lapor">
+                                    <div class="tab-pane fade" id="nav-tanggal_lapor<?php echo $kode_wlkp; ?>" role="tabpanel" aria-labelledby="nav-tanggal_lapor">
                                        <div class="form-group">
                                             <fieldset>     
                                                 <legend> Tanggal Lapor </legend>
@@ -2534,77 +2547,84 @@ foreach ($data_wlkp_perusahaan as $row):
 
     $(function() {
         $("#myModalEdit<?php echo $kode_wlkp; ?>").each(function(index){
-        var parents = $(this)
-        var kecamatan = parents.find("input[name='kecamatan-edit']").val();
-        var kelurahan = parents.find("input[name='kelurahan-edit']").val();
-        var form_data = {}
+            var kecamatan = $('#kecamatan<?php echo $kode_wlkp; ?>').val();
+            var kelurahan = $('#kelurahan<?php echo $kode_wlkp; ?>').val();
+            var form_data = {}
 
-        var kecamatanLoad = false;
-          $.ajax({
-            url: "<?= base_url() ?>indonesia/get_kecamatan",
-            type: "POST",
-            data: form_data,
-            dataType: "json",
-            async:false,
-            success : function(data){
-              parents.find("select[name='kecamatan_perusahaan']").empty();
-              var option = "<option value=''>-Pilih Kecamatan-</option>";
-              $.each(data, function(index, value){
-                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                option += "<option value='"+value.name+"'>"+value.name+"</option>";
-              });
-              console.log(data, option);
-              parents.find("select[name='kecamatan_perusahaan']").append(option);
-              kecamatanLoad = true;
-            },
-            error : function(e){
-              console.log(e);
-            },
-          });
+            var kecamatanLoad = false;
+            $.ajax({
+                url: "<?= base_url() ?>indonesia/get_kecamatan",
+                type: "POST",
+                data: form_data,
+                dataType: "json",
+                async:false,
+                success : function(data){
+                    $('#ekecamatan<?php echo $kode_wlkp; ?>').empty();
+                    var option = "<option value=''>-Pilih Kecamatan-</option>";
+                    $.each(data, function(index, value){
+                    // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                        if (value.name === kecamatan) {
+                            option += "<option value='"+value.name+"' selected>"+value.name+"</option>";
+                        }
+                        else {
+                            option += "<option value='"+value.name+"' >"+value.name+"</option>";
+                        }
+                    });
+                    console.log(data, option);
+                    $('#ekecamatan<?php echo $kode_wlkp; ?>').append(option);
+                    kecamatanLoad = true;
+                },
+                error : function(e){
+                  console.log(e);
+                },
+            });
+
+            var kelurahanLoad = false;
+            $('#ekecamatan<?php echo $kode_wlkp; ?>').change(function(){
+                var form_data = {
+                    districtsId : $(this).val(),
+                }
+
+                $.ajax({
+                    url: "<?= base_url() ?>indonesia/get_kelurahan",
+                    type: "POST",
+                    data: form_data,
+                    dataType: "json",
+                    async:false,
+                    success : function(data){
+                        $('#ekelurahan<?php echo $kode_wlkp; ?>').empty();
+                        var option = "<option value=''>-Pilih Kelurahan-</option>";
+                        $.each(data, function(index, value){
+                            // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                            if (value.name === kelurahan) {
+                                option += "<option value='"+value.name+"' selected>"+value.name+"</option>";
+                            }
+                            else {
+                                option += "<option value='"+value.name+"' >"+value.name+"</option>";
+                            }
+                        });
+                        console.log(data, option);
+                        $('#ekelurahan<?php echo $kode_wlkp; ?>').append(option);
+                        kelurahanLoad = true;
+                    },
+                    error : function(e){
+                      console.log(e);
+                    },
+                });
+            });
+
+            var kecamatanLength = false;
+            if (kecamatan != "" && kecamatanLoad == true) {
+                $('#ekecamatan<?php echo $kode_wlkp; ?>').val(kecamatan.toUpperCase()).change();
+                kecamatanLength = true;
+            }
         });
-
-        var kelurahanLoad = false;
-        parents.find("select[name='kecamatan_perusahaan']").change(function(){
-          var form_data = {
-            districtsId : $(this).val(),
-          }
-
-          $.ajax({
-            url: "<?= base_url() ?>indonesia/get_kelurahan",
-            type: "POST",
-            data: form_data,
-            dataType: "json",
-            async:false,
-            success : function(data){
-              parents.find("select[name='kelurahan_perusahaan']").empty();
-              var option = "<option value=''>-Pilih Kelurahan-</option>";
-              $.each(data, function(index, value){
-                // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                option += "<option value='"+value.name+"'>"+value.name+"</option>";
-              });
-              console.log(data, option);
-              parents.find("select[name='kelurahan_perusahaan']").append(option);
-              kelurahanLoad = true;
-            },
-            error : function(e){
-              console.log(e);
-            },
-          });
-        });
-
-        var kecamatanLength = false;
-        if (kecamatan != "" && kecamatanLoad == true) {
-          parents.find("select[name='kecamatan_perusahaan']").val(kecamatan.toUpperCase()).change();
-          kecamatanLength = true;
-        }
 
         var kelurahanLength = false;
         if (kecamatanLength == true && kelurahan != "" && kelurahanLoad == true) {
-          parents.find("select[name='kelurahan_perusahaan']").val(kelurahan.toUpperCase()).change();
-          kelurahanLength = true;
+            $('#ekelurahan<?php echo $kode_wlkp; ?>').val(kelurahan.toUpperCase()).change();
+            kelurahanLength = true;
         }
-        console.log(provinsi.toUpperCase(), kecamatan, kelurahan);
-
     });
 </script>
 
