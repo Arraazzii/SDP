@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2019 at 06:36 PM
+-- Generation Time: Aug 04, 2019 at 04:55 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.5
 
@@ -7926,7 +7926,7 @@ INSERT INTO `table_alamat` (`kode_alamat`, `alamat`, `provinsi`, `kota`, `kecama
 ('ALM63', 'DEPOK TOWN SQUARE LT.6 \r\n', '', '', 'BEJI ', 'PD.CINA ', '', '021-78870402'),
 ('ALM64', 'CINERE BELLEVUE MALL LT.I CINERE NO.1 \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403890'),
 ('ALM65', 'b', '', '', 'SUKMA JAYA', 'CISALAK', '', '123'),
-('ALM66', 'basecamp', '', '', 'CIMANGGIS', 'CISALAK PASAR', '', ''),
+('ALM66', 'basecamp', '', '', 'CIMANGGIS', 'CISALAK PASAR', '', '957865'),
 ('ALM7', 'KOMP.AL PK.JATI \r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-29403813'),
 ('ALM8', 'MALL CINERE LT.DASAR NO.36\r\n', '', '', 'CINERE ', 'PK.JATI ', '', '021-7545045'),
 ('ALM9', 'JL.CINERE RAYA RT.3/8\r\n', '', '', 'CINERE ', 'CINERE ', '', '021-7533615');
@@ -8057,8 +8057,13 @@ CREATE TABLE `table_bpjs` (
 --
 
 INSERT INTO `table_bpjs` (`id`, `tanggal_mulai`, `no_daftar_bpjs`, `peserta_tk`, `peserta_keluarga`, `jaminan_kecelakaan`, `jaminan_kematian`, `jaminan_haritua`, `jaminan_pensiun`, `kode_wlkp`) VALUES
-(5, NULL, '0', 0, NULL, 'y', 'y', 'y', 'y', 'WLKP63'),
-(6, NULL, '', 0, 0, '', '', '', '', 'WLKP64');
+(5, NULL, '0', 0, 0, 'y', 'y', 'y', 'y', 'WLKP63'),
+(6, NULL, '', 0, 0, '', '', '', '', 'WLKP64'),
+(7, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP1'),
+(8, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP2'),
+(9, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP3'),
+(10, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP4'),
+(11, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP5');
 
 -- --------------------------------------------------------
 
@@ -8252,7 +8257,12 @@ CREATE TABLE `table_industrial` (
 
 INSERT INTO `table_industrial` (`id`, `phk_pk`, `phk_pp`, `phk_pkb`, `pok_bipartit`, `pok_sptp`, `pok_uksp`, `pok_p2k3`, `pok_apindo`, `pok_kadin`, `kode_wlkp`) VALUES
 (2, '0', '0', '0', '0', '0', '0', '0', '0', '0', 'WLKP63'),
-(3, '', '', '', '', '', '', '', '', '', 'WLKP64');
+(3, '', '', '', '', '', '', '', '', '', 'WLKP64'),
+(4, '', '', '', '', '', '', '', '', '', 'WLKP1'),
+(5, '', '', '', '', '', '', '', '', '', 'WLKP2'),
+(6, '', '', '', '', '', '', '', '', '', 'WLKP3'),
+(7, '', '', '', '', '', '', '', '', '', 'WLKP4'),
+(8, '', '', '', '', '', '', '', '', '', 'WLKP5');
 
 -- --------------------------------------------------------
 
@@ -8499,8 +8509,13 @@ CREATE TABLE `table_pemagangan` (
 --
 
 INSERT INTO `table_pemagangan` (`id`, `kebutuhan_magang`, `jmlh_peserta`, `standarisasi`, `skema`, `lsp_p1`, `lsp_p2`, `lsp_p3`, `lsp_nama`, `penempatan`, `kode_wlkp`) VALUES
-(5, 'k', NULL, 'KHUSUS', 'OKUPASI', '0', '0', '0', 'l', 'm', 'WLKP63'),
-(6, '', 0, '', '', '', '', '', '', '', 'WLKP64');
+(5, 'k', 0, 'KHUSUS', 'OKUPASI', '0', '0', '0', 'l', 'm', 'WLKP63'),
+(6, '', 0, '', '', '', '', '', '', '', 'WLKP64'),
+(7, '', 0, '', '', '', '', '', '', '', 'WLKP1'),
+(8, '', 0, '', '', '', '', '', '', '', 'WLKP2'),
+(9, '', 0, '', '', '', '', '', '', '', 'WLKP3'),
+(10, '', 0, '', '', '', '', '', '', '', 'WLKP4'),
+(11, '', 0, '', '', '', '', '', '', '', 'WLKP5');
 
 -- --------------------------------------------------------
 
@@ -8723,7 +8738,7 @@ DELIMITER ;
 --
 
 CREATE TABLE `table_rencana_butuh_tk` (
-  `id` int(11) NOT NULL,
+  `id_butuh` int(11) NOT NULL,
   `rencana_pekerja_l` int(11) DEFAULT NULL,
   `rencana_pekerja_p` int(11) DEFAULT NULL,
   `jumlah_pekerja` int(11) DEFAULT NULL,
@@ -8737,10 +8752,14 @@ CREATE TABLE `table_rencana_butuh_tk` (
 -- Dumping data for table `table_rencana_butuh_tk`
 --
 
-INSERT INTO `table_rencana_butuh_tk` (`id`, `rencana_pekerja_l`, `rencana_pekerja_p`, `jumlah_pekerja`, `pendidikan`, `kualifikasi`, `jabatan`, `kode_wlkp`) VALUES
+INSERT INTO `table_rencana_butuh_tk` (`id_butuh`, `rencana_pekerja_l`, `rencana_pekerja_p`, `jumlah_pekerja`, `pendidikan`, `kualifikasi`, `jabatan`, `kode_wlkp`) VALUES
 (4, 0, 0, 0, 'SD', 'n', 'o', 'WLKP63'),
-(5, 0, 0, 0, 'SD', 'a', 'b', 'WLKP64'),
-(6, 0, 0, 0, 'D3', 'g', 'h', 'WLKP64');
+(5, 0, 0, 0, 'SMP', 'a', 'b', 'WLKP64'),
+(6, 0, 0, 0, '', '', '', 'WLKP1'),
+(7, 0, 0, 0, '', '', '', 'WLKP2'),
+(8, 0, 0, 0, '', '', '', 'WLKP3'),
+(9, 0, 0, 0, '', '', '', 'WLKP4'),
+(10, 0, 0, 0, '', '', '', 'WLKP5');
 
 -- --------------------------------------------------------
 
@@ -8749,7 +8768,7 @@ INSERT INTO `table_rencana_butuh_tk` (`id`, `rencana_pekerja_l`, `rencana_pekerj
 --
 
 CREATE TABLE `table_rencana_tk_terakhir` (
-  `id` int(11) NOT NULL,
+  `id_akhir` int(11) NOT NULL,
   `pekerja_l_terakhir` int(11) DEFAULT NULL,
   `pekerja_p_terakhir` int(11) DEFAULT NULL,
   `jumlah_sdm` int(11) DEFAULT NULL,
@@ -8763,10 +8782,14 @@ CREATE TABLE `table_rencana_tk_terakhir` (
 -- Dumping data for table `table_rencana_tk_terakhir`
 --
 
-INSERT INTO `table_rencana_tk_terakhir` (`id`, `pekerja_l_terakhir`, `pekerja_p_terakhir`, `jumlah_sdm`, `pendidikan_terakhir`, `kualifikasi_terakhir`, `jabatan_terakhir`, `kode_wlkp`) VALUES
+INSERT INTO `table_rencana_tk_terakhir` (`id_akhir`, `pekerja_l_terakhir`, `pekerja_p_terakhir`, `jumlah_sdm`, `pendidikan_terakhir`, `kualifikasi_terakhir`, `jabatan_terakhir`, `kode_wlkp`) VALUES
 (2, 0, 0, 0, 'SMP', 'p', 'q', 'WLKP63'),
 (3, 0, 0, 0, 'SMP', 'c', 'd', 'WLKP64'),
-(4, 0, 0, 0, 'SMA', 'e', 'f', 'WLKP64');
+(4, 0, 0, 0, '', '', '', 'WLKP1'),
+(5, 0, 0, 0, '', '', '', 'WLKP2'),
+(6, 0, 0, 0, '', '', '', 'WLKP3'),
+(7, 0, 0, 0, '', '', '', 'WLKP4'),
+(8, 0, 0, 0, '', '', '', 'WLKP5');
 
 -- --------------------------------------------------------
 
@@ -84217,13 +84240,13 @@ ALTER TABLE `table_pp`
 -- Indexes for table `table_rencana_butuh_tk`
 --
 ALTER TABLE `table_rencana_butuh_tk`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_butuh`);
 
 --
 -- Indexes for table `table_rencana_tk_terakhir`
 --
 ALTER TABLE `table_rencana_tk_terakhir`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_akhir`);
 
 --
 -- Indexes for table `table_warga_negara`
@@ -84264,7 +84287,7 @@ ALTER TABLE `table_alat_bahan`
 -- AUTO_INCREMENT for table `table_bpjs`
 --
 ALTER TABLE `table_bpjs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `table_email`
@@ -84294,7 +84317,7 @@ ALTER TABLE `table_history_pembaruan`
 -- AUTO_INCREMENT for table `table_industrial`
 --
 ALTER TABLE `table_industrial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `table_k3`
@@ -84324,7 +84347,7 @@ ALTER TABLE `table_login`
 -- AUTO_INCREMENT for table `table_pemagangan`
 --
 ALTER TABLE `table_pemagangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `table_pengesahan`
@@ -84354,13 +84377,13 @@ ALTER TABLE `table_pp`
 -- AUTO_INCREMENT for table `table_rencana_butuh_tk`
 --
 ALTER TABLE `table_rencana_butuh_tk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_butuh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `table_rencana_tk_terakhir`
 --
 ALTER TABLE `table_rencana_tk_terakhir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_akhir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `table_warga_negara`

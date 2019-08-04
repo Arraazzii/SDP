@@ -175,21 +175,21 @@ class m_admin extends CI_Model {
 
 	// Tampil Data WLKP Perusahaan
 	public function detail_wlkp_perusahaan(){
-		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_bpjs ON table_wlkp_perusahaan.kode_wlkp = table_bpjs.kode_wlkp JOIN table_pemagangan ON table_wlkp_perusahaan.kode_wlkp = table_pemagangan.kode_wlkp JOIN table_rencana_butuh_tk ON table_wlkp_perusahaan.kode_wlkp = table_rencana_butuh_tk.kode_wlkp JOIN table_rencana_tk_terakhir ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tk_terakhir.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp JOIN table_industrial ON table_wlkp_perusahaan.kode_wlkp = table_industrial.kode_wlkp");
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_bpjs ON table_wlkp_perusahaan.kode_wlkp = table_bpjs.kode_wlkp JOIN table_pemagangan ON table_wlkp_perusahaan.kode_wlkp = table_pemagangan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp JOIN table_industrial ON table_wlkp_perusahaan.kode_wlkp = table_industrial.kode_wlkp");
 		return $query->result();
 	}
 
-	// Tampil Data WLKP Perusahaan
-	// public function data_wlkp_perusahaan(){
-	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
-	// 	return $query->result();
-	// }
+	// Tampil Data Rencana Ketanagakerjaan Dibutuhkan
+	public function rencana_butuh_tk($kode){
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_rencana_butuh_tk ON table_wlkp_perusahaan.kode_wlkp = table_rencana_butuh_tk.kode_wlkp WHERE table_rencana_butuh_tk.kode_wlkp='$kode'");
+		return $query->result();
+	}
 
-	// Tampil Data WLKP Perusahaan
-	// public function detail_wlkp_perusahaan($kode){
-	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
-	// 	return $query->result();
-	// }
+	// Tampil Data Rencana Ketanagakerjaan Terakhir
+	public function rencana_tk_terakhir($kode){
+		$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_rencana_tk_terakhir ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tk_terakhir.kode_wlkp WHERE table_rencana_tk_terakhir.kode_wlkp='$kode'");
+		return $query->result();
+	}
 
 	// Delete WLKP Perusahaan
 	public function delete_wlkp($kode){
@@ -210,6 +210,26 @@ class m_admin extends CI_Model {
 		if ($wlkp_perusahaan && $warga_negara && $pengesahan && $tenaga_kerja && $fasilitas && $alat_bahan && $alamat && $bpjs && $pemagangan && $rencana1 && $rencana2 && $industrial) {
 			return true;
 		} else {
+			return false;
+		}
+	}
+
+	public function delete_rencana_butuh($id){
+		$butuh = $this->db->query("DELETE FROM table_rencana_butuh_tk WHERE id_butuh = '$id'");
+		if ($butuh) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public function delete_rencana_akhir($id){
+		$akhir = $this->db->query("DELETE FROM table_rencana_tk_terakhir WHERE id_akhir = '$id'");
+		if ($akhir) {
+			return true;
+		}
+		else {
 			return false;
 		}
 	}
@@ -560,3 +580,16 @@ class m_admin extends CI_Model {
 		return $data;
 	}
 }
+
+
+	// Tampil Data WLKP Perusahaan
+	// public function data_wlkp_perusahaan(){
+	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_rencana_tenaga_kerja ON table_wlkp_perusahaan.kode_wlkp = table_rencana_tenaga_kerja.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp");
+	// 	return $query->result();
+	// }
+
+	// Tampil Data WLKP Perusahaan
+	// public function detail_wlkp_perusahaan($kode){
+	// 	$query = $this->db->query("SELECT * FROM table_wlkp_perusahaan JOIN table_alamat ON table_wlkp_perusahaan.kode_alamat = table_alamat.kode_alamat JOIN table_warga_negara ON table_wlkp_perusahaan.kode_wlkp = table_warga_negara.kode_wlkp JOIN table_ketenagakerjaan ON table_wlkp_perusahaan.kode_wlkp = table_ketenagakerjaan.kode_wlkp JOIN table_pengesahan ON table_wlkp_perusahaan.kode_wlkp = table_pengesahan.kode_wlkp JOIN table_alat_bahan ON table_wlkp_perusahaan.kode_wlkp = table_alat_bahan.kode_wlkp JOIN table_fasilitas ON table_wlkp_perusahaan.kode_wlkp = table_fasilitas.kode_wlkp WHERE table_wlkp_perusahaan.kode_wlkp = '$kode'");
+	// 	return $query->result();
+	// }

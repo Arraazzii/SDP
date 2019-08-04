@@ -397,6 +397,7 @@ $pdf = new FPDF('L','mm','A4');
                 ->m_admin
                 ->detail_wlkp_perusahaan()
         );
+        
         $path = "";
         $data = array(
             "page" => $this->load("Admin - WLKP Perusahaan", $path),
@@ -407,6 +408,18 @@ $pdf = new FPDF('L','mm','A4');
         $this
         ->load
         ->view('admin/template/admin_template', $data);
+    }
+
+    public function rencana_butuh_tk(){
+        $kode = $this->input->post('kode');
+        $butuh = $this->m_admin->rencana_butuh_tk($kode);
+        echo json_encode($butuh);
+    }
+
+    public function rencana_tk_terakhir(){
+        $kode = $this->input->post('kode');
+        $akhir = $this->m_admin->rencana_tk_terakhir($kode);
+        echo json_encode($akhir);
     }
 
     // FUNCTION INPUT WLKP PERUSAHAAN 
@@ -1178,7 +1191,7 @@ $pdf = new FPDF('L','mm','A4');
 
         $array = count($this->input->post('rencana_pekerja_l'));
         for($i = 0; $i < $array; $i++) {
-            $data = array (
+            $data_butuh = array (
                 'rencana_pekerja_l'    => $_POST['rencana_pekerja_l'][$i],
                 'rencana_pekerja_p'    => $_POST['rencana_pekerja_p'][$i],
                 'jumlah_pekerja'       => $_POST['rencana_pekerja_l'][$i] + $_POST['rencana_pekerja_p'][$i],
@@ -1186,7 +1199,8 @@ $pdf = new FPDF('L','mm','A4');
                 'kualifikasi'          => $_POST['kualifikasi'][$i],
                 'jabatan'              => $_POST['jabatan'][$i]
             );
-            $this->db->insert("table_rencana_butuh_tk", $data);
+            $this->db->where('kode_wlkp', $kode_wlkp);
+            $this->db->update('table_rencana_butuh_tk', $data_butuh);
         }
 
         // TABLE RENCANA TENAGA KERJA TIPE 2
@@ -1199,7 +1213,7 @@ $pdf = new FPDF('L','mm','A4');
 
         $arrays = count($this->input->post('pekerja_l_terakhir'));
         for($j = 0; $j < $arrays; $j++) {
-            $datas = array (
+            $data_akhir = array (
                 'pekerja_l_terakhir'    => $_POST['pekerja_l_terakhir'][$j],
                 'pekerja_p_terakhir'    => $_POST['pekerja_p_terakhir'][$j],
                 'jumlah_sdm'            => $_POST['pekerja_l_terakhir'][$j] + $_POST['pekerja_p_terakhir'][$j],
@@ -1207,7 +1221,8 @@ $pdf = new FPDF('L','mm','A4');
                 'kualifikasi_terakhir'  => $_POST['kualifikasi_terakhir'][$j],
                 'jabatan_terakhir'      => $_POST['jabatan_terakhir'][$j]
             );
-            $this->db->insert("table_rencana_tk_terakhir", $datas);
+            $this->db->where('kode_wlkp', $kode_wlkp);
+            $this->db->update('table_rencana_tk_terakhir', $data_akhir);
         }
 
         // TABLE PENGESAHAN
@@ -1358,23 +1373,13 @@ $pdf = new FPDF('L','mm','A4');
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_ketenagakerjaan', $data_tenagakerja);
 
-
         // Update BPJS
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_bpjs', $data_bpjs);
 
-
         // Update Pemagangan
         $this->db->where('kode_wlkp', $kode_wlkp);
         $this->db->update('table_pemagangan', $data_magang);
-
-        // Update Rencana Butuh Tenaga Kerja
-        $this->db->where('kode_wlkp', $kode_wlkp);
-        $this->db->update('table_rencana_butuh_tk', $data_rencana_tk_1);
-
-        // Update Rencana Tenaga Kerja Terakhir
-        $this->db->where('kode_wlkp', $kode_wlkp);
-        $this->db->update('table_rencana_tk_terakhir', $data_rencana_tk_2);
 
         // Update Pengesahan
         $this->db->where('kode_wlkp', $kode_wlkp);
@@ -1412,8 +1417,20 @@ $pdf = new FPDF('L','mm','A4');
             <button type="button" class="close" data-dismiss="alert">&times</button>
                                                 </div>');
             redirect('admin/wlkp_perusahaan');
-
     }
+
+    public function delete_rencana_butuh(){
+        $id = $this->input->post('id_butuh');
+        $butuh = $this->m_admin->delete_rencana_butuh($id);
+        echo json_encode($butuh);
+    }
+
+    public function delete_rencana_akhir(){
+        $id = $this->input->post('id_akhir');
+        $akhir = $this->m_admin->delete_rencana_akhir($id);
+        echo json_encode($akhir);
+    }
+
 
     //HALAMAN REKAPITULASI PP
     public function rekap_pp()

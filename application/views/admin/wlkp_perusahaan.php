@@ -52,7 +52,7 @@
                                             <td><?php echo $row->no_telpon; ?></td>
                                             <td><?php echo $row->tgl_kadaluarsa; ?></td>
                                             <td>
-                                                <a href="" data-toggle="modal" title="Detail Data" data-target="#myModalEdit<?php echo $row->kode_wlkp;?>"><button type="button" class="btn btn-outline-primary">Detail</button></a>
+                                                <a href="" data-toggle="modal" title="Detail Data" data-target="#myModalEdit<?php echo $row->kode_wlkp;?>"><button type="button" class="btn btn-outline-primary" onclick="showDataRencana('<?php echo $row->kode_wlkp; ?>')">Detail</button></a>
                                                 <a href="<?php echo base_url(); ?>Admin/delete_wlkp/<?php echo $row->kode_wlkp; ?>">
                                                 <button type="button" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-outline-danger">Delete</button></a>
                                             </td>
@@ -593,7 +593,7 @@
                                                 <legend> Rencana Pekerja Yang Dibutuhkan </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <input id="idrow" value="1" type="hidden" />
+                                                        <input id="idrow1" value="1" type="hidden" />
                                                         <fieldset>
                                                         <div class="form-group col-md-4 col-sm-12">
                                                             <label>Laki - Laki</label>
@@ -625,10 +625,10 @@
                                                             <input type="text" class="form-control" name="jabatan[]">
                                                         </div>
                                                         </fieldset>
-                                                        <div id="divrow"></div>  
+                                                        <div id="divrow1"></div>  
                                                         <br>  
                                                         <div class="form-group col-md-12 col-sm-12">
-                                                            <button type="button" class="btn btn-primary float-right" onclick="addmore(); return false;">Add More</button>
+                                                            <button type="button" class="btn btn-primary float-right" onclick="addmore1(); return false;">Add More</button>
                                                         </div>
                                                     </div>
                                                 </div>                                            
@@ -638,7 +638,7 @@
                                                 <legend> Pekerja Pada 12 Bulan Terakhir </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <input id="idrows" value="1" type="hidden" />
+                                                        <input id="idrow2" value="1" type="hidden" />
                                                         <fieldset>
                                                         <div class="form-group col-md-4 col-sm-12">
                                                             <label>Laki - Laki</label>
@@ -670,10 +670,10 @@
                                                             <input type="text" class="form-control" name="jabatan_terakhir[]">
                                                         </div>
                                                         </fieldset>
-                                                        <div id="divrows"></div>  
+                                                        <div id="divrow2"></div>  
                                                         <br>  
                                                         <div class="form-group col-md-12 col-sm-12">
-                                                            <button type="button" class="btn btn-primary float-right" onclick="addmores(); return false;">Add More</button>
+                                                            <button type="button" class="btn btn-primary float-right" onclick="addmore2(); return false;">Add More</button>
                                                         </div>                      
                                                     </div>
                                                 </div>                                            
@@ -1032,22 +1032,6 @@
                 $lsp_nama           = $row->lsp_nama;
                 $penempatan         = $row->penempatan;
 
-                // TABLE RENCANA BUTUH TENAGA KERJA
-                $rencana_pekerja_l  = $row->rencana_pekerja_l;
-                $rencana_pekerja_p  = $row->rencana_pekerja_p;
-                $jumlah_pekerja     = $row->jumlah_pekerja;
-                $pendidikan         = $row->pendidikan;
-                $kualifikasi        = $row->kualifikasi;
-                $jabatan            = $row->jabatan;
-
-                // TABLE RENCANA TENAGA KERJA TERAKHIR
-                $pekerja_l_terakhir     = $row->pekerja_l_terakhir;
-                $pekerja_p_terakhir     = $row->pekerja_p_terakhir;
-                $jumlah_sdm             = $row->jumlah_sdm;
-                $pendidikan_terakhir    = $row->pendidikan_terakhir;
-                $kualifikasi_terakhir   = $row->kualifikasi_terakhir;
-                $jabatan_terakhir       = $row->jabatan_terakhir;
-
                 // TABLE PENGESAHAN
                 $tempat_pengesahan  = $row->tempat_pengesahan;
                 $tgl_pengesahan     = $row->tanggal_pengesahan;
@@ -1130,11 +1114,11 @@
                             <div class="default-tab">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-profile" aria-selected="true" onclick="profile()">Data Perusahaan</a>
-                                        <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-kerja" aria-selected="false" onclick="kerja()">Data Ketenagakerjaan</a>
-                                        <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-rencana" aria-selected="false" onclick="rencana()">Data Rencana Ketenagakerjaan</a>
-                                        <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-lainnya" aria-selected="false" onclick="lainnya()">Data Lainnya</a>
-                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false" onclick="tanggal_lapor()">Tanggal Lapor</a>
+                                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-profile" aria-selected="true" onclick="profile<?php echo $kode_wlkp; ?>()">Data Perusahaan</a>
+                                        <a class="nav-item nav-link" id="nav-kerja-tab" data-toggle="tab" href="#nav-kerja<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-kerja" aria-selected="false" onclick="kerja<?php echo $kode_wlkp; ?>()">Data Ketenagakerjaan</a>
+                                        <a class="nav-item nav-link" id="nav-rencana-tab" data-toggle="tab" href="#nav-rencana<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-rencana" aria-selected="false" onclick="rencana<?php echo $kode_wlkp; ?>()">Data Rencana Ketenagakerjaan</a>
+                                        <a class="nav-item nav-link" id="nav-lainnya-tab" data-toggle="tab" href="#nav-lainnya<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-lainnya" aria-selected="false" onclick="lainnya<?php echo $kode_wlkp; ?>()">Data Lainnya</a>
+                                        <a class="nav-item nav-link" id="nav-tanggal_lapor-tab" data-toggle="tab" href="#nav-tanggal_lapor<?php echo $kode_wlkp; ?>" role="tab" aria-controls="nav-tanggal_lapor" aria-selected="false" onclick="tanggal_lapor<?php echo $kode_wlkp; ?>()">Tanggal Lapor</a>
                                     </div>
                                 </nav>
                                 <div class="tab-content pl-3 pt-2" id="nav-tabContent">
@@ -1163,16 +1147,16 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>              
-                                                                <input type="text" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" id="kecamatan<?php echo $kode_wlkp; ?>">
-                                                                <select name="kecamatan_perusahaan" class="form-control" id="ekecamatan<?php echo $kode_wlkp; ?>">
+                                                                <input type="text" name="kecamatan_perusahaan" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" id="kecamatan<?php echo $kode_wlkp; ?>">
+                                                                <!-- <select name="kecamatan_perusahaan" class="form-control" id="ekecamatan">
                                                                     <option hidden>-Pilih Kecamatan-</option>
-                                                                </select>
+                                                                </select> -->
                                                                 </td>
                                                                 <td>
-                                                                <input type="text" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" id="kelurahan<?php echo $kode_wlkp; ?>">
-                                                                <select name="kelurahan_perusahaan" class="form-control" id="ekelurahan<?php echo $kode_wlkp; ?>">
+                                                                <input type="text" name="kelurahan_perusahaan" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" id="kelurahan<?php echo $kode_wlkp; ?>">
+                                                                <!-- <select name="kelurahan_perusahaan" class="form-control" id="ekelurahan">
                                                                     <option hidden>-Pilih Kelurahan-</option>
-                                                                </select>
+                                                                </select> -->
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1752,92 +1736,36 @@
                                     </div>
 
                                     <div class="tab-pane fade" id="nav-rencana<?php echo $kode_wlkp; ?>" role="tabpanel" aria-labelledby="nav-rencana-tab">
-                                        <div class="form-group">
+                                        <div class="form-group">                                            
                                             <fieldset>     
                                                 <legend> Rencana Pekerja Yang Dibutuhkan </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <input id="idrow" value="1" type="hidden" />
-                                                        <fieldset>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Laki - Laki</label>
-                                                            <input type="number" class="form-control" name="rencana_pekerja_l[]">
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Perempuan</label>
-                                                            <input type="number" class="form-control" name="rencana_pekerja_p[]">
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Tingkat Pendidikan</label>
-                                                            <select class="form-control" name="pendidikan[]">
-                                                                <option hidden>-Silahkan Pilih-</option>
-                                                                <option value="SD" >SD</option>
-                                                                <option value="SMP">SMP</option>
-                                                                <option value="SMA">SMA/SMK</option>
-                                                                <option value="D3">D3</option>
-                                                                <option value="S1">S1</option>
-                                                                <option value="S2" >S2</option>
-                                                                <option value="S3">S3</option>
-                                                            </select>
-                                                        </div>                                         
-                                                        <div class="form-group col-md-6 col-sm-12">
-                                                            <label>Kualifikasi</label>
-                                                            <input type="text" class="form-control" name="kualifikasi[]">
-                                                        </div>
-                                                        <div class="form-group col-md-6 col-sm-12">
-                                                            <label>Untuk Posisi/Jabatan</label>
-                                                            <input type="text" class="form-control" name="jabatan[]">
-                                                        </div>
-                                                        </fieldset>
-                                                        <div id="divrow"></div>  
+                                                        <input id="idrow<?php echo $kode_wlkp; ?>" value="1" type="hidden" />
+                                                        <div id="ButuhAppend<?php echo $kode_wlkp; ?>">
+                                                        
+                                                        </div>  
+                                                        <div id="divrow<?php echo $kode_wlkp; ?>"></div>  
                                                         <br>  
                                                         <div class="form-group col-md-12 col-sm-12">
-                                                            <button type="button" class="btn btn-primary float-right" onclick="addmore(); return false;">Add More</button>
+                                                            <button type="button" class="btn btn-primary float-right" onclick="addmore<?php echo $kode_wlkp; ?>(); return false;">Add More</button>
                                                         </div>
                                                     </div>
                                                 </div>                                            
-                                            </fieldset>  
+                                            </fieldset>
                                             <br>
                                             <fieldset>     
                                                 <legend> Pekerja Pada 12 Bulan Terakhir </legend>
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <input id="idrows" value="1" type="hidden" />
-                                                        <fieldset>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Laki - Laki</label>
-                                                            <input type="number" class="form-control" name="pekerja_l_terakhir[]">
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Perempuan</label>
-                                                            <input type="number" class="form-control" name="pekerja_p_terakhir[]">
-                                                        </div>
-                                                        <div class="form-group col-md-4 col-sm-12">
-                                                            <label>Tingkat Pendidikan</label>
-                                                            <select class="form-control" name="pendidikan_terakhir[]">
-                                                                <option hidden>-Silahkan Pilih-</option>
-                                                                <option value="SD" >SD</option>
-                                                                <option value="SMP">SMP</option>
-                                                                <option value="SMA">SMA/SMK</option>
-                                                                <option value="D3">D3</option>
-                                                                <option value="S1">S1</option>
-                                                                <option value="S2" >S2</option>
-                                                                <option value="S3">S3</option>
-                                                            </select>
-                                                        </div>                                         
-                                                        <div class="form-group col-md-6 col-sm-12">
-                                                            <label>Kualifikasi</label>
-                                                            <input type="text" class="form-control" name="kualifikasi_terakhir[]">
-                                                        </div>
-                                                        <div class="form-group col-md-6 col-sm-12">
-                                                            <label>Untuk Posisi/Jabatan</label>
-                                                            <input type="text" class="form-control" name="jabatan_terakhir[]">
-                                                        </div>
-                                                        </fieldset>
-                                                        <div id="divrows"></div>  
+                                                        <input id="idrows<?php echo $kode_wlkp; ?>" value="1" type="hidden" />
+                                                        <div id="TerakhirAppend<?php echo $kode_wlkp; ?>">
+                                                        
+                                                        </div>  
+                                                        <div id="divrows<?php echo $kode_wlkp; ?>"></div> 
                                                         <br>  
                                                         <div class="form-group col-md-12 col-sm-12">
-                                                            <button type="button" class="btn btn-primary float-right" onclick="addmores(); return false;">Add More</button>
+                                                            <button type="button" class="btn btn-primary float-right" onclick="addmores<?php echo $kode_wlkp; ?>(); return false;">Add More</button>
                                                         </div>                      
                                                     </div>
                                                 </div>                                            
@@ -2226,7 +2154,7 @@
                             </div>                    
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" id="submit" class="btn btn-primary" style="display: none">Submit</button>
+                            <button type="submit" id="submit<?php echo $kode_wlkp; ?>" class="btn btn-primary" style="display: none">Submit</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </div>
                     </form>
@@ -2399,6 +2327,27 @@ foreach ($data_wlkp_perusahaan as $row):
 ?>
 
 <script type="text/javascript">
+    // Javascript untuk button Submit Disabled
+    function profile<?php echo $kode_wlkp; ?>() {
+        $('#submit<?php echo $kode_wlkp; ?>').css('display', 'none');
+    }
+
+    function kerja<?php echo $kode_wlkp; ?>() {
+        $('#submit<?php echo $kode_wlkp; ?>').css('display', 'none');
+    }
+
+    function rencana<?php echo $kode_wlkp; ?>() {
+        $('#submit<?php echo $kode_wlkp; ?>').css('display', 'none');
+    }
+
+    function lainnya<?php echo $kode_wlkp; ?>() {
+        $('#submit<?php echo $kode_wlkp; ?>').css('display', 'none');
+    }
+
+    function tanggal_lapor<?php echo $kode_wlkp; ?>() {
+        $('#submit<?php echo $kode_wlkp; ?>').css('display', '');
+    }
+
     // Javascript untuk disabled #kantor_cabang jika #ket_kantor = PUSAT
     $(function(){
         if ($('#eket_kantor').val() == "PUSAT") {
@@ -2544,7 +2493,9 @@ foreach ($data_wlkp_perusahaan as $row):
             $('#total_wna').val(value1 + value2 + value3 + value4 + value5 + value6 + value7);
         });
     });
+</script>
 
+<script type="text/javascript">
     $(function() {
         $("#myModalEdit<?php echo $kode_wlkp; ?>").each(function(index){
             var kecamatan = $('#kecamatan<?php echo $kode_wlkp; ?>').val();
@@ -2618,6 +2569,7 @@ foreach ($data_wlkp_perusahaan as $row):
                 $('#ekecamatan<?php echo $kode_wlkp; ?>').val(kecamatan.toUpperCase()).change();
                 kecamatanLength = true;
             }
+
         });
 
         var kelurahanLength = false;
@@ -2628,9 +2580,35 @@ foreach ($data_wlkp_perusahaan as $row):
     });
 </script>
 
+<script language="javascript">
+    function addmore<?php echo $kode_wlkp; ?>() {
+        var idrow1 = document.getElementById("idrow<?php echo $kode_wlkp; ?>").value;
+        var stre1;
+        stre1 ="<div id='row" + idrow1 + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='rencana_pekerja_l[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='rencana_pekerja_p[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrow1(\"#row" + idrow1 + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
+        $("#divrow<?php echo $kode_wlkp; ?>").append(stre1); 
+        idrow1 = (idrow1-1) + 2;
+        document.getElementById("idrow<?php echo $kode_wlkp; ?>").value = idrow1;
+    }
+    
+    function delrow1(idrow1) {
+        $(idrow1).remove();
+    }
+
+    function addmores<?php echo $kode_wlkp; ?>() {
+        var idrow2 = document.getElementById("idrows<?php echo $kode_wlkp; ?>").value;
+        var stre2;
+        stre2 ="<div id='row" + idrow2 + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='pekerja_l_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='pekerja_p_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan_terakhir[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi_terakhir[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan_terakhir[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrow2(\"#row" + idrow2 + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
+        $("#divrows<?php echo $kode_wlkp; ?>").append(stre2); 
+        idrow2 = (idrow2-1) + 2;
+        document.getElementById("idrows<?php echo $kode_wlkp; ?>").value = idrow2;
+    }
+    
+    function delrow2(idrow2) {
+        $(idrow2).remove();
+    }
+</script>
 
 <?php endforeach; ?>
-
 
 <script type="text/javascript">
     // Javascript Sweetalert delete
@@ -2657,36 +2635,6 @@ foreach ($data_wlkp_perusahaan as $row):
         });
         });
     });
-</script>
-
-<script language="javascript">
-    function addmore() {
-        var idrow = document.getElementById("idrow").value;
-        var stre;
-        stre="<div id='row" + idrow + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='pekerja_l_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='pekerja_p_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan_terakhir[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi_terakhir[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan_terakhir[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrow(\"#row" + idrow + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
-        $("#divrow").append(stre); 
-        idrow = (idrow-1) + 2;
-        document.getElementById("idrow").value = idrow;
-    }
-    
-    function delrow(idrow) {
-        $(idrow).remove();
-    }
-</script>
-
-<script language="javascript">
-    function addmores() {
-        var idrows = document.getElementById("idrows").value;
-        var stres;
-        stres="<div id='rows" + idrows + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='rencana_pekerja_l[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='rencana_pekerja_p[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrows(\"#rows" + idrows + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
-        $("#divrows").append(stres); 
-        idrows = (idrows-1) + 2;
-        document.getElementById("idrows").value = idrows;
-    }
-    
-    function delrows(idrows) {
-        $(idrows).remove();
-    }
 </script>
 
 <script type="text/javascript">
@@ -2741,3 +2689,70 @@ foreach ($data_wlkp_perusahaan as $row):
     });
 </script>
 
+<script type="text/javascript">
+    function showDataRencana(kode){
+        // Update Rencana Butuh TK
+        $("#ButuhAppend" + kode).find("#appendRemove" + kode).remove();
+        $.ajax({
+            url: "<?= base_url() ?>Admin/rencana_butuh_tk",
+            type: "POST",
+            data: {kode : kode},
+            dataType: "json",
+            success : function(data){
+                html = "<div id='appendRemove" + kode + "'>";
+                $.each(data, function(item, i){
+                    html += "<br><fieldset id='fieldsetDelete" + i.id_butuh + "'><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='rencana_pekerja_l[]' value='" + i.rencana_pekerja_l + "'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='rencana_pekerja_p[]'  value='" + i.rencana_pekerja_p + "'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><input type='text' class='form-control' name='pendidikan[]' value='" + i.pendidikan + "'></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi[]' value='" + i.kualifikasi + "'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan[]' value='" + i.jabatan + "'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delFieldset(\"" + i.id_butuh + "\");'><i class='fa fa-trash'></i></button></div></div></fieldset>";  
+
+                    // <select class='form-control' name='pendidikan[]' id='pendidikanSelected" + i.id_butuh + "'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select>
+                });
+                html += "</div>";
+                console.log(html);
+                $("#ButuhAppend" + kode).append(html);
+            }
+        });
+
+        // Update Rencan TK Terakhir
+        $("#TerakhirAppend" + kode).find("#appendRemoves" + kode).remove();
+        $.ajax({
+            url: "<?= base_url() ?>Admin/rencana_tk_terakhir",
+            type: "POST",
+            data: {kode : kode},
+            dataType: "json",
+            success : function(data){
+                html = "<div id='appendRemoves' " + kode + ">";
+                $.each(data, function(item, i){
+                    html += "<br><fieldset id='fieldsetDeletes" + i.id_akhir + "'><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='pekerja_l_terakhir[]' value='" + i.pekerja_l_terakhir + "'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='pekerja_p_terakhir[]' value='" + i.pekerja_p_terakhir + "'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><input type='text' class='form-control' name='pendidikan_terakhir[]' value='" + i.pendidikan_terakhir + "'></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi_terakhir[]' value='" + i.kualifikasi_terakhir + "'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan_terakhir[]' value='" + i.jabatan_terakhir + "'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delFieldsets(\"" + i.id_akhir + "\");'><i class='fa fa-trash'></i></button></div></div></fieldset>";
+                
+                    // <select class='form-control' name='pendidikan_terakhir[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select>
+                });
+                html += "</div>";
+                console.log(html);
+                $("#TerakhirAppend" + kode).append(html);
+            }
+        });
+    }
+
+    function delFieldset(id_butuh){
+        $.ajax({
+            url: "<?= base_url() ?>Admin/delete_rencana_butuh",
+            type: "POST",
+            data: {id_butuh : id_butuh},
+            dataType: "json",
+            success : function(data){
+                $("#fieldsetDelete" + id_butuh).remove();
+            }
+        });
+    }
+
+    function delFieldsets(id_akhir){           
+        $.ajax({
+            url: "<?= base_url() ?>Admin/delete_rencana_akhir",
+            type: "POST",
+            data: {id_akhir : id_akhir},
+            dataType: "json",
+            success : function(data){
+                $("#fieldsetDeletes" + id_akhir).remove();
+            }
+        });
+    }
+</script>
