@@ -29,15 +29,15 @@
                                 <a href="<?php echo base_url();?>Admin/wlkp_perusahaan" data-toggle="modal" title="Tambah Data" data-target="#myModal"><button type="button" class="btn btn-outline-primary float-right" style="margin-right: 15px"><i class="fa fa-plus"></i>&nbsp; Data Baru</button></a> 
                             </div>
                             <div class="card-body">
-                                <table class="table table-striped table-bordered" id="tableFilter">
+                                <table class="table table-striped table-bordered" id="tableFilter" style="text-align: center;">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Perusahaan</th>
-                                            <th>Alamat</th>
-                                            <th>No. Telepon</th>
-                                            <th>Tanggal Kadaluarsa</th>
-                                            <th>Aksi</th>
+                                            <th style="width: 30%">Nama Perusahaan</th>
+                                            <th style="width: 35%">Alamat</th>
+                                            <th style="width: 10%">No. Telepon</th>
+                                            <th style="width: 10%">Tanggal Kadaluarsa</th>
+                                            <th style="width: 15%">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,16 +45,16 @@
                                             $no = 1;
                                             foreach ($data_wlkp_perusahaan as $row) {
                                         ?>
-                                        <tr>
+                                        <tr id="<?php echo $row->kode_wlkp; ?>">
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $row->nama_perusahaan; ?></td>
-                                            <td><?php echo $row->alamat; ?>, KEC.  <?php echo $row->kecamatan; ?></td>
+                                            <td style="text-align: left;"><?php echo $row->nama_perusahaan; ?></td>
+                                            <td style="text-align: left;"><?php echo $row->alamat; ?>, KEC.  <?php echo $row->kecamatan; ?></td>
                                             <td><?php echo $row->no_telpon; ?></td>
                                             <td><?php echo $row->tgl_kadaluarsa; ?></td>
                                             <td>
-                                                <a href="" data-toggle="modal" title="Detail Data" data-target="#myModalEdit<?php echo $row->kode_wlkp;?>"><button type="button" class="btn btn-outline-primary" onclick="showDataRencana('<?php echo $row->kode_wlkp; ?>')">Detail</button></a>
-                                                <a href="<?php echo base_url(); ?>Admin/delete_wlkp/<?php echo $row->kode_wlkp; ?>">
-                                                <button type="button" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-outline-danger">Delete</button></a>
+                                                <a href="" data-toggle="modal" title="Detail Data" data-target="#myModalEdit<?php echo $row->kode_wlkp;?>"><button type="button" class="btn btn-outline-primary" onclick="showDataRencana('<?php echo $row->kode_wlkp; ?>')"><i class="fa fa-pencil"></i></button></a>
+                                                <!-- <a href="<?php echo base_url(); ?>Admin/delete_wlkp/<?php echo $row->kode_wlkp; ?>" title="Delete Data"> -->
+                                                <button title="Delete Data" type="button" onclick="HapusData('<?php echo $row->kode_wlkp; ?>')" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -123,12 +123,12 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                <select name="kecamatan_perusahaan" class="form-control">
+                                                                <select name="kecamatan_perusahaan" id="kecamatan_perusahaan" class="form-control">
                                                                     <option hidden>-Pilih Kecamatan-</option>
                                                                 </select>
                                                                 </td>
                                                                 <td>
-                                                                <select name="kelurahan_perusahaan" class="form-control">
+                                                                <select name="kelurahan_perusahaan" class="form-control" id="kelurahan_perusahaan">
                                                                     <option hidden>-Pilih Kelurahan-</option>
                                                                 </select>
                                                                 </td>
@@ -2317,8 +2317,89 @@
 
     function tanggal_lapor() {
         $('#submit').css('display', '');
+    }    
+</script>
+
+<!-- Script for Option Kecamatan & Kelurahan on Input New Data -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        var form_data = { }
+
+        $.ajax({
+            url: "<?= base_url() ?>indonesia/get_kecamatan",
+            type: "POST",
+            data: form_data,
+            dataType: "json",
+            success : function(data){
+                $("#kecamatan_perusahaan").empty();
+                var option = "<option value=''>-Pilih Kecamatan-</option>";
+                $.each(data, function(index, value){
+                    // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                    option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                });
+                console.log(data, option);
+                $("#kecamatan_perusahaan").append(option);
+            },
+            error : function(e){
+                console.log(e);
+            },
+        });
+
+        $("#kecamatan_perusahaan").change(function(){
+            var form_data = {
+                districtsId : $(this).val(),
+            }
+            
+            $.ajax({
+                url: "<?= base_url() ?>indonesia/get_kelurahan",
+                type: "POST",
+                data: form_data,
+                dataType: "json",
+                success : function(data){
+                    $("#kelurahan_perusahaan").empty();
+                    var option = "<option value=''>-Pilih Kelurahan-</option>";
+                    $.each(data, function(index, value){
+                        // option += "<option value='"+value.id+"'>"+value.name+"</option>";
+                        option += "<option value='"+value.name+"'>"+value.name+"</option>";
+                    });
+                    console.log(data, option);
+                    $("#kelurahan_perusahaan").append(option);
+                },
+                error : function(e){
+                    console.log(e);
+                },
+            });
+        });
+    });
+</script>
+
+<!-- Script for Dynamic Form Rencana Ketenagakerjaan on Input New Data -->
+<script language="javascript">
+    function addmore1() {
+        var idrow1 = document.getElementById("idrow1").value;
+        var stre1;
+        stre1 ="<div id='row" + idrow1 + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='rencana_pekerja_l[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='rencana_pekerja_p[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrow1(\"#row" + idrow1 + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
+        $("#divrow1").append(stre1); 
+        idrow1 = (idrow1-1) + 2;
+        document.getElementById("idrow1").value = idrow1;
     }
     
+    function delrow1(idrow1) {
+        $(idrow1).remove();
+    }
+
+    function addmore2() {
+        var idrow2 = document.getElementById("idrow2").value;
+        var stre2;
+        stre2 ="<div id='row" + idrow2 + "'><br><fieldset><div class='form-group col-md-4 col-sm-12'><label>Laki - Laki</label><input type='number' class='form-control' name='pekerja_l_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Perempuan</label><input type='number' class='form-control' name='pekerja_p_terakhir[]'></div><div class='form-group col-md-4 col-sm-12'><label>Tingkat Pendidikan</label><select class='form-control' name='pendidikan_terakhir[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select></div><div class='form-group col-md-5 col-sm-12'><label>Kualifikasi</label><input type='text' class='form-control' name='kualifikasi_terakhir[]'></div><div class='form-group col-md-5 col-sm-12'><label>Untuk Posisi/Jabatan</label><input type='text' class='form-control' name='jabatan_terakhir[]'></div><div class='form-group col-md-2 col-sm-12'><label>&nbsp;</label><br><button type='button' class='btn btn-outline-danger float-right' style='width: 100%' onclick='delrow2(\"#row" + idrow2 + "\");'><i class='fa fa-trash'></i></button></div></fieldset></div>";
+        $("#divrow2").append(stre2); 
+        idrow2 = (idrow2-1) + 2;
+        document.getElementById("idrow2").value = idrow2;
+    }
+    
+    function delrow2(idrow2) {
+        $(idrow2).remove();
+    }
 </script>
 
 <?php
@@ -2495,6 +2576,7 @@ foreach ($data_wlkp_perusahaan as $row):
     });
 </script>
 
+<!-- Script for Option Kecamatan & Kelurahan on Edit Data -->
 <script type="text/javascript">
     $(function() {
         $("#myModalEdit<?php echo $kode_wlkp; ?>").each(function(index){
@@ -2580,6 +2662,7 @@ foreach ($data_wlkp_perusahaan as $row):
     });
 </script>
 
+<!-- Script for Dynamic Form Rencana Ketenagakerjaan on Edit Data -->
 <script language="javascript">
     function addmore<?php echo $kode_wlkp; ?>() {
         var idrow1 = document.getElementById("idrow<?php echo $kode_wlkp; ?>").value;
@@ -2608,87 +2691,48 @@ foreach ($data_wlkp_perusahaan as $row):
     }
 </script>
 
-<?php endforeach; ?>
-
+<!-- Sweet Alert Delete Data -->
 <script type="text/javascript">
     // Javascript Sweetalert delete
-    $(document).ready(function(){
-        $("#delete").on("click",function(){
+    var id = $(this).parents("tr").attr("id");
+
+    function HapusData(kode_wlkp) {
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        });
-        .then((willDelete) => {
-            if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
-                icon: "success",
-                });
-                .then(() => {
-                    window.location.href = '<?php echo base_url(); ?>Admin/delete_wlkp/<?php echo $row->kode_wlkp; ?>';
+            text: "You will not be able to recover this data!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel it!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                $.ajax({
+                    url: "<?= base_url() ?>Admin/delete_wlkp",
+                    type: "POST",
+                    data: {kode_wlkp : kode_wlkp},
+                    dataType: "json",
+                    error: function() {
+                        alert('Something is wrong');
+                    },
+                    success: function(data) {
+                        $("#" + kode_wlkp).remove();
+                        swal("Deleted!", "Your data has been deleted.", "success");
+                    }
                 });
             } else {
-                swal("Your imaginary file is safe!");
+              swal("Cancelled", "", "error");
             }
-        });
-        });
-    });
+        });     
+    }
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        var form_data = { }
+<?php endforeach; ?>
 
-        $.ajax({
-            url: "<?= base_url() ?>indonesia/get_kecamatan",
-            type: "POST",
-            data: form_data,
-            dataType: "json",
-            success : function(data){
-                $("select[name='kecamatan_perusahaan']").empty();
-                var option = "<option value=''>-Pilih Kecamatan-</option>";
-                $.each(data, function(index, value){
-                    // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                    option += "<option value='"+value.name+"'>"+value.name+"</option>";
-                });
-                console.log(data, option);
-                $("select[name='kecamatan_perusahaan']").append(option);
-            },
-            error : function(e){
-                console.log(e);
-            },
-        });
-
-        $("select[name='kecamatan_perusahaan']").change(function(){
-            var form_data = {
-                districtsId : $(this).val(),
-            }
-            
-            $.ajax({
-                url: "<?= base_url() ?>indonesia/get_kelurahan",
-                type: "POST",
-                data: form_data,
-                dataType: "json",
-                success : function(data){
-                    $("select[name='kelurahan_perusahaan']").empty();
-                    var option = "<option value=''>-Pilih Kelurahan-</option>";
-                    $.each(data, function(index, value){
-                        // option += "<option value='"+value.id+"'>"+value.name+"</option>";
-                        option += "<option value='"+value.name+"'>"+value.name+"</option>";
-                    });
-                    console.log(data, option);
-                    $("select[name='kelurahan_perusahaan']").append(option);
-                },
-                error : function(e){
-                    console.log(e);
-                },
-            });
-        });
-    });
-</script>
-
+<!-- Script for Auto Load Dynamic Form When Edit -->
 <script type="text/javascript">
     function showDataRencana(kode){
         // Update Rencana Butuh TK

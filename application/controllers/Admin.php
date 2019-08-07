@@ -1406,17 +1406,9 @@ $pdf = new FPDF('L','mm','A4');
 
     // Delete WLKP Perusahaan
     public function delete_wlkp(){
-        $kode = $this->uri->segment(3);
-
-        $perusahaan = $this
-                        ->m_admin
-                        ->delete_wlkp($kode);
-
-            $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible">
-            Success! WLKP Perusahaan Telah di Hapus.
-            <button type="button" class="close" data-dismiss="alert">&times</button>
-                                                </div>');
-            redirect('admin/wlkp_perusahaan');
+        $kode = $this->input->post('kode_wlkp');
+        $wlkp = $this->m_admin->delete_wlkp($kode);
+        echo json_encode($wlkp);
     }
 
     public function delete_rencana_butuh(){

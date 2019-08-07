@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/custom/css/style.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <style type="text/css">
