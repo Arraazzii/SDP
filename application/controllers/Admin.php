@@ -7,7 +7,8 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Indonesia');
-        $this->load->model('m_admin');
+        $this->load->model('m_admin');        
+        $this->load->library('pagination');
         $this->load->library('pdf');
 				$this->m_admin->update_kadaluarsa();
 				$this->load->library('dom_pdf');
@@ -408,6 +409,11 @@ $pdf = new FPDF('L','mm','A4');
         $this
         ->load
         ->view('admin/template/admin_template', $data);
+    }
+
+    public function excel_wlkp_perusahaan() {
+        $query['data_wlkp_perusahaan'] = $this->m_admin->data_wlkp_perusahaan();
+        $this->load->view('admin/excel_wlkp_perusahaan', $query);
     }
 
     public function rencana_butuh_tk(){

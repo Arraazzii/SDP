@@ -25,7 +25,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data WLKP Perusahaan</strong>
-                                <a href="<?php echo base_url(); ?>Admin/print_perusahaan" target="_blank"><button type="button" class="btn btn-outline-primary float-right"><i class="fa fa-print"></i>&nbsp; Print</button></a> 
+                                <a href="<?php echo base_url(); ?>Admin/excel_wlkp_perusahaan" target="_blank"><button type="button" class="btn btn-outline-primary float-right"><i class="fa fa-print"></i>&nbsp; Print</button></a> 
                                 <a href="<?php echo base_url();?>Admin/wlkp_perusahaan" data-toggle="modal" title="Tambah Data" data-target="#myModal"><button type="button" class="btn btn-outline-primary float-right" style="margin-right: 15px"><i class="fa fa-plus"></i>&nbsp; Data Baru</button></a> 
                             </div>
                             <div class="card-body">
@@ -1147,10 +1147,10 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>              
-                                                                <input type="text" name="kecamatan_perusahaan" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" id="kecamatan<?php echo $kode_wlkp; ?>">
-                                                                <!-- <select name="kecamatan_perusahaan" class="form-control" id="ekecamatan">
+                                                                <input type="text" class="form-control" value="<?php echo $kecamatan_perusahaan; ?>" id="kecamatan<?php echo $kode_wlkp; ?>">
+                                                                <select name="kecamatan_perusahaan" class="form-control" id="ekecamatan<?php echo $kode_wlkp; ?>" onfocus="Alamat('<?php echo $kode_wlkp; ?>')">
                                                                     <option hidden>-Pilih Kecamatan-</option>
-                                                                </select> -->
+                                                                </select>
                                                                 </td>
                                                                 <td>
                                                                 <input type="text" name="kelurahan_perusahaan" class="form-control" value="<?php echo $kelurahan_perusahaan; ?>" id="kelurahan<?php echo $kode_wlkp; ?>">
@@ -2337,7 +2337,7 @@
                     // option += "<option value='"+value.id+"'>"+value.name+"</option>";
                     option += "<option value='"+value.name+"'>"+value.name+"</option>";
                 });
-                console.log(data, option);
+                //.log(data, option);
                 $("#kecamatan_perusahaan").append(option);
             },
             error : function(e){
@@ -2362,7 +2362,7 @@
                         // option += "<option value='"+value.id+"'>"+value.name+"</option>";
                         option += "<option value='"+value.name+"'>"+value.name+"</option>";
                     });
-                    console.log(data, option);
+                    //console.log(data, option);
                     $("#kelurahan_perusahaan").append(option);
                 },
                 error : function(e){
@@ -2578,10 +2578,10 @@ foreach ($data_wlkp_perusahaan as $row):
 
 <!-- Script for Option Kecamatan & Kelurahan on Edit Data -->
 <script type="text/javascript">
-    $(function() {
-        $("#myModalEdit<?php echo $kode_wlkp; ?>").each(function(index){
-            var kecamatan = $('#kecamatan<?php echo $kode_wlkp; ?>').val();
-            var kelurahan = $('#kelurahan<?php echo $kode_wlkp; ?>').val();
+    function Alamat(kode) {
+        $("#myModalEdit" + kode).each(function(index){
+            var kecamatan = $('#kecamatan' + kode).val();
+            var kelurahan = $('#kelurahan' + kode).val();
             var form_data = {}
 
             var kecamatanLoad = false;
@@ -2592,8 +2592,8 @@ foreach ($data_wlkp_perusahaan as $row):
                 dataType: "json",
                 async:false,
                 success : function(data){
-                    $('#ekecamatan<?php echo $kode_wlkp; ?>').empty();
-                    var option = "<option value=''>-Pilih Kecamatan-</option>";
+                    $('#ekecamatan' + kode).empty();
+                    var option = "<option value='' hidden>-Pilih Kecamatan-</option>";
                     $.each(data, function(index, value){
                     // option += "<option value='"+value.id+"'>"+value.name+"</option>";
                         if (value.name === kecamatan) {
@@ -2604,7 +2604,7 @@ foreach ($data_wlkp_perusahaan as $row):
                         }
                     });
                     console.log(data, option);
-                    $('#ekecamatan<?php echo $kode_wlkp; ?>').append(option);
+                    $('#ekecamatan' + kode).append(option);
                     kecamatanLoad = true;
                 },
                 error : function(e){
@@ -2636,7 +2636,7 @@ foreach ($data_wlkp_perusahaan as $row):
                                 option += "<option value='"+value.name+"' >"+value.name+"</option>";
                             }
                         });
-                        console.log(data, option);
+                        //console.log(data, option);
                         $('#ekelurahan<?php echo $kode_wlkp; ?>').append(option);
                         kelurahanLoad = true;
                     },
@@ -2648,11 +2648,9 @@ foreach ($data_wlkp_perusahaan as $row):
 
             var kecamatanLength = false;
             if (kecamatan != "" && kecamatanLoad == true) {
-                $('#ekecamatan<?php echo $kode_wlkp; ?>').val(kecamatan.toUpperCase()).change();
+                $('#ekecamatan' + kode).val(kecamatan.toUpperCase()).change();
                 kecamatanLength = true;
             }
-
-        });
 
         var kelurahanLength = false;
         if (kecamatanLength == true && kelurahan != "" && kelurahanLoad == true) {
@@ -2660,6 +2658,7 @@ foreach ($data_wlkp_perusahaan as $row):
             kelurahanLength = true;
         }
     });
+    }
 </script>
 
 <!-- Script for Dynamic Form Rencana Ketenagakerjaan on Edit Data -->
@@ -2750,7 +2749,7 @@ foreach ($data_wlkp_perusahaan as $row):
                     // <select class='form-control' name='pendidikan[]' id='pendidikanSelected" + i.id_butuh + "'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select>
                 });
                 html += "</div>";
-                console.log(html);
+                //console.log(html);
                 $("#ButuhAppend" + kode).append(html);
             }
         });
@@ -2770,7 +2769,7 @@ foreach ($data_wlkp_perusahaan as $row):
                     // <select class='form-control' name='pendidikan_terakhir[]'><option hidden>-Silahkan Pilih-</option><option value='SD'>SD</option><option value='SMP'>SMP</option><option value='SMA'>SMA/SMK</option><option value='D3'>D3</option><option value='S1'>S1</option><option value='S2'>S2</option><option value='S3'>S3</option></select>
                 });
                 html += "</div>";
-                console.log(html);
+                //console.log(html);
                 $("#TerakhirAppend" + kode).append(html);
             }
         });
