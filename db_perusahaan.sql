@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 06:16 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Oct 15, 2019 at 07:34 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -8029,9 +8029,7 @@ INSERT INTO `table_alat_bahan` (`id`, `pesawat_uap`, `alat_berat`, `instalasi_li
 (67, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP59'),
 (68, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP60'),
 (69, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP61'),
-(70, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP62'),
-(72, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP63'),
-(73, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP64');
+(70, '1', NULL, '1', '1', NULL, NULL, NULL, '1', NULL, '1', '1', NULL, '1', NULL, '1', NULL, NULL, NULL, NULL, '1', NULL, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8057,8 +8055,6 @@ CREATE TABLE `table_bpjs` (
 --
 
 INSERT INTO `table_bpjs` (`id`, `tanggal_mulai`, `no_daftar_bpjs`, `peserta_tk`, `peserta_keluarga`, `jaminan_kecelakaan`, `jaminan_kematian`, `jaminan_haritua`, `jaminan_pensiun`, `kode_wlkp`) VALUES
-(5, NULL, '0', 0, 0, 'y', 'y', 'y', 'y', 'WLKP63'),
-(6, NULL, '', 0, 0, '', '', '', '', 'WLKP64'),
 (7, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP1'),
 (8, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP2'),
 (9, '0000-00-00', '', 0, 0, '', '', '', '', 'WLKP3'),
@@ -8241,9 +8237,7 @@ INSERT INTO `table_fasilitas` (`id`, `p3k`, `ahli_k3`, `koperasi`, `sarana_ibada
 (65, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP59'),
 (66, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP60'),
 (67, '1', NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP61'),
-(68, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP62'),
-(70, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP63'),
-(71, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP64');
+(68, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8313,8 +8307,6 @@ CREATE TABLE `table_industrial` (
 --
 
 INSERT INTO `table_industrial` (`id`, `phk_pk`, `phk_pp`, `phk_pkb`, `pok_bipartit`, `pok_sptp`, `pok_uksp`, `pok_p2k3`, `pok_apindo`, `pok_kadin`, `kode_wlkp`) VALUES
-(2, '0', '0', '0', '0', '0', '0', '0', '0', '0', 'WLKP63'),
-(3, '', '', '', '', '', '', '', '', '', 'WLKP64'),
 (4, '', '', '', '', '', '', '', '', '', 'WLKP1'),
 (5, '', '', '', '', '', '', '', '', '', 'WLKP2'),
 (6, '', '', '', '', '', '', '', '', '', 'WLKP3'),
@@ -8508,9 +8500,7 @@ INSERT INTO `table_ketenagakerjaan` (`id`, `jam_kerja`, `kategori`, `jumlah_pene
 (68, '8', 'KECIL', 5, 19500000, 4324000, 3544000, 0, 2, 1, 4, 0, 0, NULL, 'WLKP59'),
 (69, '8', 'KECIL', 0, 40000000, 4850000, 3355750, 0, 0, 9, 2, 0, 0, NULL, 'WLKP60'),
 (70, '8', 'KECIL', 0, 0, 3000000, 1950000, 0, 0, 14, 8, 0, 0, NULL, 'WLKP61'),
-(71, '8', 'SEDANG', 0, 0, 3346000, 3346000, 0, 0, 28, 18, 0, 0, NULL, 'WLKP62'),
-(76, '8 jam/hari dan 40 jam/minggu', 'KECIL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1 Bulan Upah', 'WLKP63'),
-(77, '-Silahkan Pilih-', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '-Silahkan Pilih-', 'WLKP64');
+(71, '8', 'SEDANG', 0, 0, 3346000, 3346000, 0, 0, 28, 18, 0, 0, NULL, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8623,8 +8613,6 @@ CREATE TABLE `table_pemagangan` (
 --
 
 INSERT INTO `table_pemagangan` (`id`, `kebutuhan_magang`, `jmlh_peserta`, `standarisasi`, `skema`, `lsp_p1`, `lsp_p2`, `lsp_p3`, `lsp_nama`, `penempatan`, `kode_wlkp`) VALUES
-(5, 'k', 0, 'KHUSUS', 'OKUPASI', '0', '0', '0', 'l', 'm', 'WLKP63'),
-(6, '', 0, '', '', '', '', '', '', '', 'WLKP64'),
 (7, '', 0, '', '', '', '', '', '', '', 'WLKP1'),
 (8, '', 0, '', '', '', '', '', '', '', 'WLKP2'),
 (9, '', 0, '', '', '', '', '', '', '', 'WLKP3'),
@@ -8769,9 +8757,7 @@ INSERT INTO `table_pengesahan` (`id`, `nip`, `nama_pengesah`, `tanggal_pengesaha
 (68, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP59'),
 (69, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP60'),
 (70, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP61'),
-(71, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP62'),
-(73, '135465', 'tompul', '0000-00-00', 'Depok', 'WLKP63'),
-(74, '', '', '0000-00-00', '', 'WLKP64');
+(71, '196809-1319960-3-2005', 'Diah Sadiah, S.Sos, M.Si', '2016-02-01', 'DEPOK', 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -8924,8 +8910,6 @@ CREATE TABLE `table_rencana_butuh_tk` (
 --
 
 INSERT INTO `table_rencana_butuh_tk` (`id_butuh`, `rencana_pekerja_l`, `rencana_pekerja_p`, `jumlah_pekerja`, `pendidikan`, `kualifikasi`, `jabatan`, `kode_wlkp`) VALUES
-(4, 0, 0, 0, 'SD', 'n', 'o', 'WLKP63'),
-(5, 0, 0, 0, 'SMP', 'a', 'b', 'WLKP64'),
 (6, 0, 0, 0, '', '', '', 'WLKP1'),
 (7, 0, 0, 0, '', '', '', 'WLKP2'),
 (8, 0, 0, 0, '', '', '', 'WLKP3'),
@@ -9011,8 +8995,6 @@ CREATE TABLE `table_rencana_tk_terakhir` (
 --
 
 INSERT INTO `table_rencana_tk_terakhir` (`id_akhir`, `pekerja_l_terakhir`, `pekerja_p_terakhir`, `jumlah_sdm`, `pendidikan_terakhir`, `kualifikasi_terakhir`, `jabatan_terakhir`, `kode_wlkp`) VALUES
-(2, 0, 0, 0, 'SMP', 'p', 'q', 'WLKP63'),
-(3, 0, 0, 0, 'SMP', 'c', 'd', 'WLKP64'),
 (4, 0, 0, 0, '', '', '', 'WLKP1'),
 (5, 0, 0, 0, '', '', '', 'WLKP2'),
 (6, 0, 0, 0, '', '', '', 'WLKP3'),
@@ -9207,9 +9189,7 @@ INSERT INTO `table_warga_negara` (`id`, `l_dibawah_15_cpuh`, `l_dibawah_15_cpubr
 (68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, NULL, NULL, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, NULL, NULL, 5, 'WLKP59'),
 (69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP60'),
 (70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 22, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP61'),
-(71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 46, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP62'),
-(76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP63'),
-(77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP64');
+(71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 46, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 'WLKP62');
 
 -- --------------------------------------------------------
 
@@ -9351,8 +9331,6 @@ INSERT INTO `table_wlkp_perusahaan` (`kode_wlkp`, `nama_perusahaan`, `jenis_usah
 ('WLKP60', 'ANUGERAH MANDIRI KARYABERSAMA', 'PERGDANGAN UMUM DAN JASA ', 'LINA ', NULL, 'WINDU ', NULL, '2006-09-13', NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM62', '2019-07-17', '2020-07-17'),
 ('WLKP61', 'VENUS RUMAH BERNYANYI ', 'HIBURAN DAN OLAH RAGA ', 'DWI JAYA ', NULL, 'DWI JAYA ', NULL, '1999-09-17', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM63', '2019-07-17', '2020-07-17'),
 ('WLKP62', 'BIOSKOP CINERE BELLEVUE XXI', 'JASA HIBURAN ', 'JIMMY HARJAMTO ', NULL, 'WAHYU GUNA HADI ', NULL, '2014-12-03', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM64', '2019-07-17', '2020-07-17'),
-('WLKP63', 'a', 'c', 'd', 'f', 'e', 'g', '0000-00-00', '0000-00-00', '1', '0000-00-00', '2', '3', '4', '5', '6', '7', '8', 'h', 'i', 'PUSAT', NULL, 'Persero', 'j', 'ALM65', '2019-07-28', '2020-07-28'),
-('WLKP64', 'akum', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', 0, '-Silahkan Pilih-', '', 'ALM66', '2019-07-26', '2020-07-26'),
 ('WLKP7', 'OPTIK MELAWAI PRIMA 2', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-10-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM9', '2019-07-17', '2020-07-17'),
 ('WLKP8', 'OPTIK MELAWAI PRIMA 3', 'TOKO KACA MATA ', 'RETNOWATI ', NULL, 'ROBERT B.SUPARNO ', NULL, '2013-10-31', NULL, '165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM10', '2019-07-17', '2020-07-17'),
 ('WLKP9', 'SARI RASA NUSANTARA ', 'RESTORAN ', 'BENNY HADISURJO ', NULL, 'ROBERT B.SUPARNO ', NULL, '2007-12-26', NULL, '268', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CABANG', 0, 'Swasta', 'SWASTA NASIONAL', 'ALM11', '2019-07-17', '2020-07-17');
